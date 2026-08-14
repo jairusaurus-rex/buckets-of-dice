@@ -1,52 +1,49 @@
 
+import { WikiArticleLinks } from "../../../commons/wiki-article-enum.tsx";
 import { CharacterCreationArticle } from "./CharacterCreationArticle.tsx";
 
 export const articleList = [
     {
-        id: "welcome",
+        id: WikiArticleLinks.WELCOME,
         title: "Welcome",
         content: <div>Welcome to the Buckets of Dice wiki!</div>,
     },
     { 
-        id: "getting-started",
+        id: WikiArticleLinks.GETTING_STARTED,
         title: "Getting Started", 
         content: <div>Getting Started content goes here.</div> 
     },
     { 
-        id: "character-creation",
+        id: WikiArticleLinks.CHARACTER_CREATION,
         title: "Character Creation", 
         content: <CharacterCreationArticle /> 
     },
     { 
-        id: "skills",
+        id: WikiArticleLinks.SKILLS,
         title: "Skills", 
         content: <div>Skills content goes here.</div> 
     },
     { 
-        id: "combat",
+        id: WikiArticleLinks.COMBAT,
         title: "Combat", 
         content: <div>Combat content goes here.</div> 
     },
     { 
-        id: "species",
+        id: WikiArticleLinks.SPECIES,
         title: "Species", 
         content: <div>Species content goes here.</div>,
         children: [
             { 
-                id: "species-humans",
+                id: WikiArticleLinks.SPECIES_HUMANS,
                 title: "Humans", 
                 content: <div>Humans content goes here.</div> 
             },
             { 
-                id: "species-elves",
-                title: "Elves", 
-                content: <div>Elves content goes here.</div> 
+                id: WikiArticleLinks.SPECIES_DROIDS,
+                title: "Driods", 
+                content: <div>Driods content goes here.</div> 
             },
-            { 
-                id: "species-dwarves",
-                title: "Dwarves", 
-                content: <div>Dwarves content goes here.</div> 
-            },
+            
         ]
     },
     { 

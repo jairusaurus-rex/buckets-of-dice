@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { articleList } from "./articles/ArticleList";
+import styles from "./Articles.module.css";
 
 export const WikiPage = () => {
   const { articleId } = useParams();
@@ -34,7 +35,7 @@ export const WikiPage = () => {
         </h1>
         <div className="border-b border-[var(--border)]"></div>
       </div>
-      <div className="text-[var(--text)]">{article.content}</div>
+      <div className={styles.wiki}>{article.content}</div>
     </div>
   );
 }
