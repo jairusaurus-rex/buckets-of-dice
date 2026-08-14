@@ -15,7 +15,11 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "/wiki",
-                element:  <WikiMainLayout/>
+                element: <WikiMainLayout />
+            },
+            {
+                path: "/wiki/:articleId",
+                element: <WikiMainLayout />
             },
             {
                 path: "/dice-app",
