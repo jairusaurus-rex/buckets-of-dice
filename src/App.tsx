@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <section id="center">
+      <section className="flex flex-col items-center justify-center gap-6 flex-grow max-w-4xl mx-auto w-full px-5 md:px-0">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
@@ -32,9 +32,9 @@ function App() {
 
       <div className="ticks"></div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
+      <section className="flex flex-col md:flex-row border-t border-[var(--border)] text-left next-steps-section">
+        <div className="flex-1 md:border-r border-[var(--border)] px-5 py-8 md:px-8 md:py-8">
+          <svg className="next-steps-icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
           </svg>
           <h2>Documentation</h2>
@@ -54,8 +54,8 @@ function App() {
             </li>
           </ul>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
+        <div className="flex-1 px-5 py-8 md:px-8 md:py-8">
+          <svg className="next-steps-icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon"></use>
           </svg>
           <h2>Connect with us</h2>
@@ -114,7 +114,7 @@ function App() {
       </section>
 
       <div className="ticks"></div>
-      <section id="spacer"></section>
+      <section className="h-[88px] border-t border-[var(--border)]"></section>
     </>
   )
 }
