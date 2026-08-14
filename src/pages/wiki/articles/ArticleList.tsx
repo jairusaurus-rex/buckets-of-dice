@@ -10,11 +10,6 @@ export const articleList: ArticleListType[] = [
         content: <div>Welcome to the Buckets of Dice wiki!</div>,
     },
     {
-        id: WikiArticleLinks.GETTING_STARTED,
-        title: "Getting Started",
-        content: <div>Getting Started content goes here.</div>
-    },
-    {
         id: WikiArticleLinks.CHARACTER_CREATION,
         title: "Character Creation",
         content: <CharacterCreationArticle />
