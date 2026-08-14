@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { articleList } from "./articles/ArticleList";
+import type { ArticleListType } from "../../commons/types/AticleListType";
 
 export const WikiSideBar = () => {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
@@ -13,7 +14,7 @@ export const WikiSideBar = () => {
     }));
   };
 
-  const renderMenuItems = (items: typeof articleList) => {
+  const renderMenuItems = (items: ArticleListType[]) => {
     return items.map((item) => {
       const isActive = articleId === item.id;
       const isExpanded = expanded[item.id];
@@ -47,7 +48,7 @@ export const WikiSideBar = () => {
           </div>
           {hasChildren && isExpanded && (
             <div className="ml-4 border-l border-[var(--border)]">
-              {renderMenuItems(item.children)}
+              {renderMenuItems(item.children ?? [])}
             </div>
           )}
         </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { WikiArticleLinks } from "../../../commons/wiki-article-enum";
+import { WikiArticleLinks } from "../../../commons/enums/wiki-article-enum";
 
 export const CharacterCreationArticle = () => {
   return (
@@ -13,6 +13,7 @@ export const CharacterCreationArticle = () => {
         <li>Setup Gear</li>
         <li>Level Up Character from level 0 to starting level</li>
       </ol>
+      <hr/>
       <h2 className="p-2">Step by step</h2>
       <ol className="list-decimal list-inside pl-4 space-y-2">
         <li className="text-lg font-bold">Set Starting Level
@@ -29,10 +30,14 @@ export const CharacterCreationArticle = () => {
           <p className="text-sm p-2">Choose a species for your characte. See Species list <Link to={`/wiki/${WikiArticleLinks.SPECIES}`}>here</Link></p>
         </li>
         <li className="text-lg font-bold">Setup Gear
-          <p className="text-sm p-2">Choose gear for your character</p>
+          <p className="text-sm p-2">You cannot have more than one of any gear.</p>
+          <p className="text-sm p-2">Choose 1 Accent for your Star Suit. See list of Suit Gear <Link to={`/wiki/${WikiArticleLinks.GEAR_SUIT}`}>here</Link></p>
+          <p className="text-sm p-2">Choose 6 nonsuit gear. See list of Non-Suit Gear <Link to={`/wiki/${WikiArticleLinks.GEAR_NON_SUIT}`}>here</Link></p>
+          <p className="text-sm p-2">Set a number of gear to d6 equal to half your starting level rounded up, the rest are set as d4.</p>
+          <p className="text-sm p-2">You can spend credits to upgrade/buy gear as though you are on a tech 10 planet. You must have 26k Credits left over.</p>
         </li>
         <li className="text-lg font-bold">Level Up Character
-          <p className="text-sm p-2">Level up your character from level 0 to starting level</p>
+          <p className="text-sm p-2">Using the method in the next chapter, level up your character until you reach your starting level. Make sure to level up from the very first level (level 0 to level 1). See page of Leveling <Link to={`/wiki/${WikiArticleLinks.LEVELING}`}>here</Link>  </p>
         </li>
       </ol>
     </div>

@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { articleList } from "./articles/ArticleList";
 import styles from "./Articles.module.css";
+import type { ArticleListType } from "../../commons/types/AticleListType";
 
 export const WikiPage = () => {
   const { articleId } = useParams();
@@ -10,14 +11,14 @@ export const WikiPage = () => {
     if (!articleId) return articleList[0];
 
     const findArticle = (
-      items: typeof articleList,
+      items: ArticleListType[],
       id: string
     ): (typeof articleList)[0] | null => {
       for (let i = 0; i < items.length; i++) {
         if (items[i].id === id) return items[i];
 
         if (items[i].children) {
-          const found = findArticle(items[i].children!, id);
+          const found = findArticle(items[i].children ?? [], id);
           if (found) return found;
         }
       }
