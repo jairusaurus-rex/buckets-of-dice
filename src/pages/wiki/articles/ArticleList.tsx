@@ -3,6 +3,7 @@ import { WikiArticleLinks } from "../../../commons/enums/wiki-article-enum.tsx";
 import type { ArticleListType } from "../../../commons/types/AticleListType.ts";
 import { CharacterCreationArticle } from "./CharacterCreationArticle.tsx";
 import { SkillsArticle } from "./Skills.tsx";
+import { SpeciesMain } from "./species/SpeciesMain.tsx";
 
 export const articleList: ArticleListType[] = [
     {
@@ -23,7 +24,7 @@ export const articleList: ArticleListType[] = [
     {
         id: WikiArticleLinks.SPECIES,
         title: "Species",
-        content: <div>Species content goes here.</div>,
+        content: <SpeciesMain />,
         children: [
             {
                 id: WikiArticleLinks.SPECIES_HUMANS,
