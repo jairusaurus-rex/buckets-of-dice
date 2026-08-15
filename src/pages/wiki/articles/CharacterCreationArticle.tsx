@@ -37,7 +37,7 @@ export const CharacterCreationArticle = () => {
           <p className=" p-2">You can spend credits to upgrade/buy gear as though you are on a tech 10 planet. You must have 26k Credits left over.</p>
         </li>
         <li><span className="font-bold text-lg">Level Up Character</span>
-          <p className=" p-2">Using the method in the next chapter, level up your character until you reach your starting level. Make sure to level up from the very first level (level 0 to level 1). See page of Leveling <Link to={`/wiki/${WikiArticleLinks.LEVELING}`}>here</Link>  </p>
+          <p className=" p-2">Using the method in the <Link to={`/wiki/${WikiArticleLinks.LEVELING}`}>Leveling</Link> page, level up your character until you reach your starting level. Make sure to level up from the very first level (level 0 to level 1). See page of Leveling <Link to={`/wiki/${WikiArticleLinks.LEVELING}`}>here</Link>  </p>
         </li>
       </ol>
     </div>
