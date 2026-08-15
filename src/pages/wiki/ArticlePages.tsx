@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
-import { articleList } from "./articles/ArticleList";
+import { ArticleList } from "./article-lists/ArticleList";
 import styles from "./Articles.module.css";
 import type { ArticleListType } from "../../commons/types/AticleListType";
 
@@ -8,16 +8,16 @@ export const WikiPage = () => {
   const { articleId } = useParams();
 
   const scrollToTop = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 150);
   };
 
   const article = useMemo(() => {
-    if (!articleId) return articleList[0];
+    if (!articleId) return ArticleList[0];
 
     const findArticle = (
       items: ArticleListType[],
       id: string
-    ): (typeof articleList)[0] | null => {
+    ): (typeof ArticleList)[0] | null => {
       for (let i = 0; i < items.length; i++) {
         if (items[i].id === id) return items[i];
 
@@ -29,7 +29,7 @@ export const WikiPage = () => {
       return null;
     };
 
-    return findArticle(articleList, articleId) || articleList[0];
+    return findArticle(ArticleList, articleId) || ArticleList[0];
   }, [articleId]);
 
   // Find parent, previous sibling, and next sibling
@@ -64,7 +64,7 @@ export const WikiPage = () => {
       return false;
     };
 
-    findNavigation(articleList, articleId);
+    findNavigation(ArticleList, articleId);
     return result;
   }, [articleId]);
 

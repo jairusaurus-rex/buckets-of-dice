@@ -1,41 +1,24 @@
 
 import { WikiArticleLinks } from "../../../commons/enums/wiki-article-enum.tsx";
 import type { ArticleListType } from "../../../commons/types/AticleListType.ts";
-import { CharacterCreationArticle } from "./CharacterCreationArticle.tsx";
-import { SkillsArticle } from "./Skills.tsx";
-import { BekArticle } from "./species/Bek.tsx";
-import { ChyraxArticle } from "./species/Chyrax.tsx";
-import { DrakariArticle } from "./species/Drakari.tsx";
-import { DroidsArticle } from "./species/Droids.tsx";
-import { EmpianArticle } from "./species/Empian.tsx";
-import { FeyraArticle } from "./species/Feyra.tsx";
-import { FlonaArticle } from "./species/Flona.tsx";
-import { HumansArticle } from "./species/Humans.tsx";
-import { LocanusArticle } from "./species/Locanus.tsx";
-import { PawniansArticle } from "./species/Pawnians.tsx";
-import { RhazakArticle } from "./species/Rhazak.tsx";
-import { SpeciesMain } from "./species/SpeciesMain.tsx";
-import { UrziArticle } from "./species/Urzi.tsx";
-import { VelkiArticle } from "./species/Velki.tsx";
-import { VrantsArticle } from "./species/Vrants.tsx";
-import { ZivrenArticle } from "./species/Zivren.tsx";
+import { BekArticle } from "../articles/species/Bek.tsx";
+import { ChyraxArticle } from "../articles/species/Chyrax.tsx";
+import { DrakariArticle } from "../articles/species/Drakari.tsx";
+import { DroidsArticle } from "../articles/species/Droids.tsx";
+import { EmpianArticle } from "../articles/species/Empian.tsx";
+import { FeyraArticle } from "../articles/species/Feyra.tsx";
+import { FlonaArticle } from "../articles/species/Flona.tsx";
+import { HumansArticle } from "../articles/species/Humans.tsx";
+import { LocanusArticle } from "../articles/species/Locanus.tsx";
+import { PawniansArticle } from "../articles/species/Pawnians.tsx";
+import { RhazakArticle } from "../articles/species/Rhazak.tsx";
+import { SpeciesMain } from "../articles/species/SpeciesMain.tsx";
+import { UrziArticle } from "../articles/species/Urzi.tsx";
+import { VelkiArticle } from "../articles/species/Velki.tsx";
+import { VrantsArticle } from "../articles/species/Vrants.tsx";
+import { ZivrenArticle } from "../articles/species/Zivren.tsx";
 
-export const articleList: ArticleListType[] = [
-    {
-        id: WikiArticleLinks.WELCOME,
-        title: "Welcome",
-        content: <div>Welcome to the Buckets of Dice wiki!</div>,
-    },
-    {
-        id: WikiArticleLinks.CHARACTER_CREATION,
-        title: "Character Creation",
-        content: <CharacterCreationArticle />
-    },
-    {
-        id: WikiArticleLinks.SKILLS,
-        title: "Skills",
-        content: <SkillsArticle />
-    },
+export const ArticleListSpecies: ArticleListType= 
     {
         id: WikiArticleLinks.SPECIES,
         title: "Species",
@@ -76,7 +59,6 @@ export const articleList: ArticleListType[] = [
                 title: "Flona",
                 content: <FlonaArticle />
             },
-            
             {
                 id: WikiArticleLinks.SPECIES_HUMANS,
                 title: "Humans",
@@ -118,27 +100,4 @@ export const articleList: ArticleListType[] = [
                 content: <ZivrenArticle />
             },
         ]
-    },
-    {
-        id: WikiArticleLinks.GEAR,
-        title: "Gear",
-        content: <div>Equipment content goes here.</div>,
-        children: [
-            {
-                id: WikiArticleLinks.GEAR_SUIT,
-                title: "Suit Gear",
-                content: <div>Equipment content goes here.</div>
-            },
-            {
-                id: WikiArticleLinks.GEAR_NON_SUIT,
-                title: "Gear (Non Suit)",
-                content: <div>Equipment content goes here.</div>
-            },
-        ]
-    },
-    {
-        id: WikiArticleLinks.LEVELING,
-        title: "Leveling",
-        content: <div>Leveling content goes here.</div>
     }
-];

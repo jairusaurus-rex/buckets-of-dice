@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { articleList } from "./articles/ArticleList";
+import { ArticleList } from "./article-lists/ArticleList";
 import type { ArticleListType } from "../../commons/types/AticleListType";
 
 export const WikiSideBar = () => {
@@ -29,7 +29,7 @@ export const WikiSideBar = () => {
     };
 
     if (articleId) {
-      const parentsToExpand = findParents(articleList, articleId);
+      const parentsToExpand = findParents(ArticleList, articleId);
       if (parentsToExpand.length > 0) {
         setExpanded((prev) => {
           const updated = { ...prev };
@@ -106,7 +106,7 @@ export const WikiSideBar = () => {
   return (
     <aside className="w-full md:w-64 border-r border-[var(--border)] p-4 bg-[var(--bg)]">
       <h3 className="font-bold text-[var(--text-h)] mb-4">Articles</h3>
-      <nav className="space-y-1">{renderMenuItems(articleList)}</nav>
+      <nav className="space-y-1">{renderMenuItems(ArticleList)}</nav>
     </aside>
   );
 }
