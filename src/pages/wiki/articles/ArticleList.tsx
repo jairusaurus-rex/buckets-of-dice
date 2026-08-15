@@ -8,7 +8,17 @@ import { ChyraxArticle } from "./species/Chyrax.tsx";
 import { DrakariArticle } from "./species/Drakari.tsx";
 import { DroidsArticle } from "./species/Droids.tsx";
 import { EmpianArticle } from "./species/Empian.tsx";
+import { FeyraArticle } from "./species/Feyra.tsx";
+import { FlonaArticle } from "./species/Flona.tsx";
+import { HumansArticle } from "./species/Humans.tsx";
+import { LocanusArticle } from "./species/Locanus.tsx";
+import { PawniansArticle } from "./species/Pawnians.tsx";
+import { RhazakArticle } from "./species/Rhazak.tsx";
 import { SpeciesMain } from "./species/SpeciesMain.tsx";
+import { UrziArticle } from "./species/Urzi.tsx";
+import { VelkiArticle } from "./species/Velki.tsx";
+import { VrantsArticle } from "./species/Vrants.tsx";
+import { ZivrenArticle } from "./species/Zivren.tsx";
 
 export const articleList: ArticleListType[] = [
     {
@@ -33,17 +43,17 @@ export const articleList: ArticleListType[] = [
         children: [
             {
                 id: WikiArticleLinks.SPECIES_BEK,
-                title: "The Bek",
+                title: "Bek",
                 content: <BekArticle />
             },
             {
                 id: WikiArticleLinks.SPECIES_CHYRAX,
-                title: "The Chyrax",
+                title: "Chyrax",
                 content: <ChyraxArticle />
             },
             {
                 id: WikiArticleLinks.SPECIES_DRKARI,
-                title: "The Drakari",
+                title: "Drakari",
                 content: <DrakariArticle />
             },
             {
@@ -56,16 +66,56 @@ export const articleList: ArticleListType[] = [
                 title: "Empians",
                 content: <EmpianArticle />
             },
+            {
+                id: WikiArticleLinks.SPECIES_FEYRA,
+                title: "Feyra",
+                content: <FeyraArticle />
+            },
+            {
+                id: WikiArticleLinks.SPECIES_FLONA,
+                title: "Flona",
+                content: <FlonaArticle />
+            },
             
             {
                 id: WikiArticleLinks.SPECIES_HUMANS,
                 title: "Humans",
-                content: <div>Humans content goes here.</div>
+                content: <HumansArticle />
             },
             {
-                id: "Vrants",
+                id: WikiArticleLinks.SPECIES_LOCANUS,
+                title: "Locanus",
+                content: <LocanusArticle />
+            },
+            {
+                id: WikiArticleLinks.SPECIES_PAWNIANS,
+                title: "Pawnians",
+                content: <PawniansArticle />
+            },
+            {
+                id: WikiArticleLinks.SPECIES_RHAZAK,
+                title: "Rhazak",
+                content: <RhazakArticle />
+            },
+            {
+                id: WikiArticleLinks.SPECIES_URZI,
+                title: "Urzi",
+                content: <UrziArticle />
+            },
+            {
+                id: WikiArticleLinks.SPECIES_VELKI,
+                title: "Velki",
+                content: <VelkiArticle />
+            },
+            {
+                id: WikiArticleLinks.SPECIES_VRANTS,
                 title: "Vrants",
-                content: <div>Vrants content goes here.</div>
+                content: <VrantsArticle />
+            },
+            {
+                id: WikiArticleLinks.SPECIES_ZIVREN,
+                title: "Zivren",
+                content: <ZivrenArticle />
             },
         ]
     },
