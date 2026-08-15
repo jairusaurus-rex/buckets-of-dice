@@ -7,6 +7,10 @@ import type { ArticleListType } from "../../commons/types/AticleListType";
 export const WikiPage = () => {
   const { articleId } = useParams();
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   const article = useMemo(() => {
     if (!articleId) return articleList[0];
 
@@ -81,6 +85,7 @@ export const WikiPage = () => {
             {navigation.prevSibling && (
               <Link
                 to={`/wiki/${navigation.prevSibling.id}`}
+                onClick={scrollToTop}
                 className="text-[var(--accent)] hover:underline"
               >
                 ← {navigation.prevSibling.title}
@@ -92,6 +97,7 @@ export const WikiPage = () => {
             {navigation.parent && (
               <Link
                 to={`/wiki/${navigation.parent.id}`}
+                onClick={scrollToTop}
                 className="text-[var(--accent)] hover:underline"
               >
                 ↑ {navigation.parent.title}
@@ -103,6 +109,7 @@ export const WikiPage = () => {
             {navigation.nextSibling && (
               <Link
                 to={`/wiki/${navigation.nextSibling.id}`}
+                onClick={scrollToTop}
                 className="text-[var(--accent)] hover:underline"
               >
                 {navigation.nextSibling.title} →
@@ -122,6 +129,7 @@ export const WikiPage = () => {
                 <li key={child.id}>
                   <Link
                     to={`/wiki/${child.id}`}
+                    onClick={scrollToTop}
                     className="text-[var(--accent)] hover:underline text-sm"
                   >
                     {child.title}

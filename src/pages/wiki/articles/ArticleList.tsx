@@ -6,6 +6,8 @@ import { SkillsArticle } from "./Skills.tsx";
 import { BekArticle } from "./species/Bek.tsx";
 import { ChyraxArticle } from "./species/Chyrax.tsx";
 import { DrakariArticle } from "./species/Drakari.tsx";
+import { DroidsArticle } from "./species/Droids.tsx";
+import { EmpianArticle } from "./species/Empian.tsx";
 import { SpeciesMain } from "./species/SpeciesMain.tsx";
 
 export const articleList: ArticleListType[] = [
@@ -44,17 +46,21 @@ export const articleList: ArticleListType[] = [
                 title: "The Drakari",
                 content: <DrakariArticle />
             },
+            {
+                id: WikiArticleLinks.SPECIES_DROIDS,
+                title: "Droids",
+                content: <DroidsArticle />
+            },
+            {
+                id: WikiArticleLinks.SPECIES_EMPIANS,
+                title: "Empians",
+                content: <EmpianArticle />
+            },
             
             {
                 id: WikiArticleLinks.SPECIES_HUMANS,
                 title: "Humans",
                 content: <div>Humans content goes here.</div>
-            },
-            
-            {
-                id: WikiArticleLinks.SPECIES_DROIDS,
-                title: "Driods",
-                content: <div>Driods content goes here.</div>
             },
             {
                 id: "Vrants",
