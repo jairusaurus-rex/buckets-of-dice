@@ -11,6 +11,9 @@ export const WikiArticleLinks= {
     GEAR_SUIT: "gear-suit",
     GEAR_NON_SUIT: "gear-non-suit",
     LEVELING: "leveling",
+    SPECIES_BEK: "species-bek",
+    SPECIES_CHYRAX: "species-chyrax",
+    SPECIES_DRKARI: "species-drakari",  
 } as const;
 
 export type WikiArticleLinkEnum = typeof WikiArticleLinks[keyof typeof WikiArticleLinks];

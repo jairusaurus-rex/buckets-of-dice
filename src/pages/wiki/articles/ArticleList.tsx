@@ -3,6 +3,9 @@ import { WikiArticleLinks } from "../../../commons/enums/wiki-article-enum.tsx";
 import type { ArticleListType } from "../../../commons/types/AticleListType.ts";
 import { CharacterCreationArticle } from "./CharacterCreationArticle.tsx";
 import { SkillsArticle } from "./Skills.tsx";
+import { BekArticle } from "./species/Bek.tsx";
+import { ChyraxArticle } from "./species/Chyrax.tsx";
+import { DrakariArticle } from "./species/Drakari.tsx";
 import { SpeciesMain } from "./species/SpeciesMain.tsx";
 
 export const articleList: ArticleListType[] = [
@@ -26,6 +29,22 @@ export const articleList: ArticleListType[] = [
         title: "Species",
         content: <SpeciesMain />,
         children: [
+            {
+                id: WikiArticleLinks.SPECIES_BEK,
+                title: "The Bek",
+                content: <BekArticle />
+            },
+            {
+                id: WikiArticleLinks.SPECIES_CHYRAX,
+                title: "The Chyrax",
+                content: <ChyraxArticle />
+            },
+            {
+                id: WikiArticleLinks.SPECIES_DRKARI,
+                title: "The Drakari",
+                content: <DrakariArticle />
+            },
+            
             {
                 id: WikiArticleLinks.SPECIES_HUMANS,
                 title: "Humans",
