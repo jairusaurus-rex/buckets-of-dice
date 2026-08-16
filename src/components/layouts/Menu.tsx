@@ -7,6 +7,20 @@ export const Menu = () => {
         <ul className="flex justify-around p-0 m-0">
           <li>
             <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `block py-4 font-medium transition-colors ${
+                  isActive
+                    ? "text-[var(--accent)] border-b-2 border-[var(--accent)]"
+                    : "text-[var(--text-h)] hover:text-[var(--accent)]"
+                }`
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/wiki"
               className={({ isActive }) =>
                 `block py-4 font-medium transition-colors ${
