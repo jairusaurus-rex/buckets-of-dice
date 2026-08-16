@@ -1,4 +1,4 @@
-export const DiceRoller = () => {
+export const DiceRollerMainLayout = () => {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold">Dice Roller</h1>
