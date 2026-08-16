@@ -14,7 +14,8 @@ export const PawniansArticle = () => {
             <div className="p-2">
                 <h3><strong>Description</strong></h3>
                 <p>
-                    Pawnians are humanoids with more ape-like features than humans,
+                    Pawnians are humanoids with more ape-like features 
+                    than <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>humans</Link>,
                     including a monkey-like tail. They have grey skin and hair.
                 </p>
             </div>
@@ -23,7 +24,7 @@ export const PawniansArticle = () => {
                 <h3><strong>History</strong></h3>
                 <p>
                     Pawnians are the newest of the Successor Species known by the Star
-                    Alliance and human territories. They have been known by the other
+                    Alliance and <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>human</Link> territories. They have been known by the other
                     species for less than a hundred years.
                 </p>
                 <p className="pt-2">

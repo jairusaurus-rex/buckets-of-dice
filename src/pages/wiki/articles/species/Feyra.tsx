@@ -23,15 +23,19 @@ export const FeyraArticle = () => {
                 <h3><strong>History</strong></h3>
                 <p>
                     The Feyra are believed to be among the first of the Successor Species to
-                    become spacefaring, alongside the Velki and the Zivren. As other species
-                    began to reach the stars, the Feyra kept a comfortable distance from them,
-                    preferring to observe rather than become directly involved.
+                    become spacefaring, alongside 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_VELKI}`}>Velki</Link> and 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_ZIVREN}`}>Zivren</Link>. As 
+                    other species began to reach the stars, the Feyra kept a comfortable distance 
+                    from them, preferring to observe rather than become directly involved.
                 </p>
                 <p className="pt-2">
                     Thousands of years ago, the Feyra finally intervened to end the war between
-                    the Velki and the Empian. The three species became the founding members of
-                    the Star Alliance. Soon after, however, the Feyra stepped back from the
-                    Alliance and became much less involved in its decision-making.
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_DRKARI}`}>Drakari</Link> and 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_EMPIANS}`}>Empian</Link>. The 
+                    three species became the founding members of the Star Alliance. Soon after, 
+                    however, the Feyra stepped back from the Alliance and became much less involved 
+                    in its decision-making.
                 </p>
                 <p className="pt-2">
                     By their own choice, the Feyra became a lesser member of the Alliance.

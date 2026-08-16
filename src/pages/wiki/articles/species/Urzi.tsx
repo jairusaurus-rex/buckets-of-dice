@@ -37,8 +37,9 @@ export const UrziArticle = () => {
                     The Urzi took it upon themselves to become the charity arm of the Star
                     Alliance. They care for the poor and vulnerable and operate teams of
                     soldiers dedicated to protecting the innocent. One of their greatest
-                    acts of charity was taking in the Bek after they lost their homes and
-                    providing them with a place to live on Urzi worlds.
+                    acts of charity was taking in 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_BEK}`}>Bek</Link> after they 
+                    lost their homes and providing them with a place to live on Urzi worlds.
                 </p>
             </div>
 
@@ -55,14 +56,19 @@ export const UrziArticle = () => {
                 <h3><strong>Galactic Relations</strong></h3>
                 <p>
                     Most other species respect the Urzi for their good nature and dedication
-                    to protecting those in need. The Bek owe the Urzi a great debt for saving
-                    their people, while the Chyrax resent the Urzi for their relationship
-                    with the Bek.
+                    to protecting those in need. 
+                    The <Link to={`/wiki/${WikiArticleLinks.SPECIES_BEK}`}>Bek</Link> owe the Urzi a 
+                    great debt for saving their people, while the <Link to={`/wiki/${WikiArticleLinks.SPECIES_CHYRAX}`}>Chyrax</Link> resent the Urzi for their relationship
+                    with the <Link to={`/wiki/${WikiArticleLinks.SPECIES_BEK}`}>Bek</Link>.
                 </p>
                 <p className="pt-2">
-                    The Urzi also hold the Drakari in great respect. Despite their defeat at
-                    the hands of the Drakari so many eras ago, the Urzi view that defeat as
-                    a testament to the Drakari's strength.
+                    The Urzi also hold 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_DRKARI}`}>Drakari</Link> in 
+                    great respect. Despite their defeat at the hands of 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_DRKARI}`}>Drakari</Link> so 
+                    many eras ago, the Urzi view that defeat as a testament to 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_DRKARI}`}>Drakari</Link>'s 
+                    strength.
                 </p>
             </div>
         </div>

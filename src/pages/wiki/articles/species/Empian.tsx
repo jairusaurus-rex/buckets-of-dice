@@ -24,10 +24,12 @@ export const EmpianArticle = () => {
                 <h3><strong>History</strong></h3>
                 <p>
                     Thousands of years ago, when it took years to travel what now takes a
-                    week, the Empian were at war with the Drakari for hundreds of years.
-                    As fold travel became more efficient, both sides realized that the war
-                    would only become more and more catastrophic. With the help of the Feyra,
-                    the war ended and the Star Alliance was formed.
+                    week, the Empian were at war with 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_DRKARI}`}>Drakari</Link> for 
+                    hundreds of years. As fold travel became more efficient, both sides realized 
+                    that the war would only become more and more catastrophic. With the help of 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_FEYRA}`}>Feyra</Link>, the war 
+                    ended and the Star Alliance was formed.
                 </p>
                 <p className="pt-2">
                     The Empian became the head of most diplomacy and intelligence within the
@@ -49,14 +51,16 @@ export const EmpianArticle = () => {
                 <h3><strong>Galactic Relations</strong></h3>
                 <p>
                     The Empian are one of the founders of the Star Alliance and one of the
-                    three major players in its government, along with the Drakari and the
-                    Velki, with whom they have a close relationship. They are widely seen
-                    as leaders within the Star Alliance and are highly respected by its
-                    members.
+                    three major players in its government, along with 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_DRKARI}`}>Drakari</Link> and 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_VELKI}`}>Velki</Link>, with 
+                    whom they have a close relationship. They are widely seen as leaders within 
+                    the Star Alliance and are highly respected by its members.
                 </p>
                 <p className="pt-2">
-                    Humans and the Rhazak, however, tend to view the Empian with suspicion
-                    because of their psionic abilities.
+                    <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>Humans</Link> and 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_RHAZAK}`}>Rhazak</Link>, 
+                    however, tend to view the Empian with suspicion because of their psionic abilities.
                 </p>
             </div>
         </div>

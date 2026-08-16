@@ -35,8 +35,8 @@ export const DroidsArticle = () => {
                     differ so greatly in their construction, intelligence, and behavior,
                     there is considerable debate over whether they should be considered a
                     single species at all. Droids have some recognition within the Star
-                    Alliance, but they have very little recognition or protection within
-                    human territory.
+                    Alliance, but they have very little recognition or protection 
+                    within <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>human</Link> territory.
                 </p>
             </div>
 
@@ -55,12 +55,13 @@ export const DroidsArticle = () => {
             <div className="p-2">
                 <h3>Galactic Relations</h3>
                 <p>
-                    Attitudes toward droids vary greatly across the galaxy. Most people
-                    continue to treat them as tools rather than as people, regardless of
-                    their level of sentience. The Flona have a particular disdain for droids,
-                    while the Rhazak consider the use of droids to be a sign of weakness.
-                    Within the Star Alliance, droids have gained some recognition, though
-                    their status and rights remain inconsistent across its member species.
+                    Attitudes toward droids vary greatly across the galaxy. Most people continue to treat them as 
+                    tools rather than as people, regardless of their level of sentience. 
+                    The <Link to={`/wiki/${WikiArticleLinks.SPECIES_FLONA}`}>Flona</Link> have a particular disdain 
+                    for droids, while 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_RHAZAK}`}>Rhazak</Link> consider the use of 
+                    droids to be a sign of weakness. Within the Star Alliance, droids have gained some recognition, 
+                    though their status and rights remain inconsistent across its member species.
                 </p>
             </div>
         </div>

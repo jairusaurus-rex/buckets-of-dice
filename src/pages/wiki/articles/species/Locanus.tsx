@@ -16,21 +16,28 @@ export const LocanusArticle = () => {
                 <h3><strong>Description</strong></h3>
                 <p>
                     Locanus are humanoids with insect-like features. They typically live
-                    in small communities or among humans.
+                    in small communities or 
+                    among <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>humans</Link>.
                 </p>
             </div>
 
             <div className="p-2">
                 <h3><strong>History</strong></h3>
                 <p>
-                    The Locanus became a spacefaring species sometime after humanity. They
-                    settled on the other side of human territory, far from the Star Alliance.
-                    Humans were the first sapient species the Locanus encountered.
+                    The Locanus became a spacefaring species sometime 
+                    after <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>humanity</Link>. 
+                    They settled on the other side 
+                    of <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>human</Link> territory, 
+                    far from the Star 
+                    Alliance. <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>Humans</Link> were 
+                    the first sapient species the Locanus encountered.
                 </p>
                 <p className="pt-2">
-                    The Locanus quickly became close allies of humanity. They remain one of
-                    the few known species that maintain a close relationship with humans
-                    without being members of the Star Alliance.
+                    The Locanus quickly became close allies 
+                    of <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>humanity</Link>. They 
+                    remain one of the few known species that maintain a close relationship 
+                    with <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>humans</Link> without 
+                    being members of the Star Alliance.
                 </p>
             </div>
 
@@ -47,14 +54,17 @@ export const LocanusArticle = () => {
             <div className="p-2">
                 <h3><strong>Galactic Relations</strong></h3>
                 <p>
-                    Most Locanus are fond of humans and consider them close friends. Human
-                    society and its problems give many Locanus a sense of purpose, providing
-                    them with opportunities for adventure, conflict, and companionship.
+                    Most Locanus are fond 
+                    of <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>humans</Link> and 
+                    consider them close 
+                    friends. <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>Human</Link> society 
+                    and its problems give many Locanus a sense of purpose, providing them with 
+                    opportunities for adventure, conflict, and companionship.
                 </p>
                 <p className="pt-2">
-                    The Locanus have had little contact with most other Successor Species
-                    and are largely unfamiliar with the wider galactic community beyond
-                    human territory.
+                    The Locanus have had little contact with most other Successor Species and are 
+                    largely unfamiliar with the wider galactic community 
+                    beyond <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>human</Link> territory.
                 </p>
             </div>
         </div>

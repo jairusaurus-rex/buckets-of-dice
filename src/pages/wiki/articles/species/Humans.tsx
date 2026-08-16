@@ -68,7 +68,8 @@ export const HumansArticle = () => {
                     mistake.
                 </p>
                 <p className="pt-2">
-                    The Locanus, however, have always regarded humanity as a friend and ally.
+                    The <Link to={`/wiki/${WikiArticleLinks.SPECIES_LOCANUS}`}>Locanus</Link>, however, 
+                    have always regarded humanity as a friend and ally.
                 </p>
             </div>
         </div>

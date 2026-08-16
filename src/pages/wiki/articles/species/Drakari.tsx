@@ -17,10 +17,12 @@ export const DrakariArticle = () => {
             <div className="p-2">
                 <h3><strong>History</strong></h3>
                 <p>Thousands of years ago, when it took years to travel what now takes a week, the 
-                    Drakari were at war with the Empian for hundreds of years. As fold travel 
-                    became more efficient, both sides realized that the war would only become more 
-                    and more catastrophic. With the help of the Feyra, the war ended and the Star 
-                    Alliance was formed. </p>
+                    Drakari were at war with 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_EMPIANS}`}>Empian</Link> for 
+                    hundreds of years. As fold travel became more efficient, both sides realized 
+                    that the war would only become more and more catastrophic. With the help of 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_FEYRA}`}>Feyra</Link>, the war 
+                    ended and the Star Alliance was formed. </p>
                 <p className="pt-2">The Drakari became the majority of the military of the Star 
                     Alliance as well as one of the major three factions within its community and 
                     government.</p>
@@ -33,10 +35,13 @@ export const DrakariArticle = () => {
             <div className="p-2">
                 <h3><strong>Galactic relations</strong></h3>
                 <p>The Drakari are one of the founders of the Star Alliance as well as one of the 
-                    three major players in the Star Alliance government, along with the Empian and 
-                    the Velki, with whom they have a close relationship with. Many others fear or 
-                    respect their military might. That large, the Drakari have a rivally with 
-                    Humans who have outdone their military in recent history.</p>
+three major players in the Star Alliance government, along with 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_EMPIANS}`}>Empian</Link> and 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_VELKI}`}>Velki</Link>, with 
+                    whom they have a close relationship with. Many others fear or respect their 
+                    military might. That large, the Drakari have a rivally 
+                    with <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>Humans</Link> who 
+                    have outdone their military in recent history.</p>
             </div>
         </div>
     )

@@ -23,7 +23,8 @@ export const VelkiArticle = () => {
                 <p>
                     The Velki tie moral value closely to honest economics. They built a
                     prosperous and stable society and became one of the first spacefaring
-                    peoples among the Successor Species. Though the Feyra and Zivren are
+                    peoples among the Successor Species. Though 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_ZIVREN}`}>Zivren</Link> and <Link to={`/wiki/${WikiArticleLinks.SPECIES_FEYRA}`}>Feyra</Link> are
                     also possible candidates for being the first, the Velki firmly believe
                     that they were the first to reach the stars.
                 </p>
@@ -33,14 +34,15 @@ export const VelkiArticle = () => {
                     species, they were the first to join the Alliance.
                 </p>
                 <p className="pt-2">
-                    The Velki were instrumental in creating an economic system, currency,
-                    and banking system capable of supporting trade between multiple species.
-                    Many of the systems they developed are still used today throughout both
-                    the Star Alliance and human territories.
+                    The Velki were instrumental in creating an economic system, currency, and 
+                    banking system capable of supporting trade between multiple species. Many of 
+                    the systems they developed are still used today throughout both the Star Alliance 
+                    and <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>human</Link> territories.
                 </p>
                 <p className="pt-2">
-                    The Velki eventually became one of the major species within the Star
-                    Alliance government, alongside the Drakari and Empian.
+                    The Velki eventually became one of the major species within the Star Alliance 
+                    government, alongside 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_DRKARI}`}>Drakari</Link> and <Link to={`/wiki/${WikiArticleLinks.SPECIES_EMPIANS}`}>Empian</Link>.
                 </p>
             </div>
 

@@ -23,10 +23,11 @@ export const ZivrenArticle = () => {
                 <h3><strong>History</strong></h3>
                 <p>
                     The Zivren are believed to be among the first Successor Species to
-                    become spacefaring, alongside the Feyra and the Velki. By the time
-                    other species began reaching the stars, the Zivren were already
-                    everywhere, traveling in ships that seemed impossibly large for
-                    their small stature.
+                    become spacefaring, alongside 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_FEYRA}`}>Feyra</Link> and 
+                    the <Link to={`/wiki/${WikiArticleLinks.SPECIES_VELKI}`}>Velki</Link>. By the time 
+                    other species began reaching the stars, the Zivren were already everywhere, 
+                    traveling in ships that seemed impossibly large for their small stature.
                 </p>
                 <p className="pt-2">
                     The Zivren have no idea when they first became spacefaring. They do

@@ -36,8 +36,9 @@ export const FlonaArticle = () => {
                     cycle, others saw as a growing problem.
                 </p>
                 <p className="pt-2">
-                    In modern times, Flona settlements are regulated by both the Star
-                    Alliance and human nations, much to the disagreement of the Flona.
+                    In modern times, Flona settlements are regulated by both the Star Alliance 
+                    and <Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>human</Link> nations, 
+                    much to the disagreement of the Flona.
                 </p>
             </div>
 
