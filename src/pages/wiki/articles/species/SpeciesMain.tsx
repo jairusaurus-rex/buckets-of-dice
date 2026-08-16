@@ -1,3 +1,6 @@
+import { Link } from "react-router"
+import { WikiArticleLinks } from "../../../../commons/enums/wiki-article-enum"
+
 export const SpeciesMain = () => {
     return (
         <div className="p-4">
@@ -19,7 +22,7 @@ export const SpeciesMain = () => {
 
                 <tbody>
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Bek</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_BEK}`}>Bek</Link></td>
                         <td className="px-4 py-3">
                             Humanoids with bat ears, black horns, and leather wings that fold into
                             a cape.
@@ -30,7 +33,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Chyrax</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_CHYRAX}`}>Chyrax</Link></td>
                         <td className="px-4 py-3">
                             Humanoid reptilian people with small tails who can change the color of
                             their scales at will.
@@ -41,7 +44,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Drakari</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_DRKARI}`}>Drakari</Link></td>
                         <td className="px-4 py-3">
                             Honorable warriors of the Star Alliance who resemble Utah Raptors.
                         </td>
@@ -52,7 +55,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Droids</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_DROIDS}`}>Droids</Link></td>
                         <td className="px-4 py-3">
                             Some are built individually, some are built en masse, and some are a
                             race of free machines. Each has their own degree of sapience and free
@@ -65,7 +68,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Empian</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_EMPIANS}`}>Empian</Link></td>
                         <td className="px-4 py-3">
                             Elegant people with large eyes and large, fuzzy ears. They are all
                             born with psychic abilities.
@@ -77,7 +80,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Feyra</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_FEYRA}`}>Feyra</Link></td>
                         <td className="px-4 py-3">
                             Long-lived humanoids with goat-like horns, ears, eyes, and feet.
                         </td>
@@ -88,7 +91,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Flona</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_FLONA}`}>Flona</Link></td>
                         <td className="px-4 py-3">
                             Plant-based humanoids with leaves that resemble hair and clothing.
                         </td>
@@ -99,7 +102,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Humans</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_HUMANS}`}>Humans</Link></td>
                         <td className="px-4 py-3">
                             Not much has changed in 1,000 years.
                         </td>
@@ -110,7 +113,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Locanus</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_LOCANUS}`}>Locanus</Link></td>
                         <td className="px-4 py-3">
                             Insect-like humanoids. They are one of the few aliens humans have
                             contacted that have little to do with the Star Alliance.
@@ -122,7 +125,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Pawnian</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_PAWNIANS}`}>Pawnian</Link></td>
                         <td className="px-4 py-3">
                             Grey-skinned, monkey-like humanoids with long, monkey-like tails.
                         </td>
@@ -132,7 +135,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Rhazak</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_RHAZAK}`}>Rhazak</Link></td>
                         <td className="px-4 py-3">
                             Dragon-like humanoids who are violent in nature, but follow some codes
                             of honor.
@@ -144,7 +147,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Urzi</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_URZI}`}>Urzi</Link></td>
                         <td className="px-4 py-3">
                             Large, bear-like people.
                         </td>
@@ -155,7 +158,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Velki</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_VELKI}`}>Velki</Link></td>
                         <td className="px-4 py-3">
                             Deer-like humanoids with thick exoskin resembling skulls, small antlers,
                             and hooved feet.
@@ -166,7 +169,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr className="border-b border-gray-200 dark:border-gray-800">
-                        <td className="px-4 py-3 font-semibold">Vrants</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_VRANTS}`}>Vrants</Link></td>
                         <td className="px-4 py-3">
                             A group of humans altered themselves genetically, making all their
                             descendants superhuman. They have black eyes with brightly colored
@@ -179,7 +182,7 @@ export const SpeciesMain = () => {
                     </tr>
 
                     <tr>
-                        <td className="px-4 py-3 font-semibold">Zivren</td>
+                        <td className="px-4 py-3 font-semibold"><Link to={`/wiki/${WikiArticleLinks.SPECIES_ZIVREN}`}>Zivren</Link></td>
                         <td className="px-4 py-3">
                             Small, badger- or weasel-like humanoids.
                         </td>
