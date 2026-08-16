@@ -3,7 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import { ArticleList } from "./article-lists/ArticleList";
 import type { ArticleListType } from "../../commons/types/AticleListType";
 
-export const WikiSideBar = () => {
+interface WikiSideBarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const WikiSideBar = ({ isOpen, onClose }: WikiSideBarProps) => {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const { articleId } = useParams();
 
@@ -58,6 +63,10 @@ export const WikiSideBar = () => {
     return false;
   };
 
+  const handleSelectArticle = () => {
+    onClose();
+  };
+
   const renderMenuItems = (items: ArticleListType[]) => {
     return items.map((item) => {
       const isActive = articleId === item.id;
@@ -71,7 +80,7 @@ export const WikiSideBar = () => {
             {hasChildren && (
               <button
                 onClick={() => toggleExpanded(item.id)}
-                className="mr-2 p-1 hover:bg-[var(--code-bg)] rounded"
+                className="mr-2 rounded p-1 hover:bg-[var(--code-bg)]"
                 aria-label={isExpanded ? "Collapse" : "Expand"}
               >
                 <span className="text-[var(--text-h)]">
@@ -79,10 +88,11 @@ export const WikiSideBar = () => {
                 </span>
               </button>
             )}
-            {!hasChildren && <span className="mr-2 p-1 w-6"></span>}
+            {!hasChildren && <span className="mr-2 w-6 p-1"></span>}
             <Link
               to={`/wiki/${item.id}`}
-              className={`flex-1 py-2 px-2 rounded transition-colors ${
+              onClick={handleSelectArticle}
+              className={`flex-1 rounded px-2 py-2 transition-colors ${
                 isActive
                   ? "bg-[var(--accent-bg)] text-[var(--accent)] font-medium"
                   : hasActive
@@ -104,8 +114,22 @@ export const WikiSideBar = () => {
   };
 
   return (
-    <aside className="w-full md:w-64 border-r border-[var(--border)] p-4 bg-[var(--bg)]">
-      <h3 className="font-bold text-[var(--text-h)] mb-4">Articles</h3>
+    <aside
+      className={`fixed left-0 top-0 z-40 h-full w-72 border-r border-[var(--border)] bg-[var(--bg)] p-4 shadow-lg transition-transform duration-200 md:static md:z-auto md:h-auto md:w-64 md:translate-x-0 md:shadow-none ${
+        isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+      }`}
+    >
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <h3 className="font-bold text-[var(--text-h)]">Articles</h3>
+        <button
+          type="button"
+          onClick={onClose}
+          className="rounded border border-[var(--border)] px-2 py-1 text-xs font-medium text-[var(--text-h)] md:hidden"
+          aria-label="Close wiki articles"
+        >
+          Close
+        </button>
+      </div>
       <nav className="space-y-1">{renderMenuItems(ArticleList)}</nav>
     </aside>
   );

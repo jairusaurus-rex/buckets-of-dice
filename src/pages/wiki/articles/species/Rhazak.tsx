@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom"
-import { WikiArticleLinks } from "../../../../commons/enums/wiki-article-enum"
-
 export const RhazakArticle = () => {
     return (
         <div className="p-2 text-justify">
