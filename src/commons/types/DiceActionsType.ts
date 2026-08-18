@@ -2,5 +2,7 @@ import type { DiceType } from "./DiceType";
 
 export type DiceActionsType = {
     type: string;
-    payload: DiceType;
+    id? : string;
+    rank? : number;
+    category? : string;
 }

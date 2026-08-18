@@ -1,17 +1,19 @@
-import { useState } from "react";
-import { Modal } from "../../components/commons/Modal";
+//import { useState } from "react";
+//import { Modal } from "../../components/commons/Modal";
+import { DiceCategories } from "../../commons/enums/dice-categories-enum";
 import { DiceRollerProvider } from "../../contexts/DiceRollerContext";
+import { DicePool } from "./DicePool";
 
 
 
 export const DiceRollerMainLayout = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  //const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="p-0 m-0">
       <DiceRollerProvider>
         <div className="p-0 m-0 grid grid-cols-5 gap-0">
           <div className="col-span-4 p-0 m-0 border ">
-            <div className="border">diceroller goes here</div>
+            <DicePool category={DiceCategories.POOL} />
             <div className="p-0 m-0 grid grid-cols-4 gap-0">
               <div className="col-span-1 border">
                 <div className="border mt-2">attack dice go here</div>
