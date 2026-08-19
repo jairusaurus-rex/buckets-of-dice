@@ -7,8 +7,8 @@ import {
 } from "react";
 
 import DiceRollerReducer from "../reducers/DiceRollerReducer";
-import type { DiceCategoryType } from "../commons/types/DiceCategoryType";
-import { DiceCategories } from "../commons/enums/dice-categories-enum";
+import type { DiceCategoryType } from "../data-types/types/DiceCategoryType";
+import { DiceCategories } from "../data-types/enums/dice-categories-enum";
 
 
 

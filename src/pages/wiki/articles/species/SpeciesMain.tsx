@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import { WikiArticleLinks } from "../../../../commons/enums/wiki-article-enum"
+import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
 
 export const SpeciesMain = () => {
     return (

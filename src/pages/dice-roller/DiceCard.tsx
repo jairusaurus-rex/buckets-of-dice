@@ -1,5 +1,6 @@
-import type { DiceType } from "../../commons/types/DiceType";
+import type { DiceType } from "../../data-types/types/DiceType";
 import d4 from "../../assets/images/dice/d4.png";
+import d6 from "../../assets/images/dice/d6.png";
 
 type DieCardProps = {
   die: DiceType;
@@ -121,7 +122,8 @@ export const DieCard = ({
           "
         >
           <img
-            src={d4}
+            src={
+              die.rank === 4 ? d4 : d6}
             alt={`D${die.rank}`}
             className="
               h-full
@@ -166,7 +168,7 @@ export const DieCard = ({
             bg-transparent
             px-1
             text-center
-            text-[10px]
+            text-[20px]
             text-gray-300
             outline-none
             placeholder:text-gray-500

@@ -1,11 +1,12 @@
-import type { DiceActionsType } from "../commons/types/DiceActionsType";
-import type { DiceCategoryType } from "../commons/types/DiceCategoryType";
-import type { DiceType } from "../commons/types/DiceType";
+import { DiceRollerReducerActions } from "../data-types/enums/dice-roller-reducer-action-enum";
+import type { DiceActionsType } from "../data-types/types/DiceActionsType";
+import type { DiceCategoryType } from "../data-types/types/DiceCategoryType";
+import type { DiceType } from "../data-types/types/DiceType";
 
 const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActionsType) => {
 
     switch (action.type) {
-        case "ADD": {
+        case DiceRollerReducerActions.ADD: {
             const newDice: DiceType = {
                 id: Date.now().toString(),
                 title: ``,
@@ -24,7 +25,7 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
             );
         }
 
-        case "REMOVE": {
+        case DiceRollerReducerActions.REMOVE: {
             return diceCategories.map(item =>
                 item.id === action.category
                     ? {
@@ -35,7 +36,7 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
             );
         }
 
-        case "UP_RANK": {
+        case DiceRollerReducerActions.UP_RANK: {
             return diceCategories.map(item =>
                 item.id === action.category
                     ? {
@@ -44,7 +45,7 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
                             die.id === action.id && die.rank < 12
                                 ? {
                                     ...die,
-                                   rank: die.rank = die.rank + 2
+                                   rank: die.rank + 2
                                 }
                                 : die
                         )
@@ -52,7 +53,7 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
                     : item
             );
         }
-        case "DOWN_RANK": {
+        case DiceRollerReducerActions.DOWN_RANK: {
             return diceCategories.map(item =>
                 item.id === action.category
                     ? {
@@ -61,7 +62,25 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
                             die.id === action.id && die.rank > 4
                                 ? {
                                     ...die,
-                                   rank: die.rank = die.rank - 2
+                                   rank:  die.rank - 2
+                                }
+                                : die
+                        )
+                    }
+                    : item
+            );
+        }
+
+        case DiceRollerReducerActions.CHANGE_TITLE: {
+            return diceCategories.map(item =>
+                item.id === action.category
+                    ? {
+                        ...item,
+                        diceList: item.diceList.map(die => 
+                            die.id === action.id && die.rank > 4
+                                ? {
+                                    ...die,
+                                   title: action.title ?? item.title
                                 }
                                 : die
                         )

@@ -1,6 +1,6 @@
 //import { useState } from "react";
 //import { Modal } from "../../components/commons/Modal";
-import { DiceCategories } from "../../commons/enums/dice-categories-enum";
+import { DiceCategories } from "../../data-types/enums/dice-categories-enum";
 import { DiceRollerProvider } from "../../contexts/DiceRollerContext";
 import { DicePool } from "./DicePool";
 

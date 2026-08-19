@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { ArticleListType } from "../../commons/types/AticleListType";
+import type { ArticleListType } from "../../data-types/types/AticleListType";
 
 interface NavigationInfo {
   parent: ArticleListType | null;

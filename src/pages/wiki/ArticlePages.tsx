@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { ArticleList } from "./article-lists/ArticleList";
 import styles from "./Articles.module.css";
-import type { ArticleListType } from "../../commons/types/AticleListType";
+import type { ArticleListType } from "../../data-types/types/AticleListType";
 import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
 
 export const WikiPage = () => {

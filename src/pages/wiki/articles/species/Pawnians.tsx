@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { WikiArticleLinks } from "../../../../commons/enums/wiki-article-enum"
+import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
 
 export const PawniansArticle = () => {
     return (

@@ -1,7 +1,8 @@
-import type { DiceType } from "../../commons/types/DiceType";
+import type { DiceType } from "../../data-types/types/DiceType";
 import { useDiceRoller } from "../../contexts/DiceRollerContext";
 import { AddDiceByRank } from "./AddDiceByRank";
 import DieCard from "./DiceCard";
+import { DiceRollerReducerActions } from "../../data-types/enums/dice-roller-reducer-action-enum";
 
 type DicePoolProps = {
   category: string
@@ -9,9 +10,7 @@ type DicePoolProps = {
 
 export const DicePool = ({category} : DicePoolProps) => {
     const { dispatch, diceGroup } = useDiceRoller();
-    const index = diceGroup.findIndex((group) => {
-        return group.id = category
-    })
+    const index = diceGroup.findIndex((group) => group.id === category)
     let dice: DiceType[] = []
     if(index >= 0){
         dice = diceGroup[index].diceList
@@ -19,9 +18,8 @@ export const DicePool = ({category} : DicePoolProps) => {
         dice = []
     }
 
-    console.log(dice);
     const handleAddDice = (rank: number) => {
-        dispatch({ type: "ADD", rank, category: category });
+        dispatch({ type: DiceRollerReducerActions.ADD, rank, category: category });
     }
      const handleClear = () => {
 
@@ -30,16 +28,16 @@ export const DicePool = ({category} : DicePoolProps) => {
 
      }
      const handleRemoveDice = (id: string) => {
-        dispatch({ type: "REMOVE", id, category: category });
+        dispatch({ type: DiceRollerReducerActions.REMOVE, id, category: category });
      }      
      const handleUpDiceRank = (id: string) => {
-        dispatch({ type: "UP_RANK", id, category: category });
+        dispatch({ type: DiceRollerReducerActions.UP_RANK, id, category: category });
      }
      const handleDownDiceRank = (id: string) => {
-        dispatch({ type: "DOWN_RANK", id, category: category });
+        dispatch({ type:  DiceRollerReducerActions.DOWN_RANK, id, category: category });
      }
-     const handleChangeDiceTitle = () => {
-
+     const handleChangeDiceTitle = (id: string, title: string) => {
+        dispatch({ type:  DiceRollerReducerActions.CHANGE_TITLE, id, title, category: category });
      }
 
     return (
