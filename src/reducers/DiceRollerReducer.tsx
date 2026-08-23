@@ -171,38 +171,26 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
         }
 
         case DiceRollerReducerActions.ROLL: {
-            let newDiceCategories = diceCategories.map(item =>
-                item.id === action.category
-                    ? {
-                        ...item,
-                        diceList: item.diceList.map(die => (
-                            {
-                                ...die,
-                                result: getRandomInt(die.rank) + 1
+            return diceCategories.map((item) => {
+                if (item.id !== action.category) {
+                    return item;
+                }
 
-                            })
-                        ),
-                    }
-                    : item
-            );
+                const diceList = item.diceList.map((die) => ({
+                    ...die,
+                    result: getRandomInt(die.rank) + 1,
+                }));
 
-            newDiceCategories = newDiceCategories.map(item =>
-                item.id === action.category
-                    ? {
-                        ...item,
-                        result: getCategoryResult(item.diceList)
-                    }
-                    : item
-            );
+                const result = getCategoryResult(diceList);
+                const bestDice = getBestDiceList(diceList, result);
 
-            return newDiceCategories.map(item =>
-                item.id === action.category
-                    ? {
-                        ...item,
-                        bestDice: getBestDiceList(item.diceList, item.result ?? 0)
-                    }
-                    : item
-            );
+                return {
+                    ...item,
+                    diceList,
+                    result,
+                    bestDice,
+                };
+            });
         }
 
         default:
