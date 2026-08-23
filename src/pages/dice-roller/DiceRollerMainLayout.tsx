@@ -23,13 +23,13 @@ export const DiceRollerMainLayout = () => {
                 <DiceCategory category={DiceCategories.NON_SUIT_GEAR} />
               </div>
               <div className="col-span-1 ">
+                <DiceCategory category={DiceCategories.RELATIONSHIPS} />
+                <DiceCategory category={DiceCategories.ASSETS} />
+              </div>
+              <div className="col-span-1 ">
                 <DiceCategory category={DiceCategories.VESSEL_COMBAT} canEdit={false}  />
                 <DiceCategory category={DiceCategories.VESSEL_TRAVEL} canEdit={false}  />
                 <DiceCategory category={DiceCategories.VESSEL_EXTRA}  />
-              </div>
-              <div className="col-span-1 ">
-                <DiceCategory category={DiceCategories.RELATIONSHIPS} />
-                <DiceCategory category={DiceCategories.ASSETS} />
               </div>
             </div>
           </div>

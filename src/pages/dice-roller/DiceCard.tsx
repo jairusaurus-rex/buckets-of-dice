@@ -10,7 +10,7 @@ type DieCardProps = {
   onUpDiceRank: (id: string) => void;
   onDownDiceRank: (id: string) => void;
   onChangeDiceTitle: (id: string, title: string) => void;
-  onDiceClick?: (id: string) => void;
+  onDiceClick?: (rank: number, title: string) => void;
 };
 
 export const DieCard = ({
@@ -111,7 +111,7 @@ export const DieCard = ({
         {/* Clickable die */}
         <button
           type="button"
-          onClick={() => onDiceClick?.(die.id)}
+          onClick={() => onDiceClick?.(die.rank, die.title)}
           className="
             absolute
             inset-3

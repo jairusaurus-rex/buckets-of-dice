@@ -3,6 +3,7 @@ import { useDiceRoller } from "../../contexts/DiceRollerContext";
 import { AddDiceByRank } from "./AddDiceByRank";
 import DieCard from "./DiceCard";
 import { DiceRollerReducerActions } from "../../data-types/enums/dice-roller-reducer-action-enum";
+import { DiceCategories } from "../../data-types/enums/dice-categories-enum";
 
 type DiceCategoryProps = {
     category: string,
@@ -22,7 +23,9 @@ export const DiceCategory = ({ category, canEdit = true }: DiceCategoryProps) =>
     const handleAddDice = (rank: number) => {
         dispatch({ type: DiceRollerReducerActions.ADD, rank, category: category });
     }
-    
+    const handleDiceClick = (rank: number, title: string) => {
+        dispatch({ type: DiceRollerReducerActions.ADD, rank, title, category: DiceCategories.POOL });
+    }
     const handleRemoveDice = (id: string) => {
         dispatch({ type: DiceRollerReducerActions.REMOVE, id, category: category });
     }
@@ -43,7 +46,7 @@ export const DiceCategory = ({ category, canEdit = true }: DiceCategoryProps) =>
                     canEdit && <AddDiceByRank addDice={handleAddDice} />
                 }
 
-                <div className="text-left text-2xl my-4">
+                <div className="text-left text-xl my-4">
                     {title}
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2">
@@ -58,6 +61,7 @@ export const DiceCategory = ({ category, canEdit = true }: DiceCategoryProps) =>
                                     onUpDiceRank={handleUpDiceRank}
                                     onDownDiceRank={handleDownDiceRank}
                                     onChangeDiceTitle={handleChangeDiceTitle}
+                                     onDiceClick={handleDiceClick}
                                 ></DieCard>
                             </span>
                         ))}

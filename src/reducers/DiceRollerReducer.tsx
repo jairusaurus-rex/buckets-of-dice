@@ -90,7 +90,7 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
         case DiceRollerReducerActions.ADD: {
             const newDice: DiceType = {
                 id: Date.now().toString(),
-                title: ``,
+                title: action.title ?? "",
                 rank: action.rank ?? 4,
             };
             return diceCategories.map(item =>
