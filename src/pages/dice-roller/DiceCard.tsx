@@ -34,12 +34,12 @@ export const DieCard = ({
         w-28
         rounded-lg
         border
-        border-gray-700
-        bg-gray-800
+        border-[var(--border)]
+        bg-[var(--border)]
         "
       >
         {/* Die type */}
-        <div className="text-center text-xs font-medium text-gray-400">
+        <div className="text-center text-xs font-medium color-[var(--muted)]">
           D{die.rank}
         </div>
 
@@ -59,8 +59,7 @@ export const DieCard = ({
             w-4
             items-center
             justify-center
-            text-xs
-            text-gray-400
+            color-[var(--muted)]
             hover:text-red-400
           "
         >
@@ -81,9 +80,9 @@ export const DieCard = ({
             z-20
             -translate-y-1/2
             text-sm
-            text-gray-400
-            hover:text-white
+            color-[var(--muted)]
             disabled:opacity-20
+            hover:text-[var(--hover)]
           "
         >
           −
@@ -102,8 +101,8 @@ export const DieCard = ({
             z-20
             -translate-y-1/2
             text-sm
-            text-gray-400
-            hover:text-white
+            color-[var(--muted)]
+            hover:text-[var(--hover)]
           "
         >
           +
@@ -145,7 +144,7 @@ export const DieCard = ({
               justify-center
               text-2xl
               font-bold
-              text-white
+              color-[var(--text)]
             "
           >
             {die.result ?? ""}
@@ -170,8 +169,7 @@ export const DieCard = ({
             bg-transparent
             px-1
             text-center
-            text-[20px]
-            text-gray-300
+            text-[var(--text)]
             outline-none
             placeholder:text-gray-500
             focus:border-b

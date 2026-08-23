@@ -71,11 +71,11 @@ export const DicePool = ({category} : DicePoolProps) => {
                 <input
                     type="text"
                     placeholder="Reason for roll..."
-                    className="w-full p-2 rounded border border-[var(--border)] bg-[var(--bg)]"
+                    className="w-full p-2 rounded border border-[var(--border)] bg-[var(--bg)] "
                 />
 
                 <button
-                    className="w-full p-2 rounded border border-[var(--border)]"
+                    className="w-full p-2 rounded border border-[var(--border)] "
                     onClick={handleRoll}
                 >
                     Roll
