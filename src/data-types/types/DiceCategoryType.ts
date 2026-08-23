@@ -7,4 +7,5 @@ export type DiceCategoryType = {
     result?: number;
     canEditDiceList?: boolean;
     canEditNegativeAttribute?: boolean;
+    bestDice?: string[];
 }

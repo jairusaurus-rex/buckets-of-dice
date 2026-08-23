@@ -4,9 +4,14 @@ import type { DiceCategoryType } from "../data-types/types/DiceCategoryType";
 import type { DiceType } from "../data-types/types/DiceType";
 
 const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActionsType) => {
-    function getRandomInt(max: number): number {
+    const getRandomInt = (max: number): number => {
         return Math.floor(Math.random() * max);
     }
+
+    const getCategoryResult = (diceList: DiceType[]): number => {
+        return diceList.reduce((acc, die) => acc + (die.result ?? 0), 0);
+    }
+
     switch (action.type) {
         case DiceRollerReducerActions.ADD: {
             const newDice: DiceType = {
@@ -92,8 +97,7 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
         }
 
         case DiceRollerReducerActions.ROLL: {
-            console.log("Rolling dice for category: ", action.category);
-            return diceCategories.map(item =>
+            const newDiceCategories = diceCategories.map(item =>
                 item.id === action.category
                     ? {
                         ...item,
@@ -103,7 +107,16 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
                                 result: getRandomInt(die.rank) + 1
 
                             })
-                        )
+                        ),
+                    }
+                    : item
+            );
+
+            return newDiceCategories.map(item =>
+                item.id === action.category
+                    ? {
+                        ...item,
+                        result: getCategoryResult(item.diceList)
                     }
                     : item
             );
