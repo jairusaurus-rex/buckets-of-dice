@@ -1,7 +1,6 @@
 //import { useState } from "react";
 //import { Modal } from "../../components/commons/Modal";
 import { DiceCategories } from "../../data-types/enums/dice-categories-enum";
-import { DiceRollerProvider } from "../../contexts/DiceRollerContext";
 import { DicePool } from "./DicePool";
 
 
@@ -10,7 +9,6 @@ export const DiceRollerMainLayout = () => {
   //const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="p-0 m-0">
-      <DiceRollerProvider>
         <div className="p-0 m-0 grid grid-cols-5 gap-0">
           <div className="col-span-4 p-0 m-0 border ">
             <DicePool category={DiceCategories.POOL} />
@@ -37,7 +35,6 @@ export const DiceRollerMainLayout = () => {
             <div className="border mt-2">options</div>
           </div>
         </div>
-      </DiceRollerProvider>
 
       {/*}
       <button
