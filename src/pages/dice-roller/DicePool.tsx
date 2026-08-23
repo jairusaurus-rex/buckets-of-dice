@@ -81,9 +81,9 @@ export const DicePool = ({category} : DicePoolProps) => {
                 >
                     Roll
                 </button>
-                <div className="text-center">
-                    <span className="text-sm text-[var(--text)]">Result: </span>
-                    <span className="text-sm text-[var(--hover)] font-bold">{result ?? "--"}</span>
+                <div className="text-center text-2xl">
+                    <span className=" text-[var(--text)]">Result: </span>
+                    <span className="text-[var(--hover)] font-bold">{result ?? "--"}</span>
                 </div>
                 <button
                     className={styles.diceButton}
