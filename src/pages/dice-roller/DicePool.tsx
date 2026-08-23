@@ -3,6 +3,7 @@ import { useDiceRoller } from "../../contexts/DiceRollerContext";
 import { AddDiceByRank } from "./AddDiceByRank";
 import DieCard from "./DiceCard";
 import { DiceRollerReducerActions } from "../../data-types/enums/dice-roller-reducer-action-enum";
+import styles from "./DiceRoller.module.css";
 
 type DicePoolProps = {
   category: string
@@ -11,11 +12,11 @@ type DicePoolProps = {
 export const DicePool = ({category} : DicePoolProps) => {
     const { dispatch, diceGroup } = useDiceRoller();
     const index = diceGroup.findIndex((group) => group.id === category)
-    let dice: DiceType[] = []
+    let dice: DiceType[] = [];
+    let result: number | undefined = 0;
     if(index >= 0){
         dice = diceGroup[index].diceList
-    }else{
-        dice = []
+        result = diceGroup[index].result
     }
 
     const handleAddDice = (rank: number) => {
@@ -25,7 +26,7 @@ export const DicePool = ({category} : DicePoolProps) => {
 
      }
      const handleRoll = () => {
-
+        dispatch({ type: DiceRollerReducerActions.ROLL, category: category });
      }
      const handleRemoveDice = (id: string) => {
         dispatch({ type: DiceRollerReducerActions.REMOVE, id, category: category });
@@ -75,14 +76,17 @@ export const DicePool = ({category} : DicePoolProps) => {
                 />
 
                 <button
-                    className="w-full p-2 rounded border border-[var(--border)] "
+                    className={styles.diceButton}
                     onClick={handleRoll}
                 >
                     Roll
                 </button>
-
+                <div className="text-center">
+                    <span className="text-sm text-[var(--text)]">Result: </span>
+                    <span className="text-sm text-[var(--hover)] font-bold">{result ?? "--"}</span>
+                </div>
                 <button
-                    className="w-full p-2 rounded border border-[var(--border)]"
+                    className={styles.diceButton}
                     onClick={handleClear}
                 >
                     Clear

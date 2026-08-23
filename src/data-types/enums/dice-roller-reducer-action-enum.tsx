@@ -4,6 +4,7 @@ export const DiceRollerReducerActions = {
   UP_RANK: "UP_RANK",
   DOWN_RANK: "DOWN_RANK",
   CHANGE_TITLE: "CHANGE_TITLE",
+  ROLL: "ROLL",
 } as const;
 
 export type DiceRollerReducerActionsEnum = typeof DiceRollerReducerActions[keyof typeof DiceRollerReducerActions];

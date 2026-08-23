@@ -4,7 +4,9 @@ import type { DiceCategoryType } from "../data-types/types/DiceCategoryType";
 import type { DiceType } from "../data-types/types/DiceType";
 
 const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActionsType) => {
-
+    function getRandomInt(max: number): number {
+        return Math.floor(Math.random() * max);
+    }
     switch (action.type) {
         case DiceRollerReducerActions.ADD: {
             const newDice: DiceType = {
@@ -41,11 +43,11 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
                 item.id === action.category
                     ? {
                         ...item,
-                        diceList: item.diceList.map(die => 
+                        diceList: item.diceList.map(die =>
                             die.id === action.id && die.rank < 12
                                 ? {
                                     ...die,
-                                   rank: die.rank + 2
+                                    rank: die.rank + 2
                                 }
                                 : die
                         )
@@ -58,11 +60,11 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
                 item.id === action.category
                     ? {
                         ...item,
-                        diceList: item.diceList.map(die => 
+                        diceList: item.diceList.map(die =>
                             die.id === action.id && die.rank > 4
                                 ? {
                                     ...die,
-                                   rank:  die.rank - 2
+                                    rank: die.rank - 2
                                 }
                                 : die
                         )
@@ -76,13 +78,31 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
                 item.id === action.category
                     ? {
                         ...item,
-                        diceList: item.diceList.map(die => 
-                            die.id === action.id && die.rank > 4
+                        diceList: item.diceList.map(die =>
+                            die.id === action.id
                                 ? {
                                     ...die,
-                                   title: action.title ?? item.title
+                                    title: action.title ?? item.title
                                 }
                                 : die
+                        )
+                    }
+                    : item
+            );
+        }
+
+        case DiceRollerReducerActions.ROLL: {
+            console.log("Rolling dice for category: ", action.category);
+            return diceCategories.map(item =>
+                item.id === action.category
+                    ? {
+                        ...item,
+                        diceList: item.diceList.map(die => (
+                            {
+                                ...die,
+                                result: getRandomInt(die.rank) + 1
+
+                            })
                         )
                     }
                     : item

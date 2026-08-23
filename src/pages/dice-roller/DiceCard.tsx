@@ -142,9 +142,9 @@ export const DieCard = ({
               flex
               items-center
               justify-center
-              text-2xl
+              text-4xl
               font-bold
-              color-[var(--text)]
+              text-[var(--text-h)]
             "
           >
             {die.result ?? ""}
