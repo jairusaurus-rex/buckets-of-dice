@@ -8,7 +8,7 @@ import {
 
 import DiceRollerReducer from "../reducers/DiceRollerReducer";
 import type { DiceCategoryType } from "../data-types/types/DiceCategoryType";
-import { DiceCategories } from "../data-types/enums/dice-categories-enum";
+import { diceRollerDummyData } from "./DiceRollerData";
 
 
 
@@ -20,13 +20,7 @@ type DiceContextValue = {
 
 const DiceRollerContext = createContext<DiceContextValue | null>(null);
 
-const initialItems: DiceCategoryType[] = [
-    {
-        id: DiceCategories.POOL,
-        title:  DiceCategories.POOL,
-        diceList: [],
-    }
-];
+const initialItems: DiceCategoryType[] = diceRollerDummyData;
 
 export const DiceRollerProvider = ({ children }: { children: ReactNode }) => {
 

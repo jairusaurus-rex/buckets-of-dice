@@ -165,6 +165,7 @@ export const DieCard = ({
             right-3
             z-20
             h-5
+            text-sm
             w-[calc(100%-1.5rem)]
             bg-transparent
             px-1

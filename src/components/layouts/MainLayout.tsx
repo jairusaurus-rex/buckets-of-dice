@@ -9,7 +9,6 @@ export const MainLayout = () => {
       <Header />
       <Menu />
       <DiceRollerProvider>
-
         <Outlet />
       </DiceRollerProvider>
     </div>

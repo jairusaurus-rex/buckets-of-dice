@@ -1,6 +1,7 @@
 //import { useState } from "react";
 //import { Modal } from "../../components/commons/Modal";
 import { DiceCategories } from "../../data-types/enums/dice-categories-enum";
+import { DiceCategory } from "./DiceCategory";
 import { DicePool } from "./DicePool";
 
 
@@ -10,29 +11,31 @@ export const DiceRollerMainLayout = () => {
   return (
     <div className="p-0 m-0">
         <div className="p-0 m-0 grid grid-cols-5 gap-0">
-          <div className="col-span-4 p-0 m-0 border ">
+          <div className="col-span-4 p-0 m-0  ">
             <DicePool category={DiceCategories.POOL} />
             <div className="p-0 m-0 grid grid-cols-4 gap-0">
-              <div className="col-span-1 border">
-                <div className="border mt-2">attack dice go here</div>
-                <div className="border mt-2">skills dice go here</div>
+              <div className="col-span-1 ">
+                <DiceCategory category={DiceCategories.COMBAT} canEdit={false} />
+                <DiceCategory category={DiceCategories.SKILL} canEdit={false}  />
               </div>
-              <div className="col-span-1 border">
-                <div className="border mt-2">suit gear dice go here</div>
-                <div className="border mt-2">gear dice go here</div>
+              <div className="col-span-1 ">
+                <DiceCategory category={DiceCategories.SUIT_GEAR} canEdit={false}  />
+                <DiceCategory category={DiceCategories.NON_SUIT_GEAR} />
               </div>
-              <div className="col-span-1 border">
-                <div className="border mt-2">vessel dice go here</div>
-                <div className="border mt-2">asset dice go here</div>
+              <div className="col-span-1 ">
+                <DiceCategory category={DiceCategories.VESSEL_COMBAT} canEdit={false}  />
+                <DiceCategory category={DiceCategories.VESSEL_TRAVEL} canEdit={false}  />
+                <DiceCategory category={DiceCategories.VESSEL_EXTRA}  />
               </div>
-              <div className="col-span-1 border">
-                <div className="border mt-2">relationship dice go here</div>
+              <div className="col-span-1 ">
+                <DiceCategory category={DiceCategories.RELATIONSHIPS} />
+                <DiceCategory category={DiceCategories.ASSETS} />
               </div>
             </div>
           </div>
-          <div className="p-0 m-0 border ">
-            <div className="border">messages</div>
-            <div className="border mt-2">options</div>
+          <div className="p-0 m-0  ">
+            <div className="">messages</div>
+            <div className=" mt-2">options</div>
           </div>
         </div>
 
