@@ -1,4 +1,6 @@
 export const HomePage = () => {
   return (
-    <div >hello world  </div>
+    <div >hello Christain  
+      <p>I hope you like your Christain Special Spicy Delux Piza!!</p>
+    </div>
   )};

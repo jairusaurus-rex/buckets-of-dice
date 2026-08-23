@@ -1,5 +1,7 @@
 import d4 from "../../assets/images/dice/d4.png";
 import d6 from "../../assets/images/dice/d6.png";
+import d8 from "../../assets/images/dice/d8.png";
+import d10 from "../../assets/images/dice/d10.png";
 
 
 type AddDiceByRankProps = {
@@ -26,8 +28,22 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                     className="cursor-pointer h-5 w-5 inline-block"
                 />
             </span>
-            <span role="button" onClick={() => addDice(8)} className="cursor-pointer"> d8 </span>
-            <span role="button" onClick={() => addDice(10)} className="cursor-pointer"> d10 </span>
+            <span >
+                <img role="button"
+                    onClick={() => addDice(8)}
+                    src={d8}
+                    alt={`d8`}
+                    className="cursor-pointer h-5 w-5 inline-block"
+                />
+            </span>
+            <span >
+                <img role="button"
+                    onClick={() => addDice(10)}
+                    src={d10}
+                    alt={`d10`}
+                    className="cursor-pointer h-5 w-5 inline-block"
+                />
+            </span>
             <span role="button" onClick={() => addDice(12)} className="cursor-pointer"> d12 </span>
         </div>
     );
