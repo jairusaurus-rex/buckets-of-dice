@@ -3,6 +3,7 @@ import d4 from "../../assets/images/dice/d4.png";
 import d6 from "../../assets/images/dice/d6.png";
 import d8 from "../../assets/images/dice/d8.png";
 import d10 from "../../assets/images/dice/d10.png";
+import d12 from "../../assets/images/dice/d12.png";
 
 type DieCardProps = {
   die: DiceType;
@@ -124,7 +125,7 @@ export const DieCard = ({
         >
           <img
             src={
-              die.rank === 4 ? d4 : die.rank === 6 ? d6 : die.rank === 8 ? d8 :  d10 }
+              die.rank === 4 ? d4 : die.rank === 6 ? d6 : die.rank === 8 ? d8 : die.rank === 10 ? d10 : d12 }
             alt={`D${die.rank}`}
             className="
               h-full
