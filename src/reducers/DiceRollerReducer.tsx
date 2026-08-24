@@ -81,7 +81,6 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
                 }
             }
         }
-        console.log('best dice here>> ', bestDice)
         return bestDice;
     };
 
@@ -190,6 +189,18 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
                     result,
                     bestDice,
                 };
+            });
+        }
+
+        case DiceRollerReducerActions.CLEAR: {
+            return diceCategories.map((item) => {
+                if (item.id !== action.category) {
+                    return item;
+                }
+                return {
+                    ...item,
+                    diceList: []
+                }
             });
         }
 

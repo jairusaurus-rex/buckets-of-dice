@@ -40,10 +40,11 @@ export const DieCard = ({
         "
       >
         {/* Die type */}
+        {/*
         <div className="text-center text-xs font-medium color-[var(--muted)]">
           D{die.rank}
         </div>
-
+          */}
         {/* Delete */}
         <button
           type="button"
@@ -115,7 +116,7 @@ export const DieCard = ({
           onClick={() => onDiceClick?.(die.rank, die.title)}
           className="
             absolute
-            inset-3
+            inset-1
             flex
             items-center
             justify-center
@@ -123,6 +124,7 @@ export const DieCard = ({
             focus:outline-none
           "
         >
+          
           <img
             src={
               die.rank === 4 ? d4 : die.rank === 6 ? d6 : die.rank === 8 ? d8 : die.rank === 10 ? d10 : d12 }
@@ -133,7 +135,7 @@ export const DieCard = ({
               object-contain
             "
           />
-
+            
           {/* Result over the die */}
           <span
             className="

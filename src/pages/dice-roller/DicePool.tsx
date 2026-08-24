@@ -23,7 +23,7 @@ export const DicePool = ({category} : DicePoolProps) => {
         dispatch({ type: DiceRollerReducerActions.ADD, rank, category: category });
     }
      const handleClear = () => {
-
+        dispatch({ type: DiceRollerReducerActions.CLEAR, category: category });
      }
      const handleRoll = () => {
         dispatch({ type: DiceRollerReducerActions.ROLL, category: category });
