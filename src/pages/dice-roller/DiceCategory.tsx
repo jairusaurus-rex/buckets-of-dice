@@ -14,7 +14,7 @@ export const DiceCategory = ({ category, canEdit = true }: DiceCategoryProps) =>
     const { dispatch, diceGroup } = useDiceRoller();
     const index = diceGroup.findIndex((group) => group.id === category)
     let dice: DiceType[] = [];
-    let title: string= ""
+    let title: string = ""
     if (index >= 0) {
         dice = diceGroup[index].diceList
         title = diceGroup[index].title
@@ -40,32 +40,26 @@ export const DiceCategory = ({ category, canEdit = true }: DiceCategoryProps) =>
     }
 
     return (
-        <div className="w-full p-1 m-0">
-            <div className="w-full rounded shadow-lg pt-0 px-2 pb-2 bg-[var(--code-bg)] border border-[var(--border)]">
-                {
-                    canEdit && <AddDiceByRank addDice={handleAddDice} />
-                }
+        <div className="w-full p-1 m-0 bg-[var(--code-bg)] ">
+            {
+                canEdit && <div className="p-1"><AddDiceByRank addDice={handleAddDice} /></div>
+            }
+            <div className="flex flex-col items-center justify-center gap-2">
 
-                <div className="text-left text-xl my-4">
-                    {title}
-                </div>
-                <div className="flex flex-col items-center justify-center gap-2">
-
-                        {dice.map((die) => (
-                            <span
-                                key={die.id}
-                            >
-                                <DieCard
-                                    die={die}
-                                    onRemoveDice={handleRemoveDice}
-                                    onUpDiceRank={handleUpDiceRank}
-                                    onDownDiceRank={handleDownDiceRank}
-                                    onChangeDiceTitle={handleChangeDiceTitle}
-                                     onDiceClick={handleDiceClick}
-                                ></DieCard>
-                            </span>
-                        ))}
-                </div>
+                {dice.map((die) => (
+                    <span
+                        key={die.id}
+                    >
+                        <DieCard
+                            die={die}
+                            onRemoveDice={handleRemoveDice}
+                            onUpDiceRank={handleUpDiceRank}
+                            onDownDiceRank={handleDownDiceRank}
+                            onChangeDiceTitle={handleChangeDiceTitle}
+                            onDiceClick={handleDiceClick}
+                        ></DieCard>
+                    </span>
+                ))}
             </div>
         </div>
     );

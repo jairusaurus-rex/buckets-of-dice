@@ -13,7 +13,7 @@ type AddDiceByRankProps = {
 export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
     return (
         <div className="p-0 m-0 text-sm ">
-            <span >
+            <span className="py-0 px-1">
                 <img role="button"
                     onClick={() => addDice(4)}
                     src={d4}
@@ -21,7 +21,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                     className="cursor-pointer h-5 w-5 inline-block"
                 />
             </span>
-            <span >
+            <span  className="py-0 px-1">
                 <img role="button"
                     onClick={() => addDice(6)}
                     src={d6}
@@ -29,7 +29,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                     className="cursor-pointer h-5 w-5 inline-block"
                 />
             </span>
-            <span >
+            <span  className="py-0 px-1">
                 <img role="button"
                     onClick={() => addDice(8)}
                     src={d8}
@@ -37,7 +37,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                     className="cursor-pointer h-5 w-5 inline-block"
                 />
             </span>
-            <span >
+            <span className="py-0 px-1" >
                 <img role="button"
                     onClick={() => addDice(10)}
                     src={d10}
@@ -45,7 +45,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                     className="cursor-pointer h-5 w-5 inline-block"
                 />
             </span>
-            <span >
+            <span className="py-0 px-1" >
                 <img role="button"
                     onClick={() => addDice(12)}
                     src={d12}
