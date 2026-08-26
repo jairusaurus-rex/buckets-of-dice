@@ -20,11 +20,7 @@ export default function ReadMore({
             <button
               type="button"
               onClick={() => setIsOpen((open) => !open)}
-              className="
-            cursor-pointer
-            color-[var(--muted)]
-          "
-            >
+              className="cursor-pointer color-[var(--muted)]">
               . . .
             </button>
           </div>
