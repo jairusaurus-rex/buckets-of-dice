@@ -11,7 +11,7 @@ type DicePoolProps = {
 };
 
 export const DicePool = ({ category }: DicePoolProps) => {
-    const [rollTitle, setrollTitle] = useState("");
+    const [rollTitle, seRollTitle] = useState("");
     const { dispatch, diceGroup } = useDiceRoller();
     const index = diceGroup.findIndex((group) => group.id === category)
     let dice: DiceType[] = [];
@@ -21,7 +21,7 @@ export const DicePool = ({ category }: DicePoolProps) => {
         result = diceGroup[index].result
     }
     const handleRollTitleChange = (title: string) => {
-        setrollTitle(title);
+        seRollTitle(title);
     }
     const handleAddDice = (rank: number) => {
         dispatch({ type: DiceRollerReducerActions.ADD, rank, category: category });

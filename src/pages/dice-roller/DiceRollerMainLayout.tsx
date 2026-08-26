@@ -4,6 +4,7 @@ import Accordion from "../../components/commons/Accordion";
 import { DiceCategories } from "../../data-types/enums/dice-categories-enum";
 import { DiceCategory } from "./DiceCategory";
 import { DicePool } from "./DicePool";
+import { MessageLog } from "./MessageLog";
 
 
 
@@ -72,12 +73,12 @@ export const DiceRollerMainLayout = () => {
         </div>
         <div className="p-0 m-0  ">
           <div className="m-1">
-            <Accordion title="Log" >
-              <div className="">messages</div>
+            <Accordion title="Log"  defaultOpen={true}>
+              <MessageLog />
             </Accordion>
           </div>
           <div className="m-1">
-            <Accordion title="Options" >
+            <Accordion title="Options">
               <div className=" mt-2">options</div>
             </Accordion>
           </div>

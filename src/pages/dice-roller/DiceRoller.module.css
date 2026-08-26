@@ -10,3 +10,8 @@
   border-color: var(--button-border-hover);
   background: var(--accent-bg);
 }
+
+.messagerBox{
+  height:500px;
+  background: var(--bg);
+}
