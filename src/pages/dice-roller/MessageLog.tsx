@@ -1,10 +1,15 @@
 import { useRef, useState } from "react";
 import styles from "./DiceRoller.module.css";
+import { useMessager } from "../../contexts/MessagerContext";
+import { MessagerReducerActions } from "../../data-types/enums/messager-reducer-action-enum";
+import { MessagePost } from "./MessagePost";
 
 
 export const MessageLog = () => {
     const [newMessage, setNewMessage] = useState("");
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    const { dispatch, messageGroup } = useMessager();
 
     const handleMessageChange = (
         e: React.ChangeEvent<HTMLTextAreaElement>
@@ -52,6 +57,8 @@ export const MessageLog = () => {
         if (textareaRef.current) {
             textareaRef.current.style.height = "auto";
         }
+
+        dispatch({ type: MessagerReducerActions.ADD_JSX,  jsx: sendMessage });
     }
 
     function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -77,7 +84,15 @@ export const MessageLog = () => {
                     {/* Message input */}
                     <div className="px-4 py-2 border border-[var(--border)]">
                         <label htmlFor="comment" className="sr-only">
-                            Your message
+                            {
+                                messageGroup.map((message) => (
+                                    <div key={message.id}>
+                                        <MessagePost>
+                                            {message.jsxElement}
+                                        </MessagePost>
+                                    </div>
+                                ))
+                            }
                         </label>
 
                         <textarea
