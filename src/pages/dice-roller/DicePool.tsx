@@ -50,7 +50,7 @@ export const DicePool = ({ category }: DicePoolProps) => {
             result: newResult,
         });
 
-        const sendMessage = assembleDicePoolResult(dice, rollTitle, newResult, bestDice);
+        const sendMessage = assembleDicePoolResult(newRoll.diceList, rollTitle, newResult, bestDice);
          
 
         messageDispatch({ type: MessagerReducerActions.ADD_JSX, jsx: sendMessage });
