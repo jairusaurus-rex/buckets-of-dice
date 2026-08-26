@@ -1,9 +1,67 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./DiceRoller.module.css";
 
 
 export const MessageLog = () => {
     const [newMessage, setNewMessage] = useState("");
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    const handleMessageChange = (
+        e: React.ChangeEvent<HTMLTextAreaElement>
+    ) => {
+        const value = e.target.value;
+
+        setNewMessage(value);
+
+        const textarea = textareaRef.current;
+
+        if (!textarea) return;
+
+        // Reset height so it can shrink when text is deleted
+        textarea.style.height = "auto";
+
+        // Grow to fit content, but stop at max-height
+        textarea.style.height = `${Math.min(
+            textarea.scrollHeight,
+            128
+        )}px`;
+    }
+
+    function handleSend() {
+        if (!newMessage.trim()) return;
+        console.log('>', newMessage);
+        const lines = newMessage.split(/\r?\n/);
+        console.log('>>', lines)
+
+        setNewMessage("");
+        const sendMessage = () => {
+            return (
+                <div>
+                    {
+                        lines.map((row) => (
+                            <div key={Date.now.toString()}>
+                                {row}
+                            </div>
+                        ))
+                    }
+                </div>
+            )
+        }
+        console.log(sendMessage.toString());
+
+        if (textareaRef.current) {
+            textareaRef.current.style.height = "auto";
+        }
+    }
+
+    function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            handleSend();
+        }
+    }
+
+
     return (
         <div className={`
         flex flex-col 
@@ -15,33 +73,44 @@ export const MessageLog = () => {
             <div className="grow-0 ">
 
 
-                <form>
-                    <div className="w-full mb-4 border border-default-medium rounded-base bg-neutral-secondary-medium shadow-xs">
-                        {/* Message input */}
-                        <div className="px-4 py-2 bg-neutral-secondary-medium rounded-t-base">
-                            <label htmlFor="comment" className="sr-only">
-                                Your message
-                            </label>
+                <div className="w-full">
+                    {/* Message input */}
+                    <div className="px-4 py-2 border border-[var(--border)]">
+                        <label htmlFor="comment" className="sr-only">
+                            Your message
+                        </label>
 
-                            <textarea
-                                id="comment"
-                                rows={4}
-                                className="block w-full px-0 text-sm text-heading bg-neutral-secondary-medium border-0 focus:ring-0 placeholder:text-body"
-                                placeholder="Write a message..."
-                                required
-                            />
-                        </div>
+                        <textarea
+                            ref={textareaRef}
+                            id="comment"
+                            rows={1}
+                            value={newMessage}
+                            onChange={handleMessageChange}
+                            onKeyDown={handleKeyDown}
+                            className="
+                                    block w-full px-0 text-sm
+                                    border-0 focus:ring-0
+                                    placeholder:text-body
+                                    text-[var(--text-h)]
+                                    resize-none
+                                    overflow-y-auto
+                                    max-h-32
+                                "
+                            placeholder="Write a message..."
+                            required
+                        />
+                    </div>
 
-                        {/* Toolbar */}
-                        <div className="flex items-center px-3 py-2 border-t border-default-medium">
-                            {/* Send */}
-                            <button
-                                type="submit"
-                                className="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none"
-                            >
-                                Send
-                            </button>
-                            {/*
+                    {/* Toolbar */}
+                    <div className="flex items-center px-3 py-2 border-t border-default-medium">
+                        {/* Send */}
+                        <button
+                            type="button"
+                            onClick={handleSend}
+                            className={styles.diceButton}>
+                            send
+                        </button>
+                        {/*
                             <div className="flex ps-0 space-x-1 rtl:space-x-reverse sm:ps-2">
                                 <button
                                     type="button"
@@ -157,10 +226,9 @@ export const MessageLog = () => {
                                 </button>
                             </div>
                                 */}
-                        </div>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
+        </div >
     )
 }
