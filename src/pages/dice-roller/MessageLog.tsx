@@ -10,7 +10,7 @@ export const MessageLog = () => {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const messageEndRef = useRef<HTMLDivElement>(null);
 
-    const { dispatch, messageGroup } = useMessager();
+    const { messageDispatch, messageGroup } = useMessager();
 
     useEffect(() => {
         messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -58,7 +58,7 @@ export const MessageLog = () => {
             textareaRef.current.style.height = "auto";
         }
 
-        dispatch({ type: MessagerReducerActions.ADD_JSX, jsx: sendMessage });
+        messageDispatch({ type: MessagerReducerActions.ADD_JSX, jsx: sendMessage });
     }
 
     function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -88,7 +88,7 @@ export const MessageLog = () => {
                 }
                 <div ref={messageEndRef} />
             </div>
-            <div className="grow-0 ">
+            <div className="grow-0 border-t border-[var(--hover)]">
 
 
                 <div className="w-full">
@@ -120,7 +120,7 @@ export const MessageLog = () => {
                     </div>
 
                     {/* Toolbar */}
-                    <div className="flex items-center px-3 py-2 border-t border-default-medium">
+                    <div className="flex items-center px-3 py-2 ">
                         {/* Send */}
                         <button
                             type="button"

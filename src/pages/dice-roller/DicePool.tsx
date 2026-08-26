@@ -5,6 +5,9 @@ import DieCard from "./DiceCard";
 import { DiceRollerReducerActions } from "../../data-types/enums/dice-roller-reducer-action-enum";
 import styles from "./DiceRoller.module.css";
 import { useState } from "react";
+import { useMessager } from "../../contexts/MessagerContext";
+import { MessagerReducerActions } from "../../data-types/enums/messager-reducer-action-enum";
+import { getBestDiceList, rollDice } from "../../utils/diceRoller";
 
 type DicePoolProps = {
     category: string
@@ -13,6 +16,7 @@ type DicePoolProps = {
 export const DicePool = ({ category }: DicePoolProps) => {
     const [rollTitle, seRollTitle] = useState("");
     const { dispatch, diceGroup } = useDiceRoller();
+    const { messageDispatch } = useMessager();
     const index = diceGroup.findIndex((group) => group.id === category)
     let dice: DiceType[] = [];
     let result: number | undefined = 0;
@@ -28,9 +32,62 @@ export const DicePool = ({ category }: DicePoolProps) => {
     }
     const handleClear = () => {
         dispatch({ type: DiceRollerReducerActions.CLEAR, category: category });
+        seRollTitle("");
     }
     const handleRoll = () => {
-        dispatch({ type: DiceRollerReducerActions.ROLL, category: category });
+        if(dice.length ===0){
+            return
+        }
+        const newRoll = rollDice(dice);
+        const newResult = newRoll.result;
+        const bestDice = getBestDiceList(newRoll.diceList, newResult);
+
+        dispatch({
+            type: DiceRollerReducerActions.ROLL,
+            category,
+            diceList: newRoll.diceList,
+            result: newResult,
+        });
+
+        const sendMessage = (
+            <><div>
+                <div>
+                    {rollTitle.trim().length > 0
+                        ? <span>
+                            Roll for: <span className="text-[var(--text-h)]">{rollTitle}</span>
+                        </span>
+                        : ""
+                    }
+                </div>
+                <div>
+                    <span className={
+                        !newResult || newResult === 0
+                            ? "text-[var(--text-h)]"
+                            : newResult > 0 && newResult < 5
+                                ? styles.textD4
+                                : newResult >= 5 && newResult < 10
+                                    ? styles.textD6
+                                    : newResult >= 10 && newResult < 15
+                                        ? styles.textD8
+                                        : newResult >= 15 && newResult < 20
+                                            ? styles.textD10
+                                            : styles.textD12
+                    }>
+                        Result:
+
+                    </span>
+                    <span className="text-[var(--hover)] ml-2">
+                        {newResult === 0
+                            ? `Botch! with ${dice.length} dice`
+                            : newResult ?? "--"}
+                    </span>
+                </div>
+                {bestDice.length > 0 && <div>Best dice: {bestDice.join(", ")}</div>}
+            </div>
+            </>
+        );
+
+        messageDispatch({ type: MessagerReducerActions.ADD_JSX, jsx: sendMessage });
     }
     const handleRemoveDice = (id: string) => {
         dispatch({ type: DiceRollerReducerActions.REMOVE, id, category: category });

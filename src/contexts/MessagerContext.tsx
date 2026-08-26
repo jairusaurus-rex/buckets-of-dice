@@ -13,7 +13,7 @@ import MessagerReducer from "../reducers/MessagerReducer";
 
 type MessagerContextValue = {
     messageGroup: MessageType[];
-    dispatch: Dispatch<any>;
+    messageDispatch: Dispatch<any>;
 };
 
 const MessagerContext = createContext<MessagerContextValue | null>(null);
@@ -22,7 +22,7 @@ const initialItems: MessageType[] = [];
 
 export const MessagerProvider = ({ children }: { children: ReactNode }) => {
 
-    const [items, dispatch] = useReducer(
+    const [items, messageDispatch] = useReducer(
         MessagerReducer,
         initialItems
     );
@@ -31,7 +31,7 @@ export const MessagerProvider = ({ children }: { children: ReactNode }) => {
         <MessagerContext.Provider
             value={{
                 messageGroup: items,
-                dispatch
+                messageDispatch
             }}
         >
             {children}
