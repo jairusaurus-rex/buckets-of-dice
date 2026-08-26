@@ -71,8 +71,16 @@ export const DiceRollerMainLayout = () => {
           </div>
         </div>
         <div className="p-0 m-0  ">
-          <div className="">messages</div>
-          <div className=" mt-2">options</div>
+          <div className="m-1">
+            <Accordion title="Log" >
+              <div className="">messages</div>
+            </Accordion>
+          </div>
+          <div className="m-1">
+            <Accordion title="Options" >
+              <div className=" mt-2">options</div>
+            </Accordion>
+          </div>
         </div>
       </div>
 

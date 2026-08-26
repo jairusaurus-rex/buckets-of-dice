@@ -4,12 +4,14 @@ import { AddDiceByRank } from "./AddDiceByRank";
 import DieCard from "./DiceCard";
 import { DiceRollerReducerActions } from "../../data-types/enums/dice-roller-reducer-action-enum";
 import styles from "./DiceRoller.module.css";
+import { useState } from "react";
 
 type DicePoolProps = {
     category: string
 };
 
 export const DicePool = ({ category }: DicePoolProps) => {
+    const [rollTitle, setrollTitle] = useState("");
     const { dispatch, diceGroup } = useDiceRoller();
     const index = diceGroup.findIndex((group) => group.id === category)
     let dice: DiceType[] = [];
@@ -18,7 +20,9 @@ export const DicePool = ({ category }: DicePoolProps) => {
         dice = diceGroup[index].diceList
         result = diceGroup[index].result
     }
-
+    const handleRollTitleChange = (title: string) => {
+        setrollTitle(title);
+    }
     const handleAddDice = (rank: number) => {
         dispatch({ type: DiceRollerReducerActions.ADD, rank, category: category });
     }
@@ -70,9 +74,35 @@ export const DicePool = ({ category }: DicePoolProps) => {
                     <div className="w-48 flex flex-col gap-2">
 
                         <input
+                            value={rollTitle}
                             type="text"
+                            maxLength={50}
                             placeholder="Reason for roll..."
-                            className="w-full p-2 rounded border border-[var(--border)] bg-[var(--bg)] "
+                            onChange={(e) => handleRollTitleChange(e.target.value)}
+                            className={`
+                                w-full 
+                                p-2 
+                                rounded 
+                                border 
+                                border-[var(--border)] 
+                                bg-[var(--bg)] 
+                                ${!rollTitle
+                                    ? "text-lg"
+                                    : rollTitle.length < 20
+                                        ? "text-lg"
+                                        : rollTitle.length < 25
+                                            ? "text-base"
+                                            : rollTitle.length < 30
+                                                ? "text-sm"
+                                                : rollTitle.length < 35
+                                                    ? "text-xs"
+                                                    : rollTitle.length < 40
+                                                        ? "text-[0.625rem]"
+                                                        : rollTitle.length < 45
+                                                            ? "text-[0.5rem]"
+                                                            : "text-[0.375rem]"
+                                }
+                                    `}
                         />
 
                         <button

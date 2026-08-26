@@ -116,7 +116,7 @@ export const DieCard = ({
           onClick={() => onDiceClick?.(die.rank, die.title)}
           className="
             absolute
-            inset-1
+            inset-2
             flex
             items-center
             justify-center
@@ -124,10 +124,10 @@ export const DieCard = ({
             focus:outline-none
           "
         >
-          
+
           <img
             src={
-              die.rank === 4 ? d4 : die.rank === 6 ? d6 : die.rank === 8 ? d8 : die.rank === 10 ? d10 : d12 }
+              die.rank === 4 ? d4 : die.rank === 6 ? d6 : die.rank === 8 ? d8 : die.rank === 10 ? d10 : d12}
             alt={`D${die.rank}`}
             className="
               h-full
@@ -135,7 +135,7 @@ export const DieCard = ({
               object-contain
             "
           />
-            
+
           {/* Result over the die */}
           <span
             className="
@@ -158,27 +158,44 @@ export const DieCard = ({
         <input
           type="text"
           value={die.title ?? ""}
+          maxLength={25} 
           onChange={(e) => onChangeDiceTitle(die.id, e.target.value)}
           placeholder="..."
           aria-label="Die name"
-          className="
-            absolute
-            bottom-0
-            left-3
-            right-3
-            z-20
-            h-5
-            text-sm
-            w-[calc(100%-1.5rem)]
-            bg-transparent
-            px-1
-            text-center
-            text-[var(--text)]
-            outline-none
-            placeholder:text-gray-500
-            focus:border-b
-            focus:border-gray-500
-          "
+          className={`
+              absolute
+              bottom-0
+              left-3
+              right-3
+              z-30
+              h-5
+              w-[calc(100%-1.5rem)]
+              bg-transparent
+              px-1
+              text-center
+              text-[var(--text)]
+              outline-none
+              placeholder:text-gray-500
+              focus:border-b
+              focus:border-gray-500
+              ${!die.title
+              ? "text-lg"
+              : die.title.length < 6
+                ? "text-lg"
+                : die.title.length < 9
+                  ? "text-base"
+                  : die.title.length < 12
+                    ? "text-sm"
+                    : die.title.length < 15
+                      ? "text-xs"
+                      : die.title.length < 18
+                        ? "text-[0.625rem]"
+                        : die.title.length < 21
+                          ? "text-[0.5rem]"
+                          : "text-[0.375rem]"
+            }
+            `
+          }
         />
       </div>
     </div>
