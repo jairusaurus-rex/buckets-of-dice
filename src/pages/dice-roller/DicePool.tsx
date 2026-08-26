@@ -82,7 +82,7 @@ export const DicePool = ({ category }: DicePoolProps) => {
                             : newResult ?? "--"}
                     </span>
                 </div>
-                {bestDice.length > 0 && <div>Best dice: {bestDice.join(", ")}</div>}
+                {bestDice.length > 0 && <div className="text-[var(--muted)]">{bestDice.join(", or ")}</div>}
             </div>
             </>
         );
