@@ -7,8 +7,8 @@ import styles from "./DiceRoller.module.css";
 import { useState } from "react";
 import { useMessager } from "../../contexts/MessagerContext";
 import { MessagerReducerActions } from "../../data-types/enums/messager-reducer-action-enum";
-import { getBestDiceList, rollDice } from "../../utils/diceRoller";
-import { assembleDicePoolResult } from "../../utils/messageAssembly";
+import { getBestDiceList, rollDice } from "../../utils/DiceRoller";
+import { AssembleDicePoolResult } from "../../utils/MessageAssembly";
 
 type DicePoolProps = {
     category: string
@@ -50,7 +50,7 @@ export const DicePool = ({ category }: DicePoolProps) => {
             result: newResult,
         });
 
-        const sendMessage = assembleDicePoolResult(newRoll.diceList, rollTitle, newResult, bestDice);
+        const sendMessage = AssembleDicePoolResult(newRoll.diceList, rollTitle, newResult, bestDice);
          
 
         messageDispatch({ type: MessagerReducerActions.ADD_JSX, jsx: sendMessage });

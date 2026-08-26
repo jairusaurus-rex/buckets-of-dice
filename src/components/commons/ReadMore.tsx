@@ -12,7 +12,7 @@ export default function ReadMore({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="w-full overflow-hidden rounded-lg border border-[var(--border)]">
+    <div className="w-full overflow-hidden">
       {/* Title / button */}
       <div className={`grid transition-all duration-300 ease-in-out ${!isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
         <div className="overflow-hidden">
@@ -38,7 +38,7 @@ export default function ReadMore({
               type="button"
               onClick={() => setIsOpen((open) => !open)}
               className="cursor-pointer text-[var(--muted)] text-sm ">
-              close
+              <i>close</i>
             </button>
           </div>
         </div>

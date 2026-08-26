@@ -2,7 +2,7 @@ import ReadMore from "../components/commons/ReadMore"
 import type { DiceType } from "../data-types/types/DiceType"
 import styles from "./Util.module.css";
 
-export const assembleDicePoolResult = (
+export const AssembleDicePoolResult = (
     dice: DiceType[],
     rollTitle: string,
     newResult: number,
@@ -55,7 +55,18 @@ export const assembleDicePoolResult = (
                             : newResult ?? "--"}
                     </span>
                 </div>
-                {bestDice.length > 0 && <div className="text-[var(--muted)]">{bestDice.join(" -or- ")}</div>}
+                {bestDice.length > 0 ?
+                    (
+
+                        bestDice.map((bestDie) => (
+                            <div key={bestDie} className="text-[var(--muted)]">
+
+                                ➡️ {bestDie}
+                            </div>
+                        ))
+                    )
+                    : <></>
+                }
             </div>
         </>
     );
