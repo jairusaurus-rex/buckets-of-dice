@@ -8,7 +8,7 @@ const MessagerReducer = (messageTypes: MessageType[], action: MessagerActionsTyp
 
         case MessagerReducerActions.ADD_JSX: {
             const newMessage: MessageType = {
-                id: Date.now.toString(),
+                id: Date.now().toString(),
                 type: MessegerDataTypes.JSX,
                 jsxElement: action.jsx ?? <></>,
                 timestamp: new Date(),

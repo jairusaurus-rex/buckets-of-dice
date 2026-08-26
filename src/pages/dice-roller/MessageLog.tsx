@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./DiceRoller.module.css";
 import { useMessager } from "../../contexts/MessagerContext";
 import { MessagerReducerActions } from "../../data-types/enums/messager-reducer-action-enum";
@@ -8,8 +8,13 @@ import { MessagePost } from "./MessagePost";
 export const MessageLog = () => {
     const [newMessage, setNewMessage] = useState("");
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const messageEndRef = useRef<HTMLDivElement>(null);
 
     const { dispatch, messageGroup } = useMessager();
+
+    useEffect(() => {
+        messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [messageGroup]);
 
     const handleMessageChange = (
         e: React.ChangeEvent<HTMLTextAreaElement>
@@ -39,26 +44,21 @@ export const MessageLog = () => {
         console.log('>>', lines)
 
         setNewMessage("");
-        const sendMessage = () => {
-            return (
-                <div>
-                    {
-                        lines.map((row) => (
-                            <div key={Date.now.toString()}>
-                                {row}
-                            </div>
-                        ))
-                    }
-                </div>
-            )
-        }
-        console.log(sendMessage.toString());
+        const sendMessage = (
+            <div>
+                {lines.map((row, index) => (
+                    <div key={index}>
+                        {row.length > 0 ? <p>{row}</p> : <br></br>}
+                    </div>
+                ))}
+            </div>
+        );
 
         if (textareaRef.current) {
             textareaRef.current.style.height = "auto";
         }
 
-        dispatch({ type: MessagerReducerActions.ADD_JSX,  jsx: sendMessage });
+        dispatch({ type: MessagerReducerActions.ADD_JSX, jsx: sendMessage });
     }
 
     function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -76,7 +76,18 @@ export const MessageLog = () => {
         p-1 
         m-0 
         ${styles.messagerBox}`}>
-            <div className="grow "> Main Box</div>
+            <div className="grow flex flex-col overflow-auto">
+                {
+                    messageGroup.map((message) => (
+                        <div key={message.id}>
+                            <MessagePost>
+                                {message.jsxElement}
+                            </MessagePost>
+                        </div>
+                    ))
+                }
+                <div ref={messageEndRef} />
+            </div>
             <div className="grow-0 ">
 
 
@@ -84,15 +95,7 @@ export const MessageLog = () => {
                     {/* Message input */}
                     <div className="px-4 py-2 border border-[var(--border)]">
                         <label htmlFor="comment" className="sr-only">
-                            {
-                                messageGroup.map((message) => (
-                                    <div key={message.id}>
-                                        <MessagePost>
-                                            {message.jsxElement}
-                                        </MessagePost>
-                                    </div>
-                                ))
-                            }
+                            Enter message here
                         </label>
 
                         <textarea
