@@ -8,12 +8,19 @@ import { MessagePost } from "./MessagePost";
 export const MessageLog = () => {
     const [newMessage, setNewMessage] = useState("");
     const textareaRef = useRef<HTMLTextAreaElement>(null);
-    const messageEndRef = useRef<HTMLDivElement>(null);
+    const messageListRef = useRef<HTMLDivElement>(null);
 
     const { messageDispatch, messageGroup } = useMessager();
 
     useEffect(() => {
-        messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        const messageList = messageListRef.current;
+
+        if (messageList) {
+            messageList.scrollTo({
+                top: messageList.scrollHeight,
+                behavior: "smooth",
+            });
+        }
     }, [messageGroup]);
 
     const handleMessageChange = (
@@ -76,7 +83,7 @@ export const MessageLog = () => {
         p-1 
         m-0 
         ${styles.messagerBox}`}>
-            <div className="grow flex flex-col overflow-auto">
+            <div ref={messageListRef} className="grow min-h-0 flex flex-col overflow-auto">
                 {
                     messageGroup.map((message) => (
                         <div key={message.id}>
@@ -86,7 +93,6 @@ export const MessageLog = () => {
                         </div>
                     ))
                 }
-                <div ref={messageEndRef} />
             </div>
             <div className="grow-0 border-t border-[var(--hover)]">
 
