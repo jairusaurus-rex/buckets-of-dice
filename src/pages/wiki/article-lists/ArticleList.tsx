@@ -2,14 +2,15 @@
 import { WikiArticleLinks } from "../../../data-types/enums/wiki-article-enum.tsx";
 import type { ArticleListType } from "../../../data-types/types/AticleListType.ts";
 import { CharacterCreationArticle } from "../articles/CharacterCreationArticle.tsx";
-import { SkillsArticle } from "../articles/Skills.tsx";
+import { SkillsArticle } from "../articles/SkillsArticle.tsx";
+import { WelcomeArticle } from "../articles/WelcomeArticle.tsx";
 import { ArticleListSpecies } from "./ArticleListSpecies.tsx";
 
 export const ArticleList: ArticleListType[] = [
     {
         id: WikiArticleLinks.WELCOME,
         title: "Welcome",
-        content: <div>Welcome to the Buckets of Dice wiki!</div>,
+        content: <WelcomeArticle />,
     },
     {
         id: WikiArticleLinks.CHARACTER_CREATION,

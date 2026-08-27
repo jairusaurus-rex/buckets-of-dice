@@ -5,7 +5,7 @@ import styles from "./Articles.module.css";
 import type { ArticleListType } from "../../data-types/types/AticleListType";
 import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
 
-export const WikiPage = () => {
+export const ArticlePages = () => {
     const { articleId } = useParams();
 
     const scrollToTop = () => {
