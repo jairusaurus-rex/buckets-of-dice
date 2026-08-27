@@ -1,4 +1,9 @@
 
+.messagerBox{
+  height:500px;
+  background: var(--bg);
+}
+
 .textD4{
   color:#E0523A
 }

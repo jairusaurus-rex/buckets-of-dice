@@ -1,6 +1,6 @@
 import ReadMore from "../components/commons/ReadMore"
 import type { DiceType } from "../data-types/types/DiceType"
-import styles from "./Util.module.css";
+import styles from  "../components/layouts/Layout.module.css";
 
 export const AssembleDicePoolResult = (
     dice: DiceType[],
