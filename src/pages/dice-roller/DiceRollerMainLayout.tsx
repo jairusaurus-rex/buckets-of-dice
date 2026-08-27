@@ -12,10 +12,10 @@ export const DiceRollerMainLayout = () => {
   //const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="p-0 m-0">
-      <div className="p-0 m-0 grid grid-cols-5 gap-0">
-        <div className="col-span-4 p-0 m-0  ">
+      <div className="p-0 m-0 grid grid-cols-1 gap-0 md:grid-cols-5">
+        <div className="col-span-1 p-0 m-0 md:col-span-4  ">
           <DicePool category={DiceCategories.POOL} />
-          <div className="p-0 m-0 grid grid-cols-4 gap-0">
+          <div className="p-0 m-0 grid grid-cols-1 gap-0 md:grid-cols-4">
             <div className="col-span-1 ">
               <div className="m-1">
                 <Accordion title={DiceCategories.COMBAT} >
@@ -71,7 +71,7 @@ export const DiceRollerMainLayout = () => {
             </div>
           </div>
         </div>
-        <div className="p-0 m-0  ">
+        <div className="col-span-1 p-0 m-0  ">
           <div className="m-1">
             <Accordion title="Log"  defaultOpen={true}>
               <MessageLog />

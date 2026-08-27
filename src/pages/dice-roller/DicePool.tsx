@@ -74,7 +74,7 @@ export const DicePool = ({ category }: DicePoolProps) => {
 
                 <AddDiceByRank addDice={handleAddDice} />
 
-                <div className="flex gap-4 p-2">
+                <div className="flex flex-col gap-4 p-2 md:flex-row">
 
                     {/* Dice */}
                     <div className="flex-1 flex flex-wrap gap-2 content-start">
@@ -94,7 +94,7 @@ export const DicePool = ({ category }: DicePoolProps) => {
                     </div>
 
                     {/* Controls */}
-                    <div className="w-48 flex flex-col gap-2">
+                    <div className="w-full flex flex-col gap-2 md:w-48">
 
                         <input
                             value={rollTitle}
