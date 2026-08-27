@@ -11,16 +11,25 @@ export const MessageLog = () => {
     const messageListRef = useRef<HTMLDivElement>(null);
 
     const { messageDispatch, messageGroup } = useMessager();
+const hasMounted = useRef(false);
 
     useEffect(() => {
         const messageList = messageListRef.current;
 
-        if (messageList) {
-            messageList.scrollTo({
-                top: messageList.scrollHeight,
-                behavior: "smooth",
-            });
+        if (!messageList) return;
+
+        // Don't animate when the component first mounts
+        if (!hasMounted.current) {
+            messageList.scrollTop = messageList.scrollHeight;
+            hasMounted.current = true;
+            return;
         }
+
+        // Animate when new messages are added
+        messageList.scrollTo({
+            top: messageList.scrollHeight,
+            behavior: "smooth",
+        });
     }, [messageGroup]);
 
     const handleMessageChange = (
