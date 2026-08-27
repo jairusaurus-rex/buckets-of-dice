@@ -76,7 +76,7 @@ export const HomePage = () => {
 
       <footer className={styles.footer}>
         <div>
-        Created by <strong>MegaJairus</strong>
+        Created by <strong>Jairus</strong>
           <a href="https://www.linkedin.com/in/jairus-houdek-806679104/" target="_blank" rel="noreferrer" aria-label="jairus on LinkedIn" className="ml-3">
             <span className="text-lg"><FontAwesomeIcon icon={faLinkedin}  /></span>
             <span>LinkedIn</span>
