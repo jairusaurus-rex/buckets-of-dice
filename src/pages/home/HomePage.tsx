@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedinIn, faLinkedin, faTailwindCss } from "@fortawesome/free-brands-svg-icons";
+import {  faLinkedin, faTailwindCss } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import d12 from "../../assets/images/dice/d12.png";
 import styles from "./HomePage.module.css";

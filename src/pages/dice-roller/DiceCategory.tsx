@@ -14,10 +14,8 @@ export const DiceCategory = ({ category, canEdit = true }: DiceCategoryProps) =>
     const { dispatch, diceGroup } = useDiceRoller();
     const index = diceGroup.findIndex((group) => group.id === category)
     let dice: DiceType[] = [];
-    let title: string = ""
     if (index >= 0) {
         dice = diceGroup[index].diceList
-        title = diceGroup[index].title
     }
 
     const handleAddDice = (rank: number) => {
