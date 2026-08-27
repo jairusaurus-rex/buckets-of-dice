@@ -46,8 +46,7 @@ export const HomePage = () => {
 
       <section className={styles.infoGrid}>
         <div className={styles.infoLead}>
-          <p className={styles.sectionLabel}>The engine room</p>
-          <h2>Powered by</h2>
+          <h3>Powered by</h3>
           <h2><span>Buckets of Dice</span></h2>
           <p>
             A fast, easy-to-read dice-pool system designed to emphasize accessibility, freedom of action, teamwork, and resource management.
