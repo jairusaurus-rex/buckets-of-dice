@@ -2,7 +2,7 @@ import { DiceRollerReducerActions } from "../data-types/enums/dice-roller-reduce
 import type { DiceActionsType } from "../data-types/types/DiceActionsType";
 import type { DiceCategoryType } from "../data-types/types/DiceCategoryType";
 import type { DiceType } from "../data-types/types/DiceType";
-import { getBestDiceList, getCategoryResult } from "../utils/DiceRoller";
+import { getBestDiceList, getCategoryResult } from "../utils/diceRollerUtil";
 
 const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActionsType) => {
     switch (action.type) {

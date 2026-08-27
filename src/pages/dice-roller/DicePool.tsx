@@ -7,8 +7,8 @@ import styles from "./DiceRoller.module.css";
 import { useState } from "react";
 import { useMessager } from "../../contexts/MessagerContext";
 import { MessagerReducerActions } from "../../data-types/enums/messager-reducer-action-enum";
-import { getBestDiceList, rollDice } from "../../utils/DiceRoller";
-import { AssembleDicePoolResult } from "../../utils/MessageAssembly";
+import { getBestDiceList, rollDice } from "../../utils/diceRollerUtil";
+import { AssembleDicePoolResult } from "../../utils/messageAssemblyUtil";
 
 type DicePoolProps = {
     category: string
