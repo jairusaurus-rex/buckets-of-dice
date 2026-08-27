@@ -10,5 +10,5 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-  base: process.env.VITE_BASE_PATH || "/buckets-of-dice",
+  //base: process.env.VITE_BASE_PATH || "/buckets-of-dice",
 })
