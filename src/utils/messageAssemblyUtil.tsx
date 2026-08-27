@@ -18,7 +18,7 @@ export const AssembleDicePoolResult = (
                                 <div key={die.id} className="text-xs text-[var(--text)]">
                                     <span>{die.rank && `d${die.rank}`}</span>
                                     <span>{die.title.trim().length > 0 && ` - ${die.title} -`}</span>
-                                    <span>{die.result && ` rolled  ${die.result}`}</span>
+                                    <span>{die.result && ` =  ${die.result}`}</span>
                                 </div>
                             ))}
                         </>
@@ -46,7 +46,7 @@ export const AssembleDicePoolResult = (
                                             ? styles.textD10
                                             : styles.textD12
                     }>
-                        Result:
+                    {newResult > 0 && <span className="pr-1">Result:</span> }   
 
                     </span>
                     <span className="text-[var(--hover)] ml-2">
