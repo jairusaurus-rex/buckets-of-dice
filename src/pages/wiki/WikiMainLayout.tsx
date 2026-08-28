@@ -28,7 +28,7 @@ export const WikiMainLayout = () => {
           type="button"
           aria-label="Close wiki sidebar overlay"
           onClick={() => setIsSidebarOpen(false)}
-          className="fixed inset-0 z-30 bg-black/20 md:hidden"
+          className="fixed inset-0 z-30 bg-[var(--bg)] md:hidden"
         />
       )}
 
