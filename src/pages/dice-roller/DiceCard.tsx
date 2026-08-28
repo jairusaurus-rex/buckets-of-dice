@@ -50,6 +50,7 @@ export const DieCard = ({
           type="button"
           onClick={() => onRemoveDice(die.id)}
           aria-label="Delete die"
+          tabIndex={-1}
           className="
             cursor-pointer
             absolute
@@ -74,6 +75,7 @@ export const DieCard = ({
           onClick={() => onDownDiceRank(die.id)}
           disabled={die.rank <= 2}
           aria-label="Decrease die size"
+          tabIndex={-1}
           className="
             cursor-pointer
             absolute
@@ -95,6 +97,7 @@ export const DieCard = ({
           type="button"
           onClick={() => onUpDiceRank(die.id)}
           aria-label="Increase die size"
+          tabIndex={-1}
           className="
             absolute
             cursor-pointer
@@ -114,6 +117,7 @@ export const DieCard = ({
         <button
           type="button"
           onClick={() => onDiceClick?.(die.rank, die.title)}
+          tabIndex={-1}
           className="
             absolute
             inset-2
