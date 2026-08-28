@@ -4,5 +4,6 @@
 
 .wiki img{
   float: right;
-  width: 20rem
+  width: 50%;
+  height: auto;
 }
