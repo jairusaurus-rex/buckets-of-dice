@@ -26,7 +26,7 @@ export const DiceRollerMainLayout = () => {
         </button>
       )}
 
-      <div className="p-0 m-0 grid grid-cols-1 gap-0 md:grid-cols-5">
+      <div className="bg-[var(--bg)]/75 p-0 m-0 grid grid-cols-1 gap-0 md:grid-cols-5">
         <div className="col-span-1 p-0 m-0 md:col-span-4  ">
           <DicePool category={DiceCategories.POOL} />
           <div className="p-0 m-0 grid grid-cols-1 gap-0 md:grid-cols-4">
