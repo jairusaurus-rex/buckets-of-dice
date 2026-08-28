@@ -115,7 +115,14 @@ export const WikiSideBar = ({ isOpen, onClose }: WikiSideBarProps) => {
 
   return (
     <aside
-      className={`fixed left-0 top-0 z-40 h-full w-72 border-r border-[var(--border)] bg-[var(--bg)] p-4 shadow-lg transition-transform duration-200 md:static md:z-auto md:h-auto md:w-64 md:translate-x-0 md:shadow-none ${
+      className={`
+        fixed left-0 
+        top-0 z-40 h-full w-72 
+        border-r border-[var(--border)] 
+        bg-[var(--bg)] md:bg-[var(--bg)]/90 
+        p-4 
+        shadow-lg 
+        transition-transform duration-200 md:static md:z-auto md:h-auto md:w-64 md:translate-x-0 md:shadow-none ${
         isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
       }`}
     >

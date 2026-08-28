@@ -72,6 +72,24 @@
 
 body {
   margin: 0;
+  position: relative;
+  min-height: 100svh;
+  background: var(--bg);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("./assets/images/wallpaper/cover-one.jpg") center / cover no-repeat;
+  opacity: 0.3;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 h1,

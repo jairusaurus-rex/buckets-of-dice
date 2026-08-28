@@ -70,7 +70,7 @@ export const ArticlePages = () => {
     }, [articleId]);
 
     return (
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col bg-[var(--bg)]/90 m1  p-5 md:p-8 ">
             <div className="mb-6">
                 <h1 className="text-3xl font-bold text-[var(--text-h)] mb-2">
                     {article.title}
