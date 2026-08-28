@@ -1,6 +1,8 @@
 import ReadMore from "../components/commons/ReadMore"
 import type { DiceType } from "../data-types/types/DiceType"
-import styles from  "../components/layouts/Layout.module.css";
+import styles from "../components/layouts/Layout.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleRight } from "@fortawesome/free-solid-svg-icons/faCircleRight";
 
 export const AssembleDicePoolResult = (
     dice: DiceType[],
@@ -16,8 +18,20 @@ export const AssembleDicePoolResult = (
                         <>
                             {dice.map((die) => (
                                 <div key={die.id} className="text-xs text-[var(--text)]">
-                                    <span>{die.rank && `d${die.rank}`}</span>
-                                    <span>{die.title.trim().length > 0 && ` - ${die.title} -`}</span>
+                                    <span className={
+                                        die.rank === 4
+                                            ? styles.textD4
+                                            : die.rank === 6
+                                                ? styles.textD6
+                                                : die.rank === 8
+                                                    ? styles.textD8
+                                                    : die.rank === 10
+                                                        ? styles.textD10
+                                                        : styles.textD12
+                                    }>
+                                        <span>{die.rank && `d${die.rank}`}</span>
+                                        <span>{die.title.trim().length > 0 && ` - ${die.title}`}</span>
+                                    </span>
                                     <span>{die.result && ` =  ${die.result}`}</span>
                                 </div>
                             ))}
@@ -46,7 +60,7 @@ export const AssembleDicePoolResult = (
                                             ? styles.textD10
                                             : styles.textD12
                     }>
-                    {newResult > 0 && <span className="pr-1">Result:</span> }   
+                        {newResult > 0 && <span className="pr-1">Result:</span>}
 
                     </span>
                     <span className="text-[var(--hover)] ml-2">
@@ -61,7 +75,16 @@ export const AssembleDicePoolResult = (
                         bestDice.map((bestDie) => (
                             <div key={bestDie} className="text-[var(--muted)]">
 
-                                ➡️ {bestDie}
+                                <FontAwesomeIcon className={newResult > 0 && newResult < 5
+                                    ? styles.textD4
+                                    : newResult >= 5 && newResult < 10
+                                        ? styles.textD6
+                                        : newResult >= 10 && newResult < 15
+                                            ? styles.textD8
+                                            : newResult >= 15 && newResult < 20
+                                                ? styles.textD10
+                                                : styles.textD12} icon={faCircleRight} />
+                                {bestDie}
                             </div>
                         ))
                     )
