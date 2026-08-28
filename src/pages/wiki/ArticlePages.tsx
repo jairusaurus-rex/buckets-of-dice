@@ -41,8 +41,6 @@ export const ArticlePages = () => {
             nextSibling: null as ArticleListType | null,
         };
 
-        if (!articleId) return result;
-
         const findNavigation = (
             items: ArticleListType[],
             id: string,
@@ -65,7 +63,7 @@ export const ArticlePages = () => {
             return false;
         };
 
-        findNavigation(ArticleList, articleId);
+        findNavigation(ArticleList, articleId ?? ArticleList[0].id);
         return result;
     }, [articleId]);
 

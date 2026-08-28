@@ -7,11 +7,11 @@ import { WelcomeArticle } from "../articles/WelcomeArticle.tsx";
 import { ArticleListSpecies } from "./ArticleListSpecies.tsx";
 
 export const ArticleList: ArticleListType[] = [
-    {
+    /*{
         id: WikiArticleLinks.WELCOME,
         title: "Welcome",
         content: <WelcomeArticle />,
-    },
+    },*/
     {
         id: WikiArticleLinks.CHARACTER_CREATION,
         title: "Character Creation",
