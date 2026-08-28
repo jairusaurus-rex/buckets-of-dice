@@ -4,10 +4,11 @@ import { MainLayout } from "../components/layouts/MainLayout";
 import { HomePage } from "../pages/home/HomePage";
 import { WikiMainLayout } from "../pages/wiki/WikiMainLayout";
 import { DiceRollerMainLayout } from "../pages/dice-roller/DiceRollerMainLayout";
+import { PageNotFound } from "../components/commons/PageNotFound";
 
 const MainRouter = createBrowserRouter([
     {
-        element: <MainLayout  />,
+        element: <MainLayout />,
         children: [
             {
                 path: "/",
@@ -26,7 +27,11 @@ const MainRouter = createBrowserRouter([
                 element: <DiceRollerMainLayout />
             },
         ]
-    }
+    },
+    {
+        path: "*",
+        element: <PageNotFound />
+    },
 ]);
 
 export default MainRouter;
