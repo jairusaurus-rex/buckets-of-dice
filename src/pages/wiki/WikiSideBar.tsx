@@ -122,6 +122,7 @@ export const WikiSideBar = ({ isOpen, onClose }: WikiSideBarProps) => {
         bg-[var(--bg)] md:bg-[var(--bg)]/90 
         p-4 
         shadow-lg 
+        overflow-auto
         transition-transform duration-200 md:static md:z-auto md:h-auto md:w-64 md:translate-x-0 md:shadow-none ${
         isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
       }`}
