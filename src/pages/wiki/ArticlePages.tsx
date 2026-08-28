@@ -4,12 +4,13 @@ import { ArticleList } from "./article-lists/ArticleList";
 import styles from "./Articles.module.css";
 import type { ArticleListType } from "../../data-types/types/AticleListType";
 import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
+import { ArticleNotFound } from "./articles/ArticleNotFound";
 
 export const ArticlePages = () => {
     const { articleId } = useParams();
 
     const scrollToTop = () => {
-        window.scrollTo(0, 150);
+        window.scrollTo(0, 0);
     };
 
     const article = useMemo(() => {
@@ -27,10 +28,11 @@ export const ArticlePages = () => {
                     if (found) return found;
                 }
             }
+            console.log('non are found')
             return null;
         };
 
-        return findArticle(ArticleList, articleId) || ArticleList[0];
+        return findArticle(ArticleList, articleId);
     }, [articleId]);
 
     // Find parent, previous sibling, and next sibling
@@ -70,18 +72,18 @@ export const ArticlePages = () => {
     return (
         <div className="flex-1 flex flex-col bg-[var(--bg)]/90 m1  p-5 md:p-8 ">
             <div className="mb-6">
-                <h1 className="text-3xl font-bold text-[var(--text-h)] mb-2">
-                    {article.title}
-                </h1>
+                <h2 className="text-3xl font-bold text-[var(--text-h)] mb-2">
+                    {article ? article.title : "Article Not Found"}
+                </h2>
                 <div className="border-b border-[var(--border)]"></div>
             </div>
-            <div className={styles.wiki}>{article.content}</div>
-
-            <WikiArticleNavigationFooter
+            <div className={styles.wiki}>{article ? article.content : <ArticleNotFound />}</div>
+            {article && <WikiArticleNavigationFooter
                 article={article}
                 navigation={navigation}
                 onNavigate={scrollToTop}
-            />
+            />}
+            
         </div>
     );
 }
