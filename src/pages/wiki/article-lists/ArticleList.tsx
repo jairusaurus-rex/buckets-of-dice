@@ -3,6 +3,7 @@ import { WikiArticleLinks } from "../../../data-types/enums/wiki-article-enum.ts
 import type { ArticleListType } from "../../../data-types/types/AticleListType.ts";
 import { CharacterCreationArticle } from "../articles/CharacterCreationArticle.tsx";
 import { SkillsArticle } from "../articles/SkillsArticle.tsx";
+import { ArticleListGear } from "./ArticleListGear.tsx";
 import { ArticleListSpecies } from "./ArticleListSpecies.tsx";
 
 export const ArticleList: ArticleListType[] = [
@@ -22,23 +23,7 @@ export const ArticleList: ArticleListType[] = [
         content: <SkillsArticle />
     },
     ArticleListSpecies,
-    {
-        id: WikiArticleLinks.GEAR,
-        title: "Gear",
-        content: <div>Equipment content goes here.</div>,
-        children: [
-            {
-                id: WikiArticleLinks.GEAR_SUIT,
-                title: "Suit Gear",
-                content: <div>Equipment content goes here.</div>
-            },
-            {
-                id: WikiArticleLinks.GEAR_NON_SUIT,
-                title: "Gear (Non Suit)",
-                content: <div>Equipment content goes here.</div>
-            },
-        ]
-    },
+    ArticleListGear,
     {
         id: WikiArticleLinks.LEVELING,
         title: "Leveling",
