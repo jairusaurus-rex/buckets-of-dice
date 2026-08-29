@@ -1,5 +1,4 @@
 
-import styles from "../../Articles.module.css";
 
 export const GearArticle = () => {
     return (
