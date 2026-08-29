@@ -1,6 +1,10 @@
+import art from "../../../assets/images/art/skills_datapad.png"
+
+
 export const SkillsArticle = () => {
     return (
         <div className="p-2 text-justify">
+            <img src={art} alt={`character_creation`} />
             <p className="p-2">There are ten skills that a spacer has in Into the Heavens. A usual dice check uses one skill, unless a feat gives them more or there are special circumstances. Unless a feat or special circumstance applies, a spacer uses one skill for each dice check. In these instances, if more than one skill makes sense for the check, the player chooses which skill to use.</p>
             <ul className="list-none list-inside pl-4 space-y-2">
                 <li className="list-item p-2"><span className="font-bold text-lg">Computing</span> - a skill related to technology and systems. This deals with software rather than hardware. Using a computer, a ships panel, or any sort of hacking uses this skill. Some gear can use this skill if there is an interface on the gear.</li>

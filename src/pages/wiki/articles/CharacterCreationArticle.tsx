@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import { WikiArticleLinks } from "../../../data-types/enums/wiki-article-enum";
-import character_creation from "../../../assets/images/art/character_creation.png"
+import art from "../../../assets/images/art/character_creation.png"
 
 export const CharacterCreationArticle = () => {
   return (
     <div className={`p-2 text-justify `}>
-      <img
-            src={character_creation}
-            alt={`character_creation`}
-          />
+      <img src={art} alt={`character_creation`} />
 
       <p className="p-1">There are Six steps to creating a character in Into the Heavens.</p>
       <ol className="list-decimal list-inside pl-4 space-y-2">
