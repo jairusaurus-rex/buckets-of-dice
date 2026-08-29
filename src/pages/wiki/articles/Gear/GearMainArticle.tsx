@@ -14,7 +14,7 @@ export const GearArticle = () => {
             <p className="p-2">You can only have one Star Suit Accent at a time but you can spend 10 credits to change your accent, it’s dice stays
                 the same. The Tech level of the area you are in must equal the accent dice to do this </p>
             <h3 className="font-bold">Upgrading</h3>
-            <table className={`m-4 border-collapse text-left w-full md:w-1/2 float-none md:float-right border border-[var(--border)] text-center`}>
+            <table className={`m-4 border-collapse text-left w-1/2 md:w-1/4 float-left border border-[var(--border)] text-center`}>
                 <thead className="text-center">
                     <tr className="border-b border-[var(--border)] ">
                         <th className="px-4 py-3 font-semibold text-gray-900 dark:text-gray-100">
@@ -23,42 +23,25 @@ export const GearArticle = () => {
                         <th className="px-4 py-3 font-semibold text-gray-900 dark:text-gray-100">
                             Cost to upgrade
                         </th>
-                        <th className="px-4 py-3 font-semibold text-gray-900 dark:text-gray-100">
-                            Total spent (for reference)
-                        </th>
                     </tr>
                 </thead>
 
                 <tbody className="text-center">
                     <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">-</td>
-                        <td className="p-1">10</td>
-                        <td className="p-1">N/A</td>
-                    </tr>
-                    <tr className="border-b border-[var(--border)]">
                         <td className="p-1">D4</td>
                         <td className="p-1">20</td>
-                        <td className="p-1">10</td>
                     </tr>
                     <tr className="border-b border-[var(--border)]">
                         <td className="p-1">D6</td>
-                        <td className="p-1">30</td>
                         <td className="p-1">30</td>
                     </tr>
                     <tr className="border-b border-[var(--border)]">
                         <td className="p-1">D8</td>
                         <td className="p-1">40</td>
-                        <td className="p-1">60</td>
                     </tr>
                     <tr className="border-b border-[var(--border)]">
                         <td className="p-1">D10</td>
                         <td className="p-1">50</td>
-                        <td className="p-1">100</td>
-                    </tr>
-                    <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">D12</td>
-                        <td className="p-1">N/A</td>
-                        <td className="p-1">150</td>
                     </tr>
                 </tbody>
             </table>
@@ -67,8 +50,8 @@ export const GearArticle = () => {
                 increase that gear by 2. The max a gear can be is 12. To upgrade, the area’s tech level must be at least the current dice of the item
                 you are upgrading</p>
 
-            <h3 className="font-bold clear-both">Selling</h3>
-            <table className={`m-4 border-collapse text-left w-1/2 md:w-1/4 float-right md:float-left border border-[var(--border)] text-center`}>
+            <h3 className="font-bold ">Selling</h3>
+            <table className={`m-4 border-collapse text-left w-1/2 md:w-1/4 float-right border border-[var(--border)] text-center`}>
                 <thead className="text-center">
                     <tr className="border-b border-[var(--border)] ">
                         <th className="px-4 py-3 font-semibold text-gray-900 dark:text-gray-100">
