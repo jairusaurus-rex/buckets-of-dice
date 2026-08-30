@@ -8,7 +8,7 @@ import {
 
 import DiceRollerReducer from "../reducers/DiceRollerReducer";
 import type { DiceCategoryType } from "../data-types/types/DiceCategoryType";
-import { diceRollerDummyData } from "./DiceRollerData";
+import { diceRollerDummyData } from "../assets/data/DiceRollerData";
 
 
 

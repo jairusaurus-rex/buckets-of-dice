@@ -1,5 +1,5 @@
-import { DiceCategories } from "../data-types/enums/dice-categories-enum";
-import type { DiceCategoryType } from "../data-types/types/DiceCategoryType";
+import { DiceCategories } from "../../data-types/enums/dice-categories-enum";
+import type { DiceCategoryType } from "../../data-types/types/DiceCategoryType";
 
 export const diceRollerDummyData: DiceCategoryType[] = [
     {

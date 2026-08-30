@@ -1,6 +1,8 @@
 export type HeaderInfoType = {
   objectName: string;
   headerName: string;
+  innerStyle?: string;
+  type?: string
 }
 
 
@@ -38,7 +40,7 @@ export default function BucketTable({
           {rows.map((row, index) => (
             <tr key={index} className={index % 2 === 0 ? "bg-[var(--bg)]" : "bg-[var(--code-bg)]"}>
               {headerInfo.map((header) => (
-                <th key={`${index}_${header.objectName}`}>
+                <th key={`${index}_${header.objectName}`} className={header.innerStyle ?? ""}>
                   {row[header.objectName]}
                 </th>
               ))}
