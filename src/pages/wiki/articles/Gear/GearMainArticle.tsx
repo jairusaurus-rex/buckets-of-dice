@@ -1,32 +1,32 @@
 import type { HeaderInfoType } from "../../../../components/commons/BucketTable"
-import BucketTable from "../../../../components/commons/BucketTable"
+import BucketTable, { BucketTableTypeOptions } from "../../../../components/commons/BucketTable"
 
 
 export const GearArticle = () => {
 
     const upgradeGearTable: HeaderInfoType[] = [
-        { objectName: "dieRate", headerName: "Gear" },
-        { objectName: "price", headerName: "Cost to upgrade" },
+        { objectName: "dieRate", headerName: "Gear", type: BucketTableTypeOptions.DICE},
+        { objectName: "price", headerName: "Cost to upgrade", type: BucketTableTypeOptions.CURRENCY },
     ]
 
     const sellGearTable: HeaderInfoType[] = [
-        { objectName: "dieRate", headerName: "Gear" },
-        { objectName: "price", headerName: "Sell Amount" },
+        { objectName: "dieRate", headerName: "Gear", type: BucketTableTypeOptions.DICE},
+        { objectName: "price", headerName: "Sell Amount", type: BucketTableTypeOptions.CURRENCY },
     ]
 
     const upgradeData = [
-        { dieRate: "d4", price: 20 },
-        { dieRate: "d6", price: 30 },
-        { dieRate: "d8", price: 40 },
-        { dieRate: "d10", price: 50 },
+        { dieRate: 4, price: 20 },
+        { dieRate: 6, price: 30 },
+        { dieRate: 8, price: 40 },
+        { dieRate: 10, price: 50 },
     ]
 
     const sellData = [
-        { dieRate: "d4", price: 5 },
-        { dieRate: "d6", price: 15 },
-        { dieRate: "d8", price: 30 },
-        { dieRate: "d10", price: 50 },
-        { dieRate: "d12", price: 75 },
+        { dieRate: 4, price: 5 },
+        { dieRate: 6, price: 15 },
+        { dieRate: 8, price: 30 },
+        { dieRate: 10, price: 50 },
+        { dieRate: 12, price: 75 },
     ]
 
     return (

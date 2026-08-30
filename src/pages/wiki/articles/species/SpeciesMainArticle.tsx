@@ -19,8 +19,8 @@ export const SpeciesMain = () => {
             objectName: "featName", headerName: "Feat", innerStyle: " p-1 text-sm font-normal",
             cellException: (row, value) => (
                 <>
-                    <strong>{value}</strong>
-                    <span>{row.featDescription}</span>
+                    <strong>{value} </strong>
+                    <span> - {row.featDescription}</span>
                 </>
             )
         },
