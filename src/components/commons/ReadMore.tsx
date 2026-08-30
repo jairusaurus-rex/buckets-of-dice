@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 
-interface ReadMoreProps {
+type ReadMoreProps = {
   children: ReactNode;
   defaultOpen?: boolean;
 }

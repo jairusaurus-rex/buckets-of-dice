@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArticleList } from "./article-lists/ArticleList";
 import type { ArticleListType } from "../../data-types/types/AticleListType";
 
-interface WikiSideBarProps {
+type WikiSideBarProps = {
   isOpen: boolean;
   onClose: () => void;
 }

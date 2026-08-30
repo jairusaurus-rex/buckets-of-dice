@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import type { ArticleListType } from "../../data-types/types/AticleListType";
 
-interface NavigationInfo {
+type NavigationInfo = {
   parent: ArticleListType | null;
   prevSibling: ArticleListType | null;
   nextSibling: ArticleListType | null;
 }
 
-interface WikiArticleNavigationFooterProps {
+type WikiArticleNavigationFooterProps = {
   article: ArticleListType;
   navigation: NavigationInfo;
   onNavigate: () => void;

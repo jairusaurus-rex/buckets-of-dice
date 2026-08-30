@@ -8,6 +8,10 @@
   height: auto;
 }
 
+.wiki h1, h2, h3, h4{
+  color: #4089C9;
+}
+
 .tableSm{
   float: right;
   width: 25%;

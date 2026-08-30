@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 
-interface AccordionProps {
+type AccordionProps = {
   title: string;
   children: ReactNode;
   defaultOpen?: boolean;

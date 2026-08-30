@@ -1,6 +1,34 @@
+import type { HeaderInfoType } from "../../../../components/commons/BucketTable"
+import BucketTable from "../../../../components/commons/BucketTable"
 
 
 export const GearArticle = () => {
+
+    const upgradeGearTable: HeaderInfoType[] = [
+        { objectName: "dieRate", headerName: "Gear" },
+        { objectName: "price", headerName: "Cost to upgrade" },
+    ]
+
+    const sellGearTable: HeaderInfoType[] = [
+        { objectName: "dieRate", headerName: "Gear" },
+        { objectName: "price", headerName: "Sell Amount" },
+    ]
+
+    const upgradeData = [
+        { dieRate: "d4", price: 20 },
+        { dieRate: "d6", price: 30 },
+        { dieRate: "d8", price: 40 },
+        { dieRate: "d10", price: 50 },
+    ]
+
+    const sellData = [
+        { dieRate: "d4", price: 5 },
+        { dieRate: "d6", price: 15 },
+        { dieRate: "d8", price: 30 },
+        { dieRate: "d10", price: 50 },
+        { dieRate: "d12", price: 75 },
+    ]
+
     return (
         <div className="p-2 text-justify">
             <p className="p-2">Like skills, all gear are paired with a number 4-12, 4 being the lowest quality item and 12 being the best. They
@@ -13,88 +41,27 @@ export const GearArticle = () => {
                 gear starts at d4.</p>
             <p className="p-2">You can only have one Star Suit Accent at a time but you can spend 10 credits to change your accent, it’s dice stays
                 the same. The Tech level of the area you are in must equal the accent dice to do this </p>
+            <div  className={`w-1/2 md:w-1/4 float-left m-2 border border-[var(--border)]`}>
+                <BucketTable title="Upgrade Cose" headerInfo={upgradeGearTable} rows={upgradeData} /> 
+            </div>
             <h3 className="font-bold">Upgrading</h3>
-            <table className={`m-4 border-collapse text-left w-1/2 md:w-1/4 float-left border border-[var(--border)] text-center`}>
-                <thead className="text-center">
-                    <tr className="border-b border-[var(--border)] ">
-                        <th className="px-4 py-3 font-semibold text-gray-900 dark:text-gray-100">
-                            Gear
-                        </th>
-                        <th className="px-4 py-3 font-semibold text-gray-900 dark:text-gray-100">
-                            Cost to upgrade
-                        </th>
-                    </tr>
-                </thead>
-
-                <tbody className="text-center">
-                    <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">D4</td>
-                        <td className="p-1">20</td>
-                    </tr>
-                    <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">D6</td>
-                        <td className="p-1">30</td>
-                    </tr>
-                    <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">D8</td>
-                        <td className="p-1">40</td>
-                    </tr>
-                    <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">D10</td>
-                        <td className="p-1">50</td>
-                    </tr>
-                </tbody>
-            </table>
 
             <p className="p-2">You can upgrade a gear you already have by spending 5 times the current dice of that gear. When you do so, you can
                 increase that gear by 2. The max a gear can be is 12. To upgrade, the area’s tech level must be at least the current dice of the item
                 you are upgrading</p>
 
+            <div  className={`w-1/2 md:w-1/4 float-right m-2 border border-[var(--border)]`}>
+                <BucketTable title="Sell Price" headerInfo={sellGearTable} rows={sellData} /> 
+            </div>
             <h3 className="font-bold ">Selling</h3>
-            <table className={`m-4 border-collapse text-left w-1/2 md:w-1/4 float-right border border-[var(--border)] text-center`}>
-                <thead className="text-center">
-                    <tr className="border-b border-[var(--border)] ">
-                        <th className="px-4 py-3 font-semibold text-gray-900 dark:text-gray-100">
-                            Gear
-                        </th>
-                        <th className="px-4 py-3 font-semibold text-gray-900 dark:text-gray-100">
-                            Cost to upgrade
-                        </th>
-                    </tr>
-                </thead>
 
-                <tbody className="text-center">
-                    <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">D4</td>
-                        <td className="p-1">5</td>
-                    </tr>
-                    <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">D6</td>
-                        <td className="p-1">15</td>
-                    </tr>
-                    <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">D8</td>
-                        <td className="p-1">30</td>
-                    </tr>
-                    <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">D10</td>
-                        <td className="p-1">50</td>
-                    </tr>
-                    <tr className="border-b border-[var(--border)]">
-                        <td className="p-1">D12</td>
-                        <td className="p-1">75</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p className="p-2">You can sell gear for half its cost. The cost includes all the upgrades to get to this point, to make selling 
+            <p className="p-2">You can sell gear for half its cost. The cost includes all the upgrades to get to this point, to make selling
                 worthwhile. For the sake a ease, you can reference the below cost</p>
             <h3 className="font-bold">Star Suit</h3>
-            <p className="p-2">You can upgrade a Star Suit gear as normal.</p>
-            <p className="p-2">You can only have one Star Suit Accent at a time but you can spend 10 credits to change your accent, it’s dice stays
-                the same. The Tech level of the area you are in must equal the accent dice to do this </p>
-                <p className="p-2">You can change your Star Suit Accent by spending 10 credits. It’s dice stays the same. The Tech level of the area 
-                    you are in must equal the accent dice to do this  </p>
+            <p className="p-2">You cannot buy or sell Star Suit gear. </p>
+            <p className="p-2">You can upgrade a Star Suit gear as normal. </p>
+            <p className="p-2">You can change your Star Suit Accent by spending 10 credits. It’s dice stays the same. The Tech level of the area
+                you are in must equal the accent dice to do this  </p>
         </div>
     )
 }

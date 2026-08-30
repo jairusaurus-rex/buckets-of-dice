@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-interface MessagePostProps {
+type MessagePostProps = {
     children: ReactNode;
 }
 

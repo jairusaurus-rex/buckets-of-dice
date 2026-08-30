@@ -1,4 +1,4 @@
-interface ModalProps {
+type  ModalProps = {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
