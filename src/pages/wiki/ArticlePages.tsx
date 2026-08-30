@@ -6,7 +6,12 @@ import type { ArticleListType } from "../../data-types/types/AticleListType";
 import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
 import { ArticleNotFound } from "./articles/ArticleNotFound";
 
-export const ArticlePages = () => {
+type ArticlePagesProps = {
+  isSidebarOpen: boolean;
+  toggleSidebar: () => void;
+}
+
+export const ArticlePages = ({isSidebarOpen}: ) => {
     const { articleId } = useParams();
     const articleSectionRef = useRef<HTMLDivElement>(null);
 
