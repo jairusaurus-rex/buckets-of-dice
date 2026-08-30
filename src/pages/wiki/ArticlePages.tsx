@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { ArticleList } from "./article-lists/ArticleList";
 import styles from "./Articles.module.css";
@@ -8,10 +8,18 @@ import { ArticleNotFound } from "./articles/ArticleNotFound";
 
 export const ArticlePages = () => {
     const { articleId } = useParams();
+    const articleSectionRef = useRef<HTMLDivElement>(null);
 
-    const scrollToTop = () => {
-        window.scrollTo(0, 0);
-    };
+
+    useEffect(() => {
+        const articleSection = articleSectionRef.current;
+
+        if (!articleSection) return;
+
+        articleSection.scrollTop = 0;
+
+
+    }, [articleId]);
 
     const article = useMemo(() => {
         if (!articleId) return ArticleList[0];
@@ -28,7 +36,6 @@ export const ArticlePages = () => {
                     if (found) return found;
                 }
             }
-            console.log('non are found')
             return null;
         };
 
@@ -70,20 +77,24 @@ export const ArticlePages = () => {
     }, [articleId]);
 
     return (
-        <div className="flex-1 flex flex-col bg-[var(--bg)]/90 m1  p-5 md:p-8 ">
+        <div className="flex-1 flex flex-col bg-[var(--bg)]/90 p-5 md:p-8 h-full">
             <div className="mb-6">
                 <h2 className="text-3xl font-bold text-[var(--text-h)] mb-2">
                     {article ? article.title : "Article Not Found"}
                 </h2>
                 <div className="border-b border-[var(--border)]"></div>
             </div>
-            <div className={styles.wiki}>{article ? article.content : <ArticleNotFound />}</div>
-            {article && <WikiArticleNavigationFooter
-                article={article}
-                navigation={navigation}
-                onNavigate={scrollToTop}
-            />}
-            
+            <div ref={articleSectionRef} className="flex-1 flex flex-col p-0 m-0 h-full min-h-0 overflow-y-auto ">
+
+                <div className={`${styles.wiki} `}>
+                    {article ? article.content : <ArticleNotFound />}
+                </div>
+                {article && <WikiArticleNavigationFooter
+                    article={article}
+                    navigation={navigation}
+                />}
+            </div>
+
         </div>
     );
 }

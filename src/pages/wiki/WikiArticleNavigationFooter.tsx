@@ -10,13 +10,11 @@ type NavigationInfo = {
 type WikiArticleNavigationFooterProps = {
   article: ArticleListType;
   navigation: NavigationInfo;
-  onNavigate: () => void;
 }
 
 export const WikiArticleNavigationFooter = ({
   article,
   navigation,
-  onNavigate,
 }: WikiArticleNavigationFooterProps) => {
   return (
     <div className="mt-auto pt-8 border-t border-[var(--border)]">
@@ -25,7 +23,6 @@ export const WikiArticleNavigationFooter = ({
           {navigation.prevSibling && (
             <Link
               to={`/wiki/${navigation.prevSibling.id}`}
-              onClick={onNavigate}
               className="text-[var(--accent)] hover:underline"
             >
               ← {navigation.prevSibling.title}
@@ -37,7 +34,6 @@ export const WikiArticleNavigationFooter = ({
           {navigation.parent && (
             <Link
               to={`/wiki/${navigation.parent.id}`}
-              onClick={onNavigate}
               className="text-[var(--accent)] hover:underline"
             >
               ↑ {navigation.parent.title}
@@ -49,7 +45,6 @@ export const WikiArticleNavigationFooter = ({
           {navigation.nextSibling && (
             <Link
               to={`/wiki/${navigation.nextSibling.id}`}
-              onClick={onNavigate}
               className="text-[var(--accent)] hover:underline"
             >
               {navigation.nextSibling.title} →
@@ -69,7 +64,6 @@ export const WikiArticleNavigationFooter = ({
               <li key={child.id}>
                 <Link
                   to={`/wiki/${child.id}`}
-                  onClick={onNavigate}
                   className="text-[var(--accent)] hover:underline text-sm"
                 >
                   {child.title}

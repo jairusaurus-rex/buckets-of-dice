@@ -11,7 +11,7 @@ export const MessageLog = () => {
     const messageListRef = useRef<HTMLDivElement>(null);
 
     const { messageDispatch, messageGroup } = useMessager();
-const hasMounted = useRef(false);
+    const hasMounted = useRef(false);
 
     useEffect(() => {
         const messageList = messageListRef.current;
@@ -32,9 +32,7 @@ const hasMounted = useRef(false);
         });
     }, [messageGroup]);
 
-    const handleMessageChange = (
-        e: React.ChangeEvent<HTMLTextAreaElement>
-    ) => {
+    const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const value = e.target.value;
 
         setNewMessage(value);
