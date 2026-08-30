@@ -7,11 +7,11 @@ import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
 import { ArticleNotFound } from "./articles/ArticleNotFound";
 
 type ArticlePagesProps = {
-  isSidebarOpen: boolean;
-  toggleSidebar: () => void;
+    isSidebarOpen: boolean;
+    openSideBar: () => void;
 }
 
-export const ArticlePages = ({isSidebarOpen}: ) => {
+export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) => {
     const { articleId } = useParams();
     const articleSectionRef = useRef<HTMLDivElement>(null);
 
@@ -83,12 +83,22 @@ export const ArticlePages = ({isSidebarOpen}: ) => {
 
     return (
         <div className="flex-1 flex flex-col bg-[var(--bg)]/90 p-5 md:p-8 h-full">
-            <div className="mb-6">
+            <div className="mb-6 flex justify-between">
                 <h2 className="text-3xl font-bold text-[var(--text-h)] mb-2">
                     {article ? article.title : "Article Not Found"}
                 </h2>
-                <div className="border-b border-[var(--border)]"></div>
+                {!isSidebarOpen && (
+                    <button
+                        type="button"
+                        onClick={() => openSideBar()}
+                        className="inline-block bg-[var(--bg)] items-center rounded-md border border-[var(--accent)]  px-3 py-2 text-sm  text-[var(--text-h)] shadow-sm md:hidden"
+                        aria-label="Open wiki articles"
+                    >
+                        Article List
+                    </button>
+                )}
             </div>
+
             <div ref={articleSectionRef} className="flex-1 flex flex-col p-0 m-0 h-full min-h-0 overflow-y-auto ">
 
                 <div className={`${styles.wiki} `}>

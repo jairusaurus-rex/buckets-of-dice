@@ -33,7 +33,7 @@ export const WikiMainLayout = () => {
       )}
 
       <div className="flex-1 min-h-0 p-0">
-        <ArticlePages />
+        <ArticlePages isSidebarOpen={isSidebarOpen} openSideBar={() => setIsSidebarOpen(false)}/>
       </div>
     </div>
   );
