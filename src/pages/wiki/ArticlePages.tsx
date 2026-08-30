@@ -91,7 +91,7 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
                     <button
                         type="button"
                         onClick={() => openSideBar()}
-                        className="inline-block bg-[var(--bg)] items-center rounded-md border border-[var(--accent)]  px-3 py-2 text-sm  text-[var(--text-h)] shadow-sm md:hidden"
+                        className="inline-block bg-[var(--bg)] items-center rounded-md border border-[var(--accent)]  px-3 py-2 m-0 text-sm  text-[var(--text-h)] shadow-sm md:hidden"
                         aria-label="Open wiki articles"
                     >
                         Article List

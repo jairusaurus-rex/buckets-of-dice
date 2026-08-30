@@ -7,16 +7,6 @@ export const WikiMainLayout = () => {
 
   return (
     <div className="relative flex h-[calc(100vh-6.5rem)] flex-col md:flex-row">
-      {!isSidebarOpen && (
-        <button
-          type="button"
-          onClick={() => setIsSidebarOpen(true)}
-          className="fixed left-3 top-20 z-50 bg-[var(--bg)] flex items-center rounded-md border border-[var(--accent)]  px-3 py-2 text-sm font-medium text-[var(--text-h)] shadow-sm md:hidden"
-          aria-label="Open wiki articles"
-        >
-          Articles
-        </button>
-      )}
 
       <WikiSideBar
         isOpen={isSidebarOpen}
