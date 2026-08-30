@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
-import art from "../../../../assets/images/art/bek.png"
 export const BekArticle = () => {
     return (
         <div className="p-2 text-justify">
-            <img src={art} alt={`character_creation`} />
             <div className="p-2">
                 <h3>Species Feat</h3>
                 <p><strong>Leather Wings:</strong> Have the flight ability</p>

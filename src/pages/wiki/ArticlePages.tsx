@@ -102,6 +102,8 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
             <div ref={articleSectionRef} className="flex-1 flex flex-col p-0 m-0 h-full min-h-0 overflow-y-auto ">
 
                 <div className={`${styles.wiki} `}>
+                    {article && article.articleImage && <img src={article?.articleImage} alt={`character_creation`} />}
+
                     {article ? article.content : <ArticleNotFound />}
                 </div>
                 {article && <WikiArticleNavigationFooter

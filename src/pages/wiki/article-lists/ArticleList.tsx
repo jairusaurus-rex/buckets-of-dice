@@ -5,7 +5,7 @@ import { CharacterCreationArticle } from "../articles/CharacterCreationArticle.t
 import { SkillsArticle } from "../articles/SkillsArticle.tsx";
 import { ArticleListGear } from "./ArticleListGear.tsx";
 import { ArticleListSpecies } from "./ArticleListSpecies.tsx";
-
+import character_creation from "../../../assets/images/art/character_creation.png";
 export const ArticleList: ArticleListType[] = [
     /*{
         id: WikiArticleLinks.WELCOME,
@@ -15,7 +15,8 @@ export const ArticleList: ArticleListType[] = [
     {
         id: WikiArticleLinks.CHARACTER_CREATION,
         title: "Character Creation",
-        content: <CharacterCreationArticle />
+        content: <CharacterCreationArticle />,
+        articleImage: character_creation,
     },
     {
         id: WikiArticleLinks.SKILLS,

@@ -17,7 +17,10 @@ import { UrziArticle } from "../articles/species/UrziArticle.tsx";
 import { VelkiArticle } from "../articles/species/VelkiArticle.tsx";
 import { VrantsArticle } from "../articles/species/VrantsArticle.tsx";
 import { ZivrenArticle } from "../articles/species/ZivrenArticle.tsx";
-
+import bekArt from "../../../assets/images/art/bek.png"
+import chyraxArt from "../../../assets/images/art/chyrax.png"
+import drakariArt from "../../../assets/images/art/drakari.png"
+import driodArt from "../../../assets/images/art/driod.png"
 export const ArticleListSpecies: ArticleListType= 
     {
         id: WikiArticleLinks.SPECIES,
@@ -27,22 +30,26 @@ export const ArticleListSpecies: ArticleListType=
             {
                 id: WikiArticleLinks.SPECIES_BEK,
                 title: "Bek",
-                content: <BekArticle />
+                content: <BekArticle />,
+                articleImage: bekArt
             },
             {
                 id: WikiArticleLinks.SPECIES_CHYRAX,
                 title: "Chyrax",
-                content: <ChyraxArticle />
+                content: <ChyraxArticle />,
+                articleImage: chyraxArt
             },
             {
                 id: WikiArticleLinks.SPECIES_DRKARI,
                 title: "Drakari",
-                content: <DrakariArticle />
+                content: <DrakariArticle />,
+                articleImage: drakariArt
             },
             {
                 id: WikiArticleLinks.SPECIES_DROIDS,
                 title: "Droids",
-                content: <DroidsArticle />
+                content: <DroidsArticle />,
+                articleImage: driodArt
             },
             {
                 id: WikiArticleLinks.SPECIES_EMPIANS,

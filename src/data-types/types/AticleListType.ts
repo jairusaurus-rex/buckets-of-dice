@@ -3,4 +3,5 @@ export type ArticleListType = {
     title: string;
     content: React.ReactNode;
     children?: ArticleListType[];
+    articleImage?: string;
 }
