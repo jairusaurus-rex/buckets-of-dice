@@ -1,110 +1,190 @@
-
+import { lazy } from "react";
 import { WikiArticleLinks } from "../../../data-types/enums/wiki-article-enum.tsx";
 import type { ArticleListType } from "../../../data-types/types/AticleListType.ts";
-import { BekArticle } from "../articles/species/BekArticle.tsx";
-import { ChyraxArticle } from "../articles/species/ChyraxArticle.tsx";
-import { DrakariArticle } from "../articles/species/DrakariArticle.tsx";
-import { DroidsArticle } from "../articles/species/DroidsArticle.tsx";
-import { EmpianArticle } from "../articles/species/EmpianArticle.tsx";
-import { FeyraArticle } from "../articles/species/FeyraArticle.tsx";
-import { FlonaArticle } from "../articles/species/FlonaArticle.tsx";
-import { HumansArticle } from "../articles/species/HumansArticle.tsx";
-import { LocanusArticle } from "../articles/species/LocanusArticle.tsx";
-import { PawniansArticle } from "../articles/species/PawniansArticle.tsx";
-import { RhazakArticle } from "../articles/species/RhazakArticle.tsx";
-import { SpeciesMain } from "../articles/species/SpeciesMainArticle.tsx";
-import { UrziArticle } from "../articles/species/UrziArticle.tsx";
-import { VelkiArticle } from "../articles/species/VelkiArticle.tsx";
-import { VrantsArticle } from "../articles/species/VrantsArticle.tsx";
-import { ZivrenArticle } from "../articles/species/ZivrenArticle.tsx";
-import bekArt from "../../../assets/images/art/bek.png"
-import chyraxArt from "../../../assets/images/art/chyrax.png"
-import drakariArt from "../../../assets/images/art/drakari.png"
-import driodArt from "../../../assets/images/art/driod.png"
-export const ArticleListSpecies: ArticleListType= 
-    {
-        id: WikiArticleLinks.SPECIES,
-        title: "Species",
-        content: <SpeciesMain />,
-        children: [
-            {
-                id: WikiArticleLinks.SPECIES_BEK,
-                title: "Bek",
-                content: <BekArticle />,
-                articleImage: bekArt
-            },
-            {
-                id: WikiArticleLinks.SPECIES_CHYRAX,
-                title: "Chyrax",
-                content: <ChyraxArticle />,
-                articleImage: chyraxArt
-            },
-            {
-                id: WikiArticleLinks.SPECIES_DRKARI,
-                title: "Drakari",
-                content: <DrakariArticle />,
-                articleImage: drakariArt
-            },
-            {
-                id: WikiArticleLinks.SPECIES_DROIDS,
-                title: "Droids",
-                content: <DroidsArticle />,
-                articleImage: driodArt
-            },
-            {
-                id: WikiArticleLinks.SPECIES_EMPIANS,
-                title: "Empians",
-                content: <EmpianArticle />
-            },
-            {
-                id: WikiArticleLinks.SPECIES_FEYRA,
-                title: "Feyra",
-                content: <FeyraArticle />
-            },
-            {
-                id: WikiArticleLinks.SPECIES_FLONA,
-                title: "Flona",
-                content: <FlonaArticle />
-            },
-            {
-                id: WikiArticleLinks.SPECIES_HUMANS,
-                title: "Humans",
-                content: <HumansArticle />
-            },
-            {
-                id: WikiArticleLinks.SPECIES_LOCANUS,
-                title: "Locanus",
-                content: <LocanusArticle />
-            },
-            {
-                id: WikiArticleLinks.SPECIES_PAWNIANS,
-                title: "Pawnians",
-                content: <PawniansArticle />
-            },
-            {
-                id: WikiArticleLinks.SPECIES_RHAZAK,
-                title: "Rhazak",
-                content: <RhazakArticle />
-            },
-            {
-                id: WikiArticleLinks.SPECIES_URZI,
-                title: "Urzi",
-                content: <UrziArticle />
-            },
-            {
-                id: WikiArticleLinks.SPECIES_VELKI,
-                title: "Velki",
-                content: <VelkiArticle />
-            },
-            {
-                id: WikiArticleLinks.SPECIES_VRANTS,
-                title: "Vrants",
-                content: <VrantsArticle />
-            },
-            {
-                id: WikiArticleLinks.SPECIES_ZIVREN,
-                title: "Zivren",
-                content: <ZivrenArticle />
-            },
-        ]
-    }
+import bekArt from "../../../assets/images/art/bek.png";
+import chyraxArt from "../../../assets/images/art/chyrax.png";
+import drakariArt from "../../../assets/images/art/drakari.png";
+import driodArt from "../../../assets/images/art/driod.png";
+
+const SpeciesMain = lazy(() =>
+    import("../articles/species/SpeciesMainArticle.tsx").then((module) => ({
+        default: module.SpeciesMain,
+    }))
+);
+
+const BekArticle = lazy(() =>
+    import("../articles/species/BekArticle.tsx").then((module) => ({
+        default: module.BekArticle,
+    }))
+);
+
+const ChyraxArticle = lazy(() =>
+    import("../articles/species/ChyraxArticle.tsx").then((module) => ({
+        default: module.ChyraxArticle,
+    }))
+);
+
+const DrakariArticle = lazy(() =>
+    import("../articles/species/DrakariArticle.tsx").then((module) => ({
+        default: module.DrakariArticle,
+    }))
+);
+
+const DroidsArticle = lazy(() =>
+    import("../articles/species/DroidsArticle.tsx").then((module) => ({
+        default: module.DroidsArticle,
+    }))
+);
+
+const EmpianArticle = lazy(() =>
+    import("../articles/species/EmpianArticle.tsx").then((module) => ({
+        default: module.EmpianArticle,
+    }))
+);
+
+const FeyraArticle = lazy(() =>
+    import("../articles/species/FeyraArticle.tsx").then((module) => ({
+        default: module.FeyraArticle,
+    }))
+);
+
+const FlonaArticle = lazy(() =>
+    import("../articles/species/FlonaArticle.tsx").then((module) => ({
+        default: module.FlonaArticle,
+    }))
+);
+
+const HumansArticle = lazy(() =>
+    import("../articles/species/HumansArticle.tsx").then((module) => ({
+        default: module.HumansArticle,
+    }))
+);
+
+const LocanusArticle = lazy(() =>
+    import("../articles/species/LocanusArticle.tsx").then((module) => ({
+        default: module.LocanusArticle,
+    }))
+);
+
+const PawniansArticle = lazy(() =>
+    import("../articles/species/PawniansArticle.tsx").then((module) => ({
+        default: module.PawniansArticle,
+    }))
+);
+
+const RhazakArticle = lazy(() =>
+    import("../articles/species/RhazakArticle.tsx").then((module) => ({
+        default: module.RhazakArticle,
+    }))
+);
+
+const UrziArticle = lazy(() =>
+    import("../articles/species/UrziArticle.tsx").then((module) => ({
+        default: module.UrziArticle,
+    }))
+);
+
+const VelkiArticle = lazy(() =>
+    import("../articles/species/VelkiArticle.tsx").then((module) => ({
+        default: module.VelkiArticle,
+    }))
+);
+
+const VrantsArticle = lazy(() =>
+    import("../articles/species/VrantsArticle.tsx").then((module) => ({
+        default: module.VrantsArticle,
+    }))
+);
+
+const ZivrenArticle = lazy(() =>
+    import("../articles/species/ZivrenArticle.tsx").then((module) => ({
+        default: module.ZivrenArticle,
+    }))
+);
+
+export const ArticleListSpecies: ArticleListType = {
+    id: WikiArticleLinks.SPECIES,
+    title: "Species",
+    component: SpeciesMain,
+    children: [
+        {
+            id: WikiArticleLinks.SPECIES_BEK,
+            title: "Bek",
+            component: BekArticle,
+            articleImage: bekArt,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_CHYRAX,
+            title: "Chyrax",
+            component: ChyraxArticle,
+            articleImage: chyraxArt,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_DRKARI,
+            title: "Drakari",
+            component: DrakariArticle,
+            articleImage: drakariArt,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_DROIDS,
+            title: "Droids",
+            component: DroidsArticle,
+            articleImage: driodArt,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_EMPIANS,
+            title: "Empians",
+            component: EmpianArticle,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_FEYRA,
+            title: "Feyra",
+            component: FeyraArticle,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_FLONA,
+            title: "Flona",
+            component: FlonaArticle,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_HUMANS,
+            title: "Humans",
+            component: HumansArticle,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_LOCANUS,
+            title: "Locanus",
+            component: LocanusArticle,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_PAWNIANS,
+            title: "Pawnians",
+            component: PawniansArticle,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_RHAZAK,
+            title: "Rhazak",
+            component: RhazakArticle,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_URZI,
+            title: "Urzi",
+            component: UrziArticle,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_VELKI,
+            title: "Velki",
+            component: VelkiArticle,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_VRANTS,
+            title: "Vrants",
+            component: VrantsArticle,
+        },
+        {
+            id: WikiArticleLinks.SPECIES_ZIVREN,
+            title: "Zivren",
+            component: ZivrenArticle,
+        },
+    ],
+};

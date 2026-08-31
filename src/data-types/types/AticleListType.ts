@@ -1,7 +1,9 @@
+import type { ComponentType, LazyExoticComponent } from "react";
+
 export type ArticleListType = {
     id: string;
     title: string;
-    content: React.ReactNode;
+    component: LazyExoticComponent<ComponentType<any>> | ComponentType<any>;
     children?: ArticleListType[];
     articleImage?: string;
 }

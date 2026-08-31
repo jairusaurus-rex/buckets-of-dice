@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { Suspense, useEffect, useMemo, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { ArticleList } from "./article-lists/ArticleList";
 import styles from "./Articles.module.css";
@@ -15,15 +15,12 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
     const { articleId } = useParams();
     const articleSectionRef = useRef<HTMLDivElement>(null);
 
-
     useEffect(() => {
         const articleSection = articleSectionRef.current;
 
         if (!articleSection) return;
 
         articleSection.scrollTop = 0;
-
-
     }, [articleId]);
 
     const article = useMemo(() => {
@@ -47,7 +44,8 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
         return findArticle(ArticleList, articleId);
     }, [articleId]);
 
-    // Find parent, previous sibling, and next sibling
+    const ArticleComponent = article?.component;
+
     const navigation = useMemo(() => {
         const result = {
             parent: null as ArticleListType | null,
@@ -100,18 +98,21 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
             </div>
 
             <div ref={articleSectionRef} className="flex-1 flex flex-col p-0 m-0 h-full min-h-0 overflow-y-auto ">
-
                 <div className={`${styles.wiki} `}>
-                    {article && article.articleImage && <img src={article?.articleImage} alt={`character_creation`} />}
+                    {article && article.articleImage && <img src={article.articleImage} alt={article.title} />}
 
-                    {article ? article.content : <ArticleNotFound />}
+                    <Suspense fallback={<div className="p-4 text-[var(--text-h)]">Loading article...</div>}>
+                        {article && ArticleComponent ? <ArticleComponent /> : <ArticleNotFound />}
+                    </Suspense>
                 </div>
-                {article && <WikiArticleNavigationFooter
-                    article={article}
-                    navigation={navigation}
-                />}
-            </div>
 
+                {article && (
+                    <WikiArticleNavigationFooter
+                        article={article}
+                        navigation={navigation}
+                    />
+                )}
+            </div>
         </div>
     );
-}
+};
