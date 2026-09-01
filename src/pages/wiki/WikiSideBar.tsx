@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArticleList } from "./article-lists/ArticleList";
 import type { ArticleListType } from "../../data-types/types/AticleListType";
+import { findParentIds } from "./wikiArticleTree";
 
 type WikiSideBarProps = {
   isOpen: boolean;
@@ -14,27 +15,8 @@ export const WikiSideBar = ({ isOpen, onClose }: WikiSideBarProps) => {
 
   // Auto-expand parents when viewing a child article
   useEffect(() => {
-    const findParents = (
-      items: ArticleListType[],
-      targetId: string
-    ): string[] => {
-      for (const item of items) {
-        if (item.children) {
-          const hasTarget = item.children.some((child) => child.id === targetId);
-          if (hasTarget) {
-            return [item.id];
-          }
-          const nested = findParents(item.children, targetId);
-          if (nested.length > 0) {
-            return [item.id, ...nested];
-          }
-        }
-      }
-      return [];
-    };
-
     if (articleId) {
-      const parentsToExpand = findParents(ArticleList, articleId);
+      const parentsToExpand = findParentIds(ArticleList, articleId);
       if (parentsToExpand.length > 0) {
         setExpanded((prev) => {
           const updated = { ...prev };
