@@ -1,19 +1,42 @@
 import type { ArticleListType } from "../../data-types/types/AticleListType";
 
+export type ArticleLookupEntry = {
+  article: ArticleListType;
+  parentId: string | null;
+  prevSiblingId: string | null;
+  nextSiblingId: string | null;
+};
+
+export const flattenArticleTree = (items: ArticleListType[]): Map<string, ArticleLookupEntry> => {
+  const lookup = new Map<string, ArticleLookupEntry>();
+
+  const walk = (currentItems: ArticleListType[], parentId: string | null = null) => {
+    currentItems.forEach((item, index) => {
+      const prevSiblingId = index > 0 ? currentItems[index - 1].id : null;
+      const nextSiblingId = index < currentItems.length - 1 ? currentItems[index + 1].id : null;
+
+      lookup.set(item.id, {
+        article: item,
+        parentId,
+        prevSiblingId,
+        nextSiblingId,
+      });
+
+      if (item.children) {
+        walk(item.children, item.id);
+      }
+    });
+  };
+
+  walk(items);
+  return lookup;
+};
+
 export const findArticleById = (
   items: ArticleListType[],
   id: string
 ): ArticleListType | null => {
-  for (const item of items) {
-    if (item.id === id) return item;
-
-    if (item.children) {
-      const found = findArticleById(item.children, id);
-      if (found) return found;
-    }
-  }
-
-  return null;
+  return flattenArticleTree(items).get(id)?.article ?? null;
 };
 
 export const getArticleNavigation = (
@@ -24,58 +47,39 @@ export const getArticleNavigation = (
   prevSibling: ArticleListType | null;
   nextSibling: ArticleListType | null;
 } => {
-  const result = {
-    parent: null as ArticleListType | null,
-    prevSibling: null as ArticleListType | null,
-    nextSibling: null as ArticleListType | null,
+  const lookup = flattenArticleTree(items);
+  const entry = lookup.get(id);
+
+  if (!entry) {
+    return {
+      parent: null,
+      prevSibling: null,
+      nextSibling: null,
+    };
+  }
+
+  return {
+    parent: entry.parentId ? lookup.get(entry.parentId)?.article ?? null : null,
+    prevSibling: entry.prevSiblingId ? lookup.get(entry.prevSiblingId)?.article ?? null : null,
+    nextSibling: entry.nextSiblingId ? lookup.get(entry.nextSiblingId)?.article ?? null : null,
   };
-
-  const findNavigation = (
-    currentItems: ArticleListType[],
-    targetId: string,
-    parentItem: ArticleListType | null = null
-  ): boolean => {
-    for (let i = 0; i < currentItems.length; i++) {
-      const item = currentItems[i];
-
-      if (item.id === targetId) {
-        result.parent = parentItem;
-        result.prevSibling = i > 0 ? currentItems[i - 1] : null;
-        result.nextSibling = i < currentItems.length - 1 ? currentItems[i + 1] : null;
-        return true;
-      }
-
-      if (item.children) {
-        if (findNavigation(item.children, targetId, item)) {
-          return true;
-        }
-      }
-    }
-
-    return false;
-  };
-
-  findNavigation(items, id);
-  return result;
 };
 
 export const findParentIds = (
   items: ArticleListType[],
   targetId: string
 ): string[] => {
-  for (const item of items) {
-    if (item.children) {
-      const hasTarget = item.children.some((child) => child.id === targetId);
-      if (hasTarget) {
-        return [item.id];
-      }
+  const lookup = flattenArticleTree(items);
+  const parentIds: string[] = [];
 
-      const nested = findParentIds(item.children, targetId);
-      if (nested.length > 0) {
-        return [item.id, ...nested];
-      }
-    }
+  let currentId = targetId;
+  let currentEntry = lookup.get(currentId);
+
+  while (currentEntry && currentEntry.parentId) {
+    parentIds.unshift(currentEntry.parentId);
+    currentId = currentEntry.parentId;
+    currentEntry = lookup.get(currentId);
   }
 
-  return [];
+  return parentIds;
 };
