@@ -7,7 +7,8 @@ export const DroidsArticle = () => {
             <div className="p-2">
                 <h3>Species Feat</h3>
                 <p>
-                    <strong>Modular Feat: Cybernetics:</strong> Droids can gain cybernetic enhancements as part of their modular construction.
+                    <strong>Modular Feat: Cybernetics:</strong> Droids can gain cybernetic enhancements as part of their 
+                    modular construction. Also able to gain the Advanced version at level 3 and Mastery version at level 6.
                 </p>
             </div>
 

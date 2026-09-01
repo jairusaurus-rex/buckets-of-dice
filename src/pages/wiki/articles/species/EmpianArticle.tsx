@@ -7,7 +7,8 @@ export const EmpianArticle = () => {
             <div className="p-2">
                 <h3><strong>Species Feat</strong></h3>
                 <p>
-                    <strong>Modular Feat: Psionics:</strong> Empian possess innate psionic abilities.
+                    <strong>Modular Feat: Psionics:</strong> Empian possess innate psionic abilities. Also 
+                    able to gain the Advanced version at level 3 and Mastery version at level 6.
                 </p>
             </div>
 

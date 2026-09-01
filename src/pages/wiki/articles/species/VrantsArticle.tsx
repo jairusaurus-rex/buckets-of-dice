@@ -6,7 +6,8 @@ export const VrantsArticle = () => {
             <div className="p-2">
                 <h3><strong>Species Feat</strong></h3>
                 <p>
-                    <strong>Modular Feat: Modified</strong>
+                    <strong>Modular Feat: Modified</strong> Vrants have undergone genetic modifications that set them 
+                    apart from standard humans. They can gain the Advanced version at level 3 and Mastery version at level 6.
                 </p>
             </div>
 
