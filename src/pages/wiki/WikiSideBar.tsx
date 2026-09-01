@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArticleList } from "./article-lists/ArticleList";
 import type { ArticleListType } from "../../data-types/types/AticleListType";
-import { findParentIds, flattenArticleTree } from "./wikiArticleTree";
+import { findParentIds } from "./wikiArticleTree";
 
 type WikiSideBarProps = {
   isOpen: boolean;
@@ -12,7 +12,7 @@ type WikiSideBarProps = {
 export const WikiSideBar = ({ isOpen, onClose }: WikiSideBarProps) => {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const { articleId } = useParams();
-  const articleLookup = flattenArticleTree(ArticleList);
+  //const articleLookup = flattenArticleTree(ArticleList);
 
   useEffect(() => {
     if (articleId) {
@@ -45,7 +45,7 @@ export const WikiSideBar = ({ isOpen, onClose }: WikiSideBarProps) => {
     return false;
   };
 
-  const activeArticle = articleId ? articleLookup.get(articleId)?.article ?? null : null;
+  //const activeArticle = articleId ? articleLookup.get(articleId)?.article ?? null : null;
 
   const handleSelectArticle = () => {
     onClose();

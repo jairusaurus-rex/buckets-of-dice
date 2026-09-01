@@ -4,7 +4,7 @@ import { ArticleList } from "./article-lists/ArticleList";
 import styles from "./Articles.module.css";
 import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
 import { ArticleNotFound } from "./articles/ArticleNotFound";
-import { findArticleById, getArticleNavigation, flattenArticleTree } from "./wikiArticleTree";
+import { findArticleById, getArticleNavigation } from "./wikiArticleTree";
 
 type ArticlePagesProps = {
     isSidebarOpen: boolean;
@@ -23,7 +23,7 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
         articleSection.scrollTop = 0;
     }, [articleId]);
 
-    const articleLookup = useMemo(() => flattenArticleTree(ArticleList), []);
+    //const articleLookup = useMemo(() => flattenArticleTree(ArticleList), []);
 
     const article = useMemo(() => {
         if (!articleId) return ArticleList[0];
