@@ -5,6 +5,11 @@ import bekArt from "../../../assets/images/art/bek.png";
 import chyraxArt from "../../../assets/images/art/chyrax.png";
 import drakariArt from "../../../assets/images/art/drakari.png";
 import driodArt from "../../../assets/images/art/driod.png";
+import empianArt from "../../../assets/images/art/empian.png";
+import feyraArt from "../../../assets/images/art/feyra.png";
+import flonaArt from "../../../assets/images/art/flona.png";
+import locanusArt from "../../../assets/images/art/locanus.png";
+import pawnianArt from "../../../assets/images/art/pawnian.png";
 
 const SpeciesMain = lazy(() =>
     import("../articles/species/SpeciesMainArticle.tsx").then((module) => ({
@@ -135,16 +140,19 @@ export const ArticleListSpecies: ArticleListType = {
             id: WikiArticleLinks.SPECIES_EMPIANS,
             title: "Empians",
             component: EmpianArticle,
+            articleImage: empianArt,
         },
         {
             id: WikiArticleLinks.SPECIES_FEYRA,
             title: "Feyra",
             component: FeyraArticle,
+            articleImage: feyraArt,
         },
         {
             id: WikiArticleLinks.SPECIES_FLONA,
             title: "Flona",
             component: FlonaArticle,
+            articleImage: flonaArt,
         },
         {
             id: WikiArticleLinks.SPECIES_HUMANS,
@@ -155,11 +163,13 @@ export const ArticleListSpecies: ArticleListType = {
             id: WikiArticleLinks.SPECIES_LOCANUS,
             title: "Locanus",
             component: LocanusArticle,
+            articleImage: locanusArt,
         },
         {
             id: WikiArticleLinks.SPECIES_PAWNIANS,
             title: "Pawnians",
             component: PawniansArticle,
+            articleImage: pawnianArt,
         },
         {
             id: WikiArticleLinks.SPECIES_RHAZAK,
