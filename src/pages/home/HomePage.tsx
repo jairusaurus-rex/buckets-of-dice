@@ -26,10 +26,10 @@ export const HomePage = () => {
           </p>
           <div className={styles.actions}>
             <Link className={styles.primaryAction} to="/dice-app">
-              Use dice roller <span aria-hidden="true">-&gt;</span>
+              Use dice roller <span aria-hidden="true"></span>
             </Link>
             <Link className={styles.primaryAction} to="/wiki">
-              Explore the wiki <span aria-hidden="true">-&gt;</span>
+              Explore the wiki <span aria-hidden="true"></span>
             </Link>
           </div>
         </div>
