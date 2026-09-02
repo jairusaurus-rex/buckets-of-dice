@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { WikiArticleLinks } from "../../../data-types/enums/wiki-article-enum";
+import DiceText from "../../../components/commons/DiceText";
 
 export const CharacterCreationArticle = () => {
   return (
@@ -28,7 +29,7 @@ export const CharacterCreationArticle = () => {
             starting level</p>
         </li>
         <li><span className="font-bold text-lg">Set Starting Skills</span>
-          <p className="  p-2">Choose 6 skills to start at d6, the rest start at d4. See Skill 
+          <p className="  p-2">Choose 6 skills to start at <DiceText>6</DiceText>, the rest start at <DiceText>4</DiceText>. See Skill 
             list <Link to={`/wiki/${WikiArticleLinks.SKILLS}`}>here</Link></p>
         </li>
         <li><span className="font-bold text-lg">Choose Species</span>
@@ -41,8 +42,8 @@ export const CharacterCreationArticle = () => {
             Gear <Link to={`/wiki/${WikiArticleLinks.GEAR_SUIT}`}>here</Link></p>
           <p className=" p-2">Choose 6 nonsuit gear. See list of Non-Suit 
             Gear <Link to={`/wiki/${WikiArticleLinks.GEAR_NON_SUIT}`}>here</Link></p>
-          <p className=" p-2">Set a number of gear to d6 equal to half your starting level rounded 
-            up, the rest are set as d4.</p>
+          <p className=" p-2">Set a number of gear to <DiceText>6</DiceText> equal to half your starting level rounded 
+            up, the rest are set as <DiceText>4</DiceText>.</p>
           <p className=" p-2">You can spend credits to upgrade/buy gear as though you are on a tech 
             10 planet. You must have 26k Credits left over.</p>
         </li>

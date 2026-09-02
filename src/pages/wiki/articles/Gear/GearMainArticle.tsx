@@ -1,5 +1,6 @@
 import type { HeaderInfoType } from "../../../../components/commons/BucketTable"
 import BucketTable, { BucketTableTypeOptions } from "../../../../components/commons/BucketTable"
+import DiceText from "../../../../components/commons/DiceText"
 
 
 export const GearArticle = () => {
@@ -31,14 +32,14 @@ export const GearArticle = () => {
 
     return (
         <div className="p-2 text-justify">
-            <p className="p-2">Like skills, all gear are paired with a number 4-12, 4 being the lowest quality item and 12 being the best. They
+            <p className="p-2">Like skills, all gear are paired with a number <DiceText>4</DiceText> through <DiceText>12</DiceText>, <DiceText>4</DiceText> being the lowest quality item and <DiceText>12</DiceText> being the best. They
                 corospond to dice that can be used in a dice pool. A Spacer is more likely able to be successful at a task if their skill is paired
                 with a gear item</p>
             <p className="p-2">Gear are broken into two categories. Suit Gear and Non Suit Gear. Suit Gear are four specific gear items attached to a
                 spacer's Star Suit. Non Suit Gear are gear items that are carried and used apart of the Star Suit</p>
             <h3 className="font-bold">Buying</h3>
             <p className="p-2">You can spend 10 credits to get a new gear. To buy new gear, the tech level of the area must be at least 2. All new
-                gear starts at d4.</p>
+                gear starts at Dice <DiceText>4</DiceText>.</p>
             <p className="p-2">You can only have one Star Suit Accent at a time but you can spend 10 credits to change your accent, it’s dice stays
                 the same. The Tech level of the area you are in must equal the accent dice to do this </p>
             <div  className={`w-1/2 md:w-1/4 float-left m-2 border border-[var(--border)]`}>
@@ -47,7 +48,7 @@ export const GearArticle = () => {
             <h3 className="font-bold">Upgrading</h3>
 
             <p className="p-2">You can upgrade a gear you already have by spending 5 times the current dice of that gear. When you do so, you can
-                increase that gear by 2. The max a gear can be is 12. To upgrade, the area’s tech level must be at least the current dice of the item
+                increase that gear by 2. The max a gear can be is <DiceText>12</DiceText>. To upgrade, the area’s tech level must be at least the current dice of the item
                 you are upgrading</p>
 
             <div  className={`w-1/2 md:w-1/4 float-right m-2 border border-[var(--border)]`}>

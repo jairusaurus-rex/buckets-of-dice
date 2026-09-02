@@ -1,12 +1,13 @@
 import art from "../../../assets/images/art/skills_datapad.png"
+import DiceText from "../../../components/commons/DiceText";
 
 
 export const SkillsArticle = () => {
     return (
         <div className="p-2 text-justify">
             <img src={art} alt={`character_creation`} />
-            <p className="p-2">Skill are represented as a dice rank. A skill can be a 4, 6, 8, 10, or 12. Four represents the worst a skill can get 
-                and 12 the absolute best</p>
+            <p className="p-2">Skill are represented as a dice rank. A skill can be a <DiceText>4</DiceText>, <DiceText>6</DiceText>, <DiceText>8</DiceText>, <DiceText>10</DiceText>, or <DiceText>12</DiceText>. <DiceText>4</DiceText> represents the worst a skill can be 
+                and <DiceText>12</DiceText> the absolute best</p>
             <p className="p-2">There are ten skills that a spacer has in Into the Heavens. A usual dice check uses one skill, unless a feat gives 
                 them more or there are special circumstances. Unless a feat or special circumstance applies, a spacer uses one skill for each dice 
                 check. In these instances, if more than one skill makes sense for the check, the player chooses which skill to use.</p>
