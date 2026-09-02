@@ -4,22 +4,22 @@ import { WikiArticleLinks } from "../../../data-types/enums/wiki-article-enum.ts
 import type { ArticleListType } from "../../../data-types/types/AticleListType.ts";
 
 const GearArticle = lazy(() =>
-    import("../articles/Gear/GearMainArticle.tsx").then((module) => ({
+    import("../articles/gear/GearMainArticle.tsx").then((module) => ({
         default: module.GearArticle,
     }))
 );
 const SuitGearArticle = lazy(() =>
-    import("../articles/Gear/SuitGearArticle.tsx").then((module) => ({
+    import("../articles/gear/SuitGearArticle.tsx").then((module) => ({
         default: module.SuitGearArticle,
     }))
 );
 const SuitAccentArticle = lazy(() =>
-    import("../articles/Gear/SuitAccentArticle.tsx").then((module) => ({
+    import("../articles/gear/SuitAccentArticle.tsx").then((module) => ({
         default: module.SuitAccentArticle,
     }))
 );
 const NonSuitGearArticle = lazy(() =>
-    import("../articles/Gear/NonSuitGearArticle.tsx").then((module) => ({
+    import("../articles/gear/NonSuitGearArticle.tsx").then((module) => ({
         default: module.NonSuitGearArticle,
     }))
 );

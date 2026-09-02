@@ -10,6 +10,7 @@ export const WikiArticleLinks= {
     GEAR_SUIT_ACCENT: "gear-suit-accent",
     GEAR_NON_SUIT: "gear-nonsuit",
     LEVELING: "leveling",
+    LEVELING_FEATS: "leveling-feats",
     SPECIES_BEK: "species-bek",
     SPECIES_CHYRAX: "species-chyrax",
     SPECIES_DRKARI: "species-drakari", 

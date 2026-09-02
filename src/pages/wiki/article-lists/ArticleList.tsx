@@ -5,6 +5,7 @@ import type { ArticleListType } from "../../../data-types/types/AticleListType.t
 import { ArticleListGear } from "./ArticleListGear.tsx";
 import { ArticleListSpecies } from "./ArticleListSpecies.tsx";
 import character_creation from "../../../assets/images/art/character_creation.png";
+import { ArticleListLeveling } from "./ArticleListLeveling.tsx";
 
 const CharacterCreationArticle = lazy(() =>
     import("../articles/CharacterCreationArticle.tsx").then((module) => ({
@@ -17,8 +18,6 @@ const SkillsArticle = lazy(() =>
         default: module.SkillsArticle,
     }))
 );
-
-const LevelingArticle = () => <div>Leveling content goes here.</div>;
 
 export const ArticleList: ArticleListType[] = [
     {
@@ -34,9 +33,5 @@ export const ArticleList: ArticleListType[] = [
     },
     ArticleListSpecies,
     ArticleListGear,
-    {
-        id: WikiArticleLinks.LEVELING,
-        title: "Leveling",
-        component: LevelingArticle,
-    }
+    ArticleListLeveling,
 ];
