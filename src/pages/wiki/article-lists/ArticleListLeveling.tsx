@@ -10,9 +10,14 @@ const LevelingArticle = lazy(() =>
 );
 const FeatListArticle = lazy(() =>
     import("../articles/leveling/FeatListArticle.tsx").then((module) => ({
-        default: module.NonSuitGearArticle,
+        default: module.FeatListArticle,
     }))
 );
+const ModularAugmentsArticle = lazy(() =>
+    import("../articles/leveling/ModularAugmentsArticle.tsx").then((module) => ({
+        default: module.ModularAugmentsArticle,
+    }))
+);  
 
 export const ArticleListLeveling: ArticleListType = {
     id: WikiArticleLinks.LEVELING,
@@ -24,5 +29,10 @@ export const ArticleListLeveling: ArticleListType = {
             title: "Feats",
             component: FeatListArticle,
         },
+        {
+            id: WikiArticleLinks.LEVELING_MODULAR_AUGMENTS,
+            title: "Modular Augments",
+            component: ModularAugmentsArticle,
+        }
     ]
 };

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { FeatData } from "../../../../assets/data/FeatData";
 import DiceTextString from "../../../../components/commons/DiceTextString";
+import { Link } from "react-router-dom";
+import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum";
 
 
-export const NonSuitGearArticle = () => {
+export const FeatListArticle = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const featData = FeatData
         .filter((feat) => feat.species == null)
@@ -51,15 +53,25 @@ export const NonSuitGearArticle = () => {
                         </div>
                         <div>
                             {feat.advanced && (
-                                <div>
+                                <div className="p-2">
                                     <strong>Advanced:</strong> <DiceTextString>{feat.advanced.description}</DiceTextString>
                                 </div>
                             )}
                         </div>
                         <div>
                             {feat.mastery && (
-                                <div>
+                                <div className="p-2">
                                     <strong>Mastery:</strong> <DiceTextString>{feat.mastery.description}</DiceTextString>
+                                </div>
+                            )}
+                        </div>
+                        <div>
+                            {feat.subChoices && (
+                                <div className="p-2">
+                                    {   
+                                        feat.id === "modular-augments" && 
+                                        <span>See Modular Augments details <Link to={`/wiki/${WikiArticleLinks.LEVELING_MODULAR_AUGMENTS}`}>here</Link></span>
+                                    }
                                 </div>
                             )}
                         </div>
