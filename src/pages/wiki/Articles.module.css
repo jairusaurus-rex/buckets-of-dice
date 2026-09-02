@@ -1,6 +1,12 @@
 .wiki a {
-  color: #8A5BC2;
-}   
+  color: #4089C9;
+  text-decoration: none;
+}
+
+.wiki a:hover {
+  color: #4089C9;
+  text-decoration: underline;
+}
 
 .wiki img{
   float: right;
@@ -12,7 +18,7 @@
 .wiki h2,
 .wiki h3,
 .wiki h4 {
-  color: #4089C9;
+  color: #8A5BC2;
 }
 
 .tableSm{

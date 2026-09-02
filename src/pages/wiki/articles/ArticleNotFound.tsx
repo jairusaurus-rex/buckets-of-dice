@@ -15,7 +15,7 @@ export const ArticleNotFound = () => {
                     <div key={article.id} className="w-full">
                         <Link
                             to={`/wiki/${article.id}`}
-                            className="block w-full border-4 border-[var(--accent)] m-1 text-[var(--accent)] hover:underline text-sm p-2"
+                            className="block w-full border-4 text-[var(--accent)] border-[var(--accent)] m-1 text-[var(--accent)] hover:underline text-sm p-2"
                         >
                             {article.title}
                         </Link>

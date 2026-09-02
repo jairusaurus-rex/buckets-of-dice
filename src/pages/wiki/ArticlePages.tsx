@@ -27,7 +27,8 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
 
     const article = useMemo(() => {
         if (!articleId) return ArticleList[0];
-        return findArticleById(ArticleList, articleId) ?? ArticleList[0];
+
+        return findArticleById(ArticleList, articleId);
     }, [articleId]);
 
     const ArticleComponent = article?.component;
