@@ -39,7 +39,7 @@ export const CharacterCreationArticle = () => {
         <li><span className="font-bold text-lg">Setup Gear</span>
           <p className=" p-2">You cannot have more than one of any gear.</p>
           <p className=" p-2">Choose 1 Accent for your Star Suit. See list of Suit 
-            Gear <Link to={`/wiki/${WikiArticleLinks.GEAR_SUIT}`}>here</Link></p>
+            Gear <Link to={`/wiki/${WikiArticleLinks.GEAR_SUIT_ACCENT}`}>here</Link></p>
           <p className=" p-2">Choose 6 nonsuit gear. See list of Non-Suit 
             Gear <Link to={`/wiki/${WikiArticleLinks.GEAR_NON_SUIT}`}>here</Link></p>
           <p className=" p-2">Set a number of gear to <DiceText>6</DiceText> equal to half your starting level rounded 

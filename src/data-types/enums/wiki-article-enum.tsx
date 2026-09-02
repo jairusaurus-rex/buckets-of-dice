@@ -7,6 +7,7 @@ export const WikiArticleLinks= {
     SPECIES: "species",
     GEAR: "gear",
     GEAR_SUIT: "gear-suit",
+    GEAR_SUIT_ACCENT: "gear-suit-accent",
     GEAR_NON_SUIT: "gear-nonsuit",
     LEVELING: "leveling",
     SPECIES_BEK: "species-bek",
