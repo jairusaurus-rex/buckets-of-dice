@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
+import DiceText from "../../../../components/commons/DiceText";
 
 export const FeyraArticle = () => {
     return (
@@ -7,7 +8,7 @@ export const FeyraArticle = () => {
             <div className="p-2">
                 <h3><strong>Species Feat</strong></h3>
                 <p>
-                    <strong>Long Lived:</strong> Gain a d8 benefit when using your age to influence people and when using the Navigation post.
+                    <strong>Long Lived:</strong> Gain a <DiceText>8</DiceText> benefit when using your age to influence people and when using the Navigation post.
                 </p>
             </div>
 

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
+import DiceText from "../../../../components/commons/DiceText";
 
 export const LocanusArticle = () => {
     return (
@@ -7,7 +8,7 @@ export const LocanusArticle = () => {
             <div className="p-2">
                 <h3><strong>Species Feat</strong></h3>
                 <p>
-                    <strong>Keen Sight:</strong> Gain a d6 bonus on attacks against targets that 
+                    <strong>Keen Sight:</strong> Gain a <DiceText>6</DiceText> bonus on attacks against targets that 
                     are not in the same zone or an adjacent zone.
                 </p>
             </div>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
+import DiceText from "../../../../components/commons/DiceText";
 
 export const HumansArticle = () => {
     return (
@@ -7,7 +8,7 @@ export const HumansArticle = () => {
             <div className="p-2">
                 <h3><strong>Species Feat</strong></h3>
                 <p>
-                    <strong>Skilled:</strong> Improve two skills that are at d4 and one skill that is at d6.
+                    <strong>Skilled:</strong> Improve two skills that are at <DiceText>4</DiceText> and one skill that is at <DiceText>6</DiceText>.
                 </p>
             </div>
 

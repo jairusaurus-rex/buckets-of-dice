@@ -1,10 +1,12 @@
+import DiceText from "../../../../components/commons/DiceText";
+
 export const RhazakArticle = () => {
     return (
         <div className="p-2 text-justify">
             <div className="p-2">
                 <h3><strong>Species Feat</strong></h3>
                 <p>
-                    <strong>Breath Weapon:</strong> Gain a d6 bonus on attacks against targets that are in an adjacent zone.
+                    <strong>Breath Weapon:</strong> Gain a <DiceText>6</DiceText> bonus on attacks against targets that are in an adjacent zone.
                 </p>
             </div>
 

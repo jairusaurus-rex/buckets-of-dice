@@ -2,6 +2,7 @@ import type { HeaderInfoType } from "../../../../components/commons/BucketTable"
 import BucketTable from "../../../../components/commons/BucketTable"
 import { SpeciesData } from "../../../../assets/data/SpeciesData"
 import { Link } from "react-router-dom"
+import DiceTextString from "../../../../components/commons/DiceTextString"
 
 export const SpeciesMain = () => {
 
@@ -20,7 +21,7 @@ export const SpeciesMain = () => {
             cellException: (row, value) => (
                 <>
                     <strong>{value} </strong>
-                    <span> - {row.featDescription}</span>
+                    <span> - <DiceTextString>{row.featDescription}</DiceTextString></span>
                 </>
             )
         },

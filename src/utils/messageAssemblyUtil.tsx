@@ -3,6 +3,7 @@ import type { DiceType } from "../data-types/types/DiceType"
 import styles from "../components/layouts/Layout.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleRight } from "@fortawesome/free-solid-svg-icons/faCircleRight";
+import DiceText from "../components/commons/DiceText";
 
 export const AssembleDicePoolResult = (
     dice: DiceType[],
@@ -18,20 +19,9 @@ export const AssembleDicePoolResult = (
                         <>
                             {dice.map((die) => (
                                 <div key={die.id} className="text-xs text-[var(--text)]">
-                                    <span className={
-                                        die.rank === 4
-                                            ? styles.textD4
-                                            : die.rank === 6
-                                                ? styles.textD6
-                                                : die.rank === 8
-                                                    ? styles.textD8
-                                                    : die.rank === 10
-                                                        ? styles.textD10
-                                                        : styles.textD12
-                                    }>
-                                        <span>{die.rank && `d${die.rank}`}</span>
-                                        <span>{die.title.trim().length > 0 && ` - ${die.title}`}</span>
-                                    </span>
+
+                                    <span>{die.rank && <DiceText>{die.rank}</DiceText>}</span>
+                                    <span>{die.title.trim().length > 0 && ` - ${die.title}`}</span>
                                     <span>{die.result && ` =  ${die.result}`}</span>
                                 </div>
                             ))}

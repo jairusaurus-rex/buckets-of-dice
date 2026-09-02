@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
+import DiceText from "../../../../components/commons/DiceText";
 
 export const FlonaArticle = () => {
     return (
@@ -7,7 +8,7 @@ export const FlonaArticle = () => {
             <div className="p-2">
                 <h3><strong>Species Feat</strong></h3>
                 <p>
-                    <strong>Regeneration:</strong> Gain a d10 bonus whenever healing your own Grit.
+                    <strong>Regeneration:</strong> Gain a <DiceText>10</DiceText> bonus whenever healing your own Grit.
                 </p>
             </div>
 

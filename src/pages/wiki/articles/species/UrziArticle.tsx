@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
+import DiceText from "../../../../components/commons/DiceText";
 
 export const UrziArticle = () => {
     return (
@@ -7,7 +8,7 @@ export const UrziArticle = () => {
             <div className="p-2">
                 <h3><strong>Species Feat</strong></h3>
                 <p>
-                    <strong>Thick Hide:</strong> Gain a d6 bonus on defense checks when all attacks 
+                    <strong>Thick Hide:</strong> Gain a <DiceText>6</DiceText> bonus on defense checks when all attacks
                     are in the same or adjacent zones.
                 </p>
             </div>

@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
+import DiceText from "../../../../components/commons/DiceText"
 
 export const DrakariArticle = () => {
     return (
         <div className="p-2 text-justify">
             <div className="p-2">
                 <h3>Species Feat</h3>
-                <p><strong>Claws and Teeth:</strong> Gain a d6 bonus on attacks on targets in the 
+                <p><strong>Claws and Teeth:</strong> Gain a <DiceText>6</DiceText> bonus on attacks on targets in the 
                 same zone</p>
             </div>
             <div className="p-2">

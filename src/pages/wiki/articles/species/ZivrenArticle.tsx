@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
+import DiceText from "../../../../components/commons/DiceText";
 
 
 export const ZivrenArticle = () => {
@@ -8,7 +9,7 @@ export const ZivrenArticle = () => {
             <div className="p-2">
                 <h3><strong>Species Feat</strong></h3>
                 <p>
-                    <strong>Scurry:</strong> Gain a d6 bonus on defense checks when attacks are not in the same zone.
+                    <strong>Scurry:</strong> Gain a <DiceText>6</DiceText> bonus on defense checks when attacks are not in the same zone.
                 </p>
             </div>
 

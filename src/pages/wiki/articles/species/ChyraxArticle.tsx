@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
+import DiceText from "../../../../components/commons/DiceText"
 
 export const ChyraxArticle = () => {
     return (
         <div className="p-2 text-justify">
             <div className="p-2">
                 <h3>Species Feat</h3>
-                <p><strong>Camo Scales:</strong> Gain a d8 bonus on all stealth checks</p>
+                <p><strong>Camo Scales:</strong> Gain a <DiceText>8</DiceText> bonus on all stealth checks</p>
             </div>
             <div className="p-2">
                 <h3><strong>Description</strong></h3>
