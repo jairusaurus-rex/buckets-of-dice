@@ -6,7 +6,7 @@ export const DrakariArticle = () => {
     return (
         <div className="p-2 text-justify">
             <div className="p-2">
-                <h3>Species Feat</h3>
+                <h3><strong>Species Feat</strong></h3>
                 <p><strong>Claws and Teeth:</strong> Gain a <DiceText>6</DiceText> bonus on attacks on targets in the 
                 same zone</p>
             </div>

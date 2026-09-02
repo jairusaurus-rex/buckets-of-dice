@@ -1,5 +1,5 @@
 .wiki a {
-  color: var(--accent);
+  color: #8A5BC2;
 }   
 
 .wiki img{
@@ -8,7 +8,10 @@
   height: auto;
 }
 
-.wiki h1, h2, h3, h4{
+.wiki h1,
+.wiki h2,
+.wiki h3,
+.wiki h4 {
   color: #4089C9;
 }
 

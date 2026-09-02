@@ -6,7 +6,7 @@ export const ChyraxArticle = () => {
     return (
         <div className="p-2 text-justify">
             <div className="p-2">
-                <h3>Species Feat</h3>
+                <h3><strong>Species Feat</strong></h3>
                 <p><strong>Camo Scales:</strong> Gain a <DiceText>8</DiceText> bonus on all stealth checks</p>
             </div>
             <div className="p-2">

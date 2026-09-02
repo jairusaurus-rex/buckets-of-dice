@@ -5,7 +5,7 @@ export const DroidsArticle = () => {
     return (
         <div className="p-2 text-justify">
             <div className="p-2">
-                <h3>Species Feat</h3>
+                <h3><strong>Species Feat</strong></h3>
                 <p>
                     <strong>Modular Feat: Cybernetics:</strong> Droids can gain cybernetic enhancements as part of their 
                     modular construction. Also able to gain the Advanced version at level 3 and Mastery version at level 6.
@@ -13,7 +13,7 @@ export const DroidsArticle = () => {
             </div>
 
             <div className="p-2">
-                <h3>Description</h3>
+                <h3><strong>Description</strong></h3>
                 <p>
                     Droids vary widely in appearance and construction. They can range from
                     simple mechanical workers to highly advanced humanoid machines designed
@@ -22,7 +22,7 @@ export const DroidsArticle = () => {
             </div>
 
             <div className="p-2">
-                <h3>History</h3>
+                <h3><strong>History</strong></h3>
                 <p>
                     Droids have been a staple of galactic civilization for as long as most
                     species can remember, dating back to the earliest Successor Species
@@ -42,7 +42,7 @@ export const DroidsArticle = () => {
             </div>
 
             <div className="p-2">
-                <h3>Typical Temperament</h3>
+                <h3><strong>Typical Temperament</strong></h3>
                 <p>
                     Droids vary widely in temperament. Some are every bit as sentient and
                     sapient as other species, possessing hopes, dreams, and ambitions for
@@ -54,7 +54,7 @@ export const DroidsArticle = () => {
             </div>
 
             <div className="p-2">
-                <h3>Galactic Relations</h3>
+                <h3><strong>Galactic Relations</strong></h3>
                 <p>
                     Attitudes toward droids vary greatly across the galaxy. Most people continue to treat them as 
                     tools rather than as people, regardless of their level of sentience. 
