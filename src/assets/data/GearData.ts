@@ -1,0 +1,167 @@
+import type { GearType } from "../../data-types/types/GearType";
+
+export const GearData: GearType[] = [
+    {
+        id: "armor",
+        name: "Armor",
+        description: "Use this dice when defending against physical attacks, including blaster and laser attacks.",
+        isSuit: true,
+    },
+    {
+        id: "adept",
+        name: "Adept",
+        description: "Use this dice when defending against elemental attacks, weather dangers, or dealing with the vacuum of space.",
+        isSuit: true,
+    },
+    {
+        id: "aid",
+        name: "Aid",
+        description: "Use this dice when healing your own grit.",
+        isSuit: true,
+    },
+    {
+        id: "accent",
+        name: "Accent",
+        description: "Players choose one accent to give them their own unique style and advantages. Each player can choose one from the accent list.",
+        isSuit: true,
+    },
+    {
+        id: "demolitions-kit",
+        name: "Demolitions Kit",
+        description: "Spend a credit to use this dice to destroy an object, wall, or other material. This takes too long to be used in combat.",
+        isSuit: false,
+    },
+    {
+        id: "disguise-kit",
+        name: "Disguise Kit",
+        description: "Use this dice to disguise your appearance.",
+        isSuit: false,
+    },
+    {
+        id: "hackers-kit",
+        name: "Hackers Kit",
+        description: "Use this dice to get a computer to do something it was not intended to do or to open an electronic door you should not have access to.",
+        isSuit: false,
+    },
+    {
+        id: "holo-projector",
+        name: "Holo Projector",
+        description: "Use this dice to create a holoprojected asset the size of a human or small wall. You can create an asset from two zones away.",
+        isSuit: false,
+    },
+    {
+        id: "instrument",
+        name: "Instrument",
+        description: "When using an instrument to entertain or distract someone, use this dice.",
+        isSuit: false,
+    },
+    {
+        id: "jetpack",
+        name: "Jetpack",
+        description: "Spend a credit to give yourself the flight ability for a number of rounds equal to the dice. While flying, you can use this to avoid attacks coming from other zones.",
+        isSuit: false,
+    },
+    {
+        id: "large-arms-weapon",
+        name: "Large Arms Weapon (Riffle)",
+        description: "You can attack with this dice from up to 5 zones away from the target as long as you have line of sight. If you are attacking while in the same zone as an enemy or adjacent to a zone with an enemy, DOWN your defense dice.",
+        isSuit: false,
+    },
+    {
+        id: "medical-kit",
+        name: "Medical Kit",
+        description: "Use this dice when healing grit or stamina on yourself, or when healing grit, stamina, or wounds on someone else. For two actions, you can use your medicine skill and this dice to heal someone's grit in the same zone as you. The person being healed is the one who pays the stamina.",
+        isSuit: false,
+    },
+    {
+        id: "melee-weapon",
+        name: "Melee Weapon",
+        description: "You can attack with this dice when in the same zone as your target.",
+        isSuit: false,
+    },
+    {
+        id: "personal-computer",
+        name: "Personal Computer",
+        description: "Use this dice when interacting with other computers or doing a recon check involving researching information.",
+        isSuit: false,
+    },
+    {
+        id: "portable-scanner",
+        name: "Portable Scanner",
+        description: "You can look for items and people farther than you can see, even through walls. When you do so, you can use this dice.",
+        isSuit: false,
+    },
+    {
+        id: "psionic-amplifier",
+        name: "Psionic Amplifier",
+        description: "When using any Psychic ability, you can use this dice.",
+        isSuit: false,
+    },
+    {
+        id: "psionic-blocker",
+        name: "Psionic Blocker",
+        description: "Use this dice to protect your mind from Psionics or madness abilities.",
+        isSuit: false,
+    },
+    {
+        id: "repair-kit",
+        name: "Repair Kit",
+        description: "You can use this when repairing any machine, even when on the combat repair Post or on the travel mechanic Post.",
+        isSuit: false,
+    },
+    {
+        id: "restraining-kit",
+        name: "Restraining Kit",
+        description: "You can restrain captured people up to half this dice.",
+        isSuit: false,
+    },
+    {
+        id: "science-kit",
+        name: "Science Kit",
+        description: "Use this when investigating any object or being for information.",
+        isSuit: false,
+    },
+    {
+        id: "shield",
+        name: "Shield",
+        description: "Use this dice when being attacked by at least one person who is adjacent or in the same zone.",
+        isSuit: false,
+    },
+    {
+        id: "signal-jammer",
+        name: "Signal Jammer",
+        description: "Use this dice to create an asset to disrupt computers, robots, radar, AI, and other computer systems. You can create an asset from two zones away.",
+        isSuit: false,
+    },
+    {
+        id: "small-arms-weapon",
+        name: "Small Arms Weapon (Pistol)",
+        description: "You can attack with this dice from up to 3 zones away from the target as long as you have line of sight. If you are attacking while in the same zone as an enemy, DOWN your defense dice.",
+        isSuit: false,
+    },
+    {
+        id: "small-drone",
+        name: "Small Drone",
+        description: "Spend a credit to aid in a recon check to see and hear things beyond where you are, spying on a location with a small drone. When you do, use this dice.",
+        isSuit: false,
+    },
+    {
+        id: "smugglers-kit",
+        name: "Smuggler's Kit",
+        description: "You can make a check to smuggle gear into restricted areas.",
+        isSuit: false,
+    },
+    {
+        id: "survival-kit",
+        name: "Survival Kit",
+        description: "Use this dice when surviving in the wilderness.",
+        isSuit: false,
+    },
+    {
+        id: "thieving-kit",
+        name: "Thieving Kit",
+        description: "Use this dice when picking locks and using sleight of hand.",
+        isSuit: false,
+    },
+
+];
