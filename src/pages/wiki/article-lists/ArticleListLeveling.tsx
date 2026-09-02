@@ -26,7 +26,7 @@ export const ArticleListLeveling: ArticleListType = {
     children: [
         {
             id: WikiArticleLinks.LEVELING_FEATS,
-            title: "Feats",
+            title: "Feat List",
             component: FeatListArticle,
         },
         {
