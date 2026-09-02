@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom"
 import DiceText from "../../../../components/commons/DiceText"
+import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum"
 
 export const LevelingArticle = () => {
 
@@ -46,6 +48,7 @@ export const LevelingArticle = () => {
                     Advanced form in.</p>
                 <p className="p-2">At level 10, choose to gain 2 feats instead of 1. You can
                     use these to gain a Advanced or Masteries</p>
+                <p className="p-2">See the list of feats <Link to={`/wiki/${WikiArticleLinks.LEVELING_FEATS}`}>here</Link></p>
             </div>
         </div>
     )
