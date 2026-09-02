@@ -1,3 +1,9 @@
+type FeatSubChoiceType = {
+    id: string;
+    name: string;
+    description: string;
+}
+
 export type FeatType = {
     id: string;
     name: string;
@@ -7,5 +13,5 @@ export type FeatType = {
     specialDiceRank?: number;
     advanced?: FeatType;
     mastery?: FeatType;
-    
+    subChoices?: FeatSubChoiceType[];
 }

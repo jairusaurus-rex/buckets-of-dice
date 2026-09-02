@@ -178,22 +178,349 @@ export const FeatData: FeatType[] = [
     {
         id: "modular-augments",
         name: "Modular Augments",
-        description: "See the Modular Feats chapter.",
+        description: "Due to genetics or mutations, picking this feat alters the person to be more than what others of their species are. Gain a special dice called Augments that starts at d6. Also gain two subchoices.",
+        specialDiceName: "Augments",
+        specialDiceRank: 6,
+
+        subChoices: [
+            {
+                id: "heightened-hearing",
+                name: "Heightened Hearing",
+                description: "Use the special dice when doing any recon involving listening.",
+            },
+            {
+                id: "heightened-sight",
+                name: "Heightened Sight",
+                description: "Use the special dice when doing any recon involving seeing.",
+            },
+            {
+                id: "heightened-smell",
+                name: "Heightened Smell",
+                description: "Use the special dice when doing any recon involving smelling.",
+            },
+            {
+                id: "morpher",
+                name: "Morpher",
+                description: "Use the special dice when disguising oneself.",
+            },
+            {
+                id: "regeneration",
+                name: "Regeneration",
+                description: "Use the special dice when healing one's own grit.",
+            },
+            {
+                id: "reflexes",
+                name: "Reflexes",
+                description: "Spend one stamina to be able to use the special dice when avoiding enemy attacks for the rest of the fight.",
+            },
+            {
+                id: "sharp",
+                name: "Sharp",
+                description: "Spend one stamina to be able to use the special dice when attacking melee for the rest of the fight.",
+            },
+            {
+                id: "stealth",
+                name: "Stealth",
+                description: "Use the special dice when sneaking around.",
+            },
+            {
+                id: "strength",
+                name: "Strength",
+                description: "Use the special dice with any dice check involving strength.",
+            },
+            {
+                id: "swift",
+                name: "Swift",
+                description: "Gain one free movement per round.",
+            },
+            {
+                id: "weather-survival",
+                name: "Weather Survival",
+                description: "Use the special dice when surviving weather.",
+            },
+        ],
+
+        advanced: {
+            id: "modular-augments-advanced",
+            name: "Modular Augments",
+            description: "Increase the Augments special dice to d8 and pick two more subchoices.",
+            specialDiceName: "Augments",
+            specialDiceRank: 8,
+        },
+
+        mastery: {
+            id: "modular-augments-mastery",
+            name: "Modular Augments",
+            description: "Increase the Augments special dice to d10 and pick two more subchoices.",
+            specialDiceName: "Augments",
+            specialDiceRank: 10,
+        },
     },
+
     {
         id: "modular-companion",
         name: "Modular Companion",
-        description: "See the Modular Feats chapter.",
+        description: "You have a creature that travels with you and helps you in your fights and adventures. Gain a special dice called Companion that starts at d6. Also gain two subchoices.",
+        specialDiceName: "Companion",
+        specialDiceRank: 6,
+
+        subChoices: [
+            {
+                id: "adorable",
+                name: "Adorable",
+                description: "Use the special dice when trying to charm someone.",
+            },
+            {
+                id: "defender",
+                name: "Defender",
+                description: "Any ally can use the special dice when defending in the same zone as the companion.",
+            },
+            {
+                id: "durable",
+                name: "Durable",
+                description: "When defending itself, the Companion can use its dice twice.",
+            },
+            {
+                id: "fierce",
+                name: "Fierce",
+                description: "Use the special dice when trying to intimidate someone.",
+            },
+            {
+                id: "fetching",
+                name: "Fetching",
+                description: "Use the special dice when stealing or picking pockets.",
+            },
+            {
+                id: "flying",
+                name: "Flying",
+                description: "The Companion gains the flight ability.",
+            },
+            {
+                id: "natural-camouflage",
+                name: "Natural Camouflage",
+                description: "Use the special dice when stealthing through a wilderness.",
+            },
+            {
+                id: "reach",
+                name: "Reach",
+                description: "Allies can use the special dice when adjacent to the companion's zone.",
+            },
+            {
+                id: "sprinter",
+                name: "Sprinter",
+                description: "The Companion can move 4 zones instead.",
+            },
+            {
+                id: "steed",
+                name: "Steed",
+                description: "Spend one action to use your Companion as a steed. You can start fights this way. When it is a steed, you move when it moves, and only you can use its special dice when attacking. Dismounting the Companion can be done for free.",
+            },
+            {
+                id: "tracker",
+                name: "Tracker",
+                description: "Use the special dice when tracking or searching for someone.",
+            },
+            {
+                id: "venomous",
+                name: "Venomous",
+                description: "If the Companion dice was used against a living target to deal damage, that target gains the Bleed condition unless immune to Poison.",
+            },
+        ],
+
+        advanced: {
+            id: "modular-companion-advanced",
+            name: "Modular Companion",
+            description: "Increase the Companion special dice to d8 and pick two more subchoices.",
+            specialDiceName: "Companion",
+            specialDiceRank: 8,
+        },
+
+        mastery: {
+            id: "modular-companion-mastery",
+            name: "Modular Companion",
+            description: "Increase the Companion special dice to d10 and pick two more subchoices.",
+            specialDiceName: "Companion",
+            specialDiceRank: 10,
+        },
     },
+
     {
         id: "modular-cybernetics",
         name: "Modular Cybernetics",
-        description: "See the Modular Feats chapter.",
+        description: "You either are part or are completely machine. Gain a special dice called Cybernetics that starts at d6. Also gain two subchoices.",
+        specialDiceName: "Cybernetics",
+        specialDiceRank: 6,
+
+        subChoices: [
+            {
+                id: "blade",
+                name: "Blade",
+                description: "You can use the special dice as though it was an option for a melee weapon.",
+            },
+            {
+                id: "concealment",
+                name: "Concealment",
+                description: "You can bring gear into restricted areas.",
+            },
+            {
+                id: "gun",
+                name: "Gun",
+                description: "You can use the special dice as though it was an option for a small arms weapon.",
+            },
+            {
+                id: "heightened-hearing",
+                name: "Heightened Hearing",
+                description: "Use the special dice when doing any recon involving listening.",
+            },
+            {
+                id: "heightened-sight",
+                name: "Heightened Sight",
+                description: "Use the special dice when doing any recon involving seeing.",
+            },
+            {
+                id: "hacking",
+                name: "Hacking",
+                description: "Use the special dice when dealing with computers.",
+            },
+            {
+                id: "strength",
+                name: "Strength",
+                description: "Use the special dice with any dice check involving strength.",
+            },
+            {
+                id: "sturdy",
+                name: "Sturdy",
+                description: "Spend one credit to be able to use the special dice when avoiding enemy attacks for the rest of the fight.",
+            },
+            {
+                id: "swift",
+                name: "Swift",
+                description: "Gain one free movement per round.",
+            },
+            {
+                id: "vacuum-survival",
+                name: "Vacuum Survival",
+                description: "Use the special dice when surviving in outer space or non-atmospheric areas.",
+            },
+            {
+                id: "vessel-integration",
+                name: "Vessel Integration",
+                description: "Use the special dice when dealing with a vessel component.",
+            },
+        ],
+
+        advanced: {
+            id: "modular-cybernetics-advanced",
+            name: "Modular Cybernetics",
+            description: "Increase the Cybernetics special dice to d8 and pick two more subchoices.",
+            specialDiceName: "Cybernetics",
+            specialDiceRank: 8,
+        },
+
+        mastery: {
+            id: "modular-cybernetics-mastery",
+            name: "Modular Cybernetics",
+            description: "Increase the Cybernetics special dice to d10 and pick two more subchoices.",
+            specialDiceName: "Cybernetics",
+            specialDiceRank: 10,
+        },
     },
+
     {
         id: "modular-psionics",
         name: "Modular Psionics",
-        description: "See the Modular Feats chapter.",
+        description: "You have psychic powers, either having been born with them, being part of your species, or gaining them through science or supernatural means. Gain a special dice called Psionics that starts at d6. Also gain two subchoices. Subchoices are special psychic moves. Psychic moves take 2 actions and require spending one stamina to use. If a roll is made with the Psychic move, you may use the special dice along with what the move says.",
+        specialDiceName: "Psionics",
+        specialDiceRank: 6,
+
+        subChoices: [
+            {
+                id: "banish",
+                name: "Banish",
+                description: "Make an attack targeting an extra-dimensional enemy within 5 zones. If twice the result is equal to or more than the remaining health of the target, the target is removed from this dimension. Otherwise, do psychic damage equal to half the result.",
+            },
+            {
+                id: "blast",
+                name: "Blast",
+                description: "Make an attack against a target within 5 zones. Do physical damage equal to the result plus half the result.",
+            },
+            {
+                id: "cleanse",
+                name: "Cleanse",
+                description: "Make a Medicine check. Remove a number of conditions from you and your allies equal to the result.",
+            },
+            {
+                id: "command",
+                name: "Command",
+                description: "Make an attack against a target within 5 zones. Do Parley damage equal to the result.",
+            },
+            {
+                id: "fireball",
+                name: "Fireball",
+                description: "Make an attack against everyone in a zone that is within 5 zones. Do fire damage equal to the result.",
+            },
+            {
+                id: "fire-strike",
+                name: "Fire Strike",
+                description: "Make an attack against a target within 5 zones. Do fire damage equal to the result plus and set the target on fire, giving them the Bleed and Crippled conditions.",
+            },
+            {
+                id: "fire-summon",
+                name: "Fire Summon",
+                description: "Set a zone on fire. Make an Influence check with your special dice to make a minion. You and your allies can use that dice when attacking any target in that zone.",
+            },
+            {
+                id: "illusion",
+                name: "Illusion",
+                description: "Make an Influence or Secrecy check. If the result is equal to all enemies' total ranks, you create a human-sized illusion that all will believe until they interact with or attack it. They will believe it is real even if they saw it manifest.",
+            },
+            {
+                id: "levitate",
+                name: "Levitate",
+                description: "Make an attack against targets within 5 zones. You can move enemies from one zone to another, spending points equal to your result. Each enemy moved costs their size plus rank.",
+            },
+            {
+                id: "lightning-ball",
+                name: "Lightning Ball",
+                description: "Make an attack against everyone in a zone that is within 5 zones. Do shock damage equal to the result.",
+            },
+            {
+                id: "lightning-strike",
+                name: "Lightning Strike",
+                description: "Make an attack against a target within 5 zones. Do shock damage equal to the result and set the target on fire, giving them the Slowed and Crippled conditions.",
+            },
+            {
+                id: "read",
+                name: "Read",
+                description: "You can read a mind to ask one question. The GM must answer honestly based on what the target knows about that question. Beings with psychic resistances cannot be read.",
+            },
+            {
+                id: "shield",
+                name: "Shield",
+                description: "Target a zone within 5 zones. Until the next player's phase, all allies within that zone can use your special dice to defend themselves.",
+            },
+            {
+                id: "weaken",
+                name: "Weaken",
+                description: "Make an attack against a target within 5 zones. Instead of damage, divide your result by 5, rounded up. Give that many conditions to your target from this list: Bleed, Crippled, Frightened, Grounded, Slowed.",
+            },
+        ],
+
+        advanced: {
+            id: "modular-psionics-advanced",
+            name: "Modular Psionics",
+            description: "Increase the Psionics special dice to d8 and pick two more subchoices.",
+            specialDiceName: "Psionics",
+            specialDiceRank: 8,
+        },
+
+        mastery: {
+            id: "modular-psionics-mastery",
+            name: "Modular Psionics",
+            description: "Increase the Psionics special dice to d10 and pick two more subchoices.",
+            specialDiceName: "Psionics",
+            specialDiceRank: 10,
+        },
     },
     {
         id: "multi-attack",
