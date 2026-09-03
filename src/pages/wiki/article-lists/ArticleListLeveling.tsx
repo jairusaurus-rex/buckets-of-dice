@@ -23,6 +23,16 @@ const ModularCompanionArticle = lazy(() =>
         default: module.ModularCompanionArticle,
     }))
 );
+const ModularCyberneticsArticle = lazy(() =>
+    import("../articles/leveling/ModularCyberneticsArticle.tsx").then((module) => ({
+        default: module.ModularCyberneticsArticle,
+    }))
+);
+const ModularPsionicsArticle = lazy(() =>
+    import("../articles/leveling/ModularPsionicsArticle.tsx").then((module) => ({
+        default: module.ModularPsionicsArticle,
+    }))
+);
 
 export const ArticleListLeveling: ArticleListType = {
     id: WikiArticleLinks.LEVELING,
@@ -44,5 +54,15 @@ export const ArticleListLeveling: ArticleListType = {
             title: "Modular Companion",
             component: ModularCompanionArticle,
         },
+        {
+            id: WikiArticleLinks.LEVELING_MODULAR_CYBERNETICS,
+            title: "Modular Cybernetics",
+            component: ModularCyberneticsArticle,
+        },
+        {
+            id: WikiArticleLinks.LEVELING_MODULAR_PSIONICS,
+            title: "Modular Psionics",
+            component: ModularPsionicsArticle,
+        }
     ]
 };

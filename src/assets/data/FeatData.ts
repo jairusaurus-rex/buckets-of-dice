@@ -264,7 +264,7 @@ export const FeatData: FeatType[] = [
         description: "Gain a special dice called Companion that starts at d6. Also gain two subchoices.",
         specialDiceName: "Companion",
         specialDiceRank: 6,
-
+        link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_COMPANION}`,
         subChoices: [
             {
                 id: "adorable",
@@ -351,7 +351,7 @@ export const FeatData: FeatType[] = [
         description: "Gain a special dice called Cybernetics that starts at d6. Also gain two subchoices.",
         specialDiceName: "Cybernetics",
         specialDiceRank: 6,
-
+        link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_CYBERNETICS}`,
         subChoices: [
             {
                 id: "blade",
@@ -433,7 +433,7 @@ export const FeatData: FeatType[] = [
         description: "Gain a special dice called Psionics that starts at d6. Also gain two subchoices.",
         specialDiceName: "Psionics",
         specialDiceRank: 6,
-
+        link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_PSIONICS}`,
         subChoices: [
             {
                 id: "banish",
