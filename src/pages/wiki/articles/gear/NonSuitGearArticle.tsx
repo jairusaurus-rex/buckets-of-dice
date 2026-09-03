@@ -18,9 +18,9 @@ export const NonSuitGearArticle = () => {
     return (
         <div className="p-2 text-justify">
             <p className="p-2">When first making a character, you may choose 6 Non-Suit Gear items. </p>
-            <p className="p-2">Unless a feat or ability says otherwise, you can only have one of each of the below. 
+            <p className="p-2">Unless a feat or ability says otherwise, you can only have one of each of the below.
                 This applies whether you are selecting starting gear or buying additional gear. </p>
-            <div className="flex flex-col md:flex-row md:justify-between gap-4">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
                 <h3 className="font-bold">Gear List</h3>
                 <input
                     type="search"
@@ -28,11 +28,11 @@ export const NonSuitGearArticle = () => {
                     onChange={(event) => setSearchTerm(event.target.value)}
                     placeholder="Search gear..."
                     aria-label="Search non-suit gear"
-                    className="mb-4 w-full md:w-3/4 rounded border border-[var(--border)] bg-[var(--bg)] p-2 text-[var(--text-h)]"
+                    className="w-full md:w-3/4 rounded border border-[var(--border)] bg-[var(--bg)] p-2 text-[var(--text-h)]"
                 />
-                
+
             </div>
-            
+
             <div className="columns-1 md:columns-2 gap-8">
                 {gearData.map((gear) => (
                     <div key={gear.id} className="mt-2 p-2  break-inside-avoid">

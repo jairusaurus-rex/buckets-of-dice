@@ -19,7 +19,7 @@ export const SuitAccentArticle = () => {
         <div className="p-2 text-justify">
             <p className="p-2">Players choose one accent to give them their own unique style and advantages. Each player can choose one from the accent list.</p>
 
-            <div className="flex flex-col md:flex-row md:justify-between gap-4">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
                 <h3 className="font-bold">Star Suit Accents</h3>
                 <input
                     type="search"
@@ -27,7 +27,7 @@ export const SuitAccentArticle = () => {
                     onChange={(event) => setSearchTerm(event.target.value)}
                     placeholder="Search accents..."
                     aria-label="Search star suit accents"
-                    className="mb-4 w-full md:w-3/4 rounded border border-[var(--border)] bg-[var(--bg)] p-2 text-[var(--text-h)]"
+                    className="w-full md:w-3/4 rounded border border-[var(--border)] bg-[var(--bg)] p-2 text-[var(--text-h)]"
                 />
                 
             </div>

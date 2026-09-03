@@ -38,7 +38,7 @@ export const ModularCompanionArticle = () => {
                 <p className="p-2"><strong>Mastery:</strong> {<DiceTextString>{feat?.mastery?.description}</DiceTextString>} </p>
 
             </div>
-            <div className="flex flex-col md:flex-row md:justify-between gap-4">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
                 <h3 className="font-bold">Subchoice List</h3>
                 <input
                     type="search"
@@ -46,7 +46,7 @@ export const ModularCompanionArticle = () => {
                     onChange={(event) => setSearchTerm(event.target.value)}
                     placeholder="Search subchoices..."
                     aria-label="Search subchoices"
-                    className="mb-4 w-full md:w-3/4 rounded border border-[var(--border)] bg-[var(--bg)] p-2 text-[var(--text-h)]"
+                    className="w-full md:w-3/4 rounded border border-[var(--border)] bg-[var(--bg)] p-2 text-[var(--text-h)]"
                 />
 
             </div>

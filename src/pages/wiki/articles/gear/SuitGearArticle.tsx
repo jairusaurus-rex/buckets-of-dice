@@ -17,8 +17,9 @@ export const SuitGearArticle = () => {
                 other stylish clothing. These are called accents</p>
             <p className="p-2">Star Suits have parts which take up four gears of a character sheet. This gives all players
                 armor, adept, and aid along with an accent to make them more unique.</p>
-
-            <h3 className="font-bold">Star Suit Gear</h3>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
+                <h3 className="font-bold">Star Suit Gear</h3>
+            </div>
 
             <div className="columns-1 md:columns-2 gap-8">
                 {suitAccessData.map((gear) => (
@@ -30,7 +31,7 @@ export const SuitGearArticle = () => {
                         <div>
                             {gear.description}
                         </div>
-                            {gear.name.toLowerCase().includes("accent") && <div className="mt-2">See accent options <Link to={`/wiki/${WikiArticleLinks.GEAR_SUIT_ACCENT}`}>here</Link></div>}
+                        {gear.name.toLowerCase().includes("accent") && <div className="mt-2">See accent options <Link to={`/wiki/${WikiArticleLinks.GEAR_SUIT_ACCENT}`}>here</Link></div>}
                     </div>
                 ))}
             </div>
