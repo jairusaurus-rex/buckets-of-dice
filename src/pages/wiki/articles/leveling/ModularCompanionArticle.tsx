@@ -17,7 +17,7 @@ export const ModularCompanionArticle = () => {
     }, [searchTerm]);
     return (
         <div className="p-2 text-justify">
-            <div className="p-2 font-italic">
+            <div className="p-2 italic">
                 <p className="p-2">You have a creature that travels with you and helps you in your fights and adventures.  </p>
             </div>
             <div className="p-2">

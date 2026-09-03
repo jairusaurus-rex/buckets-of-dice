@@ -17,7 +17,7 @@ export const ModularAugmentsArticle = () => {
     }, [searchTerm]);
     return (
         <div className="p-2 text-justify">
-            <div className="p-2 font-italic">
+            <div className="p-2 italic">
                 <p className="p-2">Due to genetics or mutations, picking this feat alters the person to be more than what others of their species are.  </p>
             </div>
             <div className="p-2">
