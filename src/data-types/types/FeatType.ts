@@ -14,4 +14,5 @@ export type FeatType = {
     advanced?: FeatType;
     mastery?: FeatType;
     subChoices?: FeatSubChoiceType[];
+    link?: string;
 }

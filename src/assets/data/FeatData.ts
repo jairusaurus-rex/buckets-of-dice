@@ -1,3 +1,4 @@
+import { WikiArticleLinks } from "../../data-types/enums/wiki-article-enum";
 import type { FeatType } from "../../data-types/types/FeatType";
 export const FeatData: FeatType[] = [
     {
@@ -178,10 +179,10 @@ export const FeatData: FeatType[] = [
     {
         id: "modular-augments",
         name: "Modular Augments",
-        description: "Due to genetics or mutations, picking this feat alters the person to be more than what others of their species are. Gain a special dice called Augments that starts at d6. Also gain two subchoices.",
+        description: "Gain a special dice called Augments that starts at d6. Also gain two subchoices.",
         specialDiceName: "Augments",
         specialDiceRank: 6,
-
+        link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_AUGMENTS}`,
         subChoices: [
             {
                 id: "heightened-hearing",
@@ -260,7 +261,7 @@ export const FeatData: FeatType[] = [
     {
         id: "modular-companion",
         name: "Modular Companion",
-        description: "You have a creature that travels with you and helps you in your fights and adventures. Gain a special dice called Companion that starts at d6. Also gain two subchoices.",
+        description: "Gain a special dice called Companion that starts at d6. Also gain two subchoices.",
         specialDiceName: "Companion",
         specialDiceRank: 6,
 
@@ -347,7 +348,7 @@ export const FeatData: FeatType[] = [
     {
         id: "modular-cybernetics",
         name: "Modular Cybernetics",
-        description: "You either are part or are completely machine. Gain a special dice called Cybernetics that starts at d6. Also gain two subchoices.",
+        description: "Gain a special dice called Cybernetics that starts at d6. Also gain two subchoices.",
         specialDiceName: "Cybernetics",
         specialDiceRank: 6,
 
@@ -429,7 +430,7 @@ export const FeatData: FeatType[] = [
     {
         id: "modular-psionics",
         name: "Modular Psionics",
-        description: "You have psychic powers, either having been born with them, being part of your species, or gaining them through science or supernatural means. Gain a special dice called Psionics that starts at d6. Also gain two subchoices. Subchoices are special psychic moves. Psychic moves take 2 actions and require spending one stamina to use. If a roll is made with the Psychic move, you may use the special dice along with what the move says.",
+        description: "Gain a special dice called Psionics that starts at d6. Also gain two subchoices.",
         specialDiceName: "Psionics",
         specialDiceRank: 6,
 

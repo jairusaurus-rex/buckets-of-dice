@@ -66,12 +66,9 @@ export const FeatListArticle = () => {
                             )}
                         </div>
                         <div>
-                            {feat.subChoices && (
+                            {feat.link && (
                                 <div className="p-2">
-                                    {   
-                                        feat.id.includes("augment") && 
-                                        <span>See Modular Augments details <Link to={`/wiki/${WikiArticleLinks.LEVELING_MODULAR_AUGMENTS}`}>here</Link></span>
-                                    }
+                                    <span>See {feat.name} details <Link to={feat.link}>here</Link></span>
                                 </div>
                             )}
                         </div>
