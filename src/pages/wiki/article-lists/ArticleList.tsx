@@ -5,8 +5,8 @@ import type { ArticleListType } from "../../../data-types/types/AticleListType.t
 import { ArticleListGear } from "./ArticleListGear.tsx";
 import { ArticleListSpecies } from "./ArticleListSpecies.tsx";
 import character_creation from "../../../assets/images/art/character_creation.png";
+import skills_datapad from "../../../assets/images/art/skills_datapad.png";
 import { ArticleListLeveling } from "./ArticleListLeveling.tsx";
-
 const TheSpacerArticle = lazy(() =>
     import("../articles/TheSpacerArticle.tsx").then((module) => ({
         default: module.TheSpacerArticle,
@@ -42,6 +42,7 @@ export const ArticleList: ArticleListType[] = [
         id: WikiArticleLinks.SKILLS,
         title: "Skills",
         component: SkillsArticle,
+        articleImage: skills_datapad,
     },
     ArticleListSpecies,
     ArticleListGear,
