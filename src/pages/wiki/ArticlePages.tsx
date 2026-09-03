@@ -58,7 +58,7 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
 
             <div ref={articleSectionRef} className="flex-1 flex flex-col p-0 m-0 h-full min-h-0 overflow-y-auto ">
                 <div className={`${styles.wiki} `}>
-                    {article && article.articleImage && <img src={article.articleImage} alt={article.title} />}
+                    {article && article.articleImage && <img src={article.articleImage} alt={article.title}  className={styles.mainArticleImg}  />}
 
                     <Suspense fallback={<div className="p-4 text-[var(--text-h)]">Loading article...</div>}>
                         {article && ArticleComponent ? <ArticleComponent /> : <ArticleNotFound />}

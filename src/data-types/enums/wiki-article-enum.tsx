@@ -1,5 +1,6 @@
 export const WikiArticleLinks= {
   WELCOME: "welcome",
+    THE_SPACER: "the-spacer",
     GETTING_STARTED: "getting-started",
     CHARACTER_CREATION: "character-creation",
     SKILLS: "skills",

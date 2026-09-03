@@ -7,6 +7,12 @@ import { ArticleListSpecies } from "./ArticleListSpecies.tsx";
 import character_creation from "../../../assets/images/art/character_creation.png";
 import { ArticleListLeveling } from "./ArticleListLeveling.tsx";
 
+const TheSpacerArticle = lazy(() =>
+    import("../articles/TheSpacerArticle.tsx").then((module) => ({
+        default: module.TheSpacerArticle,
+    }))
+);
+
 const CharacterCreationArticle = lazy(() =>
     import("../articles/CharacterCreationArticle.tsx").then((module) => ({
         default: module.CharacterCreationArticle,
@@ -20,6 +26,12 @@ const SkillsArticle = lazy(() =>
 );
 
 export const ArticleList: ArticleListType[] = [
+
+    {
+        id: WikiArticleLinks.THE_SPACER,
+        title: "The Spacer",
+        component: TheSpacerArticle,
+    },
     {
         id: WikiArticleLinks.CHARACTER_CREATION,
         title: "Character Creation",
