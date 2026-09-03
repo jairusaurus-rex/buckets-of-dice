@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-import { WikiArticleLinks } from "../../../data-types/enums/wiki-article-enum";
-import DiceText from "../../../components/commons/DiceText";
+
 import character_sheet from "../../../assets/images/screen-shots/character_sheet.png";
 import vessel_sheet from "../../../assets/images/screen-shots/vessel_sheet.png";
 import e_sheet from "../../../assets/images/screen-shots/e_sheet.png";
