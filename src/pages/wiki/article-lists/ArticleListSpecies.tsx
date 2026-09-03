@@ -10,6 +10,10 @@ import feyraArt from "../../../assets/images/art/feyra.png";
 import flonaArt from "../../../assets/images/art/flona.png";
 import locanusArt from "../../../assets/images/art/locanus.png";
 import pawnianArt from "../../../assets/images/art/pawnian.png";
+import rhazakArt from "../../../assets/images/art/rhazak.png";
+import urziArt from "../../../assets/images/art/urzi.png";
+import velkiArt from "../../../assets/images/art/velki.png";
+import zevrinArt from "../../../assets/images/art/zivren.png";
 
 const SpeciesMain = lazy(() =>
     import("../articles/species/SpeciesMainArticle.tsx").then((module) => ({
@@ -175,16 +179,19 @@ export const ArticleListSpecies: ArticleListType = {
             id: WikiArticleLinks.SPECIES_RHAZAK,
             title: "Rhazak",
             component: RhazakArticle,
+            articleImage: rhazakArt,
         },
         {
             id: WikiArticleLinks.SPECIES_URZI,
             title: "Urzi",
             component: UrziArticle,
+            articleImage: urziArt,
         },
         {
             id: WikiArticleLinks.SPECIES_VELKI,
             title: "Velki",
             component: VelkiArticle,
+            articleImage: velkiArt,
         },
         {
             id: WikiArticleLinks.SPECIES_VRANTS,
@@ -195,6 +202,7 @@ export const ArticleListSpecies: ArticleListType = {
             id: WikiArticleLinks.SPECIES_ZIVREN,
             title: "Zivren",
             component: ZivrenArticle,
+            articleImage: zevrinArt,
         },
     ],
 };
