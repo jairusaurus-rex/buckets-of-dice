@@ -183,6 +183,10 @@ export const FeatData: FeatType[] = [
         specialDiceName: "Augments",
         specialDiceRank: 6,
         link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_AUGMENTS}`,
+        extra:{
+            lore: "Due to genetics or mutations, picking this feat alters the person to be more than what others of their species are.",
+            extraInfo: [],
+        },
         subChoices: [
             {
                 id: "heightened-hearing",
@@ -265,6 +269,15 @@ export const FeatData: FeatType[] = [
         specialDiceName: "Companion",
         specialDiceRank: 6,
         link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_COMPANION}`,
+        extra:{
+            lore: "You have a creature that travels with you and helps you in your fights and adventures.",
+            extraInfo: [
+                "Companions have a part of the fight with their master. Any Ally that attacks a target in the same zone as the companion can use the special dice.",
+                "The master can spend one action to move the, companion up to 2 zones.",
+                "In each fight, keep track of the damage the companion takes. If it is greater than the special dice, they are defeated and cannot be used until the next fight.",
+                "A Companion can defend against attacks using their dice.",
+            ],
+        },
         subChoices: [
             {
                 id: "adorable",
@@ -352,6 +365,10 @@ export const FeatData: FeatType[] = [
         specialDiceName: "Cybernetics",
         specialDiceRank: 6,
         link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_CYBERNETICS}`,
+        extra: {
+            lore: "You have integrated cybernetic enhancements that augment your capabilities.",
+            extraInfo: []
+        },
         subChoices: [
             {
                 id: "blade",
@@ -434,6 +451,14 @@ export const FeatData: FeatType[] = [
         specialDiceName: "Psionics",
         specialDiceRank: 6,
         link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_PSIONICS}`,
+        extra: {
+            lore: "You have psychic powers, either been born with them, part of your species, or giving to you by science or supernatural means.",
+            extraInfo: [
+                "Sub Choices are special psychic moves.",
+                "Psychic moves take 2 actions and spending one stamina to use.",
+                "If a roll is made with the Psychic move, you may use the special dice along with what the move says.",
+            ],
+        },
         subChoices: [
             {
                 id: "banish",

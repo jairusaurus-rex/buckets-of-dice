@@ -14,23 +14,23 @@ const FeatListArticle = lazy(() =>
     }))
 );
 const ModularAugmentsArticle = lazy(() =>
-    import("../articles/leveling/ModularAugmentsArticle.tsx").then((module) => ({
-        default: module.ModularAugmentsArticle,
+    import("../articles/leveling/ModularArticle.tsx").then(({ ModularArticle }) => ({
+        default: () => <ModularArticle featId="modular-augments" />,
     }))
-);  
+);
 const ModularCompanionArticle = lazy(() =>
-    import("../articles/leveling/ModularCompanionArticle.tsx").then((module) => ({
-        default: module.ModularCompanionArticle,
+    import("../articles/leveling/ModularArticle.tsx").then(({ ModularArticle }) => ({
+        default: () => <ModularArticle featId="modular-companion" />,
     }))
 );
 const ModularCyberneticsArticle = lazy(() =>
-    import("../articles/leveling/ModularCyberneticsArticle.tsx").then((module) => ({
-        default: module.ModularCyberneticsArticle,
+    import("../articles/leveling/ModularArticle.tsx").then(({ ModularArticle }) => ({
+        default: () => <ModularArticle featId="modular-cybernetics" />,
     }))
 );
 const ModularPsionicsArticle = lazy(() =>
-    import("../articles/leveling/ModularPsionicsArticle.tsx").then((module) => ({
-        default: module.ModularPsionicsArticle,
+    import("../articles/leveling/ModularArticle.tsx").then(({ ModularArticle }) => ({
+        default: () => <ModularArticle featId="modular-psionics" /> ,
     }))
 );
 

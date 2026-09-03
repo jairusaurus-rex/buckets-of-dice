@@ -4,6 +4,11 @@ type FeatSubChoiceType = {
     description: string;
 }
 
+type FeatExtraDescription = {
+    lore: string;
+    extraInfo: string[];
+}
+
 export type FeatType = {
     id: string;
     name: string;
@@ -15,4 +20,5 @@ export type FeatType = {
     mastery?: FeatType;
     subChoices?: FeatSubChoiceType[];
     link?: string;
+    extra?:FeatExtraDescription;
 }

@@ -2,10 +2,11 @@ import { useMemo, useState } from "react";
 import { FeatData } from "../../../../assets/data/FeatData";
 import DiceTextString from "../../../../components/commons/DiceTextString";
 
-
-export const ModularAugmentsArticle = () => {
+type ModularArticleProps = {
+    featId: string;
+};
+export const ModularArticle = ({ featId }: ModularArticleProps) => {
     const [searchTerm, setSearchTerm] = useState("");
-    const featId = "modular-augments";
     const feat = FeatData.find((feat) => feat.id === featId);
     const subChoices = useMemo(() => {
         const search = searchTerm.toLowerCase();
@@ -18,10 +19,17 @@ export const ModularAugmentsArticle = () => {
     return (
         <div className="p-2 text-justify">
             <div className="p-2 italic">
-                <p className="p-2">Due to genetics or mutations, picking this feat alters the person to be more than what others of their species are.  </p>
+                <p className="p-2">{feat?.extra?.lore}</p>
             </div>
             <div className="p-2">
                 <p className="p-2">{<DiceTextString>{feat?.description}</DiceTextString>} </p>
+                <ul className="list-disc  list-inside pl-4 space-y-2">
+                    {
+                        feat?.extra?.extraInfo.map((info, index) => (
+                            <li key={index}>{info}</li>
+                        ))
+                    }
+                    </ul>
             </div>
             <div className="p-2">
                 <p className="p-2"><strong>Advanced:</strong> {<DiceTextString>{feat?.advanced?.description}</DiceTextString>} </p>
