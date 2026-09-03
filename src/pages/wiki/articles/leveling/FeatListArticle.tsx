@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FeatData } from "../../../../assets/data/FeatData";
 import DiceTextString from "../../../../components/commons/DiceTextString";
 import { Link } from "react-router-dom";
-import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum";
 
 
 export const FeatListArticle = () => {
