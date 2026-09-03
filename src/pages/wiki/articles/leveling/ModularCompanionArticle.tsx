@@ -3,9 +3,9 @@ import { FeatData } from "../../../../assets/data/FeatData";
 import DiceTextString from "../../../../components/commons/DiceTextString";
 
 
-export const ModularAugmentsArticle = () => {
+export const ModularCompanionArticle = () => {
     const [searchTerm, setSearchTerm] = useState("");
-    const featId = "modular-augments";
+    const featId = "modular-companion";
     const feat = FeatData.find((feat) => feat.id === featId);
     const subChoices = useMemo(() => {
         const search = searchTerm.toLowerCase();
@@ -18,14 +18,25 @@ export const ModularAugmentsArticle = () => {
     return (
         <div className="p-2 text-justify">
             <div className="p-2 font-italic">
-                <p className="p-2">Due to genetics or mutations, picking this feat alters the person to be more than what others of their species are.  </p>
+                <p className="p-2">You have a creature that travels with you and helps you in your fights and adventures.  </p>
             </div>
             <div className="p-2">
                 <p className="p-2">{<DiceTextString>{feat?.description}</DiceTextString>} </p>
+
+                <ul className="list-disc  list-inside pl-4 space-y-2">
+                    <li>Companions have a part of the fight with their master. Any Ally that attacks a target in
+                        the same zone as the companion can use the special dice.</li>
+                    <li>The master can spend one action to move the, companion up to 2 zones.</li>
+                    <li>In each fight, keep track of the damage the companion takes. If it is greater than the
+                        special dice, they are defeated and cannot be used until the next fight.</li>
+                    <li>A Companion can defend against attacks using their dice.</li>
+                </ul>
+
             </div>
             <div className="p-2">
                 <p className="p-2"><strong>Advanced:</strong> {<DiceTextString>{feat?.advanced?.description}</DiceTextString>} </p>
                 <p className="p-2"><strong>Mastery:</strong> {<DiceTextString>{feat?.mastery?.description}</DiceTextString>} </p>
+
             </div>
             <div className="flex flex-col md:flex-row md:justify-between gap-4">
                 <h3 className="font-bold">Subchoice List</h3>

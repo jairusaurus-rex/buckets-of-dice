@@ -18,6 +18,11 @@ const ModularAugmentsArticle = lazy(() =>
         default: module.ModularAugmentsArticle,
     }))
 );  
+const ModularCompanionArticle = lazy(() =>
+    import("../articles/leveling/ModularCompanionArticle.tsx").then((module) => ({
+        default: module.ModularCompanionArticle,
+    }))
+);
 
 export const ArticleListLeveling: ArticleListType = {
     id: WikiArticleLinks.LEVELING,
@@ -33,6 +38,11 @@ export const ArticleListLeveling: ArticleListType = {
             id: WikiArticleLinks.LEVELING_MODULAR_AUGMENTS,
             title: "Modular Augments",
             component: ModularAugmentsArticle,
-        }
+        },
+        {
+            id: WikiArticleLinks.LEVELING_MODULAR_COMPANION,
+            title: "Modular Companion",
+            component: ModularCompanionArticle,
+        },
     ]
 };
