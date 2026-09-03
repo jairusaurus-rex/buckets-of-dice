@@ -47,7 +47,7 @@ export const GearArticle = () => {
             <p className="p-2">You can only have one Star Suit Accent at a time but you can spend 10 credits to change your accent, it’s dice stays
                 the same. The Tech level of the area you are in must equal the accent dice to do this </p>
             <div  className={`w-1/2 md:w-1/4 float-left m-2 border border-[var(--border)]`}>
-                <BucketTable title="Upgrade Cose" headerInfo={upgradeGearTable} rows={upgradeData} /> 
+                <BucketTable title="Upgrade Cost" headerInfo={upgradeGearTable} rows={upgradeData} /> 
             </div>
             <h3 className="font-bold">Upgrading</h3>
 
