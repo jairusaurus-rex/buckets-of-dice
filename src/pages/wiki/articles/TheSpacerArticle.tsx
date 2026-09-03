@@ -12,10 +12,11 @@ export const TheSpacerArticle = () => {
     <div className={`p-2 text-justify `}>
       <div className="p-2">
         <p className="p-2">
-          A spacer is a person who travels the heavens, exploring the stars, planets, and other celestial bodies. They take on dangerous and odd jobs at the frontier of space, often working for corporations, governments, criminals, or as freelancers. Spacers are known for their resourcefulness, adaptability, and resilience in the face of the unknown.
+          In the game <span className="text-3xl text-[var(--accent)]">Into the Heavens</span>, a <span className="text-xl text-[var(--text-h)]">spacer</span> is a person who travels the heavens, exploring the stars, planets, and other celestial bodies. They take on dangerous and odd jobs at the frontier of space, often working for corporations, governments, criminals, or as freelancers. Spacers are known for their resourcefulness, adaptability, and resilience in the face of the unknown.
         </p>
         <p className="p-2">
-          Together, all the players' spacers form a crew that travels together on a vessel, taking on jobs and facing challenges as a team.
+          Together, all the players' spacers form a <span className="text-xl text-[var(--text-h)]">crew</span> that 
+          travels together on a <span className="text-xl text-[var(--text-h)]">vessel</span>, taking on jobs and facing challenges as a team.
         </p>
         <p className="p-2">
           Each player other than the GM creates, customizes, roleplays, and levels up their own spacer. Each player will have a character sheet to descrpibe and keep track of their spacer's stats, skills, gear, and other important information. The group of players will have a vessel sheet to keep track of the ship's stats, crew, and other important information.
