@@ -1,10 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faLinkedin, faTailwindCss } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faTailwindCss } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import d12 from "../../assets/images/dice/d12.png";
 import styles from "./HomePage.module.css";
 import vite_icon from "../../assets/images/icons/vite_icon.svg";
 import react_icon from "../../assets/images/icons/react_icon.svg";
+import wiki_image from "../../assets/images/screen-shots/wiki.png";
+import dice_roller_image from "../../assets/images/screen-shots/dice_roller.png";
 
 export const HomePage = () => {
   return (
@@ -24,6 +26,9 @@ export const HomePage = () => {
             A Sci-Fi western ttrpg of exploration and adventure, where a crew
             of Spacers take on dangerous jobs at the edge of known space.
           </p>
+
+
+          {/*
           <div className={styles.actions}>
             <Link className={styles.primaryAction} to="/dice-app">
               Use dice roller <span aria-hidden="true"></span>
@@ -32,6 +37,7 @@ export const HomePage = () => {
               Explore the wiki <span aria-hidden="true"></span>
             </Link>
           </div>
+          */}
         </div>
 
         <div className={styles.heroArtifact} aria-label="A twelve-sided die">
@@ -43,7 +49,50 @@ export const HomePage = () => {
 
         </div>
       </section>
+      <section>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex h-40 flex-col overflow-hidden rounded-lg border-2 border-[var(--accent)] hover:opacity-90 transition-opacity">
+            <Link to="/wiki">
+              <>
+                <div className="shrink-0 bg-[var(--accent)] p-2 text-center font-bold text-white">
+                  Explore the wiki
+                </div>
 
+                <div className="min-h-0 flex-1">
+                  <img
+                    src={wiki_image}
+                    alt="Wiki"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </>
+            </Link>
+
+          </div>
+
+          <div className="flex h-40 flex-col overflow-hidden rounded-lg border-2 border-[var(--accent)] hover:opacity-90 transition-opacity">
+            <Link
+              to={"/dice-app"}
+              target="_blank"
+              className="block overflow-hidden rounded-lg border-2 border-[var(--accent)] 
+                   hover:opacity-90 transition-opacity h-40"
+            >
+              <div className="bg-[var(--accent)] text-white text-center font-bold p-2">
+                Game Master Guide
+              </div>
+
+              <div className="min-h-0 flex-1">
+                <img
+                  src={dice_roller_image}
+                  alt="Dice Roller"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </Link>
+          </div>
+
+        </div>
+      </section>
       <section className={styles.infoGrid}>
         <div className={styles.infoLead}>
           <h3>Powered by</h3>
@@ -76,9 +125,9 @@ export const HomePage = () => {
 
       <footer className={styles.footer}>
         <div>
-        Created by <strong>Jairus</strong>
+          Created by <strong>Jairus</strong>
           <a href="https://www.linkedin.com/in/jairus-houdek-806679104/" target="_blank" rel="noreferrer" aria-label="jairus on LinkedIn" className="ml-3">
-            <span className="text-lg"><FontAwesomeIcon icon={faLinkedin}  /></span>
+            <span className="text-lg"><FontAwesomeIcon icon={faLinkedin} /></span>
             <span>LinkedIn</span>
           </a>
           {/*
