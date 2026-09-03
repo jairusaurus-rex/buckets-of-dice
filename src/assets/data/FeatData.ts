@@ -274,8 +274,8 @@ export const FeatData: FeatType[] = [
             extraInfo: [
                 "Companions have a part of the fight with their master. Any Ally that attacks a target in the same zone as the companion can use the special dice.",
                 "The master can spend one action to move the, companion up to 2 zones.",
-                "In each fight, keep track of the damage the companion takes. If it is greater than the special dice, they are defeated and cannot be used until the next fight.",
-                "A Companion can defend against attacks using their dice.",
+                "In each fight, keep track of the damage the companion takes. If it is greater than the special dice, they are defeated and cannot be used until a week's rest.",
+                "A Companion can defend against attacks using their diceand their master’s defense dice.",
             ],
         },
         subChoices: [
