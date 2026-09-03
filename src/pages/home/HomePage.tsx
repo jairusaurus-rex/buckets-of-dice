@@ -75,7 +75,7 @@ export const HomePage = () => {
               to={"/dice-app"}
             >
               <div className="bg-[var(--accent)] text-white text-center font-bold p-2">
-                Game Master Guide
+                Use dice roller
               </div>
 
               <div className="min-h-0 flex-1">

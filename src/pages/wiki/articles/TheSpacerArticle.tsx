@@ -60,7 +60,7 @@ export const TheSpacerArticle = () => {
                    hover:opacity-90 transition-opacity h-40"
           >
             <div className="bg-[var(--accent)] text-white text-center font-bold p-2">
-              Game Master Guide
+              PDF Vessel Sheet
             </div>
 
             <div className="min-h-0 flex-1">
