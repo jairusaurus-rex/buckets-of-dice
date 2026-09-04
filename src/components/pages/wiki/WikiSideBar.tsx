@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { ArticleList } from "./article-lists/ArticleList";
 import type { ArticleListType } from "../../../data-types/types/AticleListType";
+import { ArticleList } from "./article-lists/ArticleList";
 import { findParentIds } from "./wikiArticleTree";
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 type WikiSideBarProps = {
   isOpen: boolean;

@@ -1,9 +1,9 @@
 import type { DiceType } from "../../../data-types/types/DiceType";
-import { useDiceRoller } from "../../../contexts/DiceRollerContext";
 import { AddDiceByRank } from "./AddDiceByRank";
-import DieCard from "./DiceCard";
-import { DiceRollerReducerActions } from "../../../data-types/enums/dice-roller-reducer-action-enum";
 import { DiceCategories } from "../../../data-types/enums/dice-categories-enum";
+import { DiceRollerReducerActions } from "../../../data-types/enums/dice-roller-reducer-action-enum";
+import { useDiceRoller } from "../../../contexts/DiceRollerContext";
+import DieCard from "./DiceCard";
 
 type DiceCategoryProps = {
     category: string,

@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { GearData } from "../../../../../assets/data/GearData";
+import { useState } from "react";
 
 
 export const NonSuitGearArticle = () => {

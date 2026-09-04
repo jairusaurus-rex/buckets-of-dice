@@ -1,10 +1,10 @@
-import { Suspense, useEffect, useMemo, useRef } from "react";
-import { useParams } from "react-router-dom";
 import { ArticleList } from "./article-lists/ArticleList";
-import styles from "./Articles.module.css";
-import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
 import { ArticleNotFound } from "./articles/ArticleNotFound";
 import { findArticleById, getArticleNavigation } from "./wikiArticleTree";
+import { Suspense, useEffect, useMemo, useRef } from "react";
+import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
+import { useParams } from "react-router-dom";
+import styles from "./Articles.module.css";
 
 type ArticlePagesProps = {
     isSidebarOpen: boolean;

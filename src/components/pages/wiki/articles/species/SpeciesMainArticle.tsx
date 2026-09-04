@@ -1,8 +1,8 @@
 import type { HeaderInfoType } from "../../../../commons/BucketTable"
-import BucketTable from "../../../../commons/BucketTable"
-import { SpeciesData } from "../../../../../assets/data/SpeciesData"
+import { BucketTable }  from "../../../../commons/BucketTable"
+import { DiceTextString}  from "../../../../commons/DiceTextString"
 import { Link } from "react-router-dom"
-import DiceTextString from "../../../../commons/DiceTextString"
+import { SpeciesData } from "../../../../../assets/data/SpeciesData"
 
 export const SpeciesMain = () => {
 

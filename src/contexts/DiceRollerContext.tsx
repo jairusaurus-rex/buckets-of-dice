@@ -6,9 +6,9 @@ import {
     type ReactNode
 } from "react";
 
-import DiceRollerReducer from "../reducers/DiceRollerReducer";
 import type { DiceCategoryType } from "../data-types/types/DiceCategoryType";
 import { diceRollerDummyData } from "../assets/data/DiceRollerData";
+import DiceRollerReducer from "../reducers/DiceRollerReducer";
 
 
 

@@ -1,4 +1,4 @@
-import DiceText from "../../../../commons/DiceText";
+import { DiceText}  from "../../../../commons/DiceText";
 
 export const RhazakArticle = () => {
     return (

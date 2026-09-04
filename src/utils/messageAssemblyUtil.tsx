@@ -1,11 +1,11 @@
-import ReadMore from "../components/commons/ReadMore"
+import { ReadMore } from "../components/commons/ReadMore"
 import type { DiceType } from "../data-types/types/DiceType"
 import styles from "../components/layouts/Layout.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleRight } from "@fortawesome/free-solid-svg-icons/faCircleRight";
-import DiceText from "../components/commons/DiceText";
+import { DiceText } from "../components/commons/DiceText";
 
-export const AssembleDicePoolResult = (
+export const assembleDicePoolTextResult = (
     dice: DiceType[],
     rollTitle: string,
     newResult: number,

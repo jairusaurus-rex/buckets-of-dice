@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import pageNotFound from "../../assets/images/wallpaper/pageNotFound.jpg";
+
 export const PageNotFound = () => {
     return (
         <div className=" flex h-screen items-center justify-center">

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { GearData } from "../../../../../assets/data/GearData";
+import { Link } from "react-router-dom";
 import { WikiArticleLinks } from "../../../../../data-types/enums/wiki-article-enum";
 
 

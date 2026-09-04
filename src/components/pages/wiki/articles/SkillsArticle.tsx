@@ -1,5 +1,5 @@
+import { DiceText } from "../../../commons/DiceText";
 import { SkillData } from "../../../../assets/data/SkillData";
-import DiceText from "../../../commons/DiceText";
 
 
 export const SkillsArticle = () => {

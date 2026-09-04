@@ -1,5 +1,5 @@
+import { DiceText}  from "../../../../commons/DiceText"
 import { Link } from "react-router-dom"
-import DiceText from "../../../../commons/DiceText"
 import { WikiArticleLinks } from "../../../../../data-types/enums/wiki-article-enum"
 
 export const LevelingArticle = () => {

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../../data-types/enums/wiki-article-enum"
+
 export const BekArticle = () => {
     return (
         <div className="p-2 text-justify">

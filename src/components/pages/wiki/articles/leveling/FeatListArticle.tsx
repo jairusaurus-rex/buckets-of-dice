@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { DiceTextString } from "../../../../commons/DiceTextString";
 import { FeatData } from "../../../../../assets/data/FeatData";
-import DiceTextString from "../../../../commons/DiceTextString";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 export const FeatListArticle = () => {

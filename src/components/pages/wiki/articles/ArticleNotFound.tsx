@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { ArticleList } from "../article-lists/ArticleList";
+import { Link } from "react-router-dom";
 import pageNotFound from "../../../../assets/images/wallpaper/pageNotFound.jpg";
 
 export const ArticleNotFound = () => {

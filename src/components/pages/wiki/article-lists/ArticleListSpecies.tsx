@@ -1,6 +1,6 @@
-import { lazy } from "react";
-import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum.tsx";
 import type { ArticleListType } from "../../../../data-types/types/AticleListType.ts";
+import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum.tsx";
+import { lazy } from "react";
 import bekArt from "../../../../assets/images/art/bek.png";
 import chyraxArt from "../../../../assets/images/art/chyrax.png";
 import drakariArt from "../../../../assets/images/art/drakari.png";

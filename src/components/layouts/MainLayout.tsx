@@ -1,8 +1,8 @@
-import { Outlet } from "react-router-dom";
+import { DiceRollerProvider } from "../../contexts/DiceRollerContext";
 import { Header } from "./Header";
 import { Menu } from "./Menu";
-import { DiceRollerProvider } from "../../contexts/DiceRollerContext";
 import { MessagerProvider } from "../../contexts/MessagerContext";
+import { Outlet } from "react-router-dom";
 
 export const MainLayout = () => {
   return (

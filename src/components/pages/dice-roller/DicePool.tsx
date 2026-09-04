@@ -1,21 +1,21 @@
 import type { DiceType } from "../../../data-types/types/DiceType";
-import { useDiceRoller } from "../../../contexts/DiceRollerContext";
 import { AddDiceByRank } from "./AddDiceByRank";
-import DieCard from "./DiceCard";
+import { assembleDicePoolTextResult } from "../../../utils/messageAssemblyUtil";
 import { DiceRollerReducerActions } from "../../../data-types/enums/dice-roller-reducer-action-enum";
-import styles from "./DiceRoller.module.css";
-import { useState } from "react";
-import { useMessager } from "../../../contexts/MessagerContext";
-import { MessagerReducerActions } from "../../../data-types/enums/messager-reducer-action-enum";
 import { getBestDiceList, rollDice } from "../../../utils/diceRollerUtil";
-import { AssembleDicePoolResult } from "../../../utils/messageAssemblyUtil";
+import { MessagerReducerActions } from "../../../data-types/enums/messager-reducer-action-enum";
+import { useDiceRoller } from "../../../contexts/DiceRollerContext";
+import { useMessager } from "../../../contexts/MessagerContext";
+import { useState } from "react";
+import DieCard from "./DiceCard";
+import styles from "./DiceRoller.module.css";
 
 type DicePoolProps = {
     category: string
 };
 
 export const DicePool = ({ category }: DicePoolProps) => {
-    const [rollTitle, seRollTitle] = useState("");
+    const [rollTitle, setRollTitle] = useState("");
     const { dispatch, diceGroup } = useDiceRoller();
     const { messageDispatch } = useMessager();
     const index = diceGroup.findIndex((group) => group.id === category)
@@ -26,14 +26,14 @@ export const DicePool = ({ category }: DicePoolProps) => {
         result = diceGroup[index].result
     }
     const handleRollTitleChange = (title: string) => {
-        seRollTitle(title);
+        setRollTitle(title);
     }
     const handleAddDice = (rank: number) => {
         dispatch({ type: DiceRollerReducerActions.ADD, rank, category: category });
     }
     const handleClear = () => {
         dispatch({ type: DiceRollerReducerActions.CLEAR, category: category });
-        seRollTitle("");
+        setRollTitle("");
     }
     const handleRoll = () => {
         if (dice.length === 0) {
@@ -50,7 +50,7 @@ export const DicePool = ({ category }: DicePoolProps) => {
             result: newResult,
         });
 
-        const sendMessage = AssembleDicePoolResult(newRoll.diceList, rollTitle, newResult, bestDice);
+        const sendMessage = assembleDicePoolTextResult(newRoll.diceList, rollTitle, newResult, bestDice);
          
 
         messageDispatch({ type: MessagerReducerActions.ADD_JSX, jsx: sendMessage });

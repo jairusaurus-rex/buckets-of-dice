@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { SuitAccent } from "../../../../../assets/data/SuitAccent";
+import { useState } from "react";
 
 
 export const SuitAccentArticle = () => {

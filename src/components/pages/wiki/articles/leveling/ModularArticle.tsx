@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
+import { DiceTextString }  from "../../../../commons/DiceTextString";
 import { FeatData } from "../../../../../assets/data/FeatData";
-import DiceTextString from "../../../../commons/DiceTextString";
+import { useMemo, useState } from "react";
 
 type ModularArticleProps = {
     featId: string;

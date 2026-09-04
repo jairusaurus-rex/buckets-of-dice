@@ -1,6 +1,4 @@
-//import { useState } from "react";
-//import { Modal } from "../../components/commons/Modal";
-import Accordion from "../../commons/Accordion";
+import { Accordion } from "../../commons/Accordion";
 import { DiceCategories } from "../../../data-types/enums/dice-categories-enum";
 import { DiceCategory } from "./DiceCategory";
 import { DicePool } from "./DicePool";

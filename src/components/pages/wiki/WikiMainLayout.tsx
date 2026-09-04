@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { WikiSideBar } from "./WikiSideBar";
 import { ArticlePages } from "./ArticlePages";
+import { WikiSideBar } from "./WikiSideBar";
+import { useState } from "react";
 
 export const WikiMainLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

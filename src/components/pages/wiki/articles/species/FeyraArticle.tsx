@@ -1,6 +1,6 @@
+import { DiceText } from "../../../../commons/DiceText";
 import { Link } from "react-router-dom"
 import { WikiArticleLinks } from "../../../../../data-types/enums/wiki-article-enum"
-import DiceText from "../../../../commons/DiceText";
 
 export const FeyraArticle = () => {
     return (
