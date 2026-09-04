@@ -1,6 +1,6 @@
 import { ArticleList } from "./article-lists/ArticleList";
 import { ArticleNotFound } from "./articles/ArticleNotFound";
-import { findArticleById, getArticleNavigation } from "./wikiArticleTree";
+import { findArticleById, getArticleNavigation } from "../../../utils/wikiArticleTreeUtil";
 import { Suspense, useEffect, useMemo, useRef } from "react";
 import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
 import { useParams } from "react-router-dom";

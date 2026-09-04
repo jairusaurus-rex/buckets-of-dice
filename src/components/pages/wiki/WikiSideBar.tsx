@@ -1,6 +1,6 @@
 import type { ArticleListType } from "../../../data-types/types/AticleListType";
 import { ArticleList } from "./article-lists/ArticleList";
-import { findParentIds } from "./wikiArticleTree";
+import { findParentIds } from "../../../utils/wikiArticleTreeUtil";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 

@@ -1,4 +1,4 @@
-import type { ArticleListType } from "../../../data-types/types/AticleListType";
+import type { ArticleListType } from "../data-types/types/AticleListType";
 
 export type ArticleLookupEntry = {
   article: ArticleListType;
