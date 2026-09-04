@@ -1,9 +1,9 @@
 import type { DiceType } from "../../../data-types/types/DiceType";
-import d4 from "../../../assets/images/dice/d4.png";
-import d6 from "../../../assets/images/dice/d6.png";
-import d8 from "../../../assets/images/dice/d8.png";
-import d10 from "../../../assets/images/dice/d10.png";
-import d12 from "../../../assets/images/dice/d12.png";
+import d4 from "../../../assets/images/dice/d4.webp";
+import d6 from "../../../assets/images/dice/d6.webp";
+import d8 from "../../../assets/images/dice/d8.webp";
+import d10 from "../../../assets/images/dice/d10.webp";
+import d12 from "../../../assets/images/dice/d12.webp";
 
 type DieCardProps = {
   die: DiceType;

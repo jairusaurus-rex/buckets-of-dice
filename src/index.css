@@ -83,8 +83,8 @@ body::before {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: url("./assets/images/wallpaper/cover-one.jpg") center / cover no-repeat;
-  opacity: 0.3;
+  background: url("./assets/images/wallpaper/cover-one.webp") center / cover no-repeat;
+  opacity: 0.5;
 }
 
 #root {

@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ImageButton} from "../../commons/ImageButton";
 import { faLinkedin, faTailwindCss } from "@fortawesome/free-brands-svg-icons";
-import d12 from "../../../assets/images/dice/d12.png";
-import dice_roller_image from "../../../assets/images/screen-shots/dice_roller.png";
+import d12 from "../../../assets/images/dice/d12.webp";
+import dice_roller_image from "../../../assets/images/screen-shots/dice_roller.webp";
 import react_icon from "../../../assets/images/icons/react_icon.svg";
 import styles from "./HomePage.module.css";
 import vite_icon from "../../../assets/images/icons/vite_icon.svg";
-import wiki_image from "../../../assets/images/screen-shots/wiki.png";
+import wiki_image from "../../../assets/images/screen-shots/wiki.webp";
 
 export const HomePage = () => {
   return (

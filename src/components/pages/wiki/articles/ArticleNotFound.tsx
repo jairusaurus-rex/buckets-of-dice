@@ -1,6 +1,6 @@
 import { ArticleList } from "../article-lists/ArticleList";
 import { Link } from "react-router-dom";
-import pageNotFound from "../../../../assets/images/wallpaper/pageNotFound.jpg";
+import pageNotFound from "../../../../assets/images/wallpaper/pageNotFound.webp";
 
 export const ArticleNotFound = () => {
     return (
