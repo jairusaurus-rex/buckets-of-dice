@@ -1,5 +1,6 @@
 
 import { ImageButton }  from "../../../commons/ImageButton";
+import { IntoTheHeavens } from "../../../commons/IntoTheHeavens";
 import character_pdf from "../../../../assets/pdfs/character_sheet.pdf";
 import character_sheet from "../../../../assets/images/screen-shots/character_sheet.webp";
 import e_sheet from "../../../../assets/images/screen-shots/e_sheet.webp";
@@ -14,7 +15,7 @@ export const TheSpacerArticle = () => {
     <div className={`p-2 text-justify `}>
       <div className="p-2">
         <p className="p-2">
-          In the game <span className="text-2xl text-[var(--accent)]">Into the Heavens</span>, a <span className="text-xl text-[var(--text-h)]">spacer</span> is a person who travels the heavens, exploring the stars, planets, and other celestial bodies. They take on dangerous and odd jobs at the frontier of space, often working for corporations, governments, criminals, or as freelancers. Spacers are known for their resourcefulness, adaptability, and resilience in the face of the unknown.
+          In the game <IntoTheHeavens />, a <span className="text-xl text-[var(--text-h)]">spacer</span> is a person who travels the heavens, exploring the stars, planets, and other celestial bodies. They take on dangerous and odd jobs at the frontier of space, often working for corporations, governments, criminals, or as freelancers. Spacers are known for their resourcefulness, adaptability, and resilience in the face of the unknown.
         </p>
         <p className="p-2">
           Together, all the players' spacers form a <span className="text-xl text-[var(--text-h)]">crew</span> that 
