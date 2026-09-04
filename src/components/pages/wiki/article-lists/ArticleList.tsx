@@ -7,6 +7,7 @@ import { lazy } from "react";
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum.tsx";
 import character_creation from "../../../../assets/images/art/character_creation.webp";
 import skills_datapad from "../../../../assets/images/art/skills_datapad.webp";
+import the_spacer from "../../../../assets/images/art/the_space_small.webp";
 
 const TheSpacerArticle = lazy(() =>
     import("../articles/TheSpacerArticle.tsx").then((module) => ({
@@ -32,6 +33,7 @@ export const ArticleList: ArticleListType[] = [
         id: WikiArticleLinks.THE_SPACER,
         title: "The Spacer",
         component: TheSpacerArticle,
+        articleImage: the_spacer,
     },
     {
         id: WikiArticleLinks.CHARACTER_CREATION,

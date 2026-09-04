@@ -8,11 +8,13 @@ import driodArt from "../../../../assets/images/art/driod.webp";
 import empianArt from "../../../../assets/images/art/empian.webp";
 import feyraArt from "../../../../assets/images/art/feyra.webp";
 import flonaArt from "../../../../assets/images/art/flona.webp";
+import humansArt from "../../../../assets/images/art/human.webp";
 import locanusArt from "../../../../assets/images/art/locanus.webp";
 import pawnianArt from "../../../../assets/images/art/pawnian.webp";
 import rhazakArt from "../../../../assets/images/art/rhazak.webp";
 import urziArt from "../../../../assets/images/art/urzi.webp";
 import velkiArt from "../../../../assets/images/art/velki.webp";
+import vrantsArt from "../../../../assets/images/art/vrant.webp";
 import zevrinArt from "../../../../assets/images/art/zivren.webp";
 
 const SpeciesMain = lazy(() =>
@@ -162,6 +164,7 @@ export const ArticleListSpecies: ArticleListType = {
             id: WikiArticleLinks.SPECIES_HUMANS,
             title: "Humans",
             component: HumansArticle,
+            articleImage: humansArt,
         },
         {
             id: WikiArticleLinks.SPECIES_LOCANUS,
@@ -197,6 +200,7 @@ export const ArticleListSpecies: ArticleListType = {
             id: WikiArticleLinks.SPECIES_VRANTS,
             title: "Vrants",
             component: VrantsArticle,
+            articleImage: vrantsArt,
         },
         {
             id: WikiArticleLinks.SPECIES_ZIVREN,
