@@ -154,7 +154,12 @@ export const DieCard = ({
               text-[var(--text-h)]
             "
           >
-            {die.result ?? ""}
+
+            {die.result ?
+              <span className="[-webkit-text-stroke:1px_var(--border)]">
+                {die.result}
+              </span>
+              : ""}
           </span>
         </button>
 
@@ -162,7 +167,7 @@ export const DieCard = ({
         <input
           type="text"
           value={die.title ?? ""}
-          maxLength={25} 
+          maxLength={25}
           onChange={(e) => onChangeDiceTitle(die.id, e.target.value)}
           placeholder="..."
           aria-label="Die name"
