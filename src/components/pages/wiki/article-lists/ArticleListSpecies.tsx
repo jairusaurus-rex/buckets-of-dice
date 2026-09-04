@@ -1,19 +1,19 @@
 import type { ArticleListType } from "../../../../data-types/types/AticleListType.ts";
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum.tsx";
 import { lazy } from "react";
-import bekArt from "../../../../assets/images/art/bek.png";
-import chyraxArt from "../../../../assets/images/art/chyrax.png";
-import drakariArt from "../../../../assets/images/art/drakari.png";
-import driodArt from "../../../../assets/images/art/driod.png";
-import empianArt from "../../../../assets/images/art/empian.png";
-import feyraArt from "../../../../assets/images/art/feyra.png";
-import flonaArt from "../../../../assets/images/art/flona.png";
-import locanusArt from "../../../../assets/images/art/locanus.png";
-import pawnianArt from "../../../../assets/images/art/pawnian.png";
-import rhazakArt from "../../../../assets/images/art/rhazak.png";
-import urziArt from "../../../../assets/images/art/urzi.png";
-import velkiArt from "../../../../assets/images/art/velki.png";
-import zevrinArt from "../../../../assets/images/art/zivren.png";
+import bekArt from "../../../../assets/images/art/bek.webp";
+import chyraxArt from "../../../../assets/images/art/chyrax.webp";
+import drakariArt from "../../../../assets/images/art/drakari.webp";
+import driodArt from "../../../../assets/images/art/driod.webp";
+import empianArt from "../../../../assets/images/art/empian.webp";
+import feyraArt from "../../../../assets/images/art/feyra.webp";
+import flonaArt from "../../../../assets/images/art/flona.webp";
+import locanusArt from "../../../../assets/images/art/locanus.webp";
+import pawnianArt from "../../../../assets/images/art/pawnian.webp";
+import rhazakArt from "../../../../assets/images/art/rhazak.webp";
+import urziArt from "../../../../assets/images/art/urzi.webp";
+import velkiArt from "../../../../assets/images/art/velki.webp";
+import zevrinArt from "../../../../assets/images/art/zivren.webp";
 
 const SpeciesMain = lazy(() =>
     import("../articles/species/SpeciesMainArticle.tsx").then((module) => ({

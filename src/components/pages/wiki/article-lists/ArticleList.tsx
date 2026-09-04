@@ -5,8 +5,8 @@ import { ArticleListLeveling } from "./ArticleListLeveling.tsx";
 import { ArticleListSpecies } from "./ArticleListSpecies.tsx";
 import { lazy } from "react";
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum.tsx";
-import character_creation from "../../../../assets/images/art/character_creation.png";
-import skills_datapad from "../../../../assets/images/art/skills_datapad.png";
+import character_creation from "../../../../assets/images/art/character_creation.webp";
+import skills_datapad from "../../../../assets/images/art/skills_datapad.webp";
 
 const TheSpacerArticle = lazy(() =>
     import("../articles/TheSpacerArticle.tsx").then((module) => ({
