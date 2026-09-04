@@ -1,13 +1,13 @@
 import { type ReactNode } from "react";
-import DiceText from "./DiceText";
+import { DiceText } from "./DiceText";
 
 type DiceTextStringProps = {
   children: ReactNode;
 };
 
-export default function DiceTextString({
+export const DiceTextString = ({
   children,
-}: DiceTextStringProps) {
+}: DiceTextStringProps) => {
 
   // Matches d followed by one or more numbers
   const parts = children?.toString().split(/(d\d+)/gi);

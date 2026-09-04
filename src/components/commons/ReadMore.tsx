@@ -5,10 +5,10 @@ type ReadMoreProps = {
   defaultOpen?: boolean;
 }
 
-export default function ReadMore({
+export const ReadMore = ({
   children,
   defaultOpen = false,
-}: ReadMoreProps) {
+}: ReadMoreProps) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (

@@ -1,7 +1,7 @@
 import { Link } from "react-router"
 import type { HeaderInfoType } from "../../../../commons/BucketTable"
-import BucketTable, { BucketTableTypeOptions } from "../../../../commons/BucketTable"
-import DiceText from "../../../../commons/DiceText"
+import { BucketTable, BucketTableTypeOptions } from "../../../../commons/BucketTable"
+import { DiceText } from "../../../../commons/DiceText"
 import { WikiArticleLinks } from "../../../../../data-types/enums/wiki-article-enum"
 
 

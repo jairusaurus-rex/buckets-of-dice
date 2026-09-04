@@ -5,7 +5,7 @@ import e_sheet from "../../../../assets/images/screen-shots/e_sheet.png";
 
 import character_pdf from "../../../../assets/pdfs/character_sheet.pdf";
 import vessel_pdf from "../../../../assets/pdfs/vessel_sheet.pdf";
-import ImageButton from "../../../commons/ImageButton";
+import { ImageButton }  from "../../../commons/ImageButton";
 
 
 export const TheSpacerArticle = () => {

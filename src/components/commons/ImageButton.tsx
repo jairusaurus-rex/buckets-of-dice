@@ -8,13 +8,13 @@ type ImageButtonProps = {
   isLocalLink?: boolean;
 }
 
-export default function ImageButton({
+export const ImageButton = ({
   title,
   link,
   image,
   className = "",
   isLocalLink = true,
-}: ImageButtonProps) {
+}: ImageButtonProps) => {
   return (
     <div className={`
        ${className} 

@@ -6,11 +6,11 @@ type AccordionProps = {
   defaultOpen?: boolean;
 }
 
-export default function Accordion({
+export const Accordion = ({
   title,
   children,
   defaultOpen = false,
-}: AccordionProps) {
+}: AccordionProps) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (

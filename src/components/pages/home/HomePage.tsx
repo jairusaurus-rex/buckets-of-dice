@@ -6,7 +6,7 @@ import vite_icon from "../../../assets/images/icons/vite_icon.svg";
 import react_icon from "../../../assets/images/icons/react_icon.svg";
 import wiki_image from "../../../assets/images/screen-shots/wiki.png";
 import dice_roller_image from "../../../assets/images/screen-shots/dice_roller.png";
-import ImageButton from "../../commons/ImageButton";
+import { ImageButton} from "../../commons/ImageButton";
 
 export const HomePage = () => {
   return (

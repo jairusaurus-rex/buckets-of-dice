@@ -1,4 +1,4 @@
-import DiceText from "./DiceText";
+import { DiceText } from "./DiceText";
 
 
 export const BucketTableTypeOptions = {
@@ -28,11 +28,11 @@ type BucketTableProps = {
 
 
 
-export default function BucketTable({
+export const BucketTable = ({
   title,
   headerInfo,
   rows
-}: BucketTableProps) {
+}: BucketTableProps) => {
   return (
     <div className="p-1 m-1">
       <table className="border border-[var(--border)]  w-full">

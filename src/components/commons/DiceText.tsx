@@ -27,9 +27,9 @@ const dieTextClassMap: Record<number, string> = {
   12: styles.textD12,
 };
 
-export default function DiceText({
+export const DiceText = ({
   children
-}: DiceTextProps) {
+}: DiceTextProps) => {
 
   const dieValue = Number(children);
   const imageSrc = dieImageMap[dieValue] ?? d4;
