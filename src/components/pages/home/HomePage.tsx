@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faTailwindCss } from "@fortawesome/free-brands-svg-icons";
-import { Link } from "react-router-dom";
 import d12 from "../../../assets/images/dice/d12.png";
 import styles from "./HomePage.module.css";
 import vite_icon from "../../../assets/images/icons/vite_icon.svg";
 import react_icon from "../../../assets/images/icons/react_icon.svg";
 import wiki_image from "../../../assets/images/screen-shots/wiki.png";
 import dice_roller_image from "../../../assets/images/screen-shots/dice_roller.png";
+import ImageButton from "../../commons/ImageButton";
 
 export const HomePage = () => {
   return (
@@ -51,43 +51,8 @@ export const HomePage = () => {
       </section>
       <section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="flex h-40 flex-col overflow-hidden rounded-lg border-2 border-[var(--accent)] hover:opacity-90 transition-opacity">
-            <Link to="/wiki">
-              <>
-                <div className="shrink-0 bg-[var(--accent)] p-2 text-center font-bold text-white">
-                  Explore the wiki
-                </div>
-
-                <div className="min-h-0 flex-1">
-                  <img
-                    src={wiki_image}
-                    alt="Wiki"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </>
-            </Link>
-
-          </div>
-
-          <div className="flex h-40 flex-col overflow-hidden rounded-lg border-2 border-[var(--accent)] hover:opacity-90 transition-opacity">
-            <Link
-              to={"/dice-app"}
-            >
-              <div className="bg-[var(--accent)] text-white text-center font-bold p-2">
-                Use dice roller
-              </div>
-
-              <div className="min-h-0 flex-1">
-                <img
-                  src={dice_roller_image}
-                  alt="Dice Roller"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </Link>
-          </div>
-
+          <ImageButton title="Explore the wiki" link="/wiki" image={wiki_image} />
+          <ImageButton title="Use the dice roller" link="/dice-app" image={dice_roller_image} />
         </div>
       </section>
       <section className={styles.infoGrid}>

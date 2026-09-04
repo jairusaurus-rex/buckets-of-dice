@@ -5,9 +5,12 @@ import e_sheet from "../../../../assets/images/screen-shots/e_sheet.png";
 
 import character_pdf from "../../../../assets/pdfs/character_sheet.pdf";
 import vessel_pdf from "../../../../assets/pdfs/vessel_sheet.pdf";
+import ImageButton from "../../../commons/ImageButton";
 
 
 export const TheSpacerArticle = () => {
+  const googleLink = "https://docs.google.com/spreadsheets/d/1XanhoaP44JRd34WC4tJUw8bQoAcmvwSF9JhHXmkr6GY/edit?usp=sharing";
+
   return (
     <div className={`p-2 text-justify `}>
       <div className="p-2">
@@ -34,45 +37,8 @@ export const TheSpacerArticle = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <a
-            href={character_pdf}
-            target="_blank"
-            rel="noreferrer"
-            className="flex h-40 flex-col overflow-hidden rounded-lg border-2 border-[var(--accent)] hover:opacity-90 transition-opacity"
-          >
-            <div className="shrink-0 bg-[var(--accent)] p-2 text-center font-bold text-white">
-              PDF Character Sheet
-            </div>
-
-            <div className="min-h-0 flex-1">
-              <img
-                src={character_sheet}
-                alt="Character Sheet"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </a>
-
-          {/*  2 */}
-          <a
-            href={vessel_pdf}
-            target="_blank"
-            className="block overflow-hidden rounded-lg border-2 border-[var(--accent)] 
-                   hover:opacity-90 transition-opacity h-40"
-          >
-            <div className="bg-[var(--accent)] text-white text-center font-bold p-2">
-              PDF Vessel Sheet
-            </div>
-
-            <div className="min-h-0 flex-1">
-              <img
-                src={vessel_sheet}
-                alt="Vessel Sheet"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </a>
-
+          <ImageButton title="PDF Character Sheet" link={character_pdf} image={character_sheet} isLocalLink={false} />
+          <ImageButton title="PDF Vessel Sheet" link={vessel_pdf} image={vessel_sheet} isLocalLink={false} />
         </div>
       </div>
       <div className="p-2 border-t border-[var(--border)]">
@@ -83,24 +49,12 @@ export const TheSpacerArticle = () => {
           The Google Sheets version of the character sheet and vessel sheet are linked below. You can make a copy of these sheets to use for your own game.
         </p>
         <div className="mt-4 flex justify-center">
-          <a
-            href="https://docs.google.com/spreadsheets/d/1XanhoaP44JRd34WC4tJUw8bQoAcmvwSF9JhHXmkr6GY/edit?usp=sharing"
-            target="_blank"
-            className="block overflow-hidden rounded-lg border-2 border-[var(--accent)] 
-                   hover:opacity-90 transition-opacity h-40 w-full md:w-1/2"
-          >
-            <div className="bg-[var(--accent)] text-white text-center font-bold p-2">
-              Google Character Sheet
-            </div>
-
-            <div className="overflow-hidden h-48">
-              <img
-                src={e_sheet}
-                alt="Vessel Sheet"
-                className="w-full h-auto"
-              />
-            </div>
-          </a>
+          <ImageButton 
+            title="Google Character Sheet" 
+            link={googleLink} 
+            image={e_sheet} 
+            isLocalLink={false} 
+            className="w-full md:w-1/2"/>
         </div>
       </div>
       <div className="p-2 border-t border-[var(--border)]">
