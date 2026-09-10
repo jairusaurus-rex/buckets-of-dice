@@ -2,6 +2,7 @@ type FeatSubChoiceType = {
     id: string;
     name: string;
     description: string;
+    tags?: string[];
 }
 
 type FeatExtraDescription = {
@@ -21,4 +22,5 @@ export type FeatType = {
     subChoices?: FeatSubChoiceType[];
     link?: string;
     extra?:FeatExtraDescription;
+    tags?: string[];
 }
