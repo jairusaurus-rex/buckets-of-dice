@@ -2,7 +2,7 @@
 import type { ArticleListType } from "../../../../data-types/types/AticleListType.ts";
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum.tsx";
 import { lazy } from "react";
-import accent from "../../../../assets/images/art/accent.webp";
+//import accent from "../../../../assets/images/art/accent.webp";
 import benchone from "../../../../assets/images/art/benchone.webp";
 import benchtwo from "../../../../assets/images/art/benchtwo.webp";
 import starsuit from "../../../../assets/images/art/starsuit.webp";
