@@ -19,7 +19,7 @@ export const SuitAccentArticle = () => {
         <div className="p-2 text-justify">
             <p className="p-2">Players choose one accent to give them their own unique style and advantages. Each player can choose one from the accent list.</p>
 
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
+            <div className="clear-both flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
                 <h3 className="font-bold">Star Suit Accents</h3>
                 <input
                     type="search"

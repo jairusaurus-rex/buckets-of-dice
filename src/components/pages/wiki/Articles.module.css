@@ -12,6 +12,10 @@
   float: right;
   width: 50%;
   height: auto;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
 
 .wiki h1,

@@ -20,7 +20,7 @@ export const NonSuitGearArticle = () => {
             <p className="p-2">When first making a character, you may choose 6 Non-Suit Gear items. </p>
             <p className="p-2">Unless a feat or ability says otherwise, you can only have one of each of the below.
                 This applies whether you are selecting starting gear or buying additional gear. </p>
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
+            <div className="clear-both flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
                 <h3 className="font-bold">Gear List</h3>
                 <input
                     type="search"
