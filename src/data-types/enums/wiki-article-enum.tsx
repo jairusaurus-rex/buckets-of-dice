@@ -33,4 +33,3 @@ export const WikiArticleLinks= {
     SPECIES_ZIVREN: "species-zivren",
 } as const;
 
-export type WikiArticleLinkEnum = typeof WikiArticleLinks[keyof typeof WikiArticleLinks];

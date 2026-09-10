@@ -7,5 +7,3 @@ export const DiceRollerReducerActions = {
   ROLL: "ROLL",
   CLEAR: "CLEAR",
 } as const;
-
-export type DiceRollerReducerActionsEnum = typeof DiceRollerReducerActions[keyof typeof DiceRollerReducerActions];

@@ -10,5 +10,3 @@ export const DiceCategories = {
   ASSETS: "ASSETS",
   RELATIONSHIPS: "RELATIONSHIPS",
 } as const;
-
-export type DiceCategoriesEnum = typeof DiceCategories[keyof typeof DiceCategories];
