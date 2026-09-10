@@ -17,6 +17,8 @@ export const SuitAccentArticle = () => {
         .sort((a, b) => a.name.localeCompare(b.name));
     return (
         <div className="p-2 text-justify">
+            <p className="p-2">Each Suit is slim enough so other clothing can be more over them, capes, coats, dresses and
+                other stylish clothing. These are called accents</p>
             <p className="p-2">Players choose one accent to give them their own unique style and advantages. Each player can choose one from the accent list.</p>
 
             <div className="clear-both flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
