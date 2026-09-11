@@ -1,6 +1,9 @@
 import type { ArticleListType } from "../../../data-types/types/AticleListType";
 import { ArticleList } from "./article-lists/ArticleList";
-import { findParentIds } from "../../../utils/wikiArticleTreeUtil";
+import {
+  findArticleById,
+  findParentIds,
+} from "../../../utils/wikiArticleTreeUtil";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -15,18 +18,24 @@ export const WikiSideBar = ({ isOpen, onClose }: WikiSideBarProps) => {
   //const articleLookup = flattenArticleTree(ArticleList);
 
   useEffect(() => {
-    if (articleId) {
-      const parentsToExpand = findParentIds(ArticleList, articleId);
-      if (parentsToExpand.length > 0) {
-        setExpanded((prev) => {
-          const updated = { ...prev };
-          parentsToExpand.forEach((id) => {
-            updated[id] = true;
-          });
-          return updated;
-        });
+    if (!articleId) return;
+
+    const selectedArticle = findArticleById(ArticleList, articleId);
+    const parentsToExpand = findParentIds(ArticleList, articleId);
+
+    setExpanded((prev) => {
+      const updated = { ...prev };
+
+      parentsToExpand.forEach((id) => {
+        updated[id] = true;
+      });
+
+      if (selectedArticle?.children?.length) {
+        updated[articleId] = true;
       }
-    }
+
+      return updated;
+    });
   }, [articleId]);
 
   const toggleExpanded = (id: string) => {
