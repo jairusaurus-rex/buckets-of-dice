@@ -1,3 +1,4 @@
+import { tags } from "../../data-types/enums/tags.enum";
 import { WikiArticleLinks } from "../../data-types/enums/wiki-article-enum";
 import type { FeatType } from "../../data-types/types/FeatType";
 export const FeatData: FeatType[] = [
@@ -15,6 +16,7 @@ export const FeatData: FeatType[] = [
             name: "Mastery Ace Vessel Combative",
             description: "You can be a part of 4 vessel combat Posts each vessel combat round.",
         },
+        tags: [tags.VESSEL],
     },
     {
         id: "ace-vessel-traveller",
@@ -30,31 +32,37 @@ export const FeatData: FeatType[] = [
             name: "Mastery Ace Vessel Traveller",
             description: "You can be a part of 4 Travel Posts each travel round.",
         },
+        tags: [tags.VESSEL],
     },
     {
         id: "aggressive-initiative",
         name: "Aggressive Initiative",
         description: "Before the fight, make a test using either Fitness or Recon plus one weapon gear of your choice. Take the result as though creating an asset; however, instead of an asset, you can start your attack dice at the asset dice rank. Results: 0-4 = d4, 5-9 = d6, 10-14 = d8, 15-19 = d10, 20+ = d12.",
+        tags: [tags.ATTACK, tags.UP_ATTACK],
     },
     {
         id: "aggressive-response",
         name: "Aggressive Response",
         description: "When you take damage from an attack, you can spend one stamina to UP your attack dice.",
+        tags: [tags.ATTACK, tags.RESPONSE, tags.UP_ATTACK],
     },
     {
         id: "brawler",
         name: "Brawler",
         description: "Non-lethal damage is no longer halved.",
+        tags: [tags.ATTACK],
     },
     {
         id: "careful-attack",
         name: "Careful Attack",
         description: "Once per round, you can halve your result. If you do so, UP your defense dice.",
+        tags: [tags.ATTACK, tags.UP_DEFENSE],
     },
     {
         id: "cleave",
         name: "Cleave",
         description: "Once per round, when attacking with a melee attack, you can choose to deal half damage to every enemy in that zone instead of damaging one target.",
+        tags: [tags.ATTACK, tags.MELEE],
     },
     {
         id: "cover-fire",
@@ -70,16 +78,19 @@ export const FeatData: FeatType[] = [
             name: "Mastery Cover Fire",
             description: "The distance required for this ability is reduced to 2 zones away.",
         },
+        tags: [tags.ATTACK, tags.RANGED, tags.UP_DEFENSE],
     },
     {
         id: "defensive-initiative",
         name: "Defensive Initiative",
         description: "Before the fight, make a test using either Fitness, Recon, or Secrecy plus the Armor gear. Take the result as though creating an asset; however, instead of an asset, you can start your defense dice at the asset dice rank. Results: 0-4 = d4, 5-9 = d6, 10-14 = d8, 15-19 = d10, 20+ = d12.",
+        tags: [tags.DEFENSE, tags.UP_DEFENSE],
     },
     {
         id: "defensive-response",
         name: "Defensive Response",
         description: "When you take damage from an attack, you can spend one stamina to UP your defense dice.",
+        tags: [tags.DEFENSE, tags.RESPONSE, tags.UP_DEFENSE],
     },
     {
         id: "doctor",
@@ -95,16 +106,19 @@ export const FeatData: FeatType[] = [
             name: "Mastery Doctor",
             description: "You can use the Medical Kit to heal an ally up to three zones away.",
         },
+        tags: [tags.RECOVERY],
     },
     {
         id: "dual-melee",
         name: "Dual Melee",
         description: "You can have and use up to two melee weapons. When selecting this feat, you may change one of your non-suit gears into a melee weapon, or you can choose to gain a d4 melee weapon.",
+        tags: [tags.ATTACK, tags.MELEE],
     },
     {
         id: "dual-pistols",
         name: "Dual Pistols",
         description: "You can have and use up to two small arms weapons. When selecting this feat, you may change one of your non-suit gears into a small arms weapon, or you can choose to gain a d4 small arms weapon.",
+        tags: [tags.ATTACK, tags.RANGED],
     },
     {
         id: "energetic",
@@ -120,11 +134,13 @@ export const FeatData: FeatType[] = [
             name: "Mastery Energetic",
             description: "Increase your stamina max by 1 again.",
         },
+        tags: [tags.STATS],
     },
     {
         id: "explosive-round",
         name: "Explosive Round",
         description: "Once per fight, spend one credit to activate your explosive rounds. After dealing damage with a non-melee attack, deal half that damage to everyone else in the same zone as your target. You can deactivate it, but you must spend another credit to reactivate it during that fight.",
+        tags: [tags.ATTACK],
     },
     {
         id: "guardian",
@@ -140,6 +156,7 @@ export const FeatData: FeatType[] = [
             name: "Mastery Guardian",
             description: "You can use this ability for other player characters up to two zones away.",
         },
+        tags: [tags.DEFENSE, tags.RESPONSE, tags.UP_DEFENSE],
     },
     {
         id: "immunity",
@@ -155,26 +172,31 @@ export const FeatData: FeatType[] = [
             name: "Mastery Immunity",
             description: "Pick a third item from the list to gain the same immunity.",
         },
+        tags: [tags.DEFENSE],
     },
     {
         id: "indomitable",
         name: "Indomitable",
         description: "Parley damage is no longer halved.",
+        tags: [tags.ATTACK, tags.SOCIAL],
     },
     {
         id: "martial-arts",
         name: "Martial Arts",
         description: "When making a melee attack without any gear dice, you can use your attack dice twice.",
+        tags: [tags.ATTACK],
     },
     {
         id: "martial-defense",
         name: "Martial Defense",
         description: "When making a defense test, you can choose to use no gear dice. If you do so, you can use your defense dice twice.",
+        tags: [tags.DEFENSE],
     },
     {
         id: "mobile",
         name: "Mobile",
         description: "You can use the disengage action for free.",
+        tags: [tags.MOVEMENT],
     },
     {
         id: "modular-augments",
@@ -183,6 +205,7 @@ export const FeatData: FeatType[] = [
         specialDiceName: "Augments",
         specialDiceRank: 6,
         link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_AUGMENTS}`,
+        tags: [tags.MODULAR],
         extra:{
             lore: "Due to genetics or mutations, picking this feat alters the person to be more than what others of their species are.",
             extraInfo: [],
@@ -192,56 +215,67 @@ export const FeatData: FeatType[] = [
                 id: "heightened-hearing",
                 name: "Heightened Hearing",
                 description: "Use the special dice when doing any recon involving listening.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "heightened-sight",
                 name: "Heightened Sight",
                 description: "Use the special dice when doing any recon involving seeing.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "heightened-smell",
                 name: "Heightened Smell",
                 description: "Use the special dice when doing any recon involving smelling.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "morpher",
                 name: "Morpher",
                 description: "Use the special dice when disguising oneself.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "regeneration",
                 name: "Regeneration",
                 description: "Use the special dice when healing one's own grit.",
+                tags: [tags.RECOVERY],
             },
             {
                 id: "reflexes",
                 name: "Reflexes",
                 description: "Spend one stamina to be able to use the special dice when avoiding enemy attacks for the rest of the fight.",
+                tags: [tags.DEFENSE],
             },
             {
                 id: "sharp",
                 name: "Sharp",
                 description: "Spend one stamina to be able to use the special dice when attacking melee for the rest of the fight.",
+                tags: [tags.ATTACK],
             },
             {
                 id: "stealth",
                 name: "Stealth",
                 description: "Use the special dice when sneaking around.",
+                tags: [tags.STEALTH],
             },
             {
                 id: "strength",
                 name: "Strength",
                 description: "Use the special dice with any dice check involving strength.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "swift",
                 name: "Swift",
                 description: "Gain one free movement per round.",
+                tags: [tags.MOVEMENT],
             },
             {
                 id: "weather-survival",
                 name: "Weather Survival",
                 description: "Use the special dice when surviving weather.",
+                tags: [tags.SURVIVAL],
             },
         ],
 
@@ -269,6 +303,7 @@ export const FeatData: FeatType[] = [
         specialDiceName: "Companion",
         specialDiceRank: 6,
         link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_COMPANION}`,
+        tags: [tags.MODULAR],
         extra:{
             lore: "You have a creature that travels with you and helps you in your fights and adventures.",
             extraInfo: [
@@ -365,6 +400,7 @@ export const FeatData: FeatType[] = [
         specialDiceName: "Cybernetics",
         specialDiceRank: 6,
         link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_CYBERNETICS}`,
+        tags: [tags.MODULAR],
         extra: {
             lore: "You have integrated cybernetic enhancements that augment your capabilities.",
             extraInfo: []
@@ -451,6 +487,7 @@ export const FeatData: FeatType[] = [
         specialDiceName: "Psionics",
         specialDiceRank: 6,
         link: `/wiki/${WikiArticleLinks.LEVELING_MODULAR_PSIONICS}`,
+        tags: [tags.MODULAR],
         extra: {
             lore: "You have psychic powers, either been born with them, part of your species, or giving to you by science or supernatural means.",
             extraInfo: [
