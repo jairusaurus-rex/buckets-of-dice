@@ -27,7 +27,7 @@ export const FeatListArticle = () => {
                 Advanced form in.</p>
             <p className="p-2">At level 10, choose to gain 2 feats instead of 1. You can
                 use these to gain a Advanced or Masteries</p>
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
+            <div className="clear-both flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
                 <h2 className="font-bold">Feat List</h2>
                 <input
                     type="search"

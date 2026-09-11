@@ -2,8 +2,8 @@
 import type { ArticleListType } from "../../../../data-types/types/AticleListType.ts";
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum.tsx";
 import { lazy } from "react";
+import feats from "../../../../assets/images/art/feats.webp";
 import levelup from "../../../../assets/images/art/levelup.webp";
-
 
 const LevelingArticle = lazy(() =>
     import("../articles/leveling/LevelingMainArticle.tsx").then((module) => ({
@@ -46,6 +46,7 @@ export const ArticleListLeveling: ArticleListType = {
             id: WikiArticleLinks.LEVELING_FEATS,
             title: "Feat List",
             component: FeatListArticle,
+            articleImage: feats,
         },
         {
             id: WikiArticleLinks.LEVELING_MODULAR_AUGMENTS,
