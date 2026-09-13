@@ -2,8 +2,11 @@
 import type { ArticleListType } from "../../../../data-types/types/AticleListType.ts";
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum.tsx";
 import { lazy } from "react";
+import augments from "../../../../assets/images/art/augments.webp";
+import compainion from "../../../../assets/images/art/compainion.webp";
 import feats from "../../../../assets/images/art/feats.webp";
 import levelup from "../../../../assets/images/art/levelup.webp";
+import psionic from "../../../../assets/images/art/psionic.webp";
 
 const LevelingArticle = lazy(() =>
     import("../articles/leveling/LevelingMainArticle.tsx").then((module) => ({
@@ -52,11 +55,13 @@ export const ArticleListLeveling: ArticleListType = {
             id: WikiArticleLinks.LEVELING_MODULAR_AUGMENTS,
             title: "Modular Augments",
             component: ModularAugmentsArticle,
+            articleImage: augments
         },
         {
             id: WikiArticleLinks.LEVELING_MODULAR_COMPANION,
             title: "Modular Companion",
             component: ModularCompanionArticle,
+            articleImage: compainion
         },
         {
             id: WikiArticleLinks.LEVELING_MODULAR_CYBERNETICS,
@@ -67,6 +72,7 @@ export const ArticleListLeveling: ArticleListType = {
             id: WikiArticleLinks.LEVELING_MODULAR_PSIONICS,
             title: "Modular Psionics",
             component: ModularPsionicsArticle,
+            articleImage: psionic
         }
     ]
 };
