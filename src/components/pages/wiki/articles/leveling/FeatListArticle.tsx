@@ -2,6 +2,7 @@ import { DiceTextString } from "../../../../commons/DiceTextString";
 import { FeatData } from "../../../../../assets/data/FeatData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { ListLayout } from "../../../../commons/ListLayout";
 
 
 export const FeatListArticle = () => {
@@ -14,7 +15,7 @@ export const FeatListArticle = () => {
             return (
                 feat.name.toLowerCase().includes(search) ||
                 feat.description.toLowerCase().includes(search) ||
-                feat.tags?.some(tag => tag.toLowerCase().includes(search) )
+                feat.tags?.some(tag => tag.toLowerCase().includes(search))
             );
         })
         .sort((a, b) => a.name.localeCompare(b.name));
@@ -40,15 +41,61 @@ export const FeatListArticle = () => {
                 />
 
             </div>
-
-            <div className="columns-1 md:columns-2 gap-8">
-                {featData.map((feat) => (
-                    <div key={feat.id} className="mt-2 p-2  break-inside-avoid border-t border-[var(--border)]">
-                        
+            <ListLayout
+                title="Feat List"
+                showSearch
+                searchValue={searchTerm}
+                searchPlaceholder="Search feats..."
+                onSearchChange={setSearchTerm}
+                items={featData}
+                getKey={(feat) => feat.id}
+                renderItem={(feat) => (
+                    <>
                         <div className="font-bold">
                             <h4>{feat.name}</h4>
                         </div>
-                        
+
+                        <div>
+                            <strong>Description:</strong>{" "}
+                            <DiceTextString>{feat.description}</DiceTextString>
+                        </div>
+
+                        {feat.advanced && (
+                            <div className="p-2">
+                                <strong>Advanced:</strong>{" "}
+                                <DiceTextString>{feat.advanced.description}</DiceTextString>
+                            </div>
+                        )}
+
+                        {feat.mastery && (
+                            <div className="p-2">
+                                <strong>Mastery:</strong>{" "}
+                                <DiceTextString>{feat.mastery.description}</DiceTextString>
+                            </div>
+                        )}
+
+                        {feat.link && (
+                            <div className="p-2">
+                                <span>
+                                    See {feat.name} details <Link to={feat.link}>here</Link>
+                                </span>
+                            </div>
+                        )}
+
+                        <div className="m-0 p-3 text-[var(--tags)] text-xs text-right">
+                            {feat.tags?.join(" - ")}
+                        </div>
+                    </>
+                )}
+            />
+            <div className="columns-1 md:columns-2 gap-8">
+                {featData.map((feat) => (
+                    <div key={feat.id} className="mt-2 p-2  break-inside-avoid border-t border-[var(--border)]">
+
+                        <div className="font-bold">
+                            <h4>{feat.name}</h4>
+                        </div>
+
                         <div>
                             <strong>Description:</strong> <DiceTextString>{feat.description}</DiceTextString>
                         </div>
