@@ -675,7 +675,7 @@ export const FeatData: FeatType[] = [
     {
         id: "pistol-safety",
         name: "Pistol Safety",
-        description: "When attacking with a small aSKILLrms weapon, you no longer DOWN your defense dice when attacking while there is an enemy in the same zone as you.",
+        description: "When attacking with a small arms weapon, you no longer DOWN your defense dice when attacking while there is an enemy in the same zone as you.",
         tags: [tags.ARMS_SMALL, tags.ATTACK, tags.RANGED]
     },
     {
