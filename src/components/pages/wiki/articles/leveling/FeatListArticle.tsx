@@ -39,7 +39,7 @@ export const FeatListArticle = () => {
                 items={featData}
                 getKey={(feat) => feat.id}
                 renderItem={(feat) => (
-                    <div className="font-bold border-t border-[var(--border)] pt-2">
+                    <div className="border-t border-[var(--border)] pt-2">
                         <div className="font-bold ">
                             <h4>{feat.name}</h4>
                         </div>
