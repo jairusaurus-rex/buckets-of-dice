@@ -13,7 +13,8 @@ export const FeatListArticle = () => {
 
             return (
                 feat.name.toLowerCase().includes(search) ||
-                feat.description.toLowerCase().includes(search)
+                feat.description.toLowerCase().includes(search) ||
+                feat.tags?.some(tag => tag.toLowerCase().includes(search) )
             );
         })
         .sort((a, b) => a.name.localeCompare(b.name));
@@ -42,11 +43,12 @@ export const FeatListArticle = () => {
 
             <div className="columns-1 md:columns-2 gap-8">
                 {featData.map((feat) => (
-                    <div key={feat.id} className="mt-2 p-2  break-inside-avoid">
+                    <div key={feat.id} className="mt-2 p-2  break-inside-avoid border-t border-[var(--border)]">
+                        
                         <div className="font-bold">
                             <h4>{feat.name}</h4>
                         </div>
-
+                        
                         <div>
                             <strong>Description:</strong> <DiceTextString>{feat.description}</DiceTextString>
                         </div>
@@ -70,6 +72,9 @@ export const FeatListArticle = () => {
                                     <span>See {feat.name} details <Link to={feat.link}>here</Link></span>
                                 </div>
                             )}
+                        </div>
+                        <div className="m-0 p-3 text-[var(--tags)] text-xs text-right">
+                            {feat.tags?.join(" - ")}
                         </div>
                     </div>
                 ))}
