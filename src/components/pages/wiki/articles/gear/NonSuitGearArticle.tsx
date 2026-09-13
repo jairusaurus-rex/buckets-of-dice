@@ -1,5 +1,6 @@
 import { GearData } from "../../../../../assets/data/GearData";
 import { useState } from "react";
+import { ListLayout } from "../../../../commons/ListLayout";
 
 
 export const NonSuitGearArticle = () => {
@@ -20,32 +21,26 @@ export const NonSuitGearArticle = () => {
             <p className="p-2">When first making a character, you may choose 6 Non-Suit Gear items. </p>
             <p className="p-2">Unless a feat or ability says otherwise, you can only have one of each of the below.
                 This applies whether you are selecting starting gear or buying additional gear. </p>
-            <div className="clear-both flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
-                <h3 className="font-bold">Gear List</h3>
-                <input
-                    type="search"
-                    value={searchTerm}
-                    onChange={(event) => setSearchTerm(event.target.value)}
-                    placeholder="Search gear..."
-                    aria-label="Search non-suit gear"
-                    className="w-full md:w-3/4 rounded border border-[var(--border)] bg-[var(--bg)] p-2 text-[var(--text-h)]"
-                />
 
-            </div>
-
-            <div className="columns-1 md:columns-2 gap-8">
-                {gearData.map((gear) => (
-                    <div key={gear.id} className="mt-2 p-2  break-inside-avoid">
+            <ListLayout
+                title="Subchoice List"
+                showSearch
+                searchValue={searchTerm}
+                searchPlaceholder="Search gear..."
+                onSearchChange={setSearchTerm}
+                items={gearData}
+                getKey={(gear) => gear.id}
+                renderItem={(gear) => (
+                    <>
                         <div className="font-bold">
                             {gear.name}
                         </div>
-
                         <div>
                             {gear.description}
                         </div>
-                    </div>
-                ))}
-            </div>
+                    </>
+                )}
+            />
         </div>
     )
 }

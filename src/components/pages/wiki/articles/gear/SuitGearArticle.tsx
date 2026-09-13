@@ -1,6 +1,7 @@
 import { GearData } from "../../../../../assets/data/GearData";
 import { Link } from "react-router-dom";
 import { WikiArticleLinks } from "../../../../../data-types/enums/wiki-article-enum";
+import { ListLayout } from "../../../../commons/ListLayout";
 
 
 export const SuitGearArticle = () => {
@@ -21,20 +22,23 @@ export const SuitGearArticle = () => {
                 <h3 className="font-bold">Star Suit Gear</h3>
             </div>
 
-            <div className="columns-1 md:columns-2 gap-8">
-                {suitAccessData.map((gear) => (
-                    <div key={gear.id} className="mt-2 p-2  break-inside-avoid">
+            <ListLayout
+                title="Subchoice List"
+                searchPlaceholder="Search gear..."
+                items={suitAccessData}
+                getKey={(gear) => gear.id}
+                renderItem={(gear) => (
+                    <>
                         <div className="font-bold">
                             {gear.name}
                         </div>
-
                         <div>
                             {gear.description}
                         </div>
                         {gear.name.toLowerCase().includes("accent") && <div className="mt-2">See accent options <Link to={`/wiki/${WikiArticleLinks.GEAR_SUIT_ACCENT}`}>here</Link></div>}
-                    </div>
-                ))}
-            </div>
+                    </>
+                )}
+            />
         </div>
     )
 }

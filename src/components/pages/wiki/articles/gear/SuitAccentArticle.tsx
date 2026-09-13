@@ -1,5 +1,6 @@
 import { SuitAccent } from "../../../../../assets/data/SuitAccent";
 import { useState } from "react";
+import { ListLayout } from "../../../../commons/ListLayout";
 
 
 export const SuitAccentArticle = () => {
@@ -21,32 +22,26 @@ export const SuitAccentArticle = () => {
                 other stylish clothing. These are called accents</p>
             <p className="p-2">Players choose one accent to give them their own unique style and advantages. Each player can choose one from the accent list.</p>
 
-            <div className="clear-both flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
-                <h3 className="font-bold">Star Suit Accents</h3>
-                <input
-                    type="search"
-                    value={searchTerm}
-                    onChange={(event) => setSearchTerm(event.target.value)}
-                    placeholder="Search accents..."
-                    aria-label="Search star suit accents"
-                    className="w-full md:w-3/4 rounded border border-[var(--border)] bg-[var(--bg)] p-2 text-[var(--text-h)]"
-                />
-                
-            </div>
-            <div className="columns-1 md:columns-2 gap-8">
-                {accentData.map((accent) => (
-                    <div key={accent.id} className="mt-2 p-2  break-inside-avoid">
+            <ListLayout
+                title="Subchoice List"
+                showSearch
+                searchValue={searchTerm}
+                searchPlaceholder="Search gear..."
+                onSearchChange={setSearchTerm}
+                items={accentData}
+                getKey={(accent) => accent.id}
+                renderItem={(accent) => (
+                    <>
                         <div className="font-bold">
                             {accent.name}
                         </div>
-
                         <div>
                             {accent.description}
                         </div>
-                    </div>
-                ))}
-            </div>
-            
+                    </>
+                )}
+            />
+
         </div>
     )
 }

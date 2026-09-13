@@ -22,7 +22,7 @@ export function ListLayout<T>({
     getKey,
 }: ListLayoutProps<T>) {
     return (
-        <div className="p-2 text-justify clear-both">
+        <div className="p-0 text-justify clear-both">
             {showSearch && (
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
                     {title && <h3 className="font-bold">{title}</h3>}
