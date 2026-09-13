@@ -29,18 +29,7 @@ export const FeatListArticle = () => {
                 Advanced form in.</p>
             <p className="p-2">At level 10, choose to gain 2 feats instead of 1. You can
                 use these to gain a Advanced or Masteries</p>
-            <div className="clear-both flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 border-t border-[var(--border)] pt-4">
-                <h2 className="font-bold">Feat List</h2>
-                <input
-                    type="search"
-                    value={searchTerm}
-                    onChange={(event) => setSearchTerm(event.target.value)}
-                    placeholder="Search feats..."
-                    aria-label="Search non-suit feats"
-                    className="w-full md:w-3/4 rounded border border-[var(--border)] bg-[var(--bg)] p-2 text-[var(--text-h)]"
-                />
 
-            </div>
             <ListLayout
                 title="Feat List"
                 showSearch
@@ -88,44 +77,7 @@ export const FeatListArticle = () => {
                     </>
                 )}
             />
-            <div className="columns-1 md:columns-2 gap-8">
-                {featData.map((feat) => (
-                    <div key={feat.id} className="mt-2 p-2  break-inside-avoid border-t border-[var(--border)]">
-
-                        <div className="font-bold">
-                            <h4>{feat.name}</h4>
-                        </div>
-
-                        <div>
-                            <strong>Description:</strong> <DiceTextString>{feat.description}</DiceTextString>
-                        </div>
-                        <div>
-                            {feat.advanced && (
-                                <div className="p-2">
-                                    <strong>Advanced:</strong> <DiceTextString>{feat.advanced.description}</DiceTextString>
-                                </div>
-                            )}
-                        </div>
-                        <div>
-                            {feat.mastery && (
-                                <div className="p-2">
-                                    <strong>Mastery:</strong> <DiceTextString>{feat.mastery.description}</DiceTextString>
-                                </div>
-                            )}
-                        </div>
-                        <div>
-                            {feat.link && (
-                                <div className="p-2">
-                                    <span>See {feat.name} details <Link to={feat.link}>here</Link></span>
-                                </div>
-                            )}
-                        </div>
-                        <div className="m-0 p-3 text-[var(--tags)] text-xs text-right">
-                            {feat.tags?.join(" - ")}
-                        </div>
-                    </div>
-                ))}
-            </div>
+            
         </div>
     )
 }
