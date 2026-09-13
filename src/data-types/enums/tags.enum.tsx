@@ -1,5 +1,9 @@
 export const tags = {
+  ARMS_SMALL: "Small Arms",
+  ARMS_LARGE: "Large Amrs", 
+  ASSET: "Asset",
   ATTACK: "Attack",
+  CONDITION: "Conditions",
   DEFENSE: "Defense",
   EXPERTISE: "Expertise",
   MELEE: "Melee",
@@ -8,6 +12,7 @@ export const tags = {
   RANGED: "Ranged",
   RECOVERY: "Recovery",
   RESPONSE: "Response",
+  SKILL: "Skill",
   SOCIAL: "Social",
   SPECIAL: "Special",
   STATS: "Stags",

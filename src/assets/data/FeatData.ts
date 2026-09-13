@@ -161,7 +161,7 @@ export const FeatData: FeatType[] = [
     {
         id: "immunity",
         name: "Immunity",
-        description: "When selecting this feat, pick either Disease, Fear, Madness, or Poison. You are immune to any damage or effect that comes from what you chose.",
+        description: "When selecting this feat, pick either Disease, Fear, Madness, or Poison. You are immune to any damage, condition, or effect that comes from what you chose.",
         advanced: {
             id: "immunity-advanced",
             name: "Advanced Immunity",
@@ -318,61 +318,73 @@ export const FeatData: FeatType[] = [
                 id: "adorable",
                 name: "Adorable",
                 description: "Use the special dice when trying to charm someone.",
+                tags: [tags.SOCIAL],
             },
             {
                 id: "defender",
                 name: "Defender",
                 description: "Any ally can use the special dice when defending in the same zone as the companion.",
+                tags: [tags.DEFENSE],
             },
             {
                 id: "durable",
                 name: "Durable",
                 description: "When defending itself, the Companion can use its dice twice.",
+                tags: [tags.DEFENSE],
             },
             {
                 id: "fierce",
                 name: "Fierce",
                 description: "Use the special dice when trying to intimidate someone.",
+                tags: [tags.SOCIAL],
             },
             {
                 id: "fetching",
                 name: "Fetching",
                 description: "Use the special dice when stealing or picking pockets.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "flying",
                 name: "Flying",
                 description: "The Companion gains the flight ability.",
+                tags: [tags.MOVEMENT],
             },
             {
                 id: "natural-camouflage",
                 name: "Natural Camouflage",
                 description: "Use the special dice when stealthing through a wilderness.",
+                tags: [tags.STEALTH],
             },
             {
                 id: "reach",
                 name: "Reach",
                 description: "Allies can use the special dice when adjacent to the companion's zone.",
+                tags: [tags.ATTACK],
             },
             {
                 id: "sprinter",
                 name: "Sprinter",
                 description: "The Companion can move 4 zones instead.",
+                tags: [tags.MOVEMENT],
             },
             {
                 id: "steed",
                 name: "Steed",
                 description: "Spend one action to use your Companion as a steed. You can start fights this way. When it is a steed, you move when it moves, and only you can use its special dice when attacking. Dismounting the Companion can be done for free.",
+                tags: [tags.MOVEMENT],
             },
             {
                 id: "tracker",
                 name: "Tracker",
                 description: "Use the special dice when tracking or searching for someone.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "venomous",
                 name: "Venomous",
                 description: "If the Companion dice was used against a living target to deal damage, that target gains the Bleed condition unless immune to Poison.",
+                tags: [tags.ATTACK, tags.CONDITION],
             },
         ],
 
@@ -410,56 +422,67 @@ export const FeatData: FeatType[] = [
                 id: "blade",
                 name: "Blade",
                 description: "You can use the special dice as though it was an option for a melee weapon.",
+                tags: [tags.ATTACK, tags.MELEE],
             },
             {
                 id: "concealment",
                 name: "Concealment",
                 description: "You can bring gear into restricted areas.",
+                tags: [tags.STEALTH, tags.UTILITY],
             },
             {
                 id: "gun",
                 name: "Gun",
                 description: "You can use the special dice as though it was an option for a small arms weapon.",
+                tags: [tags.ATTACK, tags.RANGED],
             },
             {
                 id: "heightened-hearing",
                 name: "Heightened Hearing",
                 description: "Use the special dice when doing any recon involving listening.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "heightened-sight",
                 name: "Heightened Sight",
                 description: "Use the special dice when doing any recon involving seeing.",
+                tags: [tags.UTILITY]
             },
             {
                 id: "hacking",
                 name: "Hacking",
                 description: "Use the special dice when dealing with computers.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "strength",
                 name: "Strength",
                 description: "Use the special dice with any dice check involving strength.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "sturdy",
                 name: "Sturdy",
                 description: "Spend one credit to be able to use the special dice when avoiding enemy attacks for the rest of the fight.",
+                tags: [tags.DEFENSE],
             },
             {
                 id: "swift",
                 name: "Swift",
                 description: "Gain one free movement per round.",
+                tags: [tags.MOVEMENT],
             },
             {
                 id: "vacuum-survival",
                 name: "Vacuum Survival",
                 description: "Use the special dice when surviving in outer space or non-atmospheric areas.",
+                tags: [tags.UTILITY],
             },
             {
                 id: "vessel-integration",
                 name: "Vessel Integration",
                 description: "Use the special dice when dealing with a vessel component.",
+                tags: [tags.VESSEL],
             },
         ],
 
@@ -501,71 +524,85 @@ export const FeatData: FeatType[] = [
                 id: "banish",
                 name: "Banish",
                 description: "Make an attack targeting an extra-dimensional enemy within 5 zones. If twice the result is equal to or more than the remaining health of the target, the target is removed from this dimension. Otherwise, do psychic damage equal to half the result.",
+                tags: [tags.ATTACK]
             },
             {
                 id: "blast",
                 name: "Blast",
                 description: "Make an attack against a target within 5 zones. Do physical damage equal to the result plus half the result.",
+                tags: [tags.ATTACK],
             },
             {
                 id: "cleanse",
                 name: "Cleanse",
                 description: "Make a Medicine check. Remove a number of conditions from you and your allies equal to the result.",
+                tags: [tags.CONDITION, tags.RECOVERY],
             },
             {
                 id: "command",
                 name: "Command",
                 description: "Make an attack against a target within 5 zones. Do Parley damage equal to the result.",
+                tags: [tags.ATTACK, tags.SOCIAL],
             },
             {
                 id: "fireball",
                 name: "Fireball",
                 description: "Make an attack against everyone in a zone that is within 5 zones. Do fire damage equal to the result.",
+                tags: [tags.ATTACK],
             },
             {
                 id: "fire-strike",
                 name: "Fire Strike",
                 description: "Make an attack against a target within 5 zones. Do fire damage equal to the result plus and set the target on fire, giving them the Bleed and Crippled conditions.",
+                tags: [tags.ATTACK, tags.CONDITION],
             },
             {
                 id: "fire-summon",
                 name: "Fire Summon",
                 description: "Set a zone on fire. Make an Influence check with your special dice to make a minion. You and your allies can use that dice when attacking any target in that zone.",
+                tags: [tags.ASSET],
             },
             {
                 id: "illusion",
                 name: "Illusion",
                 description: "Make an Influence or Secrecy check. If the result is equal to all enemies' total ranks, you create a human-sized illusion that all will believe until they interact with or attack it. They will believe it is real even if they saw it manifest.",
+                tags: [tags.ASSET],
             },
             {
                 id: "levitate",
                 name: "Levitate",
                 description: "Make an attack against targets within 5 zones. You can move enemies from one zone to another, spending points equal to your result. Each enemy moved costs their size plus rank.",
+                tags: [tags.ATTACK],
             },
             {
                 id: "lightning-ball",
                 name: "Lightning Ball",
                 description: "Make an attack against everyone in a zone that is within 5 zones. Do shock damage equal to the result.",
+                tags: [tags.ATTACK, tags.CONDITION],
             },
             {
                 id: "lightning-strike",
                 name: "Lightning Strike",
                 description: "Make an attack against a target within 5 zones. Do shock damage equal to the result and set the target on fire, giving them the Slowed and Crippled conditions.",
+                tags: [tags.ATTACK, tags.CONDITION],
             },
             {
                 id: "read",
                 name: "Read",
                 description: "You can read a mind to ask one question. The GM must answer honestly based on what the target knows about that question. Beings with psychic resistances cannot be read.",
+                tags: [tags.SOCIAL, tags.UTILITY]
             },
             {
                 id: "shield",
                 name: "Shield",
                 description: "Target a zone within 5 zones. Until the next player's phase, all allies within that zone can use your special dice to defend themselves.",
+                tags: [tags.DEFENSE]
             },
             {
                 id: "weaken",
                 name: "Weaken",
                 description: "Make an attack against a target within 5 zones. Instead of damage, divide your result by 5, rounded up. Give that many conditions to your target from this list: Bleed, Crippled, Frightened, Grounded, Slowed.",
+                tags: [tags.ATTACK, tags.CONDITION]
             },
         ],
 
@@ -599,11 +636,13 @@ export const FeatData: FeatType[] = [
             name: "Mastery Multi-Attack",
             description: "Instead, use your attack dice four times.",
         },
+        tags: [tags.ATTACK, tags.EXPERTISE]
     },
     {
         id: "noncombatant",
         name: "Noncombatant",
-        description: "If you end the player's turn without attacking, targeting, damaging, or harming an enemy, and without using the PRESS action, UP your defense dice.",
+        description: "At the end of the players phase, if during this combat you never targeted an enemy, damaged an enemy, given an enemy a condition, or harmed an enemey as well as never used the PRESS action, UP your defense dice.",
+        tags: [tags.DEFENSE, tags.UP_DEFENSE]
     },
     {
         id: "parry",
@@ -619,26 +658,31 @@ export const FeatData: FeatType[] = [
             name: "Mastery Parry",
             description: "You can always use one melee weapon when defending against attacks.",
         },
+        tags: [tags.DEFENSE, tags.MELEE]
     },
     {
         id: "party-face",
         name: "Party Face",
         description: "When using a team reputation dice, use that dice twice.",
+        tags: [tags.EXPERTISE, tags.SOCIAL]
     },
     {
         id: "persistence-stealth",
         name: "Persistence Stealth",
         description: "When attacking, your stealth asset does not get removed after the attack.",
+        tags: [tags.STEALTH]
     },
     {
         id: "pistol-safety",
         name: "Pistol Safety",
-        description: "When attacking with a small arms weapon, you no longer DOWN your defense dice when attacking while there is an enemy in the same zone as you.",
+        description: "When attacking with a small aSKILLrms weapon, you no longer DOWN your defense dice when attacking while there is an enemy in the same zone as you.",
+        tags: [tags.ARMS_SMALL, tags.ATTACK, tags.RANGED]
     },
     {
         id: "rage-attack",
         name: "Rage Attack",
         description: "Once per round, you can DOWN your defense dice to add your Fitness dice to a melee attack.",
+        tags: [tags.ATTACK, tags.MELEE, tags.SKILL]
     },
     {
         id: "rally",
@@ -654,16 +698,19 @@ export const FeatData: FeatType[] = [
             name: "Mastery Rally",
             description: "Include all player characters who are within 5 zones of you.",
         },
+        tags: [tags.UP_DEFENSE]
     },
     {
         id: "reach",
         name: "Reach",
         description: "You can target an enemy in an adjacent zone with your melee weapon.",
+        tags: [tags.ATTACK, tags.MELEE]
     },
     {
         id: "rifle-safety",
         name: "Rifle Safety",
         description: "When attacking with a large arms weapon, you no longer DOWN your defense dice when there is an enemy in an adjacent zone. You still need to DOWN your defense dice when you are in the same zone as an enemy.",
+        tags: [tags.ARMS_LARGE, tags.ATTACK, tags.RANGED]
     },
     {
         id: "skill-expert",
@@ -679,26 +726,31 @@ export const FeatData: FeatType[] = [
             name: "Mastery Skill Expert",
             description: "Pick a third skill to gain the same ability.",
         },
+        tags: [tags.EXPERTISE, tags.SKILL]
     },
     {
         id: "sneak-attack",
         name: "Sneak Attack",
         description: "When using a small arms weapon or melee weapon, if the target does not know where you are, shares a zone with an ally, or you have a stealth asset, add your Secrecy dice to that attack.",
+        tags: [tags.ATTACK, tags.SKILL, tags.STEALTH]
     },
     {
         id: "sniper",
         name: "Sniper",
         description: "You can target anyone from up to 10 zones away while using a large arms weapon.",
+        tags: [tags.ARMS_LARGE, tags.ATTACK, tags.RANGED]
     },
     {
         id: "steady-shot",
         name: "Steady Shot",
         description: "You can target anyone from up to 5 zones away while using a small arms weapon.",
+        tags: [tags.ARMS_SMALL, tags.ATTACK, tags.RANGED]
     },
     {
         id: "stealthy",
         name: "Stealthy",
         description: "When using a stealth asset to do anything other than attack, you can also use your Secrecy dice. If Secrecy was already the skill being used, use it twice instead of once.",
+        tags: [tags.SKILL, tags.STEALTH]
     },
     {
         id: "suit-expert",
@@ -714,11 +766,13 @@ export const FeatData: FeatType[] = [
             name: "Mastery Suit Expert",
             description: "Pick a third suit gear to gain the same ability.",
         },
+        tags: [tags.EXPERTISE]
     },
     {
         id: "taunter",
         name: "Taunter",
         description: "Once per round, you can DOWN your attack dice before the attack. If you do, UP the defense dice of every other player character who is within 5 zones of you.",
+        tags: [tags.DEFENSE, tags.UP_DEFENSE]
     },
     {
         id: "toughness",
@@ -734,16 +788,19 @@ export const FeatData: FeatType[] = [
             name: "Mastery Toughness",
             description: "Increase your grit max by 2 again.",
         },
+        tags: [tags.STATS]
     },
     {
         id: "unstoppable",
         name: "Unstoppable",
         description: "You need to roll two 1s in your dice pool to gain a condition instead of one.",
+        tags: [tags.CONDITION]
     },
     {
         id: "walk-it-off",
         name: "Walk It Off",
         description: "When an enemy attempts to give you a condition, you can immediately DOWN your attack dice to prevent yourself from gaining that condition.",
+        tags: [tags.CONDITION]
     },
 
     // --------------------
