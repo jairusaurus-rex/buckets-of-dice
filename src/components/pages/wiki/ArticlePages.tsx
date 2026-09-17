@@ -1,7 +1,9 @@
 import { ArticleList } from "./article-lists/ArticleList";
 import { ArticleNotFound } from "./articles/ArticleNotFound";
 import { findArticleById, getArticleNavigation } from "../../../utils/wikiArticleTreeUtil";
-import { Suspense, useEffect, useMemo, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
 import { useParams } from "react-router-dom";
 import styles from "./Articles.module.css";
@@ -14,6 +16,7 @@ type ArticlePagesProps = {
 export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) => {
     const { articleId } = useParams();
     const articleSectionRef = useRef<HTMLDivElement>(null);
+    const [loadedImage, setLoadedImage] = useState<string | null>(null);
 
     useEffect(() => {
         const articleSection = articleSectionRef.current;
@@ -32,6 +35,8 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
     }, [articleId]);
 
     const ArticleComponent = article?.component;
+    const imageSrc = article?.articleImage;
+    const imageIsLoading = Boolean(imageSrc && loadedImage !== imageSrc);
 
     const navigation = useMemo(() => {
         const activeId = articleId ?? ArticleList[0].id;
@@ -58,15 +63,32 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
 
             <div ref={articleSectionRef} className="flex-1 flex flex-col p-0 m-0 h-full min-h-0 overflow-y-auto ">
                 <div className={`${styles.wiki} `}>
-                    {
-                        article && article.articleImage &&
-                        <img
-                            src={article.articleImage}
-                            alt={article.title}
-                            className={styles.mainArticleImg} 
-                            loading="lazy"
-                            decoding="async"
-                        />}
+                    {imageSrc && (
+                        <div
+                            key={article.id}
+                            className={styles.mainArticleImageFrame}
+                            aria-busy={imageIsLoading}
+                        >
+                            {imageIsLoading && (
+                                <div className={styles.imageLoader} aria-label="Loading image">
+                                    <FontAwesomeIcon
+                                        icon={faSpinner}
+                                        spin
+                                        className="text-2xl text-[var(--accent)]"
+                                    />
+                                </div>
+                            )}
+                            <img
+                                src={imageSrc}
+                                alt={article.title}
+                                className={`${styles.mainArticleImg} ${imageIsLoading ? styles.imageHidden : ""}`}
+                                loading="eager"
+                                decoding="async"
+                                onLoad={() => setLoadedImage(imageSrc)}
+                                onError={() => setLoadedImage(imageSrc)}
+                            />
+                        </div>
+                    )}
 
                     <Suspense fallback={<div className="p-4 text-[var(--text-h)]">Loading article...</div>}>
                         {article && ArticleComponent ? <ArticleComponent /> : <ArticleNotFound />}
