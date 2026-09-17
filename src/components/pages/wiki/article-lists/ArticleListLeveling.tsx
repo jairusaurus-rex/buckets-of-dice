@@ -4,6 +4,7 @@ import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum
 import { lazy } from "react";
 import augments from "../../../../assets/images/art/augments.webp";
 import compainion from "../../../../assets/images/art/compainion.webp";
+import cybernetics from "../../../../assets/images/art/cybernetics.webp";
 import feats from "../../../../assets/images/art/feats.webp";
 import levelup from "../../../../assets/images/art/levelup.webp";
 import psionic from "../../../../assets/images/art/psionic.webp";
@@ -67,6 +68,7 @@ export const ArticleListLeveling: ArticleListType = {
             id: WikiArticleLinks.LEVELING_MODULAR_CYBERNETICS,
             title: "Modular Cybernetics",
             component: ModularCyberneticsArticle,
+            articleImage: cybernetics,
         },
         {
             id: WikiArticleLinks.LEVELING_MODULAR_PSIONICS,
