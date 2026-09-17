@@ -11,11 +11,10 @@ const RollingDiceArticle = lazy(() =>
 export const ArticleListGameplay: ArticleListType = {
     id: WikiArticleLinks.GAMEPLAY,
     title: "Gameplay",
-    component: RollingDiceArticle,
     children: [
         {
             id: WikiArticleLinks.GAMEPLAY_ROLLING_DICE,
-            title: "Rolling Dice",
+            title: "The Basics",
             component: RollingDiceArticle,
         },
     ],

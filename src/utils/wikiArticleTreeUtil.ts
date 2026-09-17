@@ -39,6 +39,20 @@ export const findArticleById = (
   return flattenArticleTree(items).get(id)?.article ?? null;
 };
 
+export const findFirstArticleWithComponent = (
+  item: ArticleListType
+): ArticleListType | null => {
+  if (item.component) return item;
+
+  for (const child of item.children ?? []) {
+    const article = findFirstArticleWithComponent(child);
+
+    if (article) return article;
+  }
+
+  return null;
+};
+
 export const getArticleNavigation = (
   items: ArticleListType[],
   id: string
