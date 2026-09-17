@@ -2,6 +2,7 @@
 import type { ArticleListType } from "../../../../data-types/types/AticleListType.ts";
 import { ArticleListGear } from "./ArticleListGear.tsx";
 import { ArticleListLeveling } from "./ArticleListLeveling.tsx";
+import { ArticleListGameplay } from "./ArticleListGameplay.tsx";
 import { ArticleListSpecies } from "./ArticleListSpecies.tsx";
 import { lazy } from "react";
 import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum.tsx";
@@ -50,4 +51,5 @@ export const ArticleList: ArticleListType[] = [
     ArticleListSpecies,
     ArticleListGear,
     ArticleListLeveling,
+    ArticleListGameplay,
 ];

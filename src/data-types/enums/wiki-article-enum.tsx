@@ -16,6 +16,8 @@ export const WikiArticleLinks= {
     LEVELING_MODULAR_COMPANION: "leveling-modular-companion",
     LEVELING_MODULAR_CYBERNETICS: "leveling-modular-cybernetics",
     LEVELING_MODULAR_PSIONICS: "leveling-modular-psionics",
+    GAMEPLAY: "gameplay",
+    GAMEPLAY_ROLLING_DICE: "gameplay-rolling-dice",
     SPECIES_BEK: "species-bek",
     SPECIES_CHYRAX: "species-chyrax",
     SPECIES_DRKARI: "species-drakari", 

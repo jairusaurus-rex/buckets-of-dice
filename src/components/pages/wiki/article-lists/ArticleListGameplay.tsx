@@ -1,0 +1,22 @@
+import type { ArticleListType } from "../../../../data-types/types/AticleListType.ts";
+import { WikiArticleLinks } from "../../../../data-types/enums/wiki-article-enum.tsx";
+import { lazy } from "react";
+
+const RollingDiceArticle = lazy(() =>
+    import("../articles/gameplay/RollingDiceArticle.tsx").then((module) => ({
+        default: module.RollingDiceArticle,
+    }))
+);
+
+export const ArticleListGameplay: ArticleListType = {
+    id: WikiArticleLinks.GAMEPLAY,
+    title: "Gameplay",
+    component: RollingDiceArticle,
+    children: [
+        {
+            id: WikiArticleLinks.GAMEPLAY_ROLLING_DICE,
+            title: "Rolling Dice",
+            component: RollingDiceArticle,
+        },
+    ],
+};
