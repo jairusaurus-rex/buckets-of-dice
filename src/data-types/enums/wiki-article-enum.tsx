@@ -18,6 +18,7 @@ export const WikiArticleLinks= {
     LEVELING_MODULAR_PSIONICS: "leveling-modular-psionics",
     GAMEPLAY: "gameplay",
     GAMEPLAY_ROLLING_DICE: "gameplay-rolling-dice",
+    GAMEPLAY_BUILDING_DICE_POOLS: "gameplay-building-dice-pools",
     SPECIES_BEK: "species-bek",
     SPECIES_CHYRAX: "species-chyrax",
     SPECIES_DRKARI: "species-drakari", 

@@ -9,6 +9,12 @@ const RollingDiceArticle = lazy(() =>
     }))
 );
 
+const BuildingDicePoolsArticle = lazy(() =>
+    import("../articles/gameplay/BuildingDicePoolsArticle.tsx").then((module) => ({
+        default: module.BuildingDicePoolsArticle,
+    }))
+);
+
 export const ArticleListGameplay: ArticleListType = {
     id: WikiArticleLinks.GAMEPLAY,
     title: "Gameplay",
@@ -18,6 +24,11 @@ export const ArticleListGameplay: ArticleListType = {
             title: "The Basics",
             component: RollingDiceArticle,
             articleImage: rolled_dice,
+        },
+        {
+            id: WikiArticleLinks.GAMEPLAY_BUILDING_DICE_POOLS,
+            title: "Building a Dice Pool",
+            component: BuildingDicePoolsArticle,
         },
     ],
 };
