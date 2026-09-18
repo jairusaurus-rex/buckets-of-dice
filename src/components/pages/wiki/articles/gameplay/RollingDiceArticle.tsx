@@ -3,16 +3,16 @@ import { DiceText } from "../../../../commons/DiceText";
 
 export const RollingDiceArticle = () => {
     const exampleTable: HeaderInfoType[] = [
-            { objectName: "dieRolled", headerName: "Dice Rolled"},
-            { objectName: "result", headerName: "Result", innerStyle: " text-[var(--hover)] " },
-            { objectName: "details", headerName: "Explanation", innerStyle: " text-left pl-4  font-normal ", headerStyle: " text-left pl-4 " },
+            { objectName: "dieRolled", headerName: "Dice Rolled", innerStyle:" font-normal "},
+            { objectName: "result", headerName: "Result", innerStyle: " text-lg " },
+            { objectName: "details", headerName: "Explanation", innerStyle: " text-left pl-4  font-normal ", headerStyle: " text-left pl-5 " },
         ]
     
         const exampleData = [
             { dieRolled: "3, 4, 5", result: 5, details: "5 was the top dice rolled." },
+            { dieRolled: "2, 2, 5", result: 5, details: "5 because 5 is higher than the pair of twos." },
             { dieRolled: "4, 4, 5", result: 8, details: "The pair of fours is higher than 5." },
             { dieRolled: "4, 4, 4", result: 8, details: "Only one pair can be used." },
-            { dieRolled: "2, 2, 5", result: 5, details: "5 because 5 is higher than the pair of twos." },
             { dieRolled: "1, 1, 1", result: 0, details: "This is a batch. The result is 0 and the character takes 3 damage." },
         ]
     return (
