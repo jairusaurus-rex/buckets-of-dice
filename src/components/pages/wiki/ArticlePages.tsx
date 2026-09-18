@@ -2,14 +2,13 @@ import { ArticleList } from "./article-lists/ArticleList";
 import { ArticleNotFound } from "./articles/ArticleNotFound";
 import {
     findArticleById,
-    findFirstArticleWithComponent,
     getArticleNavigation,
 } from "../../../utils/wikiArticleTreeUtil";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
-import { Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./Articles.module.css";
 
 type ArticlePagesProps = {
@@ -38,30 +37,20 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
         return findArticleById(ArticleList, articleId);
     }, [articleId]);
 
-    const article = useMemo(() => {
-        if (!requestedArticle) return null;
-
-        return findFirstArticleWithComponent(requestedArticle);
-    }, [requestedArticle]);
-
-    const ArticleComponent = article?.component;
-    const imageSrc = article?.articleImage;
+    const ArticleComponent = requestedArticle?.component;
+    const imageSrc = requestedArticle?.articleImage;
     const imageIsLoading = Boolean(imageSrc && loadedImage !== imageSrc);
 
     const navigation = useMemo(() => {
-        const activeId = article?.id ?? articleId ?? ArticleList[0].id;
+        const activeId = requestedArticle?.id ?? articleId ?? ArticleList[0].id;
         return getArticleNavigation(ArticleList, activeId);
-    }, [article, articleId]);
-
-    if (requestedArticle && article && requestedArticle.id !== article.id) {
-        return <Navigate replace to={`/wiki/${article.id}`} />;
-    }
+    }, [requestedArticle, articleId]);
 
     return (
         <div className="flex-1 flex flex-col bg-[var(--bg)]/90 p-5 md:p-8 h-full">
             <div className="mb-6 flex justify-between">
                 <h2 className="text-3xl font-bold text-[var(--text-h)] mb-2">
-                    {article ? article.title : "Article Not Found"}
+                    {requestedArticle ? requestedArticle.title : "Article Not Found"}
                 </h2>
                 {!isSidebarOpen && (
                     <button
@@ -79,7 +68,7 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
                 <div className={`${styles.wiki} `}>
                     {imageSrc && (
                         <div
-                            key={article.id}
+                            key={requestedArticle?.id}
                             className={styles.mainArticleImageFrame}
                             aria-busy={imageIsLoading}
                         >
@@ -94,7 +83,7 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
                             )}
                             <img
                                 src={imageSrc}
-                                alt={article.title}
+                                alt={requestedArticle?.title}
                                 className={`${styles.mainArticleImg} ${imageIsLoading ? styles.imageHidden : ""}`}
                                 loading="eager"
                                 decoding="async"
@@ -105,13 +94,33 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
                     )}
 
                     <Suspense fallback={<div className="p-4 text-[var(--text-h)]">Loading article...</div>}>
-                        {article && ArticleComponent ? <ArticleComponent /> : <ArticleNotFound />}
+                        {requestedArticle && ArticleComponent ? (
+                            <ArticleComponent />
+                        ) : requestedArticle?.children?.length ? (
+                            <div className="p-2 text-center">
+                                <p className="p-2">Choose a section to continue.</p>
+                                <ul className="space-y-2">
+                                    {requestedArticle.children.map((child) => (
+                                        <li key={child.id}>
+                                            <Link
+                                                to={`/wiki/${child.id}`}
+                                                className="text-[var(--accent)] hover:underline"
+                                            >
+                                                {child.title}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ) : (
+                            <ArticleNotFound />
+                        )}
                     </Suspense>
                 </div>
 
-                {article && (
+                {requestedArticle && (
                     <WikiArticleNavigationFooter
-                        article={article}
+                        article={requestedArticle}
                         navigation={navigation}
                     />
                 )}

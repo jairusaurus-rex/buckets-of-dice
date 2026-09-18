@@ -1,7 +1,6 @@
 import type { ArticleListType } from "../../../data-types/types/AticleListType";
 import { ArticleList } from "./article-lists/ArticleList";
 import {
-  findFirstArticleWithComponent,
   findArticleById,
   findParentIds,
 } from "../../../utils/wikiArticleTreeUtil";
@@ -67,7 +66,6 @@ export const WikiSideBar = ({ isOpen, onClose }: WikiSideBarProps) => {
       const hasActive = hasActiveDescendant(item);
       const isExpanded = expanded[item.id];
       const hasChildren = item.children && item.children.length > 0;
-      const articleTarget = findFirstArticleWithComponent(item);
 
       return (
         <div key={item.id}>
@@ -85,7 +83,7 @@ export const WikiSideBar = ({ isOpen, onClose }: WikiSideBarProps) => {
             )}
             {!hasChildren && <span className="mr-2 w-6 p-1"></span>}
             <Link
-              to={`/wiki/${articleTarget?.id ?? item.id}`}
+              to={`/wiki/${item.id}`}
               onClick={handleSelectArticle}
               className={`flex-1 rounded px-2 py-2 transition-colors ${
                 isActive
