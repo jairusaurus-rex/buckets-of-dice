@@ -15,6 +15,12 @@ const BuildingDicePoolsArticle = lazy(() =>
     }))
 );
 
+const TestsTrialsChallengesArticle = lazy(() =>
+    import("../articles/gameplay/TestsTrialsChallengesArticle.tsx").then((module) => ({
+        default: module.TestsTrialsChallengesArticle,
+    }))
+);
+
 export const ArticleListGameplay: ArticleListType = {
     id: WikiArticleLinks.GAMEPLAY,
     title: "Gameplay",
@@ -29,6 +35,11 @@ export const ArticleListGameplay: ArticleListType = {
             id: WikiArticleLinks.GAMEPLAY_BUILDING_DICE_POOLS,
             title: "Building a Dice Pool",
             component: BuildingDicePoolsArticle,
+        },
+        {
+            id: WikiArticleLinks.GAMEPLAY_TESTS_TRIALS_CHALLENGES,
+            title: "Tests, Trials, and Challenges",
+            component: TestsTrialsChallengesArticle,
         },
     ],
 };

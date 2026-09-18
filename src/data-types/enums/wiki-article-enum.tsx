@@ -19,6 +19,7 @@ export const WikiArticleLinks= {
     GAMEPLAY: "gameplay",
     GAMEPLAY_ROLLING_DICE: "gameplay-rolling-dice",
     GAMEPLAY_BUILDING_DICE_POOLS: "gameplay-building-dice-pools",
+    GAMEPLAY_TESTS_TRIALS_CHALLENGES: "gameplay-tests-trials-challenges",
     SPECIES_BEK: "species-bek",
     SPECIES_CHYRAX: "species-chyrax",
     SPECIES_DRKARI: "species-drakari", 
