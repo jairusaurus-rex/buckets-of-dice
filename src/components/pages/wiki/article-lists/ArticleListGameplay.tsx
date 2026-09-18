@@ -16,8 +16,8 @@ const BuildingDicePoolsArticle = lazy(() =>
 );
 
 const TestsTrialsChallengesArticle = lazy(() =>
-    import("../articles/gameplay/TestsTrialsChallengesArticle.tsx").then((module) => ({
-        default: module.TestsTrialsChallengesArticle,
+    import("../articles/gameplay/TestsTrialsArticle.tsx").then((module) => ({
+        default: module.TestsTrialsArticle,
     }))
 );
 
@@ -38,7 +38,7 @@ export const ArticleListGameplay: ArticleListType = {
         },
         {
             id: WikiArticleLinks.GAMEPLAY_TESTS_TRIALS_CHALLENGES,
-            title: "Tests, Trials, and Challenges",
+            title: "Tests & Trials",
             component: TestsTrialsChallengesArticle,
         },
     ],

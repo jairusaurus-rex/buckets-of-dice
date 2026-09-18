@@ -1,4 +1,4 @@
-export const TestsTrialsChallengesArticle = () => {
+export const TestsTrialsArticle = () => {
     return (
         <div className="p-2 text-justify">
             <div className="p-2">
