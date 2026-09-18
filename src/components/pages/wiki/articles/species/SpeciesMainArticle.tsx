@@ -15,9 +15,9 @@ export const SpeciesMain = () => {
                 </Link>
             )
         },
-        { objectName: "description", headerName: "Description", innerStyle: " p-1 text-sm   font-normal" },
+        { objectName: "description", headerName: "Description", innerStyle: " py-3 px-5 text-sm text-justify  font-normal" },
         {
-            objectName: "featName", headerName: "Feat", innerStyle: " p-1 text-sm font-normal",
+            objectName: "featName", headerName: "Feat", innerStyle: " py-3 px-5 text-sm text-justify font-normal",
             cellException: (row, value) => (
                 <>
                     <strong>{value} </strong>
