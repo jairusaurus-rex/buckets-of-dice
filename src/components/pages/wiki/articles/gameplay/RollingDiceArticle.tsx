@@ -1,4 +1,20 @@
+import { BucketTable, type HeaderInfoType } from "../../../../commons/BucketTable";
+import { DiceText } from "../../../../commons/DiceText";
+
 export const RollingDiceArticle = () => {
+    const exampleTable: HeaderInfoType[] = [
+            { objectName: "dieRolled", headerName: "Dice Rolled"},
+            { objectName: "result", headerName: "Result", innerStyle: " text-[var(--hover)] " },
+            { objectName: "details", headerName: "Explanation", innerStyle: " text-left pl-4  font-normal ", headerStyle: " text-left pl-4 " },
+        ]
+    
+        const exampleData = [
+            { dieRolled: "3, 4, 5", result: 5, details: "5 was the top dice rolled." },
+            { dieRolled: "4, 4, 5", result: 8, details: "The pair of fours is higher than 5." },
+            { dieRolled: "4, 4, 4", result: 8, details: "Only one pair can be used." },
+            { dieRolled: "2, 2, 5", result: 5, details: "5 because 5 is higher than the pair of twos." },
+            { dieRolled: "1, 1, 1", result: 0, details: "This is a batch. The result is 0 and the character takes 3 damage." },
+        ]
     return (
         <div className="p-2 text-justify">
             <div className="p-2">
@@ -54,13 +70,8 @@ export const RollingDiceArticle = () => {
 
             <div className="p-2 border-t border-[var(--border)]">
                 <h3 className="font-bold">Examples</h3>
-                <ul className="list-disc list-inside pl-4 space-y-2">
-                    <li><strong>(3, 4, 5):</strong> The result is 5.</li>
-                    <li><strong>(4, 4, 5):</strong> The result is 8 because the pair of fours is higher than 5.</li>
-                    <li><strong>(4, 4, 4):</strong> The result is 8 because only one pair can be used.</li>
-                    <li><strong>(2, 2, 5):</strong> The result is 5 because 5 is higher than the pair of twos.</li>
-                    <li><strong>(1, 1, 1):</strong> This is a batch. The result is 0 and the character takes 3 damage.</li>
-                </ul>
+                <p className="p-2">Assuming a dice pool has three <DiceText>6</DiceText></p>
+                <BucketTable headerInfo={exampleTable} rows={exampleData} /> 
             </div>
         </div>
     );

@@ -13,6 +13,7 @@ export type HeaderInfoType = {
   objectName: string;
   headerName: string;
   innerStyle?: string;
+  headerStyle?: string;
   type?: string;
   cellException?: (
     row: any,
@@ -45,7 +46,7 @@ export const BucketTable = ({
         <thead className="text-center bg-[var(--accent)] text-white">
           <tr>
             {headerInfo.map((header) => (
-              <th key={header.objectName} className="p-1">
+              <th key={header.objectName} className={header.headerStyle ?? "p-1"}>
                 {header.headerName}
               </th>
             ))}
