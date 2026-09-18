@@ -1,11 +1,15 @@
 import { ArticleList } from "./article-lists/ArticleList";
 import { ArticleNotFound } from "./articles/ArticleNotFound";
-import { findArticleById, getArticleNavigation } from "../../../utils/wikiArticleTreeUtil";
+import {
+    findArticleById,
+    findFirstArticleWithComponent,
+    getArticleNavigation,
+} from "../../../utils/wikiArticleTreeUtil";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import styles from "./Articles.module.css";
 
 type ArticlePagesProps = {
@@ -28,20 +32,30 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
 
     //const articleLookup = useMemo(() => flattenArticleTree(ArticleList), []);
 
-    const article = useMemo(() => {
+    const requestedArticle = useMemo(() => {
         if (!articleId) return ArticleList[0];
 
         return findArticleById(ArticleList, articleId);
     }, [articleId]);
+
+    const article = useMemo(() => {
+        if (!requestedArticle) return null;
+
+        return findFirstArticleWithComponent(requestedArticle);
+    }, [requestedArticle]);
 
     const ArticleComponent = article?.component;
     const imageSrc = article?.articleImage;
     const imageIsLoading = Boolean(imageSrc && loadedImage !== imageSrc);
 
     const navigation = useMemo(() => {
-        const activeId = articleId ?? ArticleList[0].id;
+        const activeId = article?.id ?? articleId ?? ArticleList[0].id;
         return getArticleNavigation(ArticleList, activeId);
-    }, [articleId]);
+    }, [article, articleId]);
+
+    if (requestedArticle && article && requestedArticle.id !== article.id) {
+        return <Navigate replace to={`/wiki/${article.id}`} />;
+    }
 
     return (
         <div className="flex-1 flex flex-col bg-[var(--bg)]/90 p-5 md:p-8 h-full">
