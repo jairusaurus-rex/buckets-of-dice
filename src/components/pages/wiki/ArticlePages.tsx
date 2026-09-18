@@ -1,4 +1,5 @@
 import { ArticleList } from "./article-lists/ArticleList";
+import { ArticleChildren } from "./articles/ArticleChildren";
 import { ArticleNotFound } from "./articles/ArticleNotFound";
 import {
     findArticleById,
@@ -8,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { WikiArticleNavigationFooter } from "./WikiArticleNavigationFooter";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styles from "./Articles.module.css";
 
 type ArticlePagesProps = {
@@ -97,21 +98,7 @@ export const ArticlePages = ({ isSidebarOpen, openSideBar }: ArticlePagesProps) 
                         {requestedArticle && ArticleComponent ? (
                             <ArticleComponent />
                         ) : requestedArticle?.children?.length ? (
-                            <div className="p-2 text-center">
-                                <p className="p-2">Choose a section to continue.</p>
-                                <ul className="space-y-2">
-                                    {requestedArticle.children.map((child) => (
-                                        <li key={child.id}>
-                                            <Link
-                                                to={`/wiki/${child.id}`}
-                                                className="text-[var(--accent)] hover:underline"
-                                            >
-                                                {child.title}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                            <ArticleChildren children={requestedArticle.children} />
                         ) : (
                             <ArticleNotFound />
                         )}
