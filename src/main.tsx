@@ -4,9 +4,12 @@ import './index.css'
 import './index.css'
 import MainRouter from './routers/MainRouter.tsx'
 import { RouterProvider } from 'react-router-dom'
+import { AppErrorBoundary } from './components/commons/AppErrorBoundary.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={MainRouter} />
+    <AppErrorBoundary>
+      <RouterProvider router={MainRouter} />
+    </AppErrorBoundary>
   </StrictMode>,
 )
