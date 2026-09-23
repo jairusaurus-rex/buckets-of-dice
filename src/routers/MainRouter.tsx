@@ -29,10 +29,10 @@ const MainRouter = createBrowserRouter([
                 path: "/dice-app",
                 element: <DiceRollerMainLayout />
             },
-            {
-                path: "/test",
-                element: <TestPage />
-            },
+            // {
+            //     path: "/test",
+            //     element: <TestPage />
+            // },
         ]
     },
     {
