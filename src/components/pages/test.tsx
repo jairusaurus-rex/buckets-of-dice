@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { connection } from "../../services/signalr";
+import { createConnection } from "../../services/signalr";
+
+const connection = createConnection("Room2", "Jairus");
+
 export const TestPage = () => {
     const [message, setMessage] = useState("...loading");
     const [counter, setCounter] = useState(1);
