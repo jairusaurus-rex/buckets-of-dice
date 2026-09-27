@@ -4,11 +4,18 @@
   border-radius: 0.25rem;
   background: var(--border);
   border: 1px solid var(--button-border);
+  cursor: pointer;
 }
 
-.diceButton:active {
+.diceButton:enabled:active {
   border-color: var(--button-border-hover);
   background: var(--accent-bg);
+}
+
+.diceButton:disabled{
+  border-color: var(--muted);
+  background:  var(--bg);
+  cursor: not-allowed;
 }
 
 .messagerBox{

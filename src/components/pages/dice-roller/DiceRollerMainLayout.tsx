@@ -4,6 +4,7 @@ import { DiceCategory } from "./DiceCategory";
 import { DicePool } from "./DicePool";
 import { MessageLog } from "./MessageLog";
 import { useState } from "react";
+import { UserConnection } from "./UserConnection";
 
 
 
@@ -91,7 +92,7 @@ export const DiceRollerMainLayout = () => {
           </div>
           <div className="m-1">
             <Accordion title="Options">
-              <div className=" mt-2">options</div>
+              <UserConnection/>
             </Accordion>
           </div>
         </div>
