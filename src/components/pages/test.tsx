@@ -31,8 +31,12 @@ export const TestPage = () => {
         const receiveMessage = (receivedMessage: string) => {
             console.log("Received message:", receivedMessage);
         };
+        const receiveHistory = (history: unknown) => {
+            console.log("Received history:", history);
+        };
 
         connection.on("ReceiveMessage", receiveMessage);
+        connection.on("ReceiveHistory", receiveHistory);
 
         if (connection.state === "Disconnected") {
             connection.start()
@@ -46,6 +50,7 @@ export const TestPage = () => {
 
         return () => {
             connection.off("ReceiveMessage", receiveMessage);
+            connection.off("ReceiveHistory", receiveHistory);
         };
     }, []);
 
