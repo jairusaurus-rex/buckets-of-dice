@@ -2,6 +2,7 @@ import { MessagePost } from "./MessagePost";
 import { MessagerReducerActions } from "../../../data-types/enums/messager-reducer-action-enum";
 import { useEffect, useRef, useState } from "react";
 import { useMessager } from "../../../contexts/MessagerContext";
+import { useSignalR } from "../../../contexts/SignalRContext";
 import styles from "./DiceRoller.module.css";
 
 
@@ -11,6 +12,7 @@ export const MessageLog = () => {
     const messageListRef = useRef<HTMLDivElement>(null);
 
     const { messageDispatch, messageGroup } = useMessager();
+    const { isConnected, sendMessage } = useSignalR();
     const hasMounted = useRef(false);
 
     useEffect(() => {
@@ -51,28 +53,39 @@ export const MessageLog = () => {
         )}px`;
     }
 
-    function handleSend() {
-        if (!newMessage.trim()) return;
-        console.log('>', newMessage);
-        const lines = newMessage.split(/\r?\n/);
-        console.log('>>', lines)
+    async function handleSend() {
+        const message = newMessage.trim();
+        if (!message) return;
+
+        if (isConnected) {
+            try {
+                await sendMessage(message);
+            } catch (error) {
+                console.error("SignalR message failed:", error);
+                return;
+            }
+        } else {
+            const lines = message.split(/\r?\n/);
+            const localMessage = (
+                <div>
+                    {lines.map((line, index) => (
+                        <div key={index}>
+                            {line.length > 0 ? <p>{line}</p> : <br />}
+                        </div>
+                    ))}
+                </div>
+            );
+
+            messageDispatch({
+                type: MessagerReducerActions.ADD_JSX,
+                jsx: localMessage
+            });
+        }
 
         setNewMessage("");
-        const sendMessage = (
-            <div>
-                {lines.map((row, index) => (
-                    <div key={index}>
-                        {row.length > 0 ? <p>{row}</p> : <br></br>}
-                    </div>
-                ))}
-            </div>
-        );
-
         if (textareaRef.current) {
             textareaRef.current.style.height = "auto";
         }
-
-        messageDispatch({ type: MessagerReducerActions.ADD_JSX, jsx: sendMessage });
     }
 
     function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -128,7 +141,6 @@ export const MessageLog = () => {
                                     max-h-32
                                 "
                             placeholder="Write a message..."
-                            required
                         />
                     </div>
 
@@ -138,6 +150,7 @@ export const MessageLog = () => {
                         <button
                             type="button"
                             onClick={handleSend}
+                            disabled={!newMessage.trim()}
                             className={styles.diceButton}>
                             send
                         </button>

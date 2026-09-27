@@ -1,29 +1,48 @@
-import { useState, type FormEvent } from "react";
+import { useState } from "react";
 import { useUser } from "../../../contexts/UserContext";
+import { useSignalR } from "../../../contexts/SignalRContext";
 import styles from "./DiceRoller.module.css";
 
 export const UserConnection = () => {
     const [userName, setUserName] = useState("");
     const [room, setRoom] = useState("");
-    const { user, login, logout } = useUser();
+    const [connectionError, setConnectionError] = useState("");
+    const { user, login } = useUser();
+    const { isConnected, isConnecting, connect, disconnect } = useSignalR();
 
+    const handleConnect = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const trimmedName = userName.trim();
+        const trimmedRoom = room.trim();
+        setConnectionError("");
 
-    const handleConnect = async () => {
-        login({
-            id: userName + Date.now,
-            name: userName,
-            room: room,
-        })
+        try {
+            await connect(trimmedRoom, trimmedName);
+            login({
+                id: crypto.randomUUID(),
+                name: trimmedName,
+                room: trimmedRoom,
+            });
+        } catch (error) {
+            console.error("SignalR connection failed:", error);
+            setConnectionError("Unable to connect. Check the name and room, then try again.");
+        }
     };
 
     const handleDisconnect = async () => {
-        logout();
+        setConnectionError("");
+        try {
+            await disconnect();
+        } catch (error) {
+            console.error("SignalR disconnect failed:", error);
+            setConnectionError("Unable to disconnect. Please try again.");
+        }
     };
 
 
     return (
         <section className="border-b border-[var(--border)] bg-[var(--bg)]/75 px-4 py-3">
-            {user && user.name && user.room ? (
+            {isConnected && user ? (
                 <div className="flex flex-wrap items-center justify-between gap-3">
                     <p className="text-sm text-[var(--text-h)]">
                         Connected as <strong>{user.name}</strong> in <strong>{user.room}</strong>
@@ -32,13 +51,14 @@ export const UserConnection = () => {
                         type="button"
                         onClick={handleDisconnect}
                         className={styles.diceButton}
-                        >
+                    >
                         Disconnect
                     </button>
                 </div>
             ) : (
-                <div>
+                <form onSubmit={handleConnect}>
                     <input
+                        aria-label="User name"
                         placeholder="User name"
                         required
                         value={userName}
@@ -53,7 +73,8 @@ export const UserConnection = () => {
                             bg-[var(--bg)]"
                     />
                     <input
-                        placeholder="Room."
+                        aria-label="Room"
+                        placeholder="Room"
                         required
                         value={room}
                         onChange={(event) => setRoom(event.target.value)}
@@ -67,17 +88,15 @@ export const UserConnection = () => {
                             bg-[var(--bg)]"
                     />
                     <button
-                        disabled={!userName.trim() || !room.trim()}
+                        type="submit"
+                        disabled={isConnecting || !userName.trim() || !room.trim()}
                         className={styles.diceButton}
-                        onClick={handleConnect}
                     >
-                        Connect
+                        {isConnecting ? "Connecting..." : "Connect"}
                     </button>
-                </div>
+                </form>
             )}
-            {
-                //connectionError && <p role="alert" className="mt-2 text-sm text-red-700">{connectionError}</p>
-            }
+            {connectionError && <p role="alert" className="mt-2 text-sm text-red-700">{connectionError}</p>}
         </section>
     );
 };
