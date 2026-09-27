@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { useUser } from "../../../contexts/UserContext";
 import { useSignalR } from "../../../contexts/SignalRContext";
 import styles from "./DiceRoller.module.css";
