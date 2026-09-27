@@ -1,11 +1,14 @@
 import type { DiceType } from "../../../data-types/types/DiceType";
 import { AddDiceByRank } from "./AddDiceByRank";
-import { assembleDicePoolTextResult } from "../../../utils/messageAssemblyUtil";
 import { DiceRollerReducerActions } from "../../../data-types/enums/dice-roller-reducer-action-enum";
 import { getBestDiceList, rollDice } from "../../../utils/diceRollerUtil";
 import { MessagerReducerActions } from "../../../data-types/enums/messager-reducer-action-enum";
 import { useDiceRoller } from "../../../contexts/DiceRollerContext";
 import { useMessager } from "../../../contexts/MessagerContext";
+import { useSignalR } from "../../../contexts/SignalRContext";
+import { useUser } from "../../../contexts/UserContext";
+import { MessageTypeEnum } from "../../../data-types/enums/message-type-enum";
+import type { MessageType } from "../../../data-types/types/MessageType";
 import { useState } from "react";
 import DieCard from "./DiceCard";
 import styles from "./DiceRoller.module.css";
@@ -18,6 +21,8 @@ export const DicePool = ({ category }: DicePoolProps) => {
     const [rollTitle, setRollTitle] = useState("");
     const { dispatch, diceGroup } = useDiceRoller();
     const { messageDispatch } = useMessager();
+    const { isConnected, sendMessage } = useSignalR();
+    const { user } = useUser();
     const index = diceGroup.findIndex((group) => group.id === category)
     let dice: DiceType[] = [];
     let result: number | undefined = 0;
@@ -35,7 +40,7 @@ export const DicePool = ({ category }: DicePoolProps) => {
         dispatch({ type: DiceRollerReducerActions.CLEAR, category: category });
         setRollTitle("");
     }
-    const handleRoll = () => {
+    const handleRoll = async () => {
         if (dice.length === 0) {
             return
         }
@@ -50,10 +55,32 @@ export const DicePool = ({ category }: DicePoolProps) => {
             result: newResult,
         });
 
-        const sendMessage = assembleDicePoolTextResult(newRoll.diceList, rollTitle, newResult, bestDice);
-         
+        const message: MessageType = {
+            id: crypto.randomUUID(),
+            type: MessageTypeEnum.DICE_ROLL,
+            content: {
+                rollTitle,
+                dice: newRoll.diceList,
+                result: newResult,
+                bestDice,
+            },
+            timestamp: new Date().toISOString(),
+            userId: user?.id ?? "local",
+            userName: user?.name ?? "You",
+        };
+        console.log(message)
+        console.log(message.content)
+        console.log("First die:", JSON.stringify(message.content.dice[0], null, 2));
 
-        messageDispatch({ type: MessagerReducerActions.ADD_JSX, jsx: sendMessage });
+        if (isConnected) {
+            try {
+                await sendMessage(message);
+            } catch (error) {
+                console.error("SignalR dice roll message failed:", error);
+            }
+        } else {
+            messageDispatch({ type: MessagerReducerActions.ADD_MESSAGE, message });
+        }
     }
     const handleRemoveDice = (id: string) => {
         dispatch({ type: DiceRollerReducerActions.REMOVE, id, category: category });

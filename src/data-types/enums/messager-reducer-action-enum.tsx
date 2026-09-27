@@ -1,4 +1,4 @@
 export const MessagerReducerActions= {
-  ADD_JSX: "ADD_JSX",
+  ADD_MESSAGE: "ADD_MESSAGE",
   CLEAR: "CLEAR"
 } as const;

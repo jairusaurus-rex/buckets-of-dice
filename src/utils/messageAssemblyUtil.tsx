@@ -1,16 +1,17 @@
 import { ReadMore } from "../components/commons/ReadMore"
-import type { DiceType } from "../data-types/types/DiceType"
+import { MessageTypeEnum } from "../data-types/enums/message-type-enum";
+import type { MessageType } from "../data-types/types/MessageType";
 import styles from "../components/layouts/Layout.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleRight } from "@fortawesome/free-solid-svg-icons/faCircleRight";
 import { DiceText } from "../components/commons/DiceText";
 
-export const assembleDicePoolTextResult = (
-    dice: DiceType[],
-    rollTitle: string,
-    newResult: number,
-    bestDice: string[]
-) => {
+export const renderMessageContent = (message: MessageType) => {
+    if (message.type === MessageTypeEnum.TEXT) {
+        return <div className="whitespace-pre-wrap">{message.content.text}</div>;
+    }
+
+    const { dice, rollTitle, result: newResult, bestDice } = message.content;
     return (
         <>
             <div>
@@ -29,7 +30,7 @@ export const assembleDicePoolTextResult = (
                     </ReadMore>
                 </div>
                 <div>
-                    {rollTitle.trim().length > 0
+                    {rollTitle && rollTitle.trim().length > 0
                         ? <span>
                             Roll for: <span className="text-[var(--text-h)]">{rollTitle}</span>
                         </span>
@@ -59,7 +60,7 @@ export const assembleDicePoolTextResult = (
                             : newResult ?? "--"}
                     </span>
                 </div>
-                {bestDice.length > 0 ?
+                {bestDice && bestDice.length > 0 ?
                     (
 
                         bestDice.map((bestDie) => (

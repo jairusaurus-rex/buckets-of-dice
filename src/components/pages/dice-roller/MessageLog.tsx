@@ -3,6 +3,10 @@ import { MessagerReducerActions } from "../../../data-types/enums/messager-reduc
 import { useEffect, useRef, useState } from "react";
 import { useMessager } from "../../../contexts/MessagerContext";
 import { useSignalR } from "../../../contexts/SignalRContext";
+import { useUser } from "../../../contexts/UserContext";
+import { MessageTypeEnum } from "../../../data-types/enums/message-type-enum";
+import type { MessageType } from "../../../data-types/types/MessageType";
+import { renderMessageContent } from "../../../utils/messageAssemblyUtil";
 import styles from "./DiceRoller.module.css";
 
 
@@ -13,6 +17,7 @@ export const MessageLog = () => {
 
     const { messageDispatch, messageGroup } = useMessager();
     const { isConnected, sendMessage } = useSignalR();
+    const { user } = useUser();
     const hasMounted = useRef(false);
 
     useEffect(() => {
@@ -57,28 +62,26 @@ export const MessageLog = () => {
         const message = newMessage.trim();
         if (!message) return;
 
+        const outgoingMessage: MessageType = {
+            id: crypto.randomUUID(),
+            type: MessageTypeEnum.TEXT,
+            content: { text: message },
+            timestamp: new Date().toISOString(),
+            userId: user?.id ?? "local",
+            userName: user?.name ?? "You",
+        };
+
         if (isConnected) {
             try {
-                await sendMessage(message);
+                await sendMessage(outgoingMessage);
             } catch (error) {
                 console.error("SignalR message failed:", error);
                 return;
             }
         } else {
-            const lines = message.split(/\r?\n/);
-            const localMessage = (
-                <div>
-                    {lines.map((line, index) => (
-                        <div key={index}>
-                            {line.length > 0 ? <p>{line}</p> : <br />}
-                        </div>
-                    ))}
-                </div>
-            );
-
             messageDispatch({
-                type: MessagerReducerActions.ADD_JSX,
-                jsx: localMessage
+                type: MessagerReducerActions.ADD_MESSAGE,
+                message: outgoingMessage
             });
         }
 
@@ -108,7 +111,13 @@ export const MessageLog = () => {
                     messageGroup.map((message) => (
                         <div key={message.id}>
                             <MessagePost>
-                                {message.jsxElement}
+                                <div className="mb-1 flex justify-between gap-2 text-xs text-[var(--muted)]">
+                                    <span>{message.userName}</span>
+                                    <time dateTime={message.timestamp}>
+                                        {new Date(message.timestamp).toLocaleTimeString()}
+                                    </time>
+                                </div>
+                                {renderMessageContent(message)}
                             </MessagePost>
                         </div>
                     ))

@@ -8,6 +8,8 @@ import {
 } from "react";
 import type { HubConnection } from "@microsoft/signalr";
 import { MessagerReducerActions } from "../data-types/enums/messager-reducer-action-enum";
+import { MessageTypeEnum } from "../data-types/enums/message-type-enum";
+import type { MessageType } from "../data-types/types/MessageType";
 import { useMessager } from "./MessagerContext";
 import { useUser } from "./UserContext";
 import { createConnection } from "../services/signalr";
@@ -17,29 +19,35 @@ type SignalRContextValue = {
     isConnecting: boolean;
     connect: (room: string, userName: string) => Promise<void>;
     disconnect: () => Promise<void>;
-    sendMessage: (message: string) => Promise<void>;
+    sendMessage: (message: MessageType) => Promise<void>;
 };
 
 const SignalRContext = createContext<SignalRContextValue | null>(null);
 
-const formatReceivedMessage = (value: unknown): string => {
-    if (typeof value === "string") {
-        return value;
+const isMessageType = (value: unknown): value is MessageType => {
+    if (!value || typeof value !== "object") return false;
+
+    const message = value as Record<string, unknown>;
+    if (
+        typeof message.id !== "string" ||
+        typeof message.timestamp !== "string" ||
+        typeof message.userId !== "string" ||
+        typeof message.userName !== "string" ||
+        !message.content || typeof message.content !== "object"
+    ) {
+        return false;
     }
 
-    if (value && typeof value === "object") {
-        const record = value as Record<string, unknown>;
-        const message = record.message ?? record.text ?? record.content;
-        if (typeof message === "string") {
-            return message;
-        }
+    const content = message.content as Record<string, unknown>;
+    if (message.type === MessageTypeEnum.TEXT) {
+        return typeof content.text === "string";
     }
 
-    try {
-        return JSON.stringify(value) ?? String(value);
-    } catch {
-        return String(value);
-    }
+    return message.type === MessageTypeEnum.DICE_ROLL &&
+        typeof content.rollTitle === "string" &&
+        typeof content.result === "number" &&
+        Array.isArray(content.dice) &&
+        Array.isArray(content.bestDice);
 };
 
 export const SignalRProvider = ({ children }: { children: ReactNode }) => {
@@ -51,15 +59,15 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
 
     const addReceivedMessages = (payload: unknown) => {
         const messages = Array.isArray(payload) ? payload : [payload];
-        if (messages.length === 0) return;
-        for(let message of messages){
+        for (const message of messages) {
+            if (!isMessageType(message)) {
+                console.warn("Ignoring invalid SignalR message payload:", message);
+                continue;
+            }
+
             messageDispatch({
-                type: MessagerReducerActions.ADD_JSX,
-                jsx: (
-                    <div className="whitespace-pre-wrap">
-                            <p>{formatReceivedMessage(message)}</p>
-                    </div>
-                )
+                type: MessagerReducerActions.ADD_MESSAGE,
+                message
             });
         }
     };
@@ -122,7 +130,7 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
         }
     };
 
-    const sendMessage = async (message: string) => {
+    const sendMessage = async (message: MessageType) => {
         const connection = connectionRef.current;
         if (!connection || connection.state !== "Connected") {
             throw new Error("Cannot send a message while disconnected.");

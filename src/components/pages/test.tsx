@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { createConnection } from "../../services/signalr";
+import { MessageTypeEnum } from "../../data-types/enums/message-type-enum";
+import type { MessageType } from "../../data-types/types/MessageType";
 
 const connection = createConnection("Room2", "Jairus");
 
@@ -58,7 +60,15 @@ export const TestPage = () => {
         setCounter(counter + 1);
         console.log('attempting to send')
         try {
-            await connection.invoke("SendMessage", "hello " + counter);
+            const message: MessageType = {
+                id: crypto.randomUUID(),
+                type: MessageTypeEnum.TEXT,
+                content: { text: "hello " + counter },
+                timestamp: new Date().toISOString(),
+                userId: "test-user",
+                userName: "Jairus",
+            };
+            await connection.invoke("SendMessage", message);
             setError("");
         } catch (sendError) {
             console.error("SignalR message failed:", sendError);
