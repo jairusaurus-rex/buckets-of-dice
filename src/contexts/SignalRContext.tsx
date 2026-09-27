@@ -52,17 +52,21 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
     const addReceivedMessages = (payload: unknown) => {
         const messages = Array.isArray(payload) ? payload : [payload];
         if (messages.length === 0) return;
+        for(let message of messages){
+            messageDispatch({
+                type: MessagerReducerActions.ADD_JSX,
+                jsx: (
+                    <div className="whitespace-pre-wrap">
+                            <p>{formatReceivedMessage(message)}</p>
+                    </div>
+                )
+            });
+        }
+    };
 
-        messageDispatch({
-            type: MessagerReducerActions.ADD_JSX,
-            jsx: (
-                <div className="whitespace-pre-wrap">
-                    {messages.map((message, index) => (
-                        <p key={index}>{formatReceivedMessage(message)}</p>
-                    ))}
-                </div>
-            )
-        });
+    const receiveHistory = (payload: unknown) => {
+        messageDispatch({ type: MessagerReducerActions.CLEAR });
+        addReceivedMessages(payload);
     };
 
     const connect = async (room: string, userName: string) => {
@@ -76,13 +80,14 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
         setIsConnecting(true);
 
         connection.on("ReceiveMessage", addReceivedMessages);
-        connection.on("ReceiveHistory", addReceivedMessages);
+        connection.on("ReceiveHistory", receiveHistory);
         connection.onclose(() => {
             if (connectionRef.current !== connection) return;
             connectionRef.current = null;
             setIsConnected(false);
             setIsConnecting(false);
             logout();
+            messageDispatch({ type: MessagerReducerActions.CLEAR });
         });
 
         try {
@@ -113,6 +118,7 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
             }
         } finally {
             logout();
+            messageDispatch({ type: MessagerReducerActions.CLEAR });
         }
     };
 

@@ -18,6 +18,9 @@ const MessagerReducer = (messageTypes: MessageType[], action: MessagerActionsTyp
             };
             return [...messageTypes, newMessage].slice(-MAX_MESSAGES);
         }
+        case MessagerReducerActions.CLEAR:{
+            return [];
+        }
         default:
             return messageTypes;
     }
