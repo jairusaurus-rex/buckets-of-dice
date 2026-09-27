@@ -14,7 +14,8 @@ const MessagerReducer = (messageTypes: MessageType[], action: MessagerActionsTyp
                 type: MessegerDataTypes.JSX,
                 jsxElement: action.jsx ?? <></>,
                 timestamp: new Date(),
-                userId: "",
+                userId: action.userId ?? "",
+                userName: action.userName ?? "",
             };
             return [...messageTypes, newMessage].slice(-MAX_MESSAGES);
         }

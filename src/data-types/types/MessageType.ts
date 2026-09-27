@@ -4,4 +4,5 @@ export type MessageType = {
     jsxElement: React.JSX.Element;
     timestamp: Date;
     userId: string;
+    userName?: string;
 }
