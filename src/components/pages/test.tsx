@@ -4,7 +4,7 @@ import { createConnection } from "../../services/signalr";
 const connection = createConnection("Room2", "Jairus");
 
 export const TestPage = () => {
-    const [message, setMessage] = useState("...loading");
+    //const [message, setMessage] = useState("...loading");
     const [counter, setCounter] = useState(1);
 
     const [error, setError] = useState("");
@@ -64,7 +64,10 @@ export const TestPage = () => {
     return (
         <div className="bg-[var(--bg)]/75 p-10 m-0 ">
             <h2 className="w-full">Page for test</h2>
-            <p>{message}</p>
+            <p>{
+            //message
+            }
+            </p>
             {error && <p role="alert">{error}</p>}
             <button  className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-sm transition-colors"  onClick={sendHello}>Send hello</button>
 
