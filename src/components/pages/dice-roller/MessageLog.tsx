@@ -67,7 +67,7 @@ export const MessageLog = () => {
             type: MessageTypeEnum.TEXT,
             content: { text: message },
             timestamp: new Date().toISOString(),
-            userId: user?.id ?? "local",
+            userId: user?.id ?? "",
             userName: user?.name ?? "You",
         };
 
@@ -110,13 +110,17 @@ export const MessageLog = () => {
                 {
                     messageGroup.map((message) => (
                         <div key={message.id}>
-                            <MessagePost>
-                                <div className="mb-1 flex justify-between gap-2 text-xs text-[var(--muted)]">
-                                    <span>{message.userName}</span>
-                                    <time dateTime={message.timestamp}>
-                                        {new Date(message.timestamp).toLocaleTimeString()}
-                                    </time>
-                                </div>
+                            <MessagePost fromSelf={!!(message.userId && user && message.userId !== user.id)} >
+                                {
+                                    (message.userId && user && message.userId !== user.id) &&
+                                    <div className=" text-right text-xs text-[var(--muted)]">
+                                        <span>{message.userName}</span> - 
+                                        <time dateTime={message.timestamp}>
+                                            {new Date(message.timestamp).toLocaleTimeString()}
+                                        </time>
+                                    </div>
+
+                                }
                                 {renderMessageContent(message)}
                             </MessagePost>
                         </div>

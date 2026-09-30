@@ -19,7 +19,7 @@ export const UserConnection = () => {
         try {
             await connect(trimmedRoom, trimmedName);
             login({
-                id: crypto.randomUUID(),
+                id: trimmedName+Date.now().toString(),
                 name: trimmedName,
                 room: trimmedRoom,
             });

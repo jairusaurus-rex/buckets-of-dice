@@ -65,8 +65,8 @@ export const DicePool = ({ category }: DicePoolProps) => {
                 bestDice,
             },
             timestamp: new Date().toISOString(),
-            userId: user?.id ?? "local",
-            userName: user?.name ?? "You",
+            userId: user?.id ?? "",
+            userName: user?.name ?? "",
         };
         console.log(message)
         console.log(message.content)
