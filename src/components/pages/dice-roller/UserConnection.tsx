@@ -2,13 +2,15 @@ import { useState, type FormEvent } from "react";
 import { useUser } from "../../../contexts/UserContext";
 import { useSignalR } from "../../../contexts/SignalRContext";
 import styles from "./DiceRoller.module.css";
+import type { MessageType } from "../../../data-types/types/MessageType";
+import { MessageTypeEnum } from "../../../data-types/enums/message-type-enum";
 
 export const UserConnection = () => {
     const [userName, setUserName] = useState("");
     const [room, setRoom] = useState("");
     const [connectionError, setConnectionError] = useState("");
     const { user, login } = useUser();
-    const { isConnected, isConnecting, connect, disconnect } = useSignalR();
+    const { isConnected, isConnecting, connect, disconnect, sendMessage } = useSignalR();
 
     const handleConnect = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -18,11 +20,28 @@ export const UserConnection = () => {
 
         try {
             await connect(trimmedRoom, trimmedName);
-            login({
-                id: trimmedName+Date.now().toString(),
+            const connectedUser = {
+                id: trimmedName + Date.now().toString(),
                 name: trimmedName,
                 room: trimmedRoom,
-            });
+            };
+            login(connectedUser);
+
+            const outgoingMessage: MessageType = {
+                id: crypto.randomUUID(),
+                type: MessageTypeEnum.TEXT,
+                content: { text: `🚀 ${connectedUser.name} joined the room.` },
+                timestamp: new Date().toISOString(),
+                userId: connectedUser.id,
+                userName: connectedUser.name,
+            };
+
+            try {
+                await sendMessage(outgoingMessage);
+            } catch (error) {
+                console.error("SignalR message failed:", error);
+                return;
+            }
         } catch (error) {
             console.error("SignalR connection failed:", error);
             setConnectionError("Unable to connect. Check the name and room, then try again.");
