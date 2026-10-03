@@ -3,7 +3,7 @@ import { HubConnectionBuilder } from "@microsoft/signalr";
 export const createConnection = (room: string, userName: string) => {
      const connection = new HubConnectionBuilder()
           .withUrl(
-               `http://localhost:5235/hubs/dice?room=${encodeURIComponent(room)}&userName=${encodeURIComponent(userName)}`
+               `${import.meta.env.VITE_SIGNALR_HUB_URL}/dice?room=${encodeURIComponent(room)}&userName=${encodeURIComponent(userName)}`
           )
           .build();
 
