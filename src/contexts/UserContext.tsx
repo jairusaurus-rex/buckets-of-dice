@@ -5,12 +5,14 @@ import {
     type ReactNode
 } from "react";
 import type { UserType } from "../data-types/types/UserType";
+import type { UserOptonType } from "../data-types/types/UserOptonType";
 
 type UserContextValue = {
     user: UserType | null;
     isLoggedIn: boolean;
     login: (user: UserType) => void;
     logout: () => void;
+    userOptions?: UserOptonType;
 };
 
 const UserContext = createContext<UserContextValue | null>(null);

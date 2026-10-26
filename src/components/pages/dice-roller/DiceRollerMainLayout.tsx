@@ -4,7 +4,7 @@ import { DiceCategory } from "./DiceCategory";
 import { DicePool } from "./DicePool";
 import { MessageLog } from "./MessageLog";
 import { useState } from "react";
-import { UserConnection } from "./UserConnection";
+import { OptionCard } from "./OptionCard";
 
 
 
@@ -86,13 +86,13 @@ export const DiceRollerMainLayout = () => {
         </div>
         <div className="col-span-1 ">
           <div className="m-1 hidden p-0 m-0 md:block ">
-            <Accordion title="Log"  defaultOpen={true}>
+            <Accordion title="Log" defaultOpen={true}>
               <MessageLog />
             </Accordion>
           </div>
           <div className="m-1">
             <Accordion title="Options">
-              <UserConnection/>
+              <OptionCard />
             </Accordion>
           </div>
         </div>
