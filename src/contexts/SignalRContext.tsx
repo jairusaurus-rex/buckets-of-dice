@@ -13,6 +13,7 @@ import type { MessageType } from "../data-types/types/MessageType";
 import { useMessager } from "./MessagerContext";
 import { useUser } from "./UserContext";
 import { createConnection } from "../services/signalr";
+import messageSoundUrl from "../assets/sounds/message.mp3";
 
 type SignalRContextValue = {
     isConnected: boolean;
@@ -55,7 +56,11 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
     const [isConnected, setIsConnected] = useState(false);
     const [isConnecting, setIsConnecting] = useState(false);
     const { messageDispatch } = useMessager();
-    const { logout } = useUser();
+    const { logout, user, userOptions } = useUser();
+    const userRef = useRef(user);
+    const userOptionsRef = useRef(userOptions);
+    userRef.current = user;
+    userOptionsRef.current = userOptions;
 
     const addReceivedMessages = (payload: unknown) => {
         const messages = Array.isArray(payload) ? payload : [payload];
@@ -63,6 +68,15 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
             if (!isMessageType(message)) {
                 console.warn("Ignoring invalid SignalR message payload:", message);
                 continue;
+            }
+
+            if (
+                userOptionsRef.current.MessageSound &&
+                message.userId !== userRef.current?.id
+            ) {
+                void new Audio(messageSoundUrl).play().catch((error: unknown) => {
+                    console.warn("Message sound playback failed:", error);
+                });
             }
 
             messageDispatch({
