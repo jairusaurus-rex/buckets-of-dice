@@ -1,5 +1,5 @@
 
-export type UserOptonType = {
+export type UserOptionType = {
     MessageSound: boolean;
     DisplayDiceRate: boolean;
 }

@@ -5,20 +5,25 @@ import {
     type ReactNode
 } from "react";
 import type { UserType } from "../data-types/types/UserType";
-import type { UserOptonType } from "../data-types/types/UserOptonType";
+import type { UserOptionType } from "../data-types/types/UserOptionType";
 
 type UserContextValue = {
     user: UserType | null;
     isLoggedIn: boolean;
     login: (user: UserType) => void;
     logout: () => void;
-    userOptions?: UserOptonType;
+    userOptions: UserOptionType;
+    updateUserOption: (option: keyof UserOptionType, value: boolean) => void;
 };
 
 const UserContext = createContext<UserContextValue | null>(null);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<UserType | null>(null);
+    const [userOptions, setUserOptions] = useState<UserOptionType>({
+        MessageSound: false,
+        DisplayDiceRate: false
+    });
 
     const login = (authenticatedUser: UserType) => {
         setUser(authenticatedUser);
@@ -28,13 +33,22 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         setUser(null);
     };
 
+    const updateUserOption = (option: keyof UserOptionType, value: boolean) => {
+        setUserOptions((currentOptions) => ({
+            ...currentOptions,
+            [option]: value
+        }));
+    };
+
     return (
         <UserContext.Provider
             value={{
                 user,
                 isLoggedIn: user !== null,
                 login,
-                logout
+                logout,
+                userOptions,
+                updateUserOption
             }}
         >
             {children}
