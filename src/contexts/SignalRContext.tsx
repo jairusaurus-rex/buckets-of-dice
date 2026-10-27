@@ -1,6 +1,7 @@
 import {
     createContext,
     use,
+    useCallback,
     useEffect,
     useRef,
     useState,
@@ -13,7 +14,8 @@ import type { MessageType } from "../data-types/types/MessageType";
 import { useMessager } from "./MessagerContext";
 import { useUser } from "./UserContext";
 import { createConnection } from "../services/signalr";
-import messageSoundUrl from "../assets/sounds/message.mp3";
+
+type LiveMessageListener = (message: MessageType) => void;
 
 type SignalRContextValue = {
     isConnected: boolean;
@@ -21,6 +23,7 @@ type SignalRContextValue = {
     connect: (room: string, userName: string) => Promise<void>;
     disconnect: () => Promise<void>;
     sendMessage: (message: MessageType) => Promise<void>;
+    subscribeToLiveMessages: (listener: LiveMessageListener) => () => void;
 };
 
 const SignalRContext = createContext<SignalRContextValue | null>(null);
@@ -56,13 +59,17 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
     const [isConnected, setIsConnected] = useState(false);
     const [isConnecting, setIsConnecting] = useState(false);
     const { messageDispatch } = useMessager();
-    const { logout, user, userOptions } = useUser();
-    const userRef = useRef(user);
-    const userOptionsRef = useRef(userOptions);
-    userRef.current = user;
-    userOptionsRef.current = userOptions;
+    const { logout } = useUser();
+    const liveMessageListeners = useRef(new Set<LiveMessageListener>());
 
-    const addReceivedMessages = (payload: unknown) => {
+    const subscribeToLiveMessages = useCallback((listener: LiveMessageListener) => {
+        liveMessageListeners.current.add(listener);
+        return () => {
+            liveMessageListeners.current.delete(listener);
+        };
+    }, []);
+
+    const addReceivedMessages = (payload: unknown, isLiveMessage = false) => {
         const messages = Array.isArray(payload) ? payload : [payload];
         for (const message of messages) {
             if (!isMessageType(message)) {
@@ -70,13 +77,14 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
                 continue;
             }
 
-            if (
-                userOptionsRef.current.MessageSound &&
-                message.userId !== userRef.current?.id
-            ) {
-                void new Audio(messageSoundUrl).play().catch((error: unknown) => {
-                    console.warn("Message sound playback failed:", error);
-                });
+            if (isLiveMessage) {
+                for (const listener of liveMessageListeners.current) {
+                    try {
+                        listener(message);
+                    } catch (error) {
+                        console.error("Live message listener failed:", error);
+                    }
+                }
             }
 
             messageDispatch({
@@ -101,7 +109,9 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
         connectionRef.current = connection;
         setIsConnecting(true);
 
-        connection.on("ReceiveMessage", addReceivedMessages);
+        connection.on("ReceiveMessage", (payload: unknown) => {
+            addReceivedMessages(payload, true);
+        });
         connection.on("ReceiveHistory", receiveHistory);
         connection.onclose(() => {
             if (connectionRef.current !== connection) return;
@@ -165,7 +175,14 @@ export const SignalRProvider = ({ children }: { children: ReactNode }) => {
 
     return (
         <SignalRContext.Provider
-            value={{ isConnected, isConnecting, connect, disconnect, sendMessage }}
+            value={{
+                isConnected,
+                isConnecting,
+                connect,
+                disconnect,
+                sendMessage,
+                subscribeToLiveMessages
+            }}
         >
             {children}
         </SignalRContext.Provider>

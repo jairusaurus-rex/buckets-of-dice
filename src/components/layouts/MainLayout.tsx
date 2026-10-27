@@ -4,6 +4,7 @@ import { Menu } from "./Menu";
 import { MessagerProvider } from "../../contexts/MessagerContext";
 import { SignalRProvider } from "../../contexts/SignalRContext";
 import { UserProvider } from "../../contexts/UserContext";
+import { MessageSoundEffect } from "../commons/MessageSoundEffect";
 import { Outlet } from "react-router-dom";
 
 export const MainLayout = () => {
@@ -14,6 +15,7 @@ export const MainLayout = () => {
       <UserProvider>
         <MessagerProvider>
           <SignalRProvider>
+            <MessageSoundEffect />
             <DiceRollerProvider>
               <Outlet />
             </DiceRollerProvider>
