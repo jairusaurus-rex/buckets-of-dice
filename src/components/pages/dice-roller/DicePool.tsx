@@ -12,6 +12,9 @@ import type { MessageType } from "../../../data-types/types/MessageType";
 import { useState } from "react";
 import DieCard from "./DiceCard";
 import styles from "./DiceRoller.module.css";
+import dice_roll_one from "../../../assets/sounds/dice_roll_one.mp3";
+import dice_roll_few from "../../../assets/sounds/dice_roll_few.mp3";
+import dice_roll_many from "../../../assets/sounds/dice_roll_many.mp3";
 
 type DicePoolProps = {
     category: string
@@ -24,6 +27,7 @@ export const DicePool = ({ category }: DicePoolProps) => {
     const { isConnected, sendMessage } = useSignalR();
     const { user } = useUser();
     const index = diceGroup.findIndex((group) => group.id === category)
+    const { userOptions } = useUser();
     let dice: DiceType[] = [];
     let result: number | undefined = 0;
     if (index >= 0) {
@@ -68,9 +72,6 @@ export const DicePool = ({ category }: DicePoolProps) => {
             userId: user?.id ?? "",
             userName: user?.name ?? "",
         };
-        console.log(message)
-        console.log(message.content)
-        console.log("First die:", JSON.stringify(message.content.dice[0], null, 2));
 
         if (isConnected) {
             try {
@@ -81,6 +82,14 @@ export const DicePool = ({ category }: DicePoolProps) => {
         } else {
             messageDispatch({ type: MessagerReducerActions.ADD_MESSAGE, message });
         }
+
+        if(userOptions.MessageSound) {
+            const audio = new Audio(dice.length === 1 ? dice_roll_one : dice.length <= 5 ? dice_roll_few : dice_roll_many);
+            void audio.play().catch((error: unknown) => {
+                console.warn("Dice roll sound playback failed:", error);
+            });
+        }
+
     }
     const handleRemoveDice = (id: string) => {
         dispatch({ type: DiceRollerReducerActions.REMOVE, id, category: category });
