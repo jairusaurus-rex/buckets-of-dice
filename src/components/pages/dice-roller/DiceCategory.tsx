@@ -42,12 +42,10 @@ export const DiceCategory = ({ category, canEdit = true }: DiceCategoryProps) =>
             {
                 canEdit && <div className="p-1"><AddDiceByRank addDice={handleAddDice} /></div>
             }
-            <div className="flex flex-col items-center justify-center gap-2">
+            <div className="flex flex-wrap items-start justify-start gap-2 md:flex-col md:items-center md:justify-center">
 
                 {dice.map((die) => (
-                    <span
-                        key={die.id}
-                    >
+                    <span key={die.id} className="shrink-0">
                         <DieCard
                             die={die}
                             onRemoveDice={handleRemoveDice}
