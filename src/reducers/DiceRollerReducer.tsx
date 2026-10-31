@@ -120,6 +120,16 @@ const DiceRollerReducer = (diceCategories: DiceCategoryType[], action: DiceActio
             });
         }
 
+        case DiceRollerReducerActions.REPLACE_CATEGORIES: {
+            const replacements = new Map(
+                (action.diceCategories ?? []).map((category) => [category.title, category])
+            );
+
+            return diceCategories.map((category) =>
+                replacements.get(category.title) ?? category
+            );
+        }
+
         default:
             return diceCategories;
     }

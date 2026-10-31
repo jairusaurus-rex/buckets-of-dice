@@ -91,7 +91,7 @@ export const DiceRollerMainLayout = () => {
             </Accordion>
           </div>
           <div className="m-1">
-            <Accordion title="Options">
+            <Accordion title="Options" defaultOpen={true}>
               <OptionCard />
             </Accordion>
           </div>

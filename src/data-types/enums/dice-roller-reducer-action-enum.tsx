@@ -6,4 +6,5 @@ export const DiceRollerReducerActions = {
   CHANGE_TITLE: "CHANGE_TITLE",
   ROLL: "ROLL",
   CLEAR: "CLEAR",
+  REPLACE_CATEGORIES: "REPLACE_CATEGORIES",
 } as const;

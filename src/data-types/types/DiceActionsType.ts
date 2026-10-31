@@ -1,5 +1,6 @@
 
 import type { DiceType } from "./DiceType";
+import type { DiceCategoryType } from "./DiceCategoryType";
 
 export type DiceActionsType = {
     type: string;
@@ -8,5 +9,6 @@ export type DiceActionsType = {
     category? : string;
     title? : string;
     diceList?: DiceType[];
+    diceCategories?: DiceCategoryType[];
     result?: number;
 }
