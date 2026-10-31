@@ -21,7 +21,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                     ?
                     <div role="button"
                         onClick={() => addDice(4)}
-                        className="inline-flex items-center gap-[2px] leading-none"
+                        className="inline-flex items-center gap-[2px] leading-none cursor-pointer"
                     >
                         <DiceText>4</DiceText>
                     </div>
@@ -39,7 +39,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                     ?
                     <div role="button"
                         onClick={() => addDice(6)}
-                        className="inline-flex items-center gap-[2px] leading-none"
+                        className="inline-flex items-center gap-[2px] leading-none cursor-pointer"
                     >
                         <DiceText>6</DiceText>
                     </div>
@@ -57,7 +57,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                     ?
                     <div role="button"
                         onClick={() => addDice(8)}
-                        className="inline-flex items-center gap-[2px] leading-none"
+                        className="inline-flex items-center gap-[2px] leading-none cursor-pointer"
                     >
                         <DiceText>8</DiceText>
                     </div>
@@ -75,7 +75,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                     ?
                     <div role="button"
                         onClick={() => addDice(10)}
-                        className="inline-flex items-center gap-[2px] leading-none"
+                        className="inline-flex items-center gap-[2px] leading-none cursor-pointer"
                     >
                         <DiceText>10</DiceText>
                     </div>
@@ -93,7 +93,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                     ?
                     <div role="button"
                         onClick={() => addDice(12)}
-                        className="inline-flex items-center gap-[2px] leading-none"
+                        className="inline-flex items-center gap-[2px] leading-none cursor-pointer"
                     >
                         <DiceText>12</DiceText>
                     </div>
