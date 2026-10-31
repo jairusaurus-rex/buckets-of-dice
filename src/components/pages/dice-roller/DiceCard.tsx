@@ -4,6 +4,8 @@ import d6 from "../../../assets/images/dice/d6.webp";
 import d8 from "../../../assets/images/dice/d8.webp";
 import d10 from "../../../assets/images/dice/d10.webp";
 import d12 from "../../../assets/images/dice/d12.webp";
+import { DiceText } from "../../commons/DiceText";
+import { useUser } from "../../../contexts/UserContext";
 
 type DieCardProps = {
   die: DiceType;
@@ -22,8 +24,9 @@ export const DieCard = ({
   onChangeDiceTitle: onChangeDiceTitle,
   onDiceClick: onDiceClick
 }: DieCardProps) => {
-
+  const { userOptions } = useUser();
   return (
+
     <div className="relative w-28">
 
 
@@ -40,11 +43,19 @@ export const DieCard = ({
         "
       >
         {/* Die type */}
-        {/*
-        <div className="text-center text-xs font-medium color-[var(--muted)]">
-          D{die.rank}
-        </div>
-          */}
+        {userOptions.DisplayDiceRate && <span
+          className="
+            absolute
+            top-1
+            left-1
+            z-20
+            text-xs
+            font-medium
+            color-[var(--muted)]
+          "
+        >
+          <DiceText>{die.rank}</DiceText>
+        </span>}
         {/* Delete */}
         <button
           type="button"
