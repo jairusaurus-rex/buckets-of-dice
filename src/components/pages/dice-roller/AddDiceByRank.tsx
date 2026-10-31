@@ -4,7 +4,6 @@ import d8 from "../../../assets/images/dice/d8.webp";
 import d10 from "../../../assets/images/dice/d10.webp";
 import d12 from "../../../assets/images/dice/d12.webp";
 import { useUser } from "../../../contexts/UserContext";
-import { useRef } from "react";
 import { DiceText } from "../../commons/DiceText";
 
 
@@ -15,11 +14,10 @@ type AddDiceByRankProps = {
 };
 export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
     const { userOptions } = useUser();
-    const userOptionsRef = useRef(userOptions);
     return (
         <div className="p-0 m-0 text-sm ">
             <span className="py-0 px-1">
-                {userOptionsRef.current?.DisplayDiceRate
+                {userOptions.DisplayDiceRate
                     ?
                     <div role="button"
                         onClick={() => addDice(4)}
@@ -37,7 +35,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                 }
             </span>
             <span className="py-0 px-1">
-                {userOptionsRef.current?.DisplayDiceRate
+                {userOptions.DisplayDiceRate
                     ?
                     <div role="button"
                         onClick={() => addDice(6)}
@@ -55,7 +53,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                 }
             </span>
             <span className="py-0 px-1">
-                {userOptionsRef.current?.DisplayDiceRate
+                {userOptions.DisplayDiceRate
                     ?
                     <div role="button"
                         onClick={() => addDice(8)}
@@ -73,7 +71,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                 }
             </span>
             <span className="py-0 px-1" >
-                {userOptionsRef.current?.DisplayDiceRate
+                {userOptions.DisplayDiceRate
                     ?
                     <div role="button"
                         onClick={() => addDice(10)}
@@ -91,7 +89,7 @@ export const AddDiceByRank = ({ addDice }: AddDiceByRankProps) => {
                 }
             </span>
             <span className="py-0 px-1" >
-                {userOptionsRef.current?.DisplayDiceRate
+                {userOptions.DisplayDiceRate
                     ?
                     <div role="button"
                         onClick={() => addDice(12)}
