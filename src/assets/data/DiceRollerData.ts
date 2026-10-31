@@ -139,7 +139,7 @@ export const diceRollerDummyData: DiceCategoryType[] = [
                 title: "Stealth Drive",
                 rank: 4
             },
-            
+
         ],
     },
     {
@@ -198,6 +198,11 @@ export const diceRollerDummyData: DiceCategoryType[] = [
         id: DiceCategories.RELATIONSHIPS,
         title: DiceCategories.RELATIONSHIPS,
         diceList: [],
+    },
+    {
+        id: DiceCategories.SPECIALS,
+        title: DiceCategories.SPECIALS,
+        diceList: [],
     }
 ]
 
@@ -232,7 +237,7 @@ export const shadyLadyData: DiceCategoryType[] = [
                 title: "Stealth Drive",
                 rank: 6
             },
-            
+
         ],
     },
     {
@@ -419,21 +424,6 @@ export const abeCharacterData: DiceCategoryType[] = [
         title: DiceCategories.ASSETS,
         diceList: [
             {
-                id: Date.now().toString() + "Psionics",
-                title: "Psionics",
-                rank: 8
-            },
-            {
-                id: Date.now().toString() + "Companion",
-                title: "Companion",
-                rank: 8
-            },
-            {
-                id: Date.now().toString() + "Cybernatics",
-                title: "Cybernatics",
-                rank: 6
-            },
-            {
                 id: Date.now().toString() + "Pirate Scent",
                 title: "Pirate Scent",
                 rank: 4
@@ -450,6 +440,27 @@ export const abeCharacterData: DiceCategoryType[] = [
             }
         ],
     },
+    {
+        id: DiceCategories.SPECIALS,
+        title: DiceCategories.SPECIALS,
+        diceList: [
+            {
+                id: Date.now().toString() + "Psionics",
+                title: "Psionics",
+                rank: 8
+            },
+            {
+                id: Date.now().toString() + "Companion",
+                title: "Companion",
+                rank: 8
+            },
+            {
+                id: Date.now().toString() + "Cybernatics",
+                title: "Cybernatics",
+                rank: 6
+            },
+        ],
+    }
 ]
 
 
@@ -575,13 +586,18 @@ export const arykCharacterData: DiceCategoryType[] = [
     {
         id: DiceCategories.ASSETS,
         title: DiceCategories.ASSETS,
+        diceList: [],
+    },
+    {
+        id: DiceCategories.SPECIALS,
+        title: DiceCategories.SPECIALS,
         diceList: [
             {
                 id: Date.now().toString() + "Teeth and Claws",
                 title: "Teeth and Claws",
                 rank: 8
             },
-        ],
+        ]
     },
 ]
 
@@ -715,6 +731,11 @@ export const nyxCharacterData: DiceCategoryType[] = [
         title: DiceCategories.ASSETS,
         diceList: [],
     },
+    {
+        id: DiceCategories.SPECIALS,
+        title: DiceCategories.SPECIALS,
+        diceList: []
+    },
 ]
 
 
@@ -845,12 +866,17 @@ export const tcharCharacterData: DiceCategoryType[] = [
     {
         id: DiceCategories.ASSETS,
         title: DiceCategories.ASSETS,
+        diceList: [],
+    },
+    {
+        id: DiceCategories.SPECIALS,
+        title: DiceCategories.SPECIALS,
         diceList: [
-            {
+             {
                 id: Date.now().toString() + "Camo Scales",
                 title: "Camo Scales",
                 rank: 8
             }
-        ],
+        ]
     },
 ]

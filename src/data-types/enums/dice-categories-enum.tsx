@@ -9,4 +9,5 @@ export const DiceCategories = {
   VESSEL_EXTRA: "VESSEL EXTRA",
   ASSETS: "ASSETS",
   RELATIONSHIPS: "RELATIONSHIPS",
+  SPECIALS: "SPECIALS",
 } as const;

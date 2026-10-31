@@ -64,6 +64,11 @@ export const DiceRollerMainLayout = () => {
                   <DiceCategory category={DiceCategories.ASSETS} />
                 </Accordion>
               </div>
+              <div className="m-1">
+                <Accordion title={DiceCategories.SPECIALS} >
+                  <DiceCategory category={DiceCategories.SPECIALS} />
+                </Accordion>
+              </div>
             </div>
             <div className="col-span-1 ">
               <div className="m-1">
