@@ -61,7 +61,7 @@ export const UserConnection = () => {
 
     return (
         <section className="border-b border-[var(--border)] bg-[var(--bg)]/75 px-4 py-3">
-            <span className=" text-sm">Room Connection</span>
+            <span className=" text-sm text-[var(--accent)]">Room Connection</span>
             {isConnected && user ? (
                 <div className="flex flex-wrap items-center justify-between gap-3">
                     <p className="text-sm text-[var(--text-h)]">

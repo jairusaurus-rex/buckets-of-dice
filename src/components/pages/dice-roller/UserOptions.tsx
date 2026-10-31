@@ -6,7 +6,7 @@ export const UserOptions = () => {
 
   return (
     <div className="border-b border-[var(--border)] bg-[var(--bg)]/75 px-4 py-3">
-      <span className=" text-sm">Display Settings</span>
+      <span className=" text-sm text-[var(--accent)]">Display Settings</span>
       <ul className="select-none text-sm font-medium text-heading bg-neutral-primary-soft border border-[var(--border)] rounded">
         <li className="w-full border-b border-[var(--border)] rounded">
           <div className="flex items-center ps-3">
