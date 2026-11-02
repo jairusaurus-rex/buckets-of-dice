@@ -4,6 +4,9 @@ import { DiceCategories } from "../../../data-types/enums/dice-categories-enum";
 import { DiceRollerReducerActions } from "../../../data-types/enums/dice-roller-reducer-action-enum";
 import { useDiceRoller } from "../../../contexts/DiceRollerContext";
 import DieCard from "./DiceCard";
+import { useUser } from "../../../contexts/UserContext";
+import add_dice from "../../../assets/sounds/add_dice.mp3";
+
 
 type DiceCategoryProps = {
     category: string,
@@ -12,7 +15,8 @@ type DiceCategoryProps = {
 
 export const DiceCategory = ({ category, canEdit = true }: DiceCategoryProps) => {
     const { dispatch, diceGroup } = useDiceRoller();
-    const index = diceGroup.findIndex((group) => group.id === category)
+    const index = diceGroup.findIndex((group) => group.id === category);
+    const { userOptions } = useUser();
     let dice: DiceType[] = [];
     if (index >= 0) {
         dice = diceGroup[index].diceList
@@ -20,9 +24,21 @@ export const DiceCategory = ({ category, canEdit = true }: DiceCategoryProps) =>
 
     const handleAddDice = (rank: number) => {
         dispatch({ type: DiceRollerReducerActions.ADD, rank, category: category });
+        if (userOptions.MessageSound) {
+            const audio = new Audio(add_dice);
+            void audio.play().catch((error: unknown) => {
+                console.warn("Dice roll sound playback failed:", error);
+            });
+        }
     }
     const handleDiceClick = (rank: number, title: string) => {
         dispatch({ type: DiceRollerReducerActions.ADD, rank, title, category: DiceCategories.POOL });
+        if (userOptions.MessageSound) {
+            const audio = new Audio(add_dice);
+            void audio.play().catch((error: unknown) => {
+                console.warn("Dice roll sound playback failed:", error);
+            });
+        }
     }
     const handleRemoveDice = (id: string) => {
         dispatch({ type: DiceRollerReducerActions.REMOVE, id, category: category });

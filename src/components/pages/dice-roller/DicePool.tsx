@@ -15,6 +15,8 @@ import styles from "./DiceRoller.module.css";
 import dice_roll_one from "../../../assets/sounds/dice_roll_one.mp3";
 import dice_roll_few from "../../../assets/sounds/dice_roll_few.mp3";
 import dice_roll_many from "../../../assets/sounds/dice_roll_many.mp3";
+import add_dice from "../../../assets/sounds/add_dice.mp3";
+
 
 type DicePoolProps = {
     category: string
@@ -39,6 +41,12 @@ export const DicePool = ({ category }: DicePoolProps) => {
     }
     const handleAddDice = (rank: number) => {
         dispatch({ type: DiceRollerReducerActions.ADD, rank, category: category });
+        if (userOptions.MessageSound) {
+            const audio = new Audio(add_dice);
+            void audio.play().catch((error: unknown) => {
+                console.warn("Dice roll sound playback failed:", error);
+            });
+        }
     }
     const handleClear = () => {
         dispatch({ type: DiceRollerReducerActions.CLEAR, category: category });
