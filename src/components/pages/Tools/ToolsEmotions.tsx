@@ -1,7 +1,7 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { speak } from "../../../utils/textToSpeech";
-import { faFaceAngry, faFaceFrown, faFaceSmile, faFaceGrimace, faFaceMeh, faFaceGrinStars, faFaceTired , faUserInjured, faFaceSurprise, } from "@fortawesome/free-solid-svg-icons";
+import { faFaceAngry, faFaceFrown, faFaceSmile, faFaceGrimace, faFaceMeh, faFaceGrinStars, faFaceTired , faUserInjured, faFaceSurprise, faGhost } from "@fortawesome/free-solid-svg-icons";
 
 
 export const ToolsEmotions = () => {
@@ -12,7 +12,7 @@ export const ToolsEmotions = () => {
         { name: "Sad", color: "bg-blue-400", icon: <FontAwesomeIcon icon={faFaceFrown} />   },
         { name: "Bored", color: "bg-blue-400", icon: <FontAwesomeIcon icon={faFaceMeh} />   },
         { name: "Surprised", color: "bg-yellow-500", icon: <FontAwesomeIcon icon={faFaceSurprise} />   },
-        { name: "Scared", color: "bg-yellow-500", icon: <FontAwesomeIcon icon={faFaceGrimace} />   },
+        { name: "Scared", color: "bg-yellow-500", icon: <FontAwesomeIcon icon={faGhost} />  },
         { name: "Anxious", color: "bg-orange-400", icon: <FontAwesomeIcon icon={faFaceGrimace} />   },
         { name: "Frustrated", color: "bg-orange-400", icon: <FontAwesomeIcon icon={faFaceTired} />   },
         { name: "Angry", color: "bg-red-400", icon: <FontAwesomeIcon icon={faFaceAngry} />   },
