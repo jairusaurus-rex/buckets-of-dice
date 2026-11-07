@@ -28,8 +28,8 @@ export const ToolsEmotions = () => {
                         onClick={() => speak(emotion.name)} 
                         className={` rounded-lg flex flex-col items-center justify-center p-4 ${emotion.color} hover:opacity-80 transition-opacity`}
                     >
-                        <div className="text-3xl mb-2 text-white ">{emotion.icon}</div>
-                        <span className="text-white font-bold">{emotion.name}</span>
+                        <div className="text-5xl mb-2 text-white ">{emotion.icon}</div>
+                        <span className="text-white text-2xl font-bold">{emotion.name}</span>
                     </button>
                 ))}
             </div>
