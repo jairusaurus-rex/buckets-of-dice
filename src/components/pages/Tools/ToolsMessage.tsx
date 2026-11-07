@@ -73,16 +73,6 @@ export const ToolsMessage = () => {
 
     return (
         <div className="h-[100svh] w-full bg-[var(--bg)]/75">
-            <textarea
-                ref={textAreaRef}
-                aria-label="Message to display"
-                placeholder="..."
-                value={message}
-                onChange={(event) => setMessage(event.target.value)}
-                wrap="off"
-                className="block h-6/10 w-full  border-0 bg-transparent p-4 text-center leading-tight text-[var(--text-h)] outline-none placeholder:text-[var(--muted)]"
-                style={{ fontSize }}
-            />
             <div className="grid grid-cols-2 gap-4 p-2">
                 <button 
                     onClick={() => speak(message)} 
@@ -96,6 +86,17 @@ export const ToolsMessage = () => {
                     Clear
                 </button>
             </div>
+            <textarea
+                ref={textAreaRef}
+                aria-label="Message to display"
+                placeholder="..."
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+                wrap="off"
+                className="block h-8/10 w-full  border-0 bg-transparent p-4 text-center leading-tight text-[var(--text-h)] outline-none placeholder:text-[var(--muted)]"
+                style={{ fontSize }}
+            />
+            
         </div>
     );
 };
