@@ -83,7 +83,7 @@ export const ToolsMessage = () => {
                 className="block h-8/10 w-full resize-none border-0 bg-transparent p-4 text-center leading-tight text-[var(--text-h)] outline-none placeholder:text-[var(--muted)]"
                 style={{ fontSize }}
             />
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 p-2">
                 <button 
                     onClick={() => speak(message)} 
                     className=" bg-[var(--accent)] hover:bg-[var(--accent)]/75 text-white font-bold py-2 px-4 rounded">
