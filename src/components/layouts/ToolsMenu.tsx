@@ -35,7 +35,7 @@ export const ToolsMenu = () => {
           </li>
           <li>
             <NavLink
-              to="/dice-app"
+              to="/tools/clock"
               end
               className={({ isActive }) =>
                 `block py-4 font-medium transition-colors ${

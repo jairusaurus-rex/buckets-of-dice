@@ -20,7 +20,7 @@ export const ToolsEmotions = () => {
     ]
 
     return (
-        <div className="h-[100svh] w-full bg-[var(--bg)]/75">
+        <div className="h-[100svh] w-full bg-[var(--bg)]">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-2">
                 {emotions.map((emotion) => (
                     <button

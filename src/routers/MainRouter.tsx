@@ -10,6 +10,7 @@ import { TestPage } from "../components/pages/test";
 import { ToolsLayout } from "../components/layouts/ToolsLayout";
 import { ToolsMessage } from "../components/pages/Tools/ToolsMessage";
 import { ToolsEmotions } from "../components/pages/Tools/ToolsEmotions";
+import ToolsClock from "../components/pages/Tools/ToolsClock";
 
 const MainRouter = createBrowserRouter([
     {
@@ -51,6 +52,10 @@ const MainRouter = createBrowserRouter([
             {
                 path: "/tools/emotions",
                 element: <ToolsEmotions />
+            },
+            {
+                path: "/tools/clock",
+                element: <ToolsClock />
             }
         ]
     },

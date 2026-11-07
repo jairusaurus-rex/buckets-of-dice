@@ -72,7 +72,7 @@ export const ToolsMessage = () => {
     }, [message]);
 
     return (
-        <div className="h-[100svh] w-full bg-[var(--bg)]/75">
+        <div className="h-[100svh] w-full bg-[var(--bg)]">
             <div className="grid grid-cols-2 gap-4 p-2">
                 <button 
                     onClick={() => speak(message)} 
