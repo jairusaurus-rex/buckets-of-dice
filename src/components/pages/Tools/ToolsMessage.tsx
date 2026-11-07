@@ -96,7 +96,6 @@ export const ToolsMessage = () => {
                 className="block h-8/10 w-full  border-0 bg-transparent p-4 text-center leading-tight text-[var(--text-h)] outline-none placeholder:text-[var(--muted)]"
                 style={{ fontSize }}
             />
-            
         </div>
     );
 };
