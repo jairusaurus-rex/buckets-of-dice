@@ -26,7 +26,7 @@ export const ToolsEmotions = () => {
                     <button
                         key={emotion.name}
                         onClick={() => speak(emotion.name)} 
-                        className={`flex flex-col items-center justify-center p-4 ${emotion.color} hover:opacity-80 transition-opacity`}
+                        className={` rounded-lg flex flex-col items-center justify-center p-4 ${emotion.color} hover:opacity-80 transition-opacity`}
                     >
                         <div className="text-3xl mb-2 text-white ">{emotion.icon}</div>
                         <span className="text-white font-bold">{emotion.name}</span>
