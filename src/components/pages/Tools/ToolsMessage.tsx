@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLayoutEffect, useRef, useState } from "react";
 import { speak } from "../../../utils/textToSpeech";
 
-const DEFAULT_FONT_SIZE = 100;
+const DEFAULT_FONT_SIZE = 200;
 
 export const ToolsMessage = () => {
     const [message, setMessage] = useState("");
