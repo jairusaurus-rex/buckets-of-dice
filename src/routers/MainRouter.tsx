@@ -9,6 +9,7 @@ import { RouteErrorPage } from "../components/commons/RouteErrorPage";
 import { TestPage } from "../components/pages/test";
 import { ToolsLayout } from "../components/layouts/ToolsLayout";
 import { ToolsMessage } from "../components/pages/Tools/ToolsMessage";
+import { ToolsEmotions } from "../components/pages/Tools/ToolsEmotions";
 
 const MainRouter = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const MainRouter = createBrowserRouter([
                 element:
                     <ToolsMessage />
             },
+            {
+                path: "/tools/emotions",
+                element: <ToolsEmotions />
+            }
         ]
     },
     {
