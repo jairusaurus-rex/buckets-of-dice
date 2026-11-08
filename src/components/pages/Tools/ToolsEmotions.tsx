@@ -13,7 +13,6 @@ type IconItem = {
 
 export const ToolsEmotions = () => {
     const [iconSetSelected, setIconSetSelected] = useState("emotions");
-    const [iconSet, setIconSet] = useState<IconItem[]>([]);
 
     const emotions = [
         { name: "Happy", color: "bg-green-400", icon: <FontAwesomeIcon icon={faFaceSmile} /> },
@@ -39,11 +38,10 @@ export const ToolsEmotions = () => {
         { name: "Toy", color: "bg-pink-400", icon: <FontAwesomeIcon icon={faFaceSmile} /> }
     ]
 
-    setIconSet(iconSetSelected === "emotions" ? emotions : requests);
+    const iconSet = iconSetSelected === "emotions" ? emotions : requests;
 
     const handleIconSetChange = (set: string) => {
         setIconSetSelected(set);
-        setIconSet(set === "emotions" ? emotions : requests);
     }
 
     return (
