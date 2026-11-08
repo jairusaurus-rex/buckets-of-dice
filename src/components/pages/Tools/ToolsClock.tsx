@@ -123,7 +123,11 @@ export default function ToolsClock() {
             >
                 <div className="clock-center">
                     <div className="clock-percentage text-[var(--code-bg)]">
-                        {active ? `${percentage}%` : "0%"}
+                        {active
+                            ? `${percentage}%`
+                            : validTimes
+                                ? elapsed < 0 ? "waiting" : "Done!"
+                                : "0%"}
                     </div>
                 </div>
             </div>
