@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { speak } from "../../../utils/textToSpeech";
 import { faFaceAngry, faFaceFrown, faFaceSmile, faFaceGrimace, faFaceMeh, faFaceGrinStars, faFaceTired, faUserInjured, faFaceSurprise, 
-    faGhost, faGlassWaterDroplet, faPizzaSlice, faRestroom, faPersonWalking, faMarker, faLaptop, faCubesStacked } from "@fortawesome/free-solid-svg-icons";
+    faGhost, faGlassWaterDroplet, faPizzaSlice, faRestroom, faPersonWalking, faMarker, faLaptop, faCubesStacked, faBed, faFaceRollingEyes } from "@fortawesome/free-solid-svg-icons";
 import { useState, type ReactNode } from "react";
 
 type IconItem = {
@@ -20,6 +20,8 @@ export const ToolsEmotions = () => {
         { name: "Excited", color: "bg-green-400", icon: <FontAwesomeIcon icon={faFaceGrinStars} /> },
         { name: "Sad", color: "bg-blue-400", icon: <FontAwesomeIcon icon={faFaceFrown} /> },
         { name: "Bored", color: "bg-blue-400", icon: <FontAwesomeIcon icon={faFaceMeh} /> },
+        { name: "Tired", color: "bg-yellow-400", icon: <FontAwesomeIcon icon={faBed} /> },
+        { name: "Annoyed", color: "bg-yellow-400", icon: <FontAwesomeIcon icon={faFaceRollingEyes} /> },
         { name: "Surprised", color: "bg-yellow-500", icon: <FontAwesomeIcon icon={faFaceSurprise} /> },
         { name: "Scared", color: "bg-yellow-500", icon: <FontAwesomeIcon icon={faGhost} /> },
         { name: "Anxious", color: "bg-orange-400", icon: <FontAwesomeIcon icon={faFaceGrimace} /> },
