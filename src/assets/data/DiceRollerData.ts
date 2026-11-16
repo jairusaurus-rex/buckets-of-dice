@@ -610,7 +610,7 @@ export const nyxCharacterData: DiceCategoryType[] = [
             {
                 id: Date.now().toString() + "Computing",
                 title: "Computing",
-                rank: 46
+                rank: 6
             },
             {
                 id: Date.now().toString() + "Culture",
